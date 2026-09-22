@@ -1,0 +1,609 @@
+<title>Quaderno Tecnico Azzurro</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root{
+  --ink:#12202B;
+  --ink-soft:#3E5666;
+  --paper:#F6F7F5;
+  --surface:#FFFFFF;
+  --line:#D8DFDA;
+  --azzurro:#1669B4;
+  --azzurro-lt:#E7F0F9;
+  --campo:#2C6B4C;
+  --campo-lt:#E6F0EA;
+  --sabbia:#B58A2B;
+  --sabbia-lt:#F7EFDC;
+  --rosso:#A6362F;
+  --shadow:0 1px 2px rgba(18,32,43,.06), 0 8px 24px -16px rgba(18,32,43,.35);
+  --display:"Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  --body:"Barlow", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E8EEF2; --ink-soft:#A3B4C0; --paper:#0E181F; --surface:#16232C;
+    --line:#2B3B46; --azzurro:#63A9E8; --azzurro-lt:#132B3F; --campo:#6FBF95;
+    --campo-lt:#122A20; --sabbia:#D9B463; --sabbia-lt:#2C2413; --rosso:#E08A83;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E8EEF2; --ink-soft:#A3B4C0; --paper:#0E181F; --surface:#16232C;
+  --line:#2B3B46; --azzurro:#63A9E8; --azzurro-lt:#132B3F; --campo:#6FBF95;
+  --campo-lt:#122A20; --sabbia:#D9B463; --sabbia-lt:#2C2413; --rosso:#E08A83;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+}
+
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px;padding-block:0 72px;}
+
+/* ---- copertina ---- */
+.cover{background:var(--azzurro);color:#fff;margin-inline:-20px;padding:44px 20px 36px;}
+.cover-in{max-width:880px;margin:0 auto;}
+.crest{display:flex;align-items:center;gap:12px;font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600;opacity:.92;}
+.crest .bars{display:flex;height:14px;width:30px;border-radius:2px;overflow:hidden;}
+.crest .bars i{flex:1;}
+.crest .bars i:nth-child(1){background:#2C6B4C}
+.crest .bars i:nth-child(2){background:#fff}
+.crest .bars i:nth-child(3){background:#A6362F}
+h1{font-family:var(--display);font-size:clamp(38px,8vw,66px);line-height:.95;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin:18px 0 10px;text-wrap:balance;}
+.cover p.lead{font-size:17px;max-width:54ch;opacity:.95;margin:0 0 22px;}
+.cover-meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:12.5px;border-top:1px solid rgba(255,255,255,.35);padding-top:14px;}
+.cover-meta b{display:block;font-weight:700;letter-spacing:.06em;font-size:14px;}
+
+/* ---- struttura ---- */
+section{margin-top:52px;scroll-margin-top:20px;}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:600;color:var(--azzurro);margin:0 0 6px;}
+h2{font-family:var(--display);font-size:clamp(26px,4.4vw,36px);font-weight:700;text-transform:uppercase;line-height:1.02;margin:0 0 6px;text-wrap:balance;}
+h3{font-family:var(--display);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;margin:26px 0 8px;}
+h4{font-family:var(--display);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin:18px 0 6px;color:var(--ink-soft);}
+p{margin:0 0 12px;max-width:68ch;}
+.rule{height:3px;background:var(--ink);width:56px;margin:0 0 18px;}
+ul,ol{margin:0 0 14px;padding-left:20px;max-width:68ch;}
+li{margin-bottom:5px;}
+.small{font-size:13.5px;color:var(--ink-soft);}
+
+/* ---- indice ---- */
+nav.toc{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px 20px;margin-top:30px;box-shadow:var(--shadow);}
+nav.toc ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 24px;max-width:none;}
+nav.toc a{color:var(--ink);text-decoration:none;font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:14.5px;display:flex;gap:10px;padding:3px 0;border-bottom:1px solid transparent;}
+nav.toc a:hover{border-bottom-color:var(--azzurro);color:var(--azzurro);}
+nav.toc span.n{color:var(--azzurro);font-weight:700;font-variant-numeric:tabular-nums;}
+
+/* ---- agenda ---- */
+.agenda{border-top:2px solid var(--ink);}
+.agenda .row{display:grid;grid-template-columns:86px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);}
+.agenda time{font-family:var(--display);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums;color:var(--azzurro);}
+.agenda .who{font-size:13px;color:var(--ink-soft);}
+.agenda strong{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:17px;font-weight:600;display:block;}
+
+/* ---- schede ruolo ---- */
+.role{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--azzurro);border-radius:3px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow);}
+.role.campo{border-left-color:var(--campo);}
+.role.sabbia{border-left-color:var(--sabbia);}
+.role-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px;}
+.role h3{margin:0;}
+.tag{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:2px;background:var(--azzurro-lt);color:var(--azzurro);white-space:nowrap;}
+.tag.campo{background:var(--campo-lt);color:var(--campo);}
+.tag.sabbia{background:var(--sabbia-lt);color:var(--sabbia);}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 28px;}
+.grid2 h4{margin-top:14px;}
+
+/* ---- tabelle / schede di campo ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface);margin-bottom:8px;box-shadow:var(--shadow);}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:13.5px;}
+caption{caption-side:top;text-align:left;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:13px;font-weight:600;padding:12px 14px 8px;color:var(--ink);}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{background:var(--azzurro-lt);color:var(--azzurro);font-family:var(--display);text-transform:uppercase;letter-spacing:.07em;font-size:12.5px;font-weight:600;border-bottom:1px solid var(--line);}
+tbody tr:last-child td{border-bottom:0;}
+td.num,th.num{font-variant-numeric:tabular-nums;text-align:center;width:58px;}
+.fill{color:var(--ink-soft);letter-spacing:.14em;}
+.legend{font-size:12.5px;color:var(--ink-soft);margin:6px 0 0;}
+
+/* ---- callout ---- */
+.note{background:var(--campo-lt);border:1px solid var(--line);border-radius:3px;padding:14px 16px;margin:14px 0;}
+.note p:last-child{margin-bottom:0;}
+.note .lbl{font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;font-weight:700;color:var(--campo);display:block;margin-bottom:4px;}
+
+/* ---- kpi ---- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0;}
+.kpi{border-top:3px solid var(--sabbia);padding-top:10px;}
+.kpi b{display:block;font-family:var(--display);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;}
+.kpi span{font-size:13px;color:var(--ink-soft);}
+
+footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-size:13px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;}
+
+@media print{
+  body{background:#fff;font-size:11.5pt;}
+  .cover{background:#1669B4 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  section{break-inside:auto;}
+  .role,.tablewrap,.note{break-inside:avoid;box-shadow:none;}
+  h2{break-after:avoid;}
+  nav.toc{display:none;}
+}
+</style>
+
+<div class="wrap">
+
+<header class="cover">
+  <div class="cover-in">
+    <div class="crest"><span class="bars"><i></i><i></i><i></i></span> Nazionale Italiana Footgolf &middot; Area Tecnica</div>
+    <h1>Quaderno Tecnico Azzurro</h1>
+    <p class="lead">Programma di lavoro, mansionario e strumenti operativi per Selezionatori e Coach: dalla scelta del convocato alla gestione del green in match play.</p>
+    <div class="cover-meta">
+      <span>Documento<b>Stagione 2026 &mdash; v1.0</b></span>
+      <span>Destinatari<b>Staff tecnico &amp; Selezione</b></span>
+      <span>Riunione<b>22 settembre 2026</b></span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Indice">
+  <ol>
+    <li><a href="#agenda"><span class="n">01</span> Agenda della riunione</a></li>
+    <li><a href="#modello"><span class="n">02</span> Modello di prestazione</a></li>
+    <li><a href="#ruoli"><span class="n">03</span> Format dei ruoli</a></li>
+    <li><a href="#selezione"><span class="n">04</span> Processo di selezione</a></li>
+    <li><a href="#schede"><span class="n">05</span> Schede di rilevamento</a></li>
+    <li><a href="#supervisione"><span class="n">06</span> Schede di supervisione</a></li>
+    <li><a href="#allenamenti"><span class="n">07</span> Allenamenti specifici</a></li>
+    <li><a href="#matchplay"><span class="n">08</span> Propedeutica match play</a></li>
+    <li><a href="#calendario"><span class="n">09</span> Roadmap e deliverable</a></li>
+  </ol>
+</nav>
+
+<section id="agenda">
+  <p class="eyebrow">01 &middot; Apertura lavori</p>
+  <h2>Agenda della riunione</h2>
+  <div class="rule"></div>
+  <p>Due ore, nessuna tavola rotonda aperta: ogni blocco si chiude con una decisione messa a verbale e un responsabile con data. Chi presenta ha 5 minuti, chi supervisiona ne ha 3 di replica.</p>
+  <div class="agenda">
+    <div class="row"><time>20:00</time><div><strong>Presentazioni e mandato</strong><span class="who">Responsabile Area Tecnica &mdash; 15'</span><br>Giro di presentazioni in formato fisso: ruolo, esperienza agonistica, ambito di competenza, una cosa che l'Italia deve smettere di fare.</div></div>
+    <div class="row"><time>20:15</time><div><strong>Modello di prestazione azzurro</strong><span class="who">Head Coach &mdash; 20'</span><br>Che giocatore serve alla Nazionale: standard di distanza, precisione, gioco corto e tenuta. Approvazione dei valori soglia.</div></div>
+    <div class="row"><time>20:35</time><div><strong>Format dei ruoli</strong><span class="who">Tutto lo staff &mdash; 25'</span><br>Lettura del mansionario a pagina 3: cosa fa il Selezionatore, cosa fa il Coach sul campo, dove i due si toccano. Si chiude assegnando i nomi alle caselle.</div></div>
+    <div class="row"><time>21:00</time><div><strong>Strumenti di rilevamento</strong><span class="who">Match Analyst &mdash; 25'</span><br>Prova pratica delle schede: compilazione di una buca reale a campione, calibrazione dei giudizi fra osservatori.</div></div>
+    <div class="row"><time>21:25</time><div><strong>Piano allenamenti e raduni</strong><span class="who">Coach di campo + Preparatore &mdash; 20'</span><br>Microciclo tipo, sessioni specifiche, criteri di convocazione ai raduni.</div></div>
+    <div class="row"><time>21:45</time><div><strong>Decisioni, deleghe, calendario</strong><span class="who">Team Manager &mdash; 15'</span><br>Chi fa cosa entro quando. Verbale chiuso in serata e inviato entro 24 ore.</div></div>
+  </div>
+  <div class="note"><span class="lbl">Regola della riunione</span><p>Nessun punto si chiude con &laquo;ci pensiamo&raquo;. O si decide, o si nomina un responsabile con una data. I punti rinviati due volte escono dal programma.</p></div>
+</section>
+
+<section id="modello">
+  <p class="eyebrow">02 &middot; Il riferimento comune</p>
+  <h2>Modello di prestazione</h2>
+  <div class="rule"></div>
+  <p>Selezionare senza un modello significa scegliere per simpatia. Il modello definisce il giocatore che serve alla maglia azzurra ed è l'unico metro di paragone ammesso nelle schede: ogni osservatore rileva gli stessi indicatori, con gli stessi valori soglia.</p>
+  <div class="kpis">
+    <div class="kpi"><b>&ge;&nbsp;65&nbsp;m</b><span>Drive medio di carry utile su lie in erba tagliata</span></div>
+    <div class="kpi"><b>&ge;&nbsp;70&nbsp;%</b><span>Fairway trovati (FIR) sui par 4 e 5</span></div>
+    <div class="kpi"><b>&ge;&nbsp;60&nbsp;%</b><span>Green in regulation (GIR)</span></div>
+    <div class="kpi"><b>&le;&nbsp;1,9</b><span>Colpi in green per buca (putt/rolling)</span></div>
+    <div class="kpi"><b>&ge;&nbsp;50&nbsp;%</b><span>Scrambling: par salvato da fuori green</span></div>
+    <div class="kpi"><b>&le;&nbsp;1,0</b><span>Penalità e colpi persi per giro</span></div>
+  </div>
+  <h3>Le quattro aree del modello</h3>
+  <div class="grid2">
+    <div>
+      <h4>Tecnica del colpo</h4>
+      <ul>
+        <li>Calcio lungo: ripetibilità della traiettoria prima che distanza massima.</li>
+        <li>Gestione dell'effetto: draw e fade voluti, non subiti.</li>
+        <li>Colpi di approccio calibrati a 5 distanze fisse (10&ndash;20&ndash;30&ndash;40&ndash;50 m).</li>
+        <li>Gioco in green: lettura della pendenza, velocità come priorità sulla linea.</li>
+      </ul>
+      <h4>Gestione del percorso</h4>
+      <ul>
+        <li>Scelta del colpo in base alla zona di sicurezza, non al risultato migliore possibile.</li>
+        <li>Lettura di vento, lie, pendenza e ostacoli prima di ogni colpo.</li>
+        <li>Piano buca preparato nel giro di ricognizione e rispettato in gara.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Condizione fisica</h4>
+      <ul>
+        <li>Resistenza su 18 buche con dislivello e su 36 buche in giornata.</li>
+        <li>Forza esplosiva dell'arto calciante e stabilit&agrave; del bacino.</li>
+        <li>Mobilit&agrave; di anca e caviglia, prevenzione di adduttori e flessori.</li>
+      </ul>
+      <h4>Testa e squadra</h4>
+      <ul>
+        <li>Recupero dopo l'errore: colpo successivo entro standard.</li>
+        <li>Comportamento in match play: pressione, concessioni, gestione dell'avversario.</li>
+        <li>Affidabilit&agrave; nel foursome e nel four-ball, disponibilit&agrave; al ruolo assegnato.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="ruoli">
+  <p class="eyebrow">03 &middot; Mansionario</p>
+  <h2>Format dei ruoli</h2>
+  <div class="rule"></div>
+  <p>Ogni figura ha un perimetro, un prodotto che consegna e un momento in cui parla. Il principio guida &egrave; ripreso dal golf di alto livello e dal calcio professionistico: <strong>chi osserva non allena, chi allena non seleziona da solo, chi decide lo fa su dati che altri hanno raccolto</strong>.</p>
+
+  <article class="role">
+    <div class="role-head"><h3>Selezionatore</h3><span class="tag">Osserva e propone</span></div>
+    <p class="small">Perimetro: dal territorio alla lista dei convocabili. Non conduce l'allenamento, non corregge il gesto in gara.</p>
+    <div class="grid2">
+      <div>
+        <h4>Cosa fa</h4>
+        <ul>
+          <li>Pianifica il calendario di osservazione: quali tappe, quali giocatori, quante rilevazioni a testa (minimo tre in contesti diversi).</li>
+          <li>Segue il giocatore per giri interi, non per singole buche: il campione corto mente.</li>
+          <li>Compila la <em>Scheda di osservazione giocatore</em> (&sect;5.1) entro la sera stessa.</li>
+          <li>Incrocia il rilevamento con i dati oggettivi: scorecard, ranking, storico delle penalit&agrave;.</li>
+          <li>Raccoglie il profilo umano: puntualit&agrave;, gestione dell'arbitraggio, comportamento a fine giro quando il risultato &egrave; compromesso.</li>
+          <li>Propone la lista allargata e la difende in riunione tecnica con evidenze, non con impressioni.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cosa consegna</h4>
+        <ul>
+          <li>Report di osservazione per giocatore, firmato e datato.</li>
+          <li>Lista allargata aggiornata a ogni finestra di selezione.</li>
+          <li>Segnalazioni di nuovi profili con priorit&agrave; alta / da rivedere / archiviato.</li>
+        </ul>
+        <h4>Limiti</h4>
+        <ul>
+          <li>Non promette convocazioni. La comunicazione al giocatore spetta al Team Manager.</li>
+          <li>Non osserva da solo i profili borderline: doppia rilevazione obbligatoria.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="role campo">
+    <div class="role-head"><h3>Head Coach</h3><span class="tag campo">Decide e risponde</span></div>
+    <div class="grid2">
+      <div>
+        <h4>Cosa fa</h4>
+        <ul>
+          <li>Possiede il modello di prestazione e lo aggiorna una volta a stagione.</li>
+          <li>Fa la convocazione finale sulla base delle liste dei Selezionatori.</li>
+          <li>Definisce il piano di gara: ordine di partenza, accoppiamenti di foursome e four-ball, sostituzioni.</li>
+          <li>Conduce il briefing pre-giro (15') e il debriefing post-giro (20') con dati alla mano.</li>
+          <li>&Egrave; l'unico che parla alla stampa e alla federazione sulle scelte tecniche.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cosa consegna</h4>
+        <ul>
+          <li>Convocazione con motivazione scritta per ogni esclusione borderline.</li>
+          <li>Piano gara e piano accoppiamenti, distribuiti 48 ore prima.</li>
+          <li>Report di fine manifestazione all'area tecnica.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="role campo">
+    <div class="role-head"><h3>Coach sul campo</h3><span class="tag campo">Accompagna il colpo</span></div>
+    <p class="small">&Egrave; la figura del caddie tecnico mutuata dal golf: cammina con il giocatore e lavora sul colpo successivo, mai sul colpo appena sbagliato.</p>
+    <div class="grid2">
+      <div>
+        <h4>Prima del giro</h4>
+        <ul>
+          <li>Ricognizione del percorso con il giocatore: distanze reali, zone di sicurezza, punti di caduta, pin position del giorno.</li>
+          <li>Verifica del riscaldamento: 20' progressivi, chiusura su tre colpi di approccio riusciti, mai su un errore.</li>
+          <li>Conferma del piano buca per buca e della regola di uscita (&laquo;se sbaglio il drive, gioco il recupero laterale&raquo;).</li>
+        </ul>
+        <h4>Durante il giro</h4>
+        <ul>
+          <li>Fornisce dato, non giudizio: distanza, vento, pendenza, lie. Il giocatore sceglie.</li>
+          <li>Applica la regola dei 20 passi: si commenta il colpo entro venti passi, poi si passa oltre.</li>
+          <li>Gestisce ritmo e tempi: idratazione, alimentazione ogni 5&ndash;6 buche, gestione dell'attesa.</li>
+          <li>Rileva in tempo reale la <em>Scheda di rilevamento in gara</em> (&sect;5.2), una riga per buca.</li>
+          <li>In match play tiene il conto dello stato del match e suggerisce quando forzare e quando far giocare l'avversario.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Dopo il giro</h4>
+        <ul>
+          <li>Debriefing a caldo di 10 minuti: tre fatti, nessuna emozione.</li>
+          <li>Chiude la scheda e la consegna al Match Analyst entro un'ora.</li>
+          <li>Definisce con il giocatore l'obiettivo tecnico del giorno successivo.</li>
+        </ul>
+        <h4>Limiti</h4>
+        <ul>
+          <li>Non modifica la tecnica in gara: in gara si gestisce, si corregge in allenamento.</li>
+          <li>Non discute decisioni arbitrali: interviene il Team Manager.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="role sabbia">
+    <div class="role-head"><h3>Match Analyst</h3><span class="tag sabbia">Misura</span></div>
+    <ul>
+      <li>Raccoglie tutte le schede e costruisce il cruscotto di squadra: FIR, GIR, colpi in green, scrambling, penalit&agrave;, colpi guadagnati per area.</li>
+      <li>Filma i gesti chiave (drive, approccio, putt) da due angoli fissi e archivia per giocatore.</li>
+      <li>Prepara lo scouting dell'avversario nelle competizioni a squadre: tendenze sui par 3, comportamento sotto pressione, buche dove concede.</li>
+      <li>Consegna un foglio singolo per giocatore prima di ogni giro: tre numeri, non trenta.</li>
+    </ul>
+  </article>
+
+  <article class="role sabbia">
+    <div class="role-head"><h3>Preparatore atletico</h3><span class="tag sabbia">Sostiene il carico</span></div>
+    <ul>
+      <li>Profilo fisico d'ingresso per ogni convocato: mobilit&agrave;, forza, resistenza, asimmetrie.</li>
+      <li>Programma individuale a distanza e attivazione pre-gara di 15 minuti standardizzata.</li>
+      <li>Monitoraggio del carico durante i raduni con scala di fatica percepita e minuti in piedi.</li>
+    </ul>
+  </article>
+
+  <article class="role sabbia">
+    <div class="role-head"><h3>Mental coach</h3><span class="tag sabbia">Allena la testa</span></div>
+    <ul>
+      <li>Routine pre-colpo individuale, scritta e cronometrata, uguale in allenamento e in gara.</li>
+      <li>Protocollo di reset dopo l'errore e gestione dell'attesa nel match play.</li>
+      <li>Colloqui individuali riservati: nessun contenuto entra nelle schede di selezione.</li>
+    </ul>
+  </article>
+
+  <article class="role">
+    <div class="role-head"><h3>Team Manager</h3><span class="tag">Tiene insieme</span></div>
+    <ul>
+      <li>Logistica, iscrizioni, materiale, palloni omologati, divise, rapporti con gli organizzatori.</li>
+      <li>Unico canale di comunicazione ufficiale verso i giocatori su convocazioni e calendario.</li>
+      <li>Custode del regolamento interno e del codice di condotta azzurro.</li>
+    </ul>
+  </article>
+</section>
+
+<section id="selezione">
+  <p class="eyebrow">04 &middot; Dal territorio alla maglia</p>
+  <h2>Processo di selezione</h2>
+  <div class="rule"></div>
+  <p>Cinque passaggi, nessuna scorciatoia. Un giocatore entra in lista solo se ha superato il passaggio precedente, e ogni passaggio produce un documento.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>4.1 &mdash; Filiera di selezione</caption>
+      <thead><tr><th class="num">#</th><th>Fase</th><th>Chi</th><th>Criterio di passaggio</th><th>Documento</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Screening dati</td><td>Match Analyst</td><td>Ranking, media colpi, costanza su 5 gare</td><td>Long list</td></tr>
+        <tr><td class="num">2</td><td>Osservazione sul campo</td><td>Selezionatore</td><td>3 rilevazioni su percorsi diversi</td><td>Scheda &sect;5.1</td></tr>
+        <tr><td class="num">3</td><td>Raduno di verifica</td><td>Coach di campo</td><td>Test tecnici e atletici sopra soglia</td><td>Scheda &sect;6.2</td></tr>
+        <tr><td class="num">4</td><td>Prova in match play</td><td>Head Coach</td><td>Tenuta a coppie e sotto pressione</td><td>Scheda &sect;8.2</td></tr>
+        <tr><td class="num">5</td><td>Convocazione</td><td>Head Coach</td><td>Decisione motivata per iscritto</td><td>Verbale tecnico</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><span class="lbl">Anti&ndash;errore di valutazione</span><p>Un solo giro non fa un giocatore e una giornata storta non ne cancella uno. Le decisioni borderline richiedono due osservatori indipendenti che compilano la scheda senza consultarsi, e solo dopo la confrontano.</p></div>
+</section>
+
+<section id="schede">
+  <p class="eyebrow">05 &middot; Strumenti</p>
+  <h2>Schede di rilevamento sul campo</h2>
+  <div class="rule"></div>
+  <p>Le schede si compilano in piedi, con una matita, mentre si cammina. Per questo sono a griglia chiusa: si barra, non si scrive. Le note libere stanno solo in fondo, e non superano tre righe.</p>
+
+  <h3>5.1 &mdash; Scheda di osservazione giocatore</h3>
+  <p class="small">Uso: Selezionatore. Una scheda per giro osservato. Scala 1&ndash;5, dove 3 &egrave; lo standard nazionale e 4 &egrave; lo standard internazionale.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>Giocatore ____________________ &middot; Percorso ____________ &middot; Data __ / __ / ____ &middot; Osservatore ____________</caption>
+      <thead><tr><th>Area</th><th>Indicatore osservato</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th></tr></thead>
+      <tbody>
+        <tr><td>Colpo lungo</td><td>Distanza utile e carry sotto vento</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Colpo lungo</td><td>Dispersione laterale e ripetibilit&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Gioco corto</td><td>Controllo distanza 10&ndash;50 m</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Gioco corto</td><td>Scelta del colpo su lie difficile</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Green</td><td>Lettura pendenza e velocit&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Green</td><td>Conversione entro 3 metri</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Strategia</td><td>Gestione del rischio e zone di sicurezza</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Strategia</td><td>Adattamento a vento e condizioni</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Fisico</td><td>Tenuta dalla buca 13 alla 18</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Testa</td><td>Recupero dopo il colpo sbagliato</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Testa</td><td>Routine pre&ndash;colpo costante</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Condotta</td><td>Rispetto di regole, avversario, percorso</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legend">Esito: &#9633; priorit&agrave; alta &middot; &#9633; da rivedere &middot; &#9633; non idoneo ora &nbsp;&mdash;&nbsp; Punto di forza: ____________________ &middot; Punto da colmare: ____________________</p>
+
+  <h3>5.2 &mdash; Scheda di rilevamento in gara</h3>
+  <p class="small">Uso: Coach sul campo, una riga per buca, compilata dopo che il giocatore ha lasciato il green. &Egrave; la fonte di tutti i numeri del cruscotto.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>Giro ____ &middot; Vento ____ &middot; Terreno: asciutto / umido / pesante</caption>
+      <thead><tr><th class="num">Buca</th><th class="num">Par</th><th class="num">Colpi</th><th>Drive</th><th>Approccio</th><th class="num">In green</th><th>Errore e causa</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">fairway / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
+        <tr><td class="num">2</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">fairway / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
+        <tr><td class="num">3</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">fairway / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
+        <tr><td class="num">&hellip;</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">righe fino alla buca 18</td><td class="fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td colspan="7"><strong>Totali di giro</strong> &mdash; FIR ___ /___ &middot; GIR ___ /___ &middot; Colpi in green ___ &middot; Up&amp;down riusciti ___ /___ &middot; Penalit&agrave; ___</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legend">La colonna &laquo;errore e causa&raquo; &egrave; la pi&ugrave; importante: separa l'errore di esecuzione da quello di decisione. Il primo si allena in campo pratica, il secondo si allena camminando.</p>
+
+  <h3>5.3 &mdash; Scheda colpi guadagnati per area</h3>
+  <p class="small">Uso: Match Analyst, a fine giro. Confronta il rendimento del giocatore con il valore di riferimento azzurro per capire dove si perdono davvero i colpi.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Area di gioco</th><th class="num">Riferimento</th><th class="num">Giocatore</th><th class="num">Scarto</th><th>Azione consigliata</th></tr></thead>
+      <tbody>
+        <tr><td>Colpo di partenza</td><td class="num">4,2</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Gioco lungo di avvicinamento</td><td class="num">3,8</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Gioco corto entro 50 m</td><td class="num">4,0</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Gioco in green</td><td class="num">4,1</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Gestione e decisioni</td><td class="num">4,0</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="supervisione">
+  <p class="eyebrow">06 &middot; Controllo di qualit&agrave;</p>
+  <h2>Schede di supervisione</h2>
+  <div class="rule"></div>
+  <p>Dal calcio professionistico prendiamo un principio semplice: anche lo staff viene valutato. La supervisione non serve a giudicare le persone, serve a tenere allineato il metodo fra Nord e Sud, fra raduno e raduno.</p>
+
+  <h3>6.1 &mdash; Supervisione della seduta di allenamento</h3>
+  <div class="tablewrap">
+    <table>
+      <caption>Seduta ____________ &middot; Conduttore ____________ &middot; Supervisore ____________ &middot; Data __ / __ / ____</caption>
+      <thead><tr><th>Voce</th><th>Cosa si verifica</th><th class="num">S&igrave;</th><th class="num">In parte</th><th class="num">No</th></tr></thead>
+      <tbody>
+        <tr><td>Obiettivo</td><td>La seduta ha un obiettivo unico, scritto e dichiarato ai giocatori</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Coerenza</td><td>Le esercitazioni sono coerenti con il modello di prestazione</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Densit&agrave;</td><td>Tempo effettivo di gioco superiore al 60% della durata</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Misurazione</td><td>Ogni esercizio ha un punteggio o una soglia di riuscita</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Feedback</td><td>Correzioni brevi, individuali, su un solo elemento per volta</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Pressione</td><td>Almeno un blocco riproduce la pressione di gara</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Sicurezza</td><td>Attivazione svolta, materiale in ordine, idratazione disponibile</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Chiusura</td><td>Debriefing con dati e obiettivo per la seduta successiva</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legend">Tre &laquo;No&raquo; nella stessa seduta attivano una revisione del piano con l'Head Coach entro la settimana.</p>
+
+  <h3>6.2 &mdash; Supervisione del raduno</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Momento</th><th>Responsabile</th><th>Evidenza richiesta</th><th class="num">OK</th></tr></thead>
+      <tbody>
+        <tr><td>Convocazione e logistica</td><td>Team Manager</td><td>Comunicazione inviata 10 giorni prima, presenze confermate</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Test d'ingresso</td><td>Preparatore</td><td>Batteria test completata per tutti i convocati</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Sedute tecniche</td><td>Coach di campo</td><td>Schede 6.1 compilate per ogni seduta</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Giro di verifica</td><td>Match Analyst</td><td>Schede 5.2 complete, cruscotto aggiornato</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Colloqui individuali</td><td>Head Coach</td><td>Un colloquio di 10' per ogni convocato</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Report finale</td><td>Head Coach</td><td>Documento inviato all'area tecnica entro 5 giorni</td><td class="num fill">&#9633;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="allenamenti">
+  <p class="eyebrow">07 &middot; Il lavoro</p>
+  <h2>Allenamenti specifici</h2>
+  <div class="rule"></div>
+  <p>Ogni esercitazione ha un punteggio. Senza punteggio &egrave; svago: il giocatore deve sapere, prima di iniziare, qual &egrave; la soglia da superare e cosa succede se non la supera.</p>
+
+  <h3>7.1 &mdash; Microciclo tipo di raduno (3 giorni)</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Giorno</th><th>Mattina</th><th>Pomeriggio</th><th>Sera</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Test d'ingresso e calibrazione distanze</td><td>Blocco gioco corto e green</td><td>Video e modello di prestazione</td></tr>
+        <tr><td><strong>2</strong></td><td>Gestione del percorso: 9 buche a piano scritto</td><td>Match play a coppie, foursome</td><td>Scouting avversari e debriefing</td></tr>
+        <tr><td><strong>3</strong></td><td>18 buche in condizioni di gara, schede complete</td><td>Colloqui individuali</td><td>Consegna piani individuali</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.2 &mdash; Esercitazioni a punteggio</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Nome</th><th>Obiettivo</th><th>Svolgimento</th><th>Soglia azzurra</th></tr></thead>
+      <tbody>
+        <tr><td>Scala delle distanze</td><td>Controllo del colpo corto</td><td>5 palloni a 10, 20, 30, 40, 50 m verso cerchio di 3 m</td><td>18 / 25 dentro</td></tr>
+        <tr><td>Corridoio</td><td>Precisione del colpo lungo</td><td>10 drive dentro un corridoio di 15 m di larghezza</td><td>7 / 10</td></tr>
+        <tr><td>Orologio</td><td>Gioco in green</td><td>8 posizioni a 2 m attorno alla buca, poi 8 a 4 m</td><td>7/8 e 4/8</td></tr>
+        <tr><td>Up &amp; down</td><td>Recupero del par</td><td>9 lie diversi fuori green, si chiude la buca</td><td>5 / 9</td></tr>
+        <tr><td>Buca sporca</td><td>Gestione del lie difficile</td><td>Pallone posizionato dal coach in rough, pendenza, sabbia</td><td>Nessun colpo perso oltre uno</td></tr>
+        <tr><td>Ultima buca</td><td>Pressione</td><td>Un solo colpo, un solo tentativo, con gruppo che osserva</td><td>Esecuzione della routine completa</td></tr>
+        <tr><td>Vento contrario</td><td>Adattamento</td><td>Stesse distanze della scala, con vento reale o simulato</td><td>Scarto massimo 10% dalle distanze base</td></tr>
+        <tr><td>Nove decisioni</td><td>Strategia</td><td>9 buche in cui il coach chiede il piano prima di ogni colpo</td><td>Piano dichiarato e rispettato 8 / 9</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.3 &mdash; Lavoro atletico di supporto</h3>
+  <div class="grid2">
+    <div>
+      <h4>Settimana tipo fuori raduno</h4>
+      <ul>
+        <li>2 sedute di forza: catena posteriore, core antirotazione, stabilit&agrave; monopodalica.</li>
+        <li>1 seduta di potenza dell'arto calciante con recuperi completi.</li>
+        <li>2 uscite di cammino veloce da 8&ndash;12 km con dislivello, a simulare il giro.</li>
+        <li>Mobilit&agrave; quotidiana 10': anca, caviglia, tratto toracico.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Regole non negoziabili</h4>
+      <ul>
+        <li>Nessun lavoro di forza massimale nelle 72 ore precedenti la gara.</li>
+        <li>Attivazione pre-gara standardizzata di 15': stessa sequenza per tutti.</li>
+        <li>Scala di fatica percepita compilata ogni sera durante il raduno.</li>
+        <li>Ogni dolore segnalato entro la giornata, non a fine raduno.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="matchplay">
+  <p class="eyebrow">08 &middot; Competizioni</p>
+  <h2>Propedeutica al match play e all'individuale</h2>
+  <div class="rule"></div>
+  <p>Sono due sport diversi giocati sullo stesso percorso. Nell'individuale si gioca contro il campo e il nemico &egrave; il doppio bogey; nel match play si gioca contro una persona e il nemico &egrave; concedere la buca senza combattere.</p>
+
+  <div class="tablewrap">
+    <table>
+      <caption>8.1 &mdash; Due mentalit&agrave;, due preparazioni</caption>
+      <thead><tr><th>Elemento</th><th>Individuale (stroke play)</th><th>Match play</th></tr></thead>
+      <tbody>
+        <tr><td>Unit&agrave; di misura</td><td>Il giro intero, 18 buche</td><td>La singola buca</td></tr>
+        <tr><td>Gestione del rischio</td><td>Evitare il colpo perso: linea conservativa</td><td>Variabile: si rischia se l'avversario &egrave; in difficolt&agrave;</td></tr>
+        <tr><td>Errore grave</td><td>Il doppio bogey che costa il torneo</td><td>Il colpo regalato su buca gi&agrave; vinta</td></tr>
+        <tr><td>Ruolo del coach</td><td>Dati e ritmo</td><td>Dati, ritmo e stato del match buca per buca</td></tr>
+        <tr><td>Allenamento specifico</td><td>18 buche cronometrate con scheda completa</td><td>Sfide a eliminazione, buche secche, handicap fittizi</td></tr>
+        <tr><td>Recupero mentale</td><td>Si azzera il colpo</td><td>Si azzera la buca</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.2 &mdash; Scheda di valutazione match play</h3>
+  <div class="tablewrap">
+    <table>
+      <caption>Giocatore ____________ &middot; Avversario ____________ &middot; Formato: singolo / foursome / four&ndash;ball</caption>
+      <thead><tr><th>Comportamento osservato</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th></tr></thead>
+      <tbody>
+        <tr><td>Gioca il primo colpo della buca con piano chiaro</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Adatta il rischio allo stato del match</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Chiude la buca quando l'avversario &egrave; in difficolt&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Reagisce alla buca persa senza inseguire</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Gestisce ritmo, silenzi e attese</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Nel doppio: comunica e sostiene il compagno</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Applica le regole con correttezza e fermezza</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legend">Stato del match buca per buca: &nbsp;1 ____ 2 ____ 3 ____ 4 ____ 5 ____ 6 ____ 7 ____ 8 ____ 9 ____ 10 ____ 11 ____ 12 ____ 13 ____ 14 ____ 15 ____ 16 ____ 17 ____ 18 ____</p>
+
+  <h3>8.3 &mdash; Criteri di accoppiamento</h3>
+  <ul>
+    <li><strong>Foursome (palla alternata):</strong> si accoppiano distanze simili e caratteri complementari. Chi parte sulle buche dispari deve essere il pi&ugrave; affidabile dal tee.</li>
+    <li><strong>Four&ndash;ball:</strong> un giocatore aggressivo e uno solido. Mai due che rischiano sulla stessa buca.</li>
+    <li><strong>Ordine dei singoli:</strong> un trascinatore in apertura, i punti pi&ugrave; sicuri in chiusura, mai il pi&ugrave; giovane nell'ultimo match decisivo.</li>
+    <li>Ogni coppia prova insieme almeno due giri prima della competizione: l'intesa non si improvvisa.</li>
+  </ul>
+</section>
+
+<section id="calendario">
+  <p class="eyebrow">09 &middot; Da stasera</p>
+  <h2>Roadmap e deliverable</h2>
+  <div class="rule"></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Scadenza</th><th>Deliverable</th><th>Responsabile</th></tr></thead>
+      <tbody>
+        <tr><td>Entro 24 ore</td><td>Verbale della riunione con ruoli assegnati</td><td>Team Manager</td></tr>
+        <tr><td>Entro 7 giorni</td><td>Modello di prestazione approvato e distribuito</td><td>Head Coach</td></tr>
+        <tr><td>Entro 7 giorni</td><td>Schede stampate e consegnate a ogni osservatore</td><td>Match Analyst</td></tr>
+        <tr><td>Entro 15 giorni</td><td>Calendario di osservazione sulle tappe nazionali</td><td>Selezionatori</td></tr>
+        <tr><td>Entro 30 giorni</td><td>Long list e prima riunione di allineamento delle valutazioni</td><td>Head Coach</td></tr>
+        <tr><td>Entro 60 giorni</td><td>Primo raduno di verifica con schede 6.1 e 6.2</td><td>Coach di campo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><span class="lbl">Il punto fermo</span><p>Un programma vale quanto la disciplina con cui si compilano le schede. Se dopo tre mesi le schede sono vuote, il problema non &egrave; il documento: &egrave; il metodo di lavoro, e va riaperto in riunione tecnica.</p></div>
+</section>
+
+<footer>
+  <span>Nazionale Italiana Footgolf &middot; Area Tecnica</span>
+  <span>Quaderno Tecnico Azzurro &mdash; v1.0 &middot; documento di lavoro interno</span>
+</footer>
+
+</div>
