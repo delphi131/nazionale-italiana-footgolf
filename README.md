@@ -4,9 +4,11 @@ Documenti di lavoro dello staff tecnico (Selezionatori, Coach, Match Analyst, Pr
 
 ## Documenti
 
-- `docs/programma-staff-nazionale.html` — **Quaderno Tecnico Azzurro**: agenda di riunione, modello di
-  prestazione, mansionario per ogni figura, schede di osservazione e rilevamento sul campo, schede di
-  supervisione, allenamenti a punteggio, propedeutica al match play e all'individuale, roadmap.
+- `docs/programma-staff-nazionale.html` — **Quaderno Tecnico Azzurro**: agenda di riunione, le cinque
+  squadre (Men, Senior, Senior Plus, Women, Junior) sotto un'unica Nazionale, codice azzurro e divisa
+  unica, standard dei campi di fascia alta, modello di prestazione, mansionario per ogni figura, schede
+  di osservazione e rilevamento sul campo, schede di supervisione, scheda di osservazione del gruppo,
+  allenamenti a punteggio, propedeutica al match play e all'individuale, roadmap.
 
 Il file è anche il **template brochure** di riferimento: palette, tipografia e componenti (copertina,
 schede ruolo, tabelle-scheda, callout, KPI) si riusano per i documenti successivi. È ottimizzato per la

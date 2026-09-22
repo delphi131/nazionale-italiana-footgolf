@@ -111,6 +111,20 @@ td.num,th.num{font-variant-numeric:tabular-nums;text-align:center;width:58px;}
 .kpi b{display:block;font-family:var(--display);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;}
 .kpi span{font-size:13px;color:var(--ink-soft);}
 
+
+/* ---- griglia squadre ---- */
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:18px 0;}
+.team{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow);border-top:4px solid var(--azzurro);}
+.team h4{margin:0 0 2px;color:var(--ink);font-size:19px;letter-spacing:.04em;}
+.team .age{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--azzurro);display:block;margin-bottom:8px;font-weight:600;}
+.team p{font-size:13.5px;margin:0;color:var(--ink-soft);}
+/* ---- kit / colori ---- */
+.kit{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:16px 0 10px;}
+.swatch{display:flex;flex-direction:column;gap:6px;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;color:var(--ink-soft);}
+.swatch i{display:block;width:74px;height:44px;border-radius:2px;border:1px solid var(--line);}
+.creed{border-left:4px solid var(--azzurro);padding:2px 0 2px 16px;margin:18px 0;}
+.creed p{font-family:var(--display);text-transform:uppercase;font-size:clamp(18px,3vw,24px);line-height:1.15;font-weight:600;letter-spacing:.01em;max-width:24ch;margin:0;}
+
 footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-size:13px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;}
 
 @media print{
@@ -129,10 +143,10 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   <div class="cover-in">
     <div class="crest"><span class="bars"><i></i><i></i><i></i></span> Nazionale Italiana Footgolf &middot; Area Tecnica</div>
     <h1>Quaderno Tecnico Azzurro</h1>
-    <p class="lead">Programma di lavoro, mansionario e strumenti operativi per Selezionatori e Coach: dalla scelta del convocato alla gestione del green in match play.</p>
+    <p class="lead">Una sola Nazionale, cinque squadre: Men, Senior, Senior Plus, Women, Junior. Stessi colori, stesso metodo, stessi standard. Programma di lavoro e strumenti operativi per Selezionatori e Coach.</p>
     <div class="cover-meta">
       <span>Documento<b>Stagione 2026 &mdash; v1.0</b></span>
-      <span>Destinatari<b>Staff tecnico &amp; Selezione</b></span>
+      <span>Squadre<b>Men &middot; Senior &middot; Senior Plus &middot; Women &middot; Junior</b></span>
       <span>Riunione<b>22 settembre 2026</b></span>
     </div>
   </div>
@@ -141,14 +155,17 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 <nav class="toc" aria-label="Indice">
   <ol>
     <li><a href="#agenda"><span class="n">01</span> Agenda della riunione</a></li>
-    <li><a href="#modello"><span class="n">02</span> Modello di prestazione</a></li>
-    <li><a href="#ruoli"><span class="n">03</span> Format dei ruoli</a></li>
-    <li><a href="#selezione"><span class="n">04</span> Processo di selezione</a></li>
-    <li><a href="#schede"><span class="n">05</span> Schede di rilevamento</a></li>
-    <li><a href="#supervisione"><span class="n">06</span> Schede di supervisione</a></li>
-    <li><a href="#allenamenti"><span class="n">07</span> Allenamenti specifici</a></li>
-    <li><a href="#matchplay"><span class="n">08</span> Propedeutica match play</a></li>
-    <li><a href="#calendario"><span class="n">09</span> Roadmap e deliverable</a></li>
+    <li><a href="#squadre"><span class="n">02</span> Una Nazionale, cinque squadre</a></li>
+    <li><a href="#gruppo"><span class="n">03</span> Codice azzurro: il gruppo</a></li>
+    <li><a href="#campi"><span class="n">04</span> Standard di campo</a></li>
+    <li><a href="#modello"><span class="n">05</span> Modello di prestazione</a></li>
+    <li><a href="#ruoli"><span class="n">06</span> Format dei ruoli</a></li>
+    <li><a href="#selezione"><span class="n">07</span> Processo di selezione</a></li>
+    <li><a href="#schede"><span class="n">08</span> Schede di rilevamento</a></li>
+    <li><a href="#supervisione"><span class="n">09</span> Schede di supervisione</a></li>
+    <li><a href="#allenamenti"><span class="n">10</span> Allenamenti specifici</a></li>
+    <li><a href="#matchplay"><span class="n">11</span> Propedeutica match play</a></li>
+    <li><a href="#calendario"><span class="n">12</span> Roadmap e deliverable</a></li>
   </ol>
 </nav>
 
@@ -159,17 +176,130 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   <p>Due ore, nessuna tavola rotonda aperta: ogni blocco si chiude con una decisione messa a verbale e un responsabile con data. Chi presenta ha 5 minuti, chi supervisiona ne ha 3 di replica.</p>
   <div class="agenda">
     <div class="row"><time>20:00</time><div><strong>Presentazioni e mandato</strong><span class="who">Responsabile Area Tecnica &mdash; 15'</span><br>Giro di presentazioni in formato fisso: ruolo, esperienza agonistica, ambito di competenza, una cosa che l'Italia deve smettere di fare.</div></div>
-    <div class="row"><time>20:15</time><div><strong>Modello di prestazione azzurro</strong><span class="who">Head Coach &mdash; 20'</span><br>Che giocatore serve alla Nazionale: standard di distanza, precisione, gioco corto e tenuta. Approvazione dei valori soglia.</div></div>
-    <div class="row"><time>20:35</time><div><strong>Format dei ruoli</strong><span class="who">Tutto lo staff &mdash; 25'</span><br>Lettura del mansionario a pagina 3: cosa fa il Selezionatore, cosa fa il Coach sul campo, dove i due si toccano. Si chiude assegnando i nomi alle caselle.</div></div>
-    <div class="row"><time>21:00</time><div><strong>Strumenti di rilevamento</strong><span class="who">Match Analyst &mdash; 25'</span><br>Prova pratica delle schede: compilazione di una buca reale a campione, calibrazione dei giudizi fra osservatori.</div></div>
+    <div class="row"><time>20:15</time><div><strong>Una Nazionale, cinque squadre</strong><span class="who">Head Coach + Team Manager &mdash; 15'</span><br>Men, Senior, Senior Plus, Women, Junior: cosa &egrave; comune e cosa si adatta. Approvazione del codice azzurro e della divisa unica.</div></div>
+    <div class="row"><time>20:30</time><div><strong>Modello di prestazione azzurro</strong><span class="who">Head Coach &mdash; 15'</span><br>Che giocatore serve alla Nazionale: standard di distanza, precisione, gioco corto e tenuta. Approvazione dei valori soglia.</div></div>
+    <div class="row"><time>20:45</time><div><strong>Format dei ruoli</strong><span class="who">Tutto lo staff &mdash; 20'</span><br>Lettura del mansionario &sect;6: cosa fa il Selezionatore, cosa fa il Coach sul campo, dove i due si toccano. Si chiude assegnando i nomi alle caselle.</div></div>
+    <div class="row"><time>21:05</time><div><strong>Strumenti di rilevamento</strong><span class="who">Match Analyst &mdash; 20'</span><br>Prova pratica delle schede: compilazione di una buca reale a campione, calibrazione dei giudizi fra osservatori.</div></div>
     <div class="row"><time>21:25</time><div><strong>Piano allenamenti e raduni</strong><span class="who">Coach di campo + Preparatore &mdash; 20'</span><br>Microciclo tipo, sessioni specifiche, criteri di convocazione ai raduni.</div></div>
     <div class="row"><time>21:45</time><div><strong>Decisioni, deleghe, calendario</strong><span class="who">Team Manager &mdash; 15'</span><br>Chi fa cosa entro quando. Verbale chiuso in serata e inviato entro 24 ore.</div></div>
   </div>
   <div class="note"><span class="lbl">Regola della riunione</span><p>Nessun punto si chiude con &laquo;ci pensiamo&raquo;. O si decide, o si nomina un responsabile con una data. I punti rinviati due volte escono dal programma.</p></div>
 </section>
 
+<section id="squadre">
+  <p class="eyebrow">02 &middot; L'insieme</p>
+  <h2>Una Nazionale, cinque squadre</h2>
+  <div class="rule"></div>
+  <p>Men, Senior, Senior Plus, Women e Junior non sono cinque progetti separati che condividono un logo: sono cinque squadre della stessa Nazionale. Stesso modello di prestazione, stesse schede, stessi standard di condotta, stessa divisa. Cambia l'et&agrave;, cambia il carico di lavoro, cambia la distanza dal tee. Non cambiano n&eacute; il metodo n&eacute; i colori.</p>
+  <div class="teams">
+    <div class="team"><h4>Men</h4><span class="age">Squadra di riferimento</span><p>Il metro tecnico del movimento. Massima distanza e massima densit&agrave; di gara: &egrave; qui che si fissano le soglie che le altre squadre traducono.</p></div>
+    <div class="team"><h4>Women</h4><span class="age">Pari dignit&agrave;, pari risorse</span><p>Stesse ore di raduno, stesso staff, stessi campi. Modello adattato nelle distanze, identico nei criteri di precisione, gioco corto e gestione.</p></div>
+    <div class="team"><h4>Senior</h4><span class="age">Esperienza e gestione</span><p>Si compensa la distanza con la lettura del percorso. Nel gruppo sono i riferimenti di comportamento per i pi&ugrave; giovani.</p></div>
+    <div class="team"><h4>Senior Plus</h4><span class="age">Precisione e continuit&agrave;</span><p>Massima cura del gioco corto e della tenuta sulle 18 buche. Carico atletico modulato, volume tecnico invariato.</p></div>
+    <div class="team"><h4>Junior</h4><span class="age">Il futuro, oggi</span><p>Formazione prima del risultato. Ogni Junior convocato &egrave; affiancato a un atleta esperto delle altre squadre per l'intera trasferta.</p></div>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <caption>2.1 &mdash; Cosa &egrave; comune e cosa si adatta</caption>
+      <thead><tr><th>Elemento</th><th>Comune a tutte le squadre</th><th>Adattato per squadra</th></tr></thead>
+      <tbody>
+        <tr><td>Divisa e immagine</td><td>Identica: stessi colori, stesso stemma, stessa presentazione</td><td>Nulla</td></tr>
+        <tr><td>Schede e metodo</td><td>Stesse schede di osservazione, rilevamento e supervisione</td><td>Nulla</td></tr>
+        <tr><td>Codice di condotta</td><td>Uno solo, valido per tutti</td><td>Nulla</td></tr>
+        <tr><td>Modello di prestazione</td><td>Le aree e gli indicatori</td><td>I valori soglia di distanza</td></tr>
+        <tr><td>Carico atletico</td><td>I principi e i test</td><td>Volume, intensit&agrave; e recuperi</td></tr>
+        <tr><td>Tee di partenza</td><td>Le regole di scelta</td><td>La distanza effettiva</td></tr>
+        <tr><td>Raduni</td><td>Sede, orari e momenti comuni</td><td>Blocchi tecnici per squadra</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><span class="lbl">Regola dei raduni</span><p>I raduni si fanno insieme, nella stessa sede e negli stessi giorni, ogni volta che &egrave; possibile. Le sedute tecniche possono essere divise per squadra; <strong>colazione, briefing di apertura, cena e debriefing finale sono sempre di tutti</strong>. Il gruppo non si costruisce con le parole in riunione: si costruisce a tavola e sul pullman.</p></div>
+</section>
+
+<section id="gruppo">
+  <p class="eyebrow">03 &middot; Identit&agrave;</p>
+  <h2>Codice azzurro: si vince da gruppo</h2>
+  <div class="rule"></div>
+  <div class="creed"><p>Si parte insieme, si sta insieme, si torna insieme. Una sola divisa, un solo comportamento, un solo obiettivo.</p></div>
+  <p>Nel footgolf si gioca da soli ma si vince da squadra: nel match play il punto lo porta la coppia, nell'individuale il risultato di squadra &egrave; la somma di chi non molla la buca 17. Per questo l'appartenenza non &egrave; retorica, &egrave; un fattore di prestazione, e come tale va allenata e verificata.</p>
+
+  <h3>3.1 &mdash; I colori sono uguali per tutti</h3>
+  <p>Una sola divisa per Men, Senior, Senior Plus, Women e Junior: stessa maglia, stessi pantaloni, stesso cappello, stesso sacco. Nessuna variante per categoria, nessun capo personale in gara, nessuna sponsorizzazione individuale sulla divisa azzurra.</p>
+  <div class="kit">
+    <div class="swatch"><i style="background:#1669B4"></i>Azzurro &mdash; maglia</div>
+    <div class="swatch"><i style="background:#12202B"></i>Blu notte &mdash; pantalone</div>
+    <div class="swatch"><i style="background:#FFFFFF;border-color:#C8D2CC"></i>Bianco &mdash; dettagli</div>
+    <div class="swatch"><i style="background:#2C6B4C"></i>Verde &mdash; tricolore</div>
+    <div class="swatch"><i style="background:#A6362F"></i>Rosso &mdash; tricolore</div>
+  </div>
+  <p class="legend">Regola di presentazione: si arriva al campo gi&agrave; in divisa completa e si resta in divisa fino alla fine della premiazione, anche chi quel giorno non gioca.</p>
+
+  <h3>3.2 &mdash; Le dieci regole del gruppo</h3>
+  <ol>
+    <li>Si viaggia insieme, si alloggia insieme, si mangia insieme. Nessuna eccezione senza autorizzazione del Team Manager.</li>
+    <li>Chi non gioca &egrave; in campo: segue i compagni, porta acqua, riporta i dati. Non esistono riserve, esistono ruoli diversi.</li>
+    <li>Il risultato del compagno si commenta solo davanti a lui.</li>
+    <li>Si applaudisce il buon colpo dell'avversario. Si perde e si vince con la stessa faccia.</li>
+    <li>Le decisioni tecniche si discutono in riunione, non nel gruppo di messaggistica.</li>
+    <li>Ogni Junior ha un tutor fra gli atleti esperti per tutta la trasferta.</li>
+    <li>Il campo si lascia meglio di come lo si &egrave; trovato: divot rimessi, rispetto del personale.</li>
+    <li>Si dice sempre la verit&agrave; sui propri acciacchi: nascondere un infortunio danneggia la squadra.</li>
+    <li>Un'ora dopo il giro il telefono si spegne: debriefing e cena sono momenti di squadra.</li>
+    <li>Nessuno parla a nome della Nazionale all'esterno se non l'Head Coach o il Team Manager.</li>
+  </ol>
+
+  <h3>3.3 &mdash; Scheda di osservazione del gruppo</h3>
+  <p class="small">Uso: Team Manager e Head Coach, una volta per raduno o trasferta. Si valuta la squadra, non il singolo: &egrave; lo specchio dello staff.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>Trasferta ____________ &middot; Squadre presenti ____________ &middot; Data __ / __ / ____</caption>
+      <thead><tr><th>Indicatore di gruppo</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th></tr></thead>
+      <tbody>
+        <tr><td>Puntualit&agrave; e presentazione in divisa</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Le squadre si mescolano o restano a gruppetti chiusi</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Sostegno ai compagni ancora in campo</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Gestione collettiva del risultato negativo</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Inserimento dei Junior e dei nuovi convocati</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Comportamento verso avversari, arbitri e circolo</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Rispetto delle dieci regole senza richiami</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="legend">Un punteggio medio sotto 3 apre un punto all'ordine del giorno della prima riunione tecnica utile, prima di qualsiasi argomento tecnico.</p>
+</section>
+
+<section id="campi">
+  <p class="eyebrow">04 &middot; L'ambiente</p>
+  <h2>Standard di campo</h2>
+  <div class="rule"></div>
+  <p>Non si raggiungono standard internazionali allenandosi su percorsi che non li riproducono. La scelta delle sedi non &egrave; logistica, &egrave; tecnica: si punta su campi di fascia alta, perch&eacute; il livello del percorso &egrave; il primo allenatore.</p>
+  <div class="tablewrap">
+    <table>
+      <caption>4.1 &mdash; Requisiti della sede di raduno</caption>
+      <thead><tr><th>Requisito</th><th>Standard richiesto</th><th>Perch&eacute;</th></tr></thead>
+      <tbody>
+        <tr><td>Lunghezza del percorso</td><td>18 buche, par complessivo 72 o superiore, con par 5 reali</td><td>Allena il colpo lungo sotto carico</td></tr>
+        <tr><td>Green</td><td>Tagliati e rullati, velocit&agrave; costante, pendenze leggibili</td><td>&Egrave; dove si perdono i colpi nei grandi tornei</td></tr>
+        <tr><td>Difese della buca</td><td>Bunker, acqua, rough gestito, posizioni bandiera variabili</td><td>Obbliga a scegliere, non solo a calciare</td></tr>
+        <tr><td>Dislivello</td><td>Presente e significativo</td><td>Allena tenuta fisica e colpi in salita e discesa</td></tr>
+        <tr><td>Esposizione al vento</td><td>Almeno alcune buche aperte</td><td>Adattamento delle distanze</td></tr>
+        <tr><td>Area di pratica</td><td>Zona approcci, green di prova, spazio per il colpo lungo</td><td>Senza area di pratica non si allena a punteggio</td></tr>
+        <tr><td>Servizi</td><td>Sala riunioni, spogliatoi, ristorazione in loco</td><td>Debriefing e vita di gruppo nello stesso posto</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>4.2 &mdash; Come si usa il campo di fascia alta</h3>
+  <ul>
+    <li><strong>Ricognizione obbligatoria</strong>: il giorno prima si cammina il percorso con il Coach e si costruisce il piano buca per buca.</li>
+    <li><strong>Condizioni da gara</strong>: nei giri di verifica si gioca con bandiere in posizione difficile, senza ripetizioni e senza palloni di riserva.</li>
+    <li><strong>Rotazione delle sedi</strong>: nell'arco della stagione si alternano percorsi diversi per tipologia, cos&igrave; nessuno si specializza sul proprio campo.</li>
+    <li><strong>Rapporto con il circolo</strong>: un referente unico, regole di accesso rispettate alla lettera. La reputazione apre le porte dei campi migliori.</li>
+  </ul>
+  <div class="note"><span class="lbl">Criterio di scelta</span><p>Fra un campo comodo e un campo esigente si sceglie sempre il secondo. Se il budget non permette la fascia alta per tutti i raduni, si riduce il numero dei raduni, non il livello del percorso: meglio tre raduni veri che sei approssimativi.</p></div>
+</section>
+
 <section id="modello">
-  <p class="eyebrow">02 &middot; Il riferimento comune</p>
+  <p class="eyebrow">05 &middot; Il riferimento comune</p>
   <h2>Modello di prestazione</h2>
   <div class="rule"></div>
   <p>Selezionare senza un modello significa scegliere per simpatia. Il modello definisce il giocatore che serve alla maglia azzurra ed è l'unico metro di paragone ammesso nelle schede: ogni osservatore rileva gli stessi indicatori, con gli stessi valori soglia.</p>
@@ -181,6 +311,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
     <div class="kpi"><b>&ge;&nbsp;50&nbsp;%</b><span>Scrambling: par salvato da fuori green</span></div>
     <div class="kpi"><b>&le;&nbsp;1,0</b><span>Penalità e colpi persi per giro</span></div>
   </div>
+  <p class="legend">I valori sopra sono le soglie della squadra Men. Le aree e gli indicatori restano identici per tutte le squadre; cambiano solo i valori di distanza, fissati dall'Head Coach con il Selezionatore di squadra e rivisti una volta a stagione.</p>
   <h3>Le quattro aree del modello</h3>
   <div class="grid2">
     <div>
@@ -216,24 +347,25 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="ruoli">
-  <p class="eyebrow">03 &middot; Mansionario</p>
+  <p class="eyebrow">06 &middot; Mansionario</p>
   <h2>Format dei ruoli</h2>
   <div class="rule"></div>
   <p>Ogni figura ha un perimetro, un prodotto che consegna e un momento in cui parla. Il principio guida &egrave; ripreso dal golf di alto livello e dal calcio professionistico: <strong>chi osserva non allena, chi allena non seleziona da solo, chi decide lo fa su dati che altri hanno raccolto</strong>.</p>
 
   <article class="role">
-    <div class="role-head"><h3>Selezionatore</h3><span class="tag">Osserva e propone</span></div>
-    <p class="small">Perimetro: dal territorio alla lista dei convocabili. Non conduce l'allenamento, non corregge il gesto in gara.</p>
+    <div class="role-head"><h3>Selezionatore di squadra</h3><span class="tag">Osserva e propone</span></div>
+    <p class="small">Uno per squadra (Men, Senior, Senior Plus, Women, Junior), tutti dentro lo stesso metodo. Perimetro: dal territorio alla lista dei convocabili. Non conduce l'allenamento, non corregge il gesto in gara.</p>
     <div class="grid2">
       <div>
         <h4>Cosa fa</h4>
         <ul>
           <li>Pianifica il calendario di osservazione: quali tappe, quali giocatori, quante rilevazioni a testa (minimo tre in contesti diversi).</li>
           <li>Segue il giocatore per giri interi, non per singole buche: il campione corto mente.</li>
-          <li>Compila la <em>Scheda di osservazione giocatore</em> (&sect;5.1) entro la sera stessa.</li>
+          <li>Compila la <em>Scheda di osservazione giocatore</em> (&sect;8.1) entro la sera stessa.</li>
           <li>Incrocia il rilevamento con i dati oggettivi: scorecard, ranking, storico delle penalit&agrave;.</li>
           <li>Raccoglie il profilo umano: puntualit&agrave;, gestione dell'arbitraggio, comportamento a fine giro quando il risultato &egrave; compromesso.</li>
           <li>Propone la lista allargata e la difende in riunione tecnica con evidenze, non con impressioni.</li>
+          <li>Segnala i passaggi di squadra: il Junior pronto per i Men, il giocatore che entra nella fascia Senior. Le liste si scambiano fra Selezionatori, non si difendono.</li>
         </ul>
       </div>
       <div>
@@ -262,6 +394,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
           <li>Fa la convocazione finale sulla base delle liste dei Selezionatori.</li>
           <li>Definisce il piano di gara: ordine di partenza, accoppiamenti di foursome e four-ball, sostituzioni.</li>
           <li>Conduce il briefing pre-giro (15') e il debriefing post-giro (20') con dati alla mano.</li>
+          <li>Garantisce che le cinque squadre lavorino con lo stesso metodo e con le stesse risorse.</li>
           <li>&Egrave; l'unico che parla alla stampa e alla federazione sulle scelte tecniche.</li>
         </ul>
       </div>
@@ -292,7 +425,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
           <li>Fornisce dato, non giudizio: distanza, vento, pendenza, lie. Il giocatore sceglie.</li>
           <li>Applica la regola dei 20 passi: si commenta il colpo entro venti passi, poi si passa oltre.</li>
           <li>Gestisce ritmo e tempi: idratazione, alimentazione ogni 5&ndash;6 buche, gestione dell'attesa.</li>
-          <li>Rileva in tempo reale la <em>Scheda di rilevamento in gara</em> (&sect;5.2), una riga per buca.</li>
+          <li>Rileva in tempo reale la <em>Scheda di rilevamento in gara</em> (&sect;11.2), una riga per buca.</li>
           <li>In match play tiene il conto dello stato del match e suggerisce quando forzare e quando far giocare l'avversario.</li>
         </ul>
       </div>
@@ -351,7 +484,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="selezione">
-  <p class="eyebrow">04 &middot; Dal territorio alla maglia</p>
+  <p class="eyebrow">07 &middot; Dal territorio alla maglia</p>
   <h2>Processo di selezione</h2>
   <div class="rule"></div>
   <p>Cinque passaggi, nessuna scorciatoia. Un giocatore entra in lista solo se ha superato il passaggio precedente, e ogni passaggio produce un documento.</p>
@@ -361,9 +494,9 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
       <thead><tr><th class="num">#</th><th>Fase</th><th>Chi</th><th>Criterio di passaggio</th><th>Documento</th></tr></thead>
       <tbody>
         <tr><td class="num">1</td><td>Screening dati</td><td>Match Analyst</td><td>Ranking, media colpi, costanza su 5 gare</td><td>Long list</td></tr>
-        <tr><td class="num">2</td><td>Osservazione sul campo</td><td>Selezionatore</td><td>3 rilevazioni su percorsi diversi</td><td>Scheda &sect;5.1</td></tr>
-        <tr><td class="num">3</td><td>Raduno di verifica</td><td>Coach di campo</td><td>Test tecnici e atletici sopra soglia</td><td>Scheda &sect;6.2</td></tr>
-        <tr><td class="num">4</td><td>Prova in match play</td><td>Head Coach</td><td>Tenuta a coppie e sotto pressione</td><td>Scheda &sect;8.2</td></tr>
+        <tr><td class="num">2</td><td>Osservazione sul campo</td><td>Selezionatore</td><td>3 rilevazioni su percorsi diversi</td><td>Scheda &sect;8.1</td></tr>
+        <tr><td class="num">3</td><td>Raduno di verifica</td><td>Coach di campo</td><td>Test tecnici e atletici sopra soglia</td><td>Scheda &sect;9.2</td></tr>
+        <tr><td class="num">4</td><td>Prova in match play</td><td>Head Coach</td><td>Tenuta a coppie e sotto pressione</td><td>Scheda &sect;11.2</td></tr>
         <tr><td class="num">5</td><td>Convocazione</td><td>Head Coach</td><td>Decisione motivata per iscritto</td><td>Verbale tecnico</td></tr>
       </tbody>
     </table>
@@ -372,12 +505,12 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="schede">
-  <p class="eyebrow">05 &middot; Strumenti</p>
+  <p class="eyebrow">08 &middot; Strumenti</p>
   <h2>Schede di rilevamento sul campo</h2>
   <div class="rule"></div>
   <p>Le schede si compilano in piedi, con una matita, mentre si cammina. Per questo sono a griglia chiusa: si barra, non si scrive. Le note libere stanno solo in fondo, e non superano tre righe.</p>
 
-  <h3>5.1 &mdash; Scheda di osservazione giocatore</h3>
+  <h3>8.1 &mdash; Scheda di osservazione giocatore</h3>
   <p class="small">Uso: Selezionatore. Una scheda per giro osservato. Scala 1&ndash;5, dove 3 &egrave; lo standard nazionale e 4 &egrave; lo standard internazionale.</p>
   <div class="tablewrap">
     <table>
@@ -401,7 +534,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   </div>
   <p class="legend">Esito: &#9633; priorit&agrave; alta &middot; &#9633; da rivedere &middot; &#9633; non idoneo ora &nbsp;&mdash;&nbsp; Punto di forza: ____________________ &middot; Punto da colmare: ____________________</p>
 
-  <h3>5.2 &mdash; Scheda di rilevamento in gara</h3>
+  <h3>8.2 &mdash; Scheda di rilevamento in gara</h3>
   <p class="small">Uso: Coach sul campo, una riga per buca, compilata dopo che il giocatore ha lasciato il green. &Egrave; la fonte di tutti i numeri del cruscotto.</p>
   <div class="tablewrap">
     <table>
@@ -418,7 +551,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   </div>
   <p class="legend">La colonna &laquo;errore e causa&raquo; &egrave; la pi&ugrave; importante: separa l'errore di esecuzione da quello di decisione. Il primo si allena in campo pratica, il secondo si allena camminando.</p>
 
-  <h3>5.3 &mdash; Scheda colpi guadagnati per area</h3>
+  <h3>8.3 &mdash; Scheda colpi guadagnati per area</h3>
   <p class="small">Uso: Match Analyst, a fine giro. Confronta il rendimento del giocatore con il valore di riferimento azzurro per capire dove si perdono davvero i colpi.</p>
   <div class="tablewrap">
     <table>
@@ -435,12 +568,12 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="supervisione">
-  <p class="eyebrow">06 &middot; Controllo di qualit&agrave;</p>
+  <p class="eyebrow">09 &middot; Controllo di qualit&agrave;</p>
   <h2>Schede di supervisione</h2>
   <div class="rule"></div>
   <p>Dal calcio professionistico prendiamo un principio semplice: anche lo staff viene valutato. La supervisione non serve a giudicare le persone, serve a tenere allineato il metodo fra Nord e Sud, fra raduno e raduno.</p>
 
-  <h3>6.1 &mdash; Supervisione della seduta di allenamento</h3>
+  <h3>9.1 &mdash; Supervisione della seduta di allenamento</h3>
   <div class="tablewrap">
     <table>
       <caption>Seduta ____________ &middot; Conduttore ____________ &middot; Supervisore ____________ &middot; Data __ / __ / ____</caption>
@@ -459,15 +592,15 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   </div>
   <p class="legend">Tre &laquo;No&raquo; nella stessa seduta attivano una revisione del piano con l'Head Coach entro la settimana.</p>
 
-  <h3>6.2 &mdash; Supervisione del raduno</h3>
+  <h3>9.2 &mdash; Supervisione del raduno</h3>
   <div class="tablewrap">
     <table>
       <thead><tr><th>Momento</th><th>Responsabile</th><th>Evidenza richiesta</th><th class="num">OK</th></tr></thead>
       <tbody>
         <tr><td>Convocazione e logistica</td><td>Team Manager</td><td>Comunicazione inviata 10 giorni prima, presenze confermate</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Test d'ingresso</td><td>Preparatore</td><td>Batteria test completata per tutti i convocati</td><td class="num fill">&#9633;</td></tr>
-        <tr><td>Sedute tecniche</td><td>Coach di campo</td><td>Schede 6.1 compilate per ogni seduta</td><td class="num fill">&#9633;</td></tr>
-        <tr><td>Giro di verifica</td><td>Match Analyst</td><td>Schede 5.2 complete, cruscotto aggiornato</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Sedute tecniche</td><td>Coach di campo</td><td>Schede 9.1 compilate per ogni seduta</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Giro di verifica</td><td>Match Analyst</td><td>Schede 8.2 complete, cruscotto aggiornato</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Colloqui individuali</td><td>Head Coach</td><td>Un colloquio di 10' per ogni convocato</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Report finale</td><td>Head Coach</td><td>Documento inviato all'area tecnica entro 5 giorni</td><td class="num fill">&#9633;</td></tr>
       </tbody>
@@ -476,12 +609,12 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="allenamenti">
-  <p class="eyebrow">07 &middot; Il lavoro</p>
+  <p class="eyebrow">10 &middot; Il lavoro</p>
   <h2>Allenamenti specifici</h2>
   <div class="rule"></div>
   <p>Ogni esercitazione ha un punteggio. Senza punteggio &egrave; svago: il giocatore deve sapere, prima di iniziare, qual &egrave; la soglia da superare e cosa succede se non la supera.</p>
 
-  <h3>7.1 &mdash; Microciclo tipo di raduno (3 giorni)</h3>
+  <h3>10.1 &mdash; Microciclo tipo di raduno (3 giorni)</h3>
   <div class="tablewrap">
     <table>
       <thead><tr><th>Giorno</th><th>Mattina</th><th>Pomeriggio</th><th>Sera</th></tr></thead>
@@ -493,7 +626,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
     </table>
   </div>
 
-  <h3>7.2 &mdash; Esercitazioni a punteggio</h3>
+  <h3>10.2 &mdash; Esercitazioni a punteggio</h3>
   <div class="tablewrap">
     <table>
       <thead><tr><th>Nome</th><th>Obiettivo</th><th>Svolgimento</th><th>Soglia azzurra</th></tr></thead>
@@ -510,7 +643,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
     </table>
   </div>
 
-  <h3>7.3 &mdash; Lavoro atletico di supporto</h3>
+  <h3>10.3 &mdash; Lavoro atletico di supporto</h3>
   <div class="grid2">
     <div>
       <h4>Settimana tipo fuori raduno</h4>
@@ -534,14 +667,14 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="matchplay">
-  <p class="eyebrow">08 &middot; Competizioni</p>
+  <p class="eyebrow">11 &middot; Competizioni</p>
   <h2>Propedeutica al match play e all'individuale</h2>
   <div class="rule"></div>
   <p>Sono due sport diversi giocati sullo stesso percorso. Nell'individuale si gioca contro il campo e il nemico &egrave; il doppio bogey; nel match play si gioca contro una persona e il nemico &egrave; concedere la buca senza combattere.</p>
 
   <div class="tablewrap">
     <table>
-      <caption>8.1 &mdash; Due mentalit&agrave;, due preparazioni</caption>
+      <caption>11.1 &mdash; Due mentalit&agrave;, due preparazioni</caption>
       <thead><tr><th>Elemento</th><th>Individuale (stroke play)</th><th>Match play</th></tr></thead>
       <tbody>
         <tr><td>Unit&agrave; di misura</td><td>Il giro intero, 18 buche</td><td>La singola buca</td></tr>
@@ -554,7 +687,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
     </table>
   </div>
 
-  <h3>8.2 &mdash; Scheda di valutazione match play</h3>
+  <h3>11.2 &mdash; Scheda di valutazione match play</h3>
   <div class="tablewrap">
     <table>
       <caption>Giocatore ____________ &middot; Avversario ____________ &middot; Formato: singolo / foursome / four&ndash;ball</caption>
@@ -572,7 +705,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   </div>
   <p class="legend">Stato del match buca per buca: &nbsp;1 ____ 2 ____ 3 ____ 4 ____ 5 ____ 6 ____ 7 ____ 8 ____ 9 ____ 10 ____ 11 ____ 12 ____ 13 ____ 14 ____ 15 ____ 16 ____ 17 ____ 18 ____</p>
 
-  <h3>8.3 &mdash; Criteri di accoppiamento</h3>
+  <h3>11.3 &mdash; Criteri di accoppiamento</h3>
   <ul>
     <li><strong>Foursome (palla alternata):</strong> si accoppiano distanze simili e caratteri complementari. Chi parte sulle buche dispari deve essere il pi&ugrave; affidabile dal tee.</li>
     <li><strong>Four&ndash;ball:</strong> un giocatore aggressivo e uno solido. Mai due che rischiano sulla stessa buca.</li>
@@ -582,7 +715,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <section id="calendario">
-  <p class="eyebrow">09 &middot; Da stasera</p>
+  <p class="eyebrow">12 &middot; Da stasera</p>
   <h2>Roadmap e deliverable</h2>
   <div class="rule"></div>
   <div class="tablewrap">
@@ -590,11 +723,13 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
       <thead><tr><th>Scadenza</th><th>Deliverable</th><th>Responsabile</th></tr></thead>
       <tbody>
         <tr><td>Entro 24 ore</td><td>Verbale della riunione con ruoli assegnati</td><td>Team Manager</td></tr>
-        <tr><td>Entro 7 giorni</td><td>Modello di prestazione approvato e distribuito</td><td>Head Coach</td></tr>
+        <tr><td>Entro 7 giorni</td><td>Codice azzurro e regole di gruppo distribuiti a tutte le squadre</td><td>Team Manager</td></tr>
+        <tr><td>Entro 7 giorni</td><td>Modello di prestazione approvato, con soglie per Men, Senior, Senior Plus, Women e Junior</td><td>Head Coach</td></tr>
+        <tr><td>Entro 20 giorni</td><td>Selezione delle sedi di fascia alta e accordi con i circoli</td><td>Team Manager</td></tr>
         <tr><td>Entro 7 giorni</td><td>Schede stampate e consegnate a ogni osservatore</td><td>Match Analyst</td></tr>
         <tr><td>Entro 15 giorni</td><td>Calendario di osservazione sulle tappe nazionali</td><td>Selezionatori</td></tr>
         <tr><td>Entro 30 giorni</td><td>Long list e prima riunione di allineamento delle valutazioni</td><td>Head Coach</td></tr>
-        <tr><td>Entro 60 giorni</td><td>Primo raduno di verifica con schede 6.1 e 6.2</td><td>Coach di campo</td></tr>
+        <tr><td>Entro 60 giorni</td><td>Primo raduno di verifica con schede 9.1 e 9.2</td><td>Coach di campo</td></tr>
       </tbody>
     </table>
   </div>
@@ -602,7 +737,7 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 </section>
 
 <footer>
-  <span>Nazionale Italiana Footgolf &middot; Area Tecnica</span>
+  <span>Nazionale Italiana Footgolf &middot; Men &middot; Senior &middot; Senior Plus &middot; Women &middot; Junior</span>
   <span>Quaderno Tecnico Azzurro &mdash; v1.0 &middot; documento di lavoro interno</span>
 </footer>
 
