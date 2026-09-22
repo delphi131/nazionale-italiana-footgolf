@@ -105,6 +105,16 @@ td.num,th.num{font-variant-numeric:tabular-nums;text-align:center;width:58px;}
 .note p:last-child{margin-bottom:0;}
 .note .lbl{font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;font-weight:700;color:var(--campo);display:block;margin-bottom:4px;}
 
+/* ---- indicatori ---- */
+.ind{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);}
+.ind-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:6px;}
+.ind-head h4{margin:0;color:var(--ink);font-size:19px;letter-spacing:.03em;}
+.ind-head .soglia{font-family:var(--display);font-weight:700;font-size:20px;color:var(--azzurro);font-variant-numeric:tabular-nums;margin-left:auto;white-space:nowrap;}
+.ind-head .src{font-family:var(--display);text-transform:uppercase;letter-spacing:.09em;font-size:11px;font-weight:600;color:var(--sabbia);background:var(--sabbia-lt);padding:2px 8px;border-radius:2px;}
+.ind dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 14px;font-size:13.5px;}
+.ind dt{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;font-weight:600;color:var(--ink-soft);padding-top:3px;}
+.ind dd{margin:0;}
+
 /* ---- kpi ---- */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0;}
 .kpi{border-top:3px solid var(--sabbia);padding-top:10px;}
@@ -303,29 +313,116 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   <h2>Modello di prestazione</h2>
   <div class="rule"></div>
   <p>Selezionare senza un modello significa scegliere per simpatia. Il modello definisce il giocatore che serve alla maglia azzurra ed è l'unico metro di paragone ammesso nelle schede: ogni osservatore rileva gli stessi indicatori, con gli stessi valori soglia.</p>
-  <div class="kpis">
-    <div class="kpi"><b>&ge;&nbsp;65&nbsp;m</b><span>Drive medio di carry utile su lie in erba tagliata</span></div>
-    <div class="kpi"><b>&ge;&nbsp;70&nbsp;%</b><span>Fairway trovati (FIR) sui par 4 e 5</span></div>
-    <div class="kpi"><b>&ge;&nbsp;60&nbsp;%</b><span>Green in regulation (GIR)</span></div>
-    <div class="kpi"><b>&le;&nbsp;1,9</b><span>Colpi in green per buca (putt/rolling)</span></div>
-    <div class="kpi"><b>&ge;&nbsp;50&nbsp;%</b><span>Scrambling: par salvato da fuori green</span></div>
-    <div class="kpi"><b>&le;&nbsp;1,0</b><span>Penalità e colpi persi per giro</span></div>
+  <p class="small">Ogni indicatore qui sotto ha un nome, una definizione operativa e un modo univoco di misurarlo. Molti strumenti li abbiamo presi dal golf, che su questi numeri lavora da decenni: dove il termine tecnico non ha senso nel footgolf &mdash; non usiamo attrezzi, calciamo &mdash; lo abbiamo tradotto. Accanto a ciascuno trovi il termine golfistico di origine, perch&eacute; nei contesti internazionali lo sentirai nominare cos&igrave;.</p>
+
+  <article class="ind">
+    <div class="ind-head"><h4>1. Distanza utile dal tee</h4><span class="src">golf: drive / carry</span><span class="soglia">&ge; 65 m di volo</span></div>
+    <p class="small">Il primo colpo della buca &egrave; il <strong>tiro di partenza</strong> (tee shot): si calcia da pallone fermo su area piana e tagliata. &laquo;Drive&raquo; nel golf indica il colpo di partenza col bastone pi&ugrave; lungo: nel footgolf il termine corretto &egrave; tiro di partenza o calcio lungo.</p>
+    <dl>
+      <dt>Cosa misura</dt><dd>I metri di <em>volo</em> del pallone (carry), non il totale con il rotolamento. Il volo &egrave; la vera potenza del giocatore: il rotolamento dipende da terreno e pendenza, e su campo bagnato sparisce.</dd>
+      <dt>Come si rileva</dt><dd>Media di 10 tiri di partenza in allenamento su terreno asciutto e pianeggiante, senza vento. Si misura dove il pallone tocca terra la prima volta.</dd>
+      <dt>Soglia</dt><dd>65 m di volo, che su terreno normale corrispondono a circa 80&ndash;85 m totali. Sotto questa distanza, sui par 5 dei campi internazionali il giocatore arriva sempre con un colpo di ritardo.</dd>
+      <dt>Attenzione</dt><dd>La distanza da sola non seleziona nessuno. Conta solo se accompagnata dall'indicatore 2.</dd>
+    </dl>
+  </article>
+
+  <article class="ind">
+    <div class="ind-head"><h4>2. Precisione dal tee</h4><span class="src">golf: fairway in regulation (FIR)</span><span class="soglia">&ge; 70 %</span></div>
+    <p class="small">Nel golf il <em>fairway</em> &egrave; la striscia d'erba tagliata corta fra partenza e green: trovarlo significa poter giocare il colpo successivo senza impedimenti. Nel footgolf si gioca spesso su percorsi dedicati dove il fairway non &egrave; sempre delimitato, quindi usiamo un criterio equivalente e misurabile ovunque: la <strong>zona di gioco</strong>.</p>
+    <dl>
+      <dt>Definizione</dt><dd>La zona di gioco &egrave; l'area, concordata in ricognizione, da cui il colpo successivo &egrave; giocabile in pieno: erba tagliata, nessun ostacolo sulla linea, nessuna pendenza che obblighi a un colpo di recupero.</dd>
+      <dt>Cosa misura</dt><dd>Quante volte, sui par 4 e par 5, il tiro di partenza finisce in zona di gioco.</dd>
+      <dt>Come si rileva</dt><dd>Colonna &laquo;Tiro di partenza&raquo; della scheda di rilevamento in gara (&sect;8.2): in zona / fuori a sinistra / fuori a destra / ostacolo. Sui par 3 non si conta, perch&eacute; l&igrave; il primo colpo punta gi&agrave; alla buca.</dd>
+      <dt>Soglia</dt><dd>70%, cio&egrave; circa 8 buche su 12 fra par 4 e par 5. Un giocatore lungo e impreciso perde pi&ugrave; colpi di un giocatore corto e preciso.</dd>
+    </dl>
+  </article>
+
+  <article class="ind">
+    <div class="ind-head"><h4>3. Arrivo in green nei colpi previsti</h4><span class="src">golf: green in regulation (GIR)</span><span class="soglia">&ge; 60 %</span></div>
+    <p class="small">Il <em>green</em> nel footgolf esiste eccome: &egrave; l'area rasata attorno alla buca da 53 cm. &laquo;In regulation&raquo; significa arrivarci avendo ancora due colpi a disposizione per chiudere nel par.</p>
+    <dl>
+      <dt>Definizione</dt><dd>Si arriva in green nei colpi previsti quando il pallone &egrave; sul green entro: 1 colpo su un par 3, 2 colpi su un par 4, 3 colpi su un par 5. In pratica: par meno due.</dd>
+      <dt>Perch&eacute; conta</dt><dd>&Egrave; l'indicatore che pi&ugrave; di ogni altro predice il punteggio finale. Chi arriva in green nei colpi previsti gioca per fare birdie; chi non ci arriva gioca per salvare il par.</dd>
+      <dt>Come si rileva</dt><dd>Una spunta per buca sulla scheda &sect;8.2, contata su tutte le 18 buche.</dd>
+      <dt>Soglia</dt><dd>60%, cio&egrave; 11 buche su 18. Sotto il 50% il giro dipende interamente dal gioco corto, e il gioco corto non regge tre giri di seguito.</dd>
+    </dl>
+  </article>
+
+  <article class="ind">
+    <div class="ind-head"><h4>4. Colpi in green per buca</h4><span class="src">golf: putt per buca</span><span class="soglia">&le; 1,9</span></div>
+    <p class="small">Qui il termine golfistico va abbandonato: il <em>putt</em> &egrave; il colpo giocato con l'omonimo bastone, e nel footgolf non esiste. Il gesto corrispondente &egrave; il <strong>calcio raso</strong> o colpo di rotolamento: pallone che resta a terra e rotola sulla linea letta.</p>
+    <dl>
+      <dt>Cosa misura</dt><dd>Quanti colpi servono per chiudere la buca da quando il pallone &egrave; sul green. Si contano tutti i colpi giocati da sul green, non solo quelli verso la buca.</dd>
+      <dt>Come si rileva</dt><dd>Colonna &laquo;In green&raquo; della scheda &sect;8.2. Il totale di giro si divide per 18.</dd>
+      <dt>Soglia</dt><dd>1,9 di media: significa chiudere in due colpi quasi sempre e trasformarne alcune in uno solo. Il salto di qualit&agrave; internazionale sta sotto 1,8.</dd>
+      <dt>Nota sul campo</dt><dd>La media dipende molto dalla velocit&agrave; del green: va confrontata solo fra giri giocati su percorsi di livello simile. &Egrave; una delle ragioni per cui ci alleniamo su campi di fascia alta.</dd>
+    </dl>
+  </article>
+
+  <article class="ind">
+    <div class="ind-head"><h4>5. Recupero del par da fuori green</h4><span class="src">golf: scrambling / up &amp; down</span><span class="soglia">&ge; 50 %</span></div>
+    <p class="small">&laquo;Scrambling&raquo; non ha una traduzione italiana consolidata: lo chiamiamo <strong>recupero del par</strong>. &Egrave; ci&ograve; che salva il giro nelle giornate storte.</p>
+    <dl>
+      <dt>Definizione</dt><dd>Sulle buche in cui NON si &egrave; arrivati in green nei colpi previsti (indicatore 3), quante volte si chiude comunque nel par.</dd>
+      <dt>Cosa misura</dt><dd>La qualit&agrave; del gioco corto entro i 50 metri unita alla freddezza: avvicinamento da fuori green pi&ugrave; un solo colpo in green.</dd>
+      <dt>Come si rileva</dt><dd>Voce &laquo;Recuperi del par riusciti ___ / ___&raquo; nei totali della scheda &sect;8.2. Il denominatore sono le buche mancate, non le 18.</dd>
+      <dt>Soglia</dt><dd>50%: un par salvato su due occasioni. &Egrave; l'indicatore che separa chi fa un buon giro da chi fa un buon torneo, e il primo a crollare quando manca la condizione fisica.</dd>
+    </dl>
+  </article>
+
+  <article class="ind">
+    <div class="ind-head"><h4>6. Colpi persi per giro</h4><span class="src">golf: penalty strokes</span><span class="soglia">&le; 1,0</span></div>
+    <p class="small">Sono i colpi che non si giocano per scelta tecnica ma si subiscono: penalit&agrave; da regolamento e colpi buttati.</p>
+    <dl>
+      <dt>Cosa conta</dt><dd>Pallone fuori limite o ingiocabile, ostacolo d'acqua, colpo di rientro obbligato dopo un errore grave, penalit&agrave; di procedura o di tempo.</dd>
+      <dt>Perch&eacute; conta</dt><dd>&Egrave; l'indicatore della disciplina di gioco. Quasi sempre non nasce da un limite tecnico, ma da una decisione sbagliata: ecco perch&eacute; la scheda &sect;8.2 obbliga a distinguere l'errore di esecuzione da quello di scelta.</dd>
+      <dt>Come si rileva</dt><dd>Riga &laquo;Penalit&agrave;&raquo; nei totali di giro, con la causa annotata.</dd>
+      <dt>Soglia</dt><dd>Non pi&ugrave; di 1 per giro. Due penalit&agrave; a giro cancellano qualunque vantaggio di distanza.</dd>
+    </dl>
+  </article>
+
+  <div class="note"><span class="lbl">Sui numeri, onestamente</span><p>Queste soglie sono <strong>valori di lavoro della squadra Men</strong>, costruiti sul buon senso tecnico e sul confronto con i riferimenti del golf: non sono ancora dati federali certificati. Vanno calibrati sulle prime rilevazioni reali. Dopo 50 schede &sect;8.2 raccolte sugli azzurri, il Match Analyst porta in riunione la distribuzione vera dei nostri giocatori e le soglie si fissano su quella. Fino ad allora si usano come riferimento comune, non come taglio automatico.</p></div>
+
+  <p class="legend">Le aree e gli indicatori sono identici per Men, Senior, Senior Plus, Women e Junior. Cambiano solo i valori legati alla distanza (indicatore 1 e, di conseguenza, la posizione dei tee), fissati dall'Head Coach con il Selezionatore di squadra e rivisti una volta a stagione. Precisione, arrivo in green, colpi in green, recupero del par e colpi persi restano gli stessi per tutti: sono qualit&agrave;, non potenza.</p>
+
+
+  <h3>5.1 &mdash; Glossario: dal golf al footgolf</h3>
+  <p class="small">Nei contesti internazionali sentirai usare i termini della colonna di sinistra. Nei nostri documenti usiamo quelli di destra: dove il gesto &egrave; lo stesso teniamo la parola, dove cambia la traduciamo.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Termine golf</th><th>Nel footgolf</th><th>Perch&eacute;</th></tr></thead>
+      <tbody>
+        <tr><td>Drive</td><td>Tiro di partenza / calcio lungo</td><td>Indica il bastone pi&ugrave; lungo: senza bastoni il termine non ha senso</td></tr>
+        <tr><td>Tee shot</td><td>Tiro di partenza</td><td>Corretto anche in originale: &egrave; il colpo dall'area di partenza</td></tr>
+        <tr><td>Carry</td><td>Distanza di volo</td><td>Concetto identico, si traduce</td></tr>
+        <tr><td>Putt</td><td>Calcio raso / colpo di rotolamento</td><td>Il putt &egrave; un bastone: il gesto esiste, l'attrezzo no</td></tr>
+        <tr><td>Fairway</td><td>Zona di gioco</td><td>Non tutti i percorsi da footgolf hanno un fairway delimitato</td></tr>
+        <tr><td>Green</td><td>Green</td><td>Si mantiene: l'area rasata attorno alla buca esiste identica</td></tr>
+        <tr><td>Rough</td><td>Erba alta</td><td>Traduzione diretta, pi&ugrave; chiara per tutti</td></tr>
+        <tr><td>Lie</td><td>Appoggio del pallone</td><td>Come il pallone poggia a terra: condiziona la scelta del colpo</td></tr>
+        <tr><td>Approach</td><td>Avvicinamento</td><td>Traduzione diretta</td></tr>
+        <tr><td>Scrambling</td><td>Recupero del par</td><td>Non ha traduzione consolidata: usiamo la definizione</td></tr>
+        <tr><td>Up &amp; down</td><td>Avvicinamento pi&ugrave; un colpo</td><td>Si esplicita cosa significa</td></tr>
+        <tr><td>Draw / fade</td><td>Traiettoria curva a sinistra / a destra</td><td>Per un mancino la curva si inverte: meglio dirlo esplicito</td></tr>
+        <tr><td>Par / birdie / bogey</td><td>Par / birdie / bogey</td><td>Si mantengono: sono i termini ufficiali di punteggio</td></tr>
+      </tbody>
+    </table>
   </div>
-  <p class="legend">I valori sopra sono le soglie della squadra Men. Le aree e gli indicatori restano identici per tutte le squadre; cambiano solo i valori di distanza, fissati dall'Head Coach con il Selezionatore di squadra e rivisti una volta a stagione.</p>
-  <h3>Le quattro aree del modello</h3>
+
+  <h3>5.2 &mdash; Le quattro aree del modello</h3>
   <div class="grid2">
     <div>
       <h4>Tecnica del colpo</h4>
       <ul>
         <li>Calcio lungo: ripetibilità della traiettoria prima che distanza massima.</li>
-        <li>Gestione dell'effetto: draw e fade voluti, non subiti.</li>
+        <li>Gestione dell'effetto: traiettorie curve a destra e a sinistra volute, non subite.</li>
         <li>Colpi di approccio calibrati a 5 distanze fisse (10&ndash;20&ndash;30&ndash;40&ndash;50 m).</li>
         <li>Gioco in green: lettura della pendenza, velocità come priorità sulla linea.</li>
       </ul>
       <h4>Gestione del percorso</h4>
       <ul>
         <li>Scelta del colpo in base alla zona di sicurezza, non al risultato migliore possibile.</li>
-        <li>Lettura di vento, lie, pendenza e ostacoli prima di ogni colpo.</li>
+        <li>Lettura di vento, appoggio del pallone, pendenza e ostacoli prima di ogni colpo.</li>
         <li>Piano buca preparato nel giro di ricognizione e rispettato in gara.</li>
       </ul>
     </div>
@@ -418,11 +515,11 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
         <ul>
           <li>Ricognizione del percorso con il giocatore: distanze reali, zone di sicurezza, punti di caduta, pin position del giorno.</li>
           <li>Verifica del riscaldamento: 20' progressivi, chiusura su tre colpi di approccio riusciti, mai su un errore.</li>
-          <li>Conferma del piano buca per buca e della regola di uscita (&laquo;se sbaglio il drive, gioco il recupero laterale&raquo;).</li>
+          <li>Conferma del piano buca per buca e della regola di uscita (&laquo;se sbaglio il tiro di partenza, gioco il recupero laterale&raquo;).</li>
         </ul>
         <h4>Durante il giro</h4>
         <ul>
-          <li>Fornisce dato, non giudizio: distanza, vento, pendenza, lie. Il giocatore sceglie.</li>
+          <li>Fornisce dato, non giudizio: distanza, vento, pendenza, appoggio del pallone. Il giocatore sceglie.</li>
           <li>Applica la regola dei 20 passi: si commenta il colpo entro venti passi, poi si passa oltre.</li>
           <li>Gestisce ritmo e tempi: idratazione, alimentazione ogni 5&ndash;6 buche, gestione dell'attesa.</li>
           <li>Rileva in tempo reale la <em>Scheda di rilevamento in gara</em> (&sect;11.2), una riga per buca.</li>
@@ -448,8 +545,8 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   <article class="role sabbia">
     <div class="role-head"><h3>Match Analyst</h3><span class="tag sabbia">Misura</span></div>
     <ul>
-      <li>Raccoglie tutte le schede e costruisce il cruscotto di squadra: FIR, GIR, colpi in green, scrambling, penalit&agrave;, colpi guadagnati per area.</li>
-      <li>Filma i gesti chiave (drive, approccio, putt) da due angoli fissi e archivia per giocatore.</li>
+      <li>Raccoglie tutte le schede e costruisce il cruscotto di squadra: precisione dal tee, arrivi in green, colpi in green, recuperi del par, colpi persi, colpi guadagnati per area.</li>
+      <li>Filma i gesti chiave (tiro di partenza, avvicinamento, calcio raso) da due angoli fissi e archivia per giocatore.</li>
       <li>Prepara lo scouting dell'avversario nelle competizioni a squadre: tendenze sui par 3, comportamento sotto pressione, buche dove concede.</li>
       <li>Consegna un foglio singolo per giocatore prima di ogni giro: tre numeri, non trenta.</li>
     </ul>
@@ -517,12 +614,12 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
       <caption>Giocatore ____________________ &middot; Percorso ____________ &middot; Data __ / __ / ____ &middot; Osservatore ____________</caption>
       <thead><tr><th>Area</th><th>Indicatore osservato</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th></tr></thead>
       <tbody>
-        <tr><td>Colpo lungo</td><td>Distanza utile e carry sotto vento</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
-        <tr><td>Colpo lungo</td><td>Dispersione laterale e ripetibilit&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Tiro di partenza</td><td>Distanza di volo utile, anche sotto vento</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Tiro di partenza</td><td>Dispersione laterale e ripetibilit&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Gioco corto</td><td>Controllo distanza 10&ndash;50 m</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
-        <tr><td>Gioco corto</td><td>Scelta del colpo su lie difficile</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
-        <tr><td>Green</td><td>Lettura pendenza e velocit&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
-        <tr><td>Green</td><td>Conversione entro 3 metri</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Gioco corto</td><td>Scelta del colpo su appoggio difficile</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Green</td><td>Lettura della pendenza e controllo della velocit&agrave;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
+        <tr><td>Green</td><td>Chiusura al primo colpo raso entro 3 metri</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Strategia</td><td>Gestione del rischio e zone di sicurezza</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Strategia</td><td>Adattamento a vento e condizioni</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
         <tr><td>Fisico</td><td>Tenuta dalla buca 13 alla 18</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td><td class="num fill">&#9633;</td></tr>
@@ -539,13 +636,13 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
   <div class="tablewrap">
     <table>
       <caption>Giro ____ &middot; Vento ____ &middot; Terreno: asciutto / umido / pesante</caption>
-      <thead><tr><th class="num">Buca</th><th class="num">Par</th><th class="num">Colpi</th><th>Drive</th><th>Approccio</th><th class="num">In green</th><th>Errore e causa</th></tr></thead>
+      <thead><tr><th class="num">Buca</th><th class="num">Par</th><th class="num">Colpi</th><th>Tiro di partenza</th><th>Avvicinamento</th><th class="num">In green</th><th>Errore e causa</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">fairway / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
-        <tr><td class="num">2</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">fairway / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
-        <tr><td class="num">3</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">fairway / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
+        <tr><td class="num">1</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">in zona / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
+        <tr><td class="num">2</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">in zona / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
+        <tr><td class="num">3</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">in zona / sx / dx / ostacolo</td><td class="fill">green / corto / lungo / laterale</td><td class="num fill">&mdash;</td><td class="fill">tecnico / scelta / fisico / testa</td></tr>
         <tr><td class="num">&hellip;</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">righe fino alla buca 18</td><td class="fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
-        <tr><td colspan="7"><strong>Totali di giro</strong> &mdash; FIR ___ /___ &middot; GIR ___ /___ &middot; Colpi in green ___ &middot; Up&amp;down riusciti ___ /___ &middot; Penalit&agrave; ___</td></tr>
+        <tr><td colspan="7"><strong>Totali di giro</strong> &mdash; Tiri di partenza in zona ___ /___ &middot; Green nei colpi previsti ___ /18 &middot; Colpi in green ___ (media ___) &middot; Recuperi del par riusciti ___ /___ &middot; Colpi persi ___</td></tr>
       </tbody>
     </table>
   </div>
@@ -557,10 +654,10 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
     <table>
       <thead><tr><th>Area di gioco</th><th class="num">Riferimento</th><th class="num">Giocatore</th><th class="num">Scarto</th><th>Azione consigliata</th></tr></thead>
       <tbody>
-        <tr><td>Colpo di partenza</td><td class="num">4,2</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
-        <tr><td>Gioco lungo di avvicinamento</td><td class="num">3,8</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Tiro di partenza</td><td class="num">4,2</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Avvicinamento lungo</td><td class="num">3,8</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
         <tr><td>Gioco corto entro 50 m</td><td class="num">4,0</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
-        <tr><td>Gioco in green</td><td class="num">4,1</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
+        <tr><td>Gioco in green (calcio raso)</td><td class="num">4,1</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
         <tr><td>Gestione e decisioni</td><td class="num">4,0</td><td class="num fill">&mdash;</td><td class="num fill">&mdash;</td><td class="fill">&mdash;</td></tr>
       </tbody>
     </table>
@@ -632,10 +729,10 @@ footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-siz
       <thead><tr><th>Nome</th><th>Obiettivo</th><th>Svolgimento</th><th>Soglia azzurra</th></tr></thead>
       <tbody>
         <tr><td>Scala delle distanze</td><td>Controllo del colpo corto</td><td>5 palloni a 10, 20, 30, 40, 50 m verso cerchio di 3 m</td><td>18 / 25 dentro</td></tr>
-        <tr><td>Corridoio</td><td>Precisione del colpo lungo</td><td>10 drive dentro un corridoio di 15 m di larghezza</td><td>7 / 10</td></tr>
-        <tr><td>Orologio</td><td>Gioco in green</td><td>8 posizioni a 2 m attorno alla buca, poi 8 a 4 m</td><td>7/8 e 4/8</td></tr>
+        <tr><td>Corridoio</td><td>Precisione dal tee</td><td>10 tiri di partenza dentro un corridoio di 15 m di larghezza</td><td>7 / 10</td></tr>
+        <tr><td>Orologio</td><td>Calcio raso in green</td><td>8 posizioni a 2 m attorno alla buca, poi 8 a 4 m</td><td>7/8 e 4/8</td></tr>
         <tr><td>Up &amp; down</td><td>Recupero del par</td><td>9 lie diversi fuori green, si chiude la buca</td><td>5 / 9</td></tr>
-        <tr><td>Buca sporca</td><td>Gestione del lie difficile</td><td>Pallone posizionato dal coach in rough, pendenza, sabbia</td><td>Nessun colpo perso oltre uno</td></tr>
+        <tr><td>Buca sporca</td><td>Gestione del lie difficile</td><td>Pallone posizionato dal coach in erba alta, pendenza, sabbia</td><td>Nessun colpo perso oltre uno</td></tr>
         <tr><td>Ultima buca</td><td>Pressione</td><td>Un solo colpo, un solo tentativo, con gruppo che osserva</td><td>Esecuzione della routine completa</td></tr>
         <tr><td>Vento contrario</td><td>Adattamento</td><td>Stesse distanze della scala, con vento reale o simulato</td><td>Scarto massimo 10% dalle distanze base</td></tr>
         <tr><td>Nove decisioni</td><td>Strategia</td><td>9 buche in cui il coach chiede il piano prima di ogni colpo</td><td>Piano dichiarato e rispettato 8 / 9</td></tr>
