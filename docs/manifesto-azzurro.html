@@ -1,0 +1,273 @@
+<title>Manifesto Azzurro</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root{
+  --ink:#12202B;
+  --ink-soft:#3E5666;
+  --paper:#F6F7F5;
+  --surface:#FFFFFF;
+  --line:#D8DFDA;
+  --azzurro:#1669B4;
+  --azzurro-lt:#E7F0F9;
+  --campo:#2C6B4C;
+  --campo-lt:#E6F0EA;
+  --sabbia:#B58A2B;
+  --sabbia-lt:#F7EFDC;
+  --rosso:#A6362F;
+  --shadow:0 1px 2px rgba(18,32,43,.06), 0 8px 24px -16px rgba(18,32,43,.35);
+  --display:"Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  --body:"Barlow", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E8EEF2; --ink-soft:#A3B4C0; --paper:#0E181F; --surface:#16232C;
+    --line:#2B3B46; --azzurro:#63A9E8; --azzurro-lt:#132B3F; --campo:#6FBF95;
+    --campo-lt:#122A20; --sabbia:#D9B463; --sabbia-lt:#2C2413; --rosso:#E08A83;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E8EEF2; --ink-soft:#A3B4C0; --paper:#0E181F; --surface:#16232C;
+  --line:#2B3B46; --azzurro:#63A9E8; --azzurro-lt:#132B3F; --campo:#6FBF95;
+  --campo-lt:#122A20; --sabbia:#D9B463; --sabbia-lt:#2C2413; --rosso:#E08A83;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.9);
+}
+
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px;padding-block:0 72px;}
+
+/* ---- copertina ---- */
+.cover{background:var(--azzurro);color:#fff;margin-inline:-20px;padding:44px 20px 36px;}
+.cover-in{max-width:880px;margin:0 auto;}
+.crest{display:flex;align-items:center;gap:12px;font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600;opacity:.92;}
+.crest .bars{display:flex;height:14px;width:30px;border-radius:2px;overflow:hidden;}
+.crest .bars i{flex:1;}
+.crest .bars i:nth-child(1){background:#2C6B4C}
+.crest .bars i:nth-child(2){background:#fff}
+.crest .bars i:nth-child(3){background:#A6362F}
+h1{font-family:var(--display);font-size:clamp(38px,8vw,66px);line-height:.95;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin:18px 0 10px;text-wrap:balance;}
+.cover p.lead{font-size:17px;max-width:54ch;opacity:.95;margin:0 0 22px;}
+.cover-meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:12.5px;border-top:1px solid rgba(255,255,255,.35);padding-top:14px;}
+.cover-meta b{display:block;font-weight:700;letter-spacing:.06em;font-size:14px;}
+
+/* ---- struttura ---- */
+section{margin-top:52px;scroll-margin-top:20px;}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:600;color:var(--azzurro);margin:0 0 6px;}
+h2{font-family:var(--display);font-size:clamp(26px,4.4vw,36px);font-weight:700;text-transform:uppercase;line-height:1.02;margin:0 0 6px;text-wrap:balance;}
+h3{font-family:var(--display);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;margin:26px 0 8px;}
+h4{font-family:var(--display);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin:18px 0 6px;color:var(--ink-soft);}
+p{margin:0 0 12px;max-width:68ch;}
+.rule{height:3px;background:var(--ink);width:56px;margin:0 0 18px;}
+ul,ol{margin:0 0 14px;padding-left:20px;max-width:68ch;}
+li{margin-bottom:5px;}
+.small{font-size:13.5px;color:var(--ink-soft);}
+
+/* ---- indice ---- */
+nav.toc{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px 20px;margin-top:30px;box-shadow:var(--shadow);}
+nav.toc ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 24px;max-width:none;}
+nav.toc a{color:var(--ink);text-decoration:none;font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:14.5px;display:flex;gap:10px;padding:3px 0;border-bottom:1px solid transparent;}
+nav.toc a:hover{border-bottom-color:var(--azzurro);color:var(--azzurro);}
+nav.toc span.n{color:var(--azzurro);font-weight:700;font-variant-numeric:tabular-nums;}
+
+/* ---- agenda ---- */
+.agenda{border-top:2px solid var(--ink);}
+.agenda .row{display:grid;grid-template-columns:86px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);}
+.agenda time{font-family:var(--display);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums;color:var(--azzurro);}
+.agenda .who{font-size:13px;color:var(--ink-soft);}
+.agenda strong{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:17px;font-weight:600;display:block;}
+
+/* ---- schede ruolo ---- */
+.role{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--azzurro);border-radius:3px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow);}
+.role.campo{border-left-color:var(--campo);}
+.role.sabbia{border-left-color:var(--sabbia);}
+.role-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px;}
+.role h3{margin:0;}
+.tag{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:2px;background:var(--azzurro-lt);color:var(--azzurro);white-space:nowrap;}
+.tag.campo{background:var(--campo-lt);color:var(--campo);}
+.tag.sabbia{background:var(--sabbia-lt);color:var(--sabbia);}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 28px;}
+.grid2 h4{margin-top:14px;}
+
+/* ---- tabelle / schede di campo ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface);margin-bottom:8px;box-shadow:var(--shadow);}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:13.5px;}
+caption{caption-side:top;text-align:left;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:13px;font-weight:600;padding:12px 14px 8px;color:var(--ink);}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{background:var(--azzurro-lt);color:var(--azzurro);font-family:var(--display);text-transform:uppercase;letter-spacing:.07em;font-size:12.5px;font-weight:600;border-bottom:1px solid var(--line);}
+tbody tr:last-child td{border-bottom:0;}
+td.num,th.num{font-variant-numeric:tabular-nums;text-align:center;width:58px;}
+.fill{color:var(--ink-soft);letter-spacing:.14em;}
+.legend{font-size:12.5px;color:var(--ink-soft);margin:6px 0 0;}
+
+/* ---- callout ---- */
+.note{background:var(--campo-lt);border:1px solid var(--line);border-radius:3px;padding:14px 16px;margin:14px 0;}
+.note p:last-child{margin-bottom:0;}
+.note .lbl{font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;font-weight:700;color:var(--campo);display:block;margin-bottom:4px;}
+
+/* ---- indicatori ---- */
+.ind{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow);}
+.ind-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:6px;}
+.ind-head h4{margin:0;color:var(--ink);font-size:19px;letter-spacing:.03em;}
+.ind-head .soglia{font-family:var(--display);font-weight:700;font-size:20px;color:var(--azzurro);font-variant-numeric:tabular-nums;margin-left:auto;white-space:nowrap;}
+.ind-head .src{font-family:var(--display);text-transform:uppercase;letter-spacing:.09em;font-size:11px;font-weight:600;color:var(--sabbia);background:var(--sabbia-lt);padding:2px 8px;border-radius:2px;}
+.ind dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 14px;font-size:13.5px;}
+.ind dt{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;font-weight:600;color:var(--ink-soft);padding-top:3px;}
+.ind dd{margin:0;}
+
+/* ---- kpi ---- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0;}
+.kpi{border-top:3px solid var(--sabbia);padding-top:10px;}
+.kpi b{display:block;font-family:var(--display);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;}
+.kpi span{font-size:13px;color:var(--ink-soft);}
+
+
+/* ---- griglia squadre ---- */
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:18px 0;}
+.team{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:14px 16px;box-shadow:var(--shadow);border-top:4px solid var(--azzurro);}
+.team h4{margin:0 0 2px;color:var(--ink);font-size:19px;letter-spacing:.04em;}
+.team .age{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--azzurro);display:block;margin-bottom:8px;font-weight:600;}
+.team p{font-size:13.5px;margin:0;color:var(--ink-soft);}
+/* ---- kit / colori ---- */
+.kit{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:16px 0 10px;}
+.swatch{display:flex;flex-direction:column;gap:6px;font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;color:var(--ink-soft);}
+.swatch i{display:block;width:74px;height:44px;border-radius:2px;border:1px solid var(--line);}
+.creed{border-left:4px solid var(--azzurro);padding:2px 0 2px 16px;margin:18px 0;}
+.creed p{font-family:var(--display);text-transform:uppercase;font-size:clamp(18px,3vw,24px);line-height:1.15;font-weight:600;letter-spacing:.01em;max-width:24ch;margin:0;}
+
+footer{margin-top:56px;border-top:2px solid var(--ink);padding-top:14px;font-size:13px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;}
+
+@media print{
+  body{background:#fff;font-size:11.5pt;}
+  .cover{background:#1669B4 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  section{break-inside:auto;}
+  .role,.tablewrap,.note{break-inside:avoid;box-shadow:none;}
+  h2{break-after:avoid;}
+  nav.toc{display:none;}
+}
+
+/* ---- trattamento editoriale del manifesto ---- */
+.wrap{max-width:760px;}
+.intro{font-size:18.5px;line-height:1.5;max-width:60ch;}
+.intro strong{font-weight:600;}
+blockquote{margin:26px 0;padding:0 0 0 20px;border-left:4px solid var(--azzurro);}
+blockquote p{font-family:var(--display);text-transform:uppercase;font-size:clamp(20px,3.4vw,28px);line-height:1.12;font-weight:600;max-width:22ch;margin:0;}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:22px 0;}
+.pillar{border-top:3px solid var(--azzurro);padding-top:12px;}
+.pillar h4{margin:0 0 4px;color:var(--ink);font-size:18px;letter-spacing:.03em;}
+.pillar p{font-size:14px;color:var(--ink-soft);margin:0;}
+.firma{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft);}
+</style>
+<div class="wrap">
+
+<header class="cover">
+  <div class="cover-in">
+    <div class="crest"><span class="bars"><i></i><i></i><i></i></span> Nazionale Italiana Footgolf</div>
+    <h1>Manifesto Azzurro</h1>
+    <p class="lead">Chi siamo, come stiamo insieme, dove vogliamo arrivare. Il documento di presentazione della Nazionale Italiana Footgolf e del suo staff tecnico.</p>
+    <div class="cover-meta">
+      <span>Squadre<b>Men &middot; Senior &middot; Senior Plus &middot; Women &middot; Junior</b></span>
+      <span>Stagione<b>2026</b></span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow">Perch&eacute; siamo qui</p>
+  <h2>Una maglia, un progetto</h2>
+  <div class="rule"></div>
+  <p class="intro">La Nazionale non &egrave; la somma dei migliori risultati individuali del campionato. &Egrave; un progetto: un modo di giocare, un modo di allenarsi e un modo di stare insieme che riconosci da fuori, prima ancora di guardare il punteggio.</p>
+  <p>Per anni il footgolf italiano ha corso sulle gambe della passione dei singoli. &Egrave; stato giusto cos&igrave;, ed &egrave; il motivo per cui oggi esistiamo. Ma la passione porta fino a un certo punto: oltre quel punto servono un metodo condiviso, uno staff che parla la stessa lingua e un gruppo che regge nei momenti in cui il risultato non arriva.</p>
+  <p>Questo &egrave; il salto che facciamo adesso. Non chiediamo ai nostri atleti di essere pi&ugrave; bravi: chiediamo a noi stessi di costruire le condizioni perch&eacute; possano esserlo.</p>
+  <blockquote><p>Si parte insieme, si sta insieme, si torna insieme.</p></blockquote>
+</section>
+
+<section>
+  <p class="eyebrow">L'insieme</p>
+  <h2>Una Nazionale, cinque squadre</h2>
+  <div class="rule"></div>
+  <p>Men, Senior, Senior Plus, Women e Junior non sono cinque mondi separati che condividono uno stemma. Sono cinque squadre della stessa Nazionale. Cambiano l'et&agrave;, il carico di lavoro, la distanza dal tee. Non cambiano il metodo, non cambiano le regole di comportamento, non cambiano i colori.</p>
+  <div class="pillars">
+    <div class="pillar"><h4>Men</h4><p>La squadra di riferimento del movimento: &egrave; qui che si misura il livello a cui tutti puntiamo.</p></div>
+    <div class="pillar"><h4>Women</h4><p>Pari dignit&agrave; e pari risorse. Stesse ore di raduno, stesso staff, stessi campi. Nessuna concessione, nessuna vetrina.</p></div>
+    <div class="pillar"><h4>Senior</h4><p>Dove l'esperienza diventa vantaggio competitivo, e i riferimenti di comportamento per i pi&ugrave; giovani.</p></div>
+    <div class="pillar"><h4>Senior Plus</h4><p>La dimostrazione che precisione e continuit&agrave; battono la potenza, su qualsiasi percorso.</p></div>
+    <div class="pillar"><h4>Junior</h4><p>Il futuro che costruiamo oggi. Ogni Junior convocato cammina accanto a un atleta esperto per tutta la trasferta.</p></div>
+  </div>
+  <p>La conseguenza pratica &egrave; una sola, e la prendiamo sul serio: <strong>i raduni si fanno insieme</strong>, nella stessa sede e negli stessi giorni, ogni volta che &egrave; possibile. Le sedute tecniche possono dividersi per squadra, ma la colazione, il briefing di apertura, la cena e il debriefing finale sono di tutti. Il gruppo non nasce dalle dichiarazioni: nasce a tavola, sul pullman, nell'attesa sotto la pioggia.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Identit&agrave;</p>
+  <h2>Si vince da gruppo</h2>
+  <div class="rule"></div>
+  <p>Nel footgolf si gioca da soli ma si vince da squadra. Nel match play il punto lo porta la coppia. Nell'individuale il risultato di squadra &egrave; la somma di chi non molla la buca diciassette quando il torneo &egrave; ormai perso. Per questo l'appartenenza non &egrave; un discorso da riunione: &egrave; un fattore di prestazione, e come tale la alleniamo.</p>
+
+  <h3>Una sola divisa</h3>
+  <p>Una divisa per tutti: stessa maglia, stessi pantaloni, stesso cappello, stesso sacco, dal Junior al Senior Plus, dalla squadra Women alla squadra Men. Nessuna variante per categoria, nessun capo personale in gara, nessuna sponsorizzazione individuale sull'azzurro.</p>
+  <div class="kit">
+    <div class="swatch"><i style="background:#1669B4"></i>Azzurro</div>
+    <div class="swatch"><i style="background:#12202B"></i>Blu notte</div>
+    <div class="swatch"><i style="background:#FFFFFF;border-color:#C8D2CC"></i>Bianco</div>
+    <div class="swatch"><i style="background:#2C6B4C"></i>Verde</div>
+    <div class="swatch"><i style="background:#A6362F"></i>Rosso</div>
+  </div>
+  <p>Si arriva al campo gi&agrave; in divisa completa e si resta in divisa fino alla fine della premiazione. Anche chi quel giorno non gioca. Soprattutto chi quel giorno non gioca.</p>
+
+  <h3>Come stiamo al mondo</h3>
+  <p>Si viaggia insieme, si alloggia insieme, si mangia insieme. Chi non gioca &egrave; comunque in campo: segue i compagni, porta l'acqua, riporta i dati. Da noi non esistono riserve, esistono ruoli diversi nella stessa giornata.</p>
+  <p>Il risultato di un compagno si commenta soltanto davanti a lui. Si applaude il buon colpo dell'avversario. Si perde e si vince con la stessa faccia. Il campo si lascia meglio di come lo si &egrave; trovato, e al personale del circolo si dice grazie: la reputazione &egrave; ci&ograve; che, l'anno dopo, ci apre le porte dei campi migliori.</p>
+  <p>Nessuno nasconde un acciacco per non perdere il posto, perch&eacute; un infortunio taciuto non danneggia chi lo tace: danneggia la squadra. E nessuno parla a nome della Nazionale all'esterno se non chi ne ha il mandato.</p>
+</section>
+
+<section>
+  <p class="eyebrow">L'ambiente</p>
+  <h2>I campi che ci fanno crescere</h2>
+  <div class="rule"></div>
+  <p>Non si raggiungono standard internazionali allenandosi su percorsi che non li riproducono. La scelta delle sedi, per noi, non &egrave; una questione logistica: &egrave; una scelta tecnica. Il livello del campo &egrave; il primo allenatore che incontriamo.</p>
+  <p>Cerchiamo percorsi esigenti: diciotto buche vere, con par 5 che obbligano al colpo lungo sotto pressione, green curati dove la velocit&agrave; &egrave; costante e le pendenze si devono saper leggere, buche difese da bunker e acqua che costringono a scegliere invece che a calciare e basta, dislivello che mette alla prova le gambe dalla buca tredici in poi, e vento che obbliga a ricalcolare ogni distanza.</p>
+  <blockquote><p>Meglio tre raduni veri che sei approssimativi.</p></blockquote>
+  <p>&Egrave; un criterio che costa, e lo sappiamo. Ma se il budget non permette la fascia alta per tutti i raduni, riduciamo il numero dei raduni, non il livello del percorso. Allenarsi sul comodo prepara al comodo, e ai campionati internazionali non ci aspetta nulla di comodo.</p>
+</section>
+
+<section>
+  <p class="eyebrow">Lo staff</p>
+  <h2>Chi cammina accanto agli atleti</h2>
+  <div class="rule"></div>
+  <p>Uno staff funziona quando ciascuno sa dove finisce il proprio perimetro. Il principio che abbiamo preso dal golf di alto livello e dal calcio professionistico &egrave; semplice: <strong>chi osserva non allena, chi allena non seleziona da solo, chi decide lo fa su dati che altri hanno raccolto</strong>.</p>
+  <div class="pillars">
+    <div class="pillar"><h4>Il Selezionatore</h4><p>Guarda. Segue i giocatori sul territorio per giri interi, in contesti diversi, e propone. Non promette convocazioni e non corregge il gesto: porta evidenze, non impressioni.</p></div>
+    <div class="pillar"><h4>L'Head Coach</h4><p>Decide e risponde delle scelte. Custodisce il modo di giocare della Nazionale e garantisce che le cinque squadre lavorino con lo stesso metodo e le stesse risorse.</p></div>
+    <div class="pillar"><h4>Il Coach sul campo</h4><p>Cammina con l'atleta. Fornisce dati, non giudizi; lavora sul colpo successivo, mai su quello appena sbagliato. In gara si gestisce, si corregge in allenamento.</p></div>
+    <div class="pillar"><h4>Il Match Analyst</h4><p>Misura. Trasforma quello che accade in campo in numeri leggibili, e consegna all'atleta tre informazioni prima del giro, non trenta.</p></div>
+    <div class="pillar"><h4>Il Preparatore</h4><p>Costruisce le gambe che reggono diciotto buche con dislivello, e le protegge. Il carico si adatta all'et&agrave;, il rigore no.</p></div>
+    <div class="pillar"><h4>Il Mental Coach</h4><p>Allena ci&ograve; che accade fra un colpo e l'altro: la routine, il reset dopo l'errore, l'attesa. I colloqui restano riservati.</p></div>
+    <div class="pillar"><h4>Il Team Manager</h4><p>Tiene insieme la trasferta e custodisce le regole del gruppo. &Egrave; l'unica voce ufficiale verso gli atleti sulle convocazioni.</p></div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">La strada</p>
+  <h2>Come si diventa azzurri</h2>
+  <div class="rule"></div>
+  <p>Nessuno entra in Nazionale per simpatia, e nessuno ne esce per una giornata storta. Un giocatore viene osservato pi&ugrave; volte, su percorsi diversi, da chi ha il compito di guardare e il dovere di scrivere quello che ha visto. Poi viene messo alla prova in raduno, accanto agli altri. Poi ancora in una gara a coppie, perch&eacute; il match play dice di un atleta cose che nessun punteggio individuale racconta.</p>
+  <p>Solo alla fine arriva la convocazione, e quando una scelta &egrave; incerta viene motivata per iscritto a chi resta fuori. Chi non viene convocato ha diritto di sapere perch&eacute;, e di sapere su cosa lavorare per esserci la volta successiva.</p>
+  <p>Vale anche al contrario: la maglia non &egrave; una propriet&agrave; acquisita. Si conferma ogni stagione, sul campo e nel comportamento.</p>
+</section>
+
+<section>
+  <p class="eyebrow">L'impegno</p>
+  <h2>Quello che ci chiediamo</h2>
+  <div class="rule"></div>
+  <p>Agli atleti chiediamo di presentarsi preparati, di dire la verit&agrave; sulla propria condizione, di trattare il compagno pi&ugrave; giovane come avrebbero voluto essere trattati, e di non mollare mai una buca finch&eacute; c'&egrave; un colpo da giocare.</p>
+  <p>A noi dello staff chiediamo qualcosa di pi&ugrave; difficile: di essere prevedibili. Stesso metodo a gennaio e a settembre, stessi criteri per la squadra Men e per la squadra Junior, stesse parole in riunione e fuori. Un gruppo si fida di chi non cambia le regole a met&agrave; strada.</p>
+  <blockquote><p>Puntiamo a vincere. Ma soprattutto a essere una squadra che vale la pena guardare.</p></blockquote>
+  <div class="firma">Nazionale Italiana Footgolf &middot; Area Tecnica &middot; Stagione 2026</div>
+</section>
+
+<footer>
+  <span>Nazionale Italiana Footgolf &middot; Men &middot; Senior &middot; Senior Plus &middot; Women &middot; Junior</span>
+  <span>Manifesto Azzurro</span>
+</footer>
+
+</div>
