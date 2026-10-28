@@ -10,7 +10,7 @@
   "aree": [
     { "id": "A", "nome": "Stampa e comunicazione", "claim": "Pieghevoli, flyer e fiches personalizzate per i giocatori." },
     { "id": "B", "nome": "Allestimento del campo", "claim": "Bandiere, pannelli di buca e partenze: il percorso vestito AIFG." },
-    { "id": "C", "nome": "Immagine e presentazione", "claim": "Wall per le foto, proiezione e tavolo della presentazione AIFG." },
+    { "id": "C", "nome": "Immagine, media e presentazione", "claim": "Wall per le foto, drone, proiezione e tavolo della presentazione AIFG." },
     { "id": "D", "nome": "Punto ristoro", "claim": "Tavoli e tovaglie per l'area di accoglienza e ristoro." }
   ],
 
@@ -19,6 +19,7 @@
     "Scegliere fra pieghevole A4 (€ 71,65) e A3 (€ 125,90).",
     "Decidere se attivare le mini vele di partenza (€ 2.000).",
     "Confermare il numero di tavoli per il ristoro e quante bandiere comprende la fornitura golflags.eu.",
+    "Scegliere il drone fra DJI Mini 4 Pro e Mini 5 Pro (€ 400–700) e chi lo pilota durante la diretta.",
     "Trattare il prezzo delle fiches, oggi € 1,20 l'una.",
     "Fissare con ogni fornitore la data ultima d'ordine per avere tutto prima del 14 novembre."
   ],
@@ -146,6 +147,17 @@
     },
     {
       "n": 11, "area": "C",
+      "nome": "Drone per riprese e diretta live",
+      "desc": "DJI Mini 4 Pro o Mini 5 Pro per riprese aeree e diretta streaming della tappa.",
+      "fornitore": "",
+      "qta": 1, "unita": "pz",
+      "prezzo": 700.00,
+      "iva": "",
+      "stato": "Stima", "nelTotale": true,
+      "note": "€ 400–700 secondo modello e kit: messo il massimo per prudenza."
+    },
+    {
+      "n": 12, "area": "C",
       "nome": "Tovaglia tavolo presentazione AIFG",
       "desc": "Tovaglia personalizzata per il tavolo della presentazione AIFG.",
       "fornitore": "",
@@ -156,7 +168,7 @@
       "note": "Prezzo da richiedere."
     },
     {
-      "n": 12, "area": "D",
+      "n": 13, "area": "D",
       "nome": "Tavoli pieghevoli",
       "desc": "Tavolo pieghevole 180 × 70 × 74 cm, bianco.",
       "fornitore": "",
@@ -167,7 +179,7 @@
       "note": "€ 37 a tavolo. Quantità di 4 ipotizzata: da confermare."
     },
     {
-      "n": 13, "area": "D",
+      "n": 14, "area": "D",
       "nome": "Tovaglie tavoli ristoro",
       "desc": "Tovaglie per i tavoli del punto ristoro.",
       "fornitore": "",

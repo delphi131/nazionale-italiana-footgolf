@@ -219,10 +219,10 @@ body {
 
 /* ---------- Schede voce (pagine 3–5) ---------- */
 
-.area-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.area-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
 .area-head .h2 { display: flex; align-items: baseline; gap: 12px; }
 
-.voci { display: flex; flex-direction: column; gap: 10px; }
+.voci { display: flex; flex-direction: column; gap: 8px; }
 .voce {
   display: grid; grid-template-columns: 40mm 1fr 45mm; gap: 14px;
   padding: 12px; border-radius: 20px;
@@ -316,7 +316,7 @@ body {
   font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
   color: var(--on-light-3); border-bottom: 1px solid rgba(10,12,10,.24);
 }
-.tab td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
+.tab td { padding: 3px 8px 3px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
 .tab .r { text-align: right; }
 .tab__n { width: 26px; font-weight: 800; color: var(--blue); }
 .tab__voce b { font-size: 11.5px; font-weight: 800; letter-spacing: -.015em; display: block; }
@@ -403,8 +403,8 @@ body {
           quantità, prezzo, stato del preventivo e lo spazio per foto e link del fornitore.
         </p>
         <div class="cover__fatti">
-          <div><b data-k="totBase">€ 2.182,65</b><span>Totale base</span></div>
-          <div><b data-k="nVoci">13</b><span>Voci di spesa in 4 aree</span></div>
+          <div><b data-k="totBase">€ 2.882,65</b><span>Totale base</span></div>
+          <div><b data-k="nVoci">14</b><span>Voci di spesa in 4 aree</span></div>
           <div><b data-k="nDef">4</b><span>Voci ancora da quotare</span></div>
         </div>
       </div>
@@ -435,9 +435,9 @@ body {
       </div>
 
       <div class="kpis">
-        <div class="kpi"><b data-k="totBase">€ 2.182,65</b><span>Totale base</span></div>
+        <div class="kpi"><b data-k="totBase">€ 2.882,65</b><span>Totale base</span></div>
         <div class="kpi kpi--muted"><b data-k="totOpz">€ 2.000</b><span>Opzionali · mini vele di partenza</span></div>
-        <div class="kpi kpi--muted"><b data-k="totCon">€ 4.182,65</b><span>Totale con opzionali</span></div>
+        <div class="kpi kpi--muted"><b data-k="totCon">€ 4.882,65</b><span>Totale con opzionali</span></div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:10px">
@@ -477,14 +477,14 @@ body {
   <div class="area-row">
     <span class="area-row__id">C</span>
     <div class="area-row__txt">
-      <span class="area-row__nome">Immagine e presentazione <small>3 voci</small></span>
+      <span class="area-row__nome">Immagine, media e presentazione <small>4 voci</small></span>
       <div class="bar">
-        <u style="width:22.306176084099867%"></u>
-        <i style="width:22.306176084099867%"></i>
+        <u style="width:45.302233902759525%"></u>
+        <i style="width:45.302233902759525%"></i>
       </div>
     </div>
     <div class="area-row__eur">
-      <b>€ 679</b>
+      <b>€ 1.379</b>
       <span>&nbsp;</span>
     </div>
   </div>
@@ -511,9 +511,9 @@ body {
     <ul><li>Flyer promozioni</li><li>Partenze forex Women e Junior</li><li>Tovaglia tavolo presentazione AIFG</li><li>Tovaglie tavoli ristoro</li></ul>
   </div>
   <div class="dcard">
-    <span class="dcard__k">2</span>
+    <span class="dcard__k">3</span>
     <h3>Stime da confermare</h3>
-    <ul><li>Telo per videoproiettore — Prezzo fra € 80 e € 100: messo il massimo per prudenza.</li><li>Tavoli pieghevoli — € 37 a tavolo. Quantità di 4 ipotizzata: da confermare.</li></ul>
+    <ul><li>Telo per videoproiettore — Prezzo fra € 80 e € 100: messo il massimo per prudenza.</li><li>Drone per riprese e diretta live — € 400–700 secondo modello e kit: messo il massimo per prudenza.</li><li>Tavoli pieghevoli — € 37 a tavolo. Quantità di 4 ipotizzata: da confermare.</li></ul>
   </div>
   <div class="dcard">
     <span class="dcard__k">+€ 54,25</span>
@@ -769,8 +769,8 @@ body {
     <div class="pbody">
     <div class="area-head">
       <span class="eyebrow">Area C</span>
-      <h2 class="h2">Immagine e presentazione.</h2>
-      <p class="lead" style="font-size:12.5px">Wall per le foto, proiezione e tavolo della presentazione AIFG.</p>
+      <h2 class="h2">Immagine, media e presentazione.</h2>
+      <p class="lead" style="font-size:12.5px">Wall per le foto, drone, proiezione e tavolo della presentazione AIFG.</p>
     </div>
     <div class="voci">
   <article class="voce">
@@ -826,6 +826,30 @@ body {
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">11</span>
+        <span class="voce__nome">Drone per riprese e diretta live</span>
+        <span class="chip chip--stima">Stima</span>
+      </div>
+      <p class="voce__desc">DJI Mini 4 Pro o Mini 5 Pro per riprese aeree e diretta streaming della tappa.</p>
+      <p class="voce__note">€ 400–700 secondo modello e kit: messo il massimo per prudenza.</p>
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 700,00</b></div>
+      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 700</b></div>
+    </div>
+  </article>
+  <article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">12</span>
         <span class="voce__nome">Tovaglia tavolo presentazione AIFG</span>
         <span class="chip chip--da-definire">Da definire</span>
       </div>
@@ -845,7 +869,7 @@ body {
       <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
   </article></div>
-    <div class="subtot"><span>Totale area C</span><div><b>€ 679</b></div></div></div>
+    <div class="subtot"><span>Totale area C</span><div><b>€ 1.379</b></div></div></div>
     <footer class="pfoot">
       <span class="micro">Piano di spesa · Tappa Zero</span>
       <span class="micro">14–15 Novembre 2026</span>
@@ -868,7 +892,7 @@ body {
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">12</span>
+        <span class="voce__n">13</span>
         <span class="voce__nome">Tavoli pieghevoli</span>
         <span class="chip chip--stima">Stima</span>
       </div>
@@ -892,7 +916,7 @@ body {
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">13</span>
+        <span class="voce__n">14</span>
         <span class="voce__nome">Tovaglie tavoli ristoro</span>
         <span class="chip chip--da-definire">Da definire</span>
       </div>
@@ -916,7 +940,7 @@ body {
   <div class="passi">
     <span class="eyebrow">Prima di ordinare</span>
     <h3 class="h3">Prossimi passi.</h3>
-    <ol><li><i></i><span>Richiedere il preventivo per flyer promozioni, partenze forex Women e Junior, tovaglia del tavolo presentazione e tovaglie del ristoro.</span></li><li><i></i><span>Scegliere fra pieghevole A4 (€ 71,65) e A3 (€ 125,90).</span></li><li><i></i><span>Decidere se attivare le mini vele di partenza (€ 2.000).</span></li><li><i></i><span>Confermare il numero di tavoli per il ristoro e quante bandiere comprende la fornitura golflags.eu.</span></li><li><i></i><span>Trattare il prezzo delle fiches, oggi € 1,20 l'una.</span></li><li><i></i><span>Fissare con ogni fornitore la data ultima d'ordine per avere tutto prima del 14 novembre.</span></li></ol>
+    <ol><li><i></i><span>Richiedere il preventivo per flyer promozioni, partenze forex Women e Junior, tovaglia del tavolo presentazione e tovaglie del ristoro.</span></li><li><i></i><span>Scegliere fra pieghevole A4 (€ 71,65) e A3 (€ 125,90).</span></li><li><i></i><span>Decidere se attivare le mini vele di partenza (€ 2.000).</span></li><li><i></i><span>Confermare il numero di tavoli per il ristoro e quante bandiere comprende la fornitura golflags.eu.</span></li><li><i></i><span>Scegliere il drone fra DJI Mini 4 Pro e Mini 5 Pro (€ 400–700) e chi lo pilota durante la diretta.</span></li><li><i></i><span>Trattare il prezzo delle fiches, oggi € 1,20 l'una.</span></li><li><i></i><span>Fissare con ogni fornitore la data ultima d'ordine per avere tutto prima del 14 novembre.</span></li></ol>
   </div></div>
     <footer class="pfoot">
       <span class="micro">Piano di spesa · Tappa Zero</span>
@@ -1029,6 +1053,14 @@ body {
   </tr>
   <tr class="">
     <td class="tab__n">11</td>
+    <td class="tab__voce"><b>Drone per riprese e diretta live</b><small>Area C</small></td>
+    <td class="r" data-k="Q.tà">1 pz</td>
+    <td class="r" data-k="Unit.">€ 700,00</td>
+    <td class="r tab__eur" data-k="Totale">€ 700,00</td>
+    <td><span class="chip chip--stima">Stima</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">12</td>
     <td class="tab__voce"><b>Tovaglia tavolo presentazione AIFG</b><small>Area C</small></td>
     <td class="r" data-k="Q.tà">1 pz</td>
     <td class="r" data-k="Unit.">—</td>
@@ -1036,7 +1068,7 @@ body {
     <td><span class="chip chip--da-definire">Da definire</span></td>
   </tr>
   <tr class="">
-    <td class="tab__n">12</td>
+    <td class="tab__n">13</td>
     <td class="tab__voce"><b>Tavoli pieghevoli</b><small>Area D</small></td>
     <td class="r" data-k="Q.tà">4 pz</td>
     <td class="r" data-k="Unit.">€ 37,00</td>
@@ -1044,7 +1076,7 @@ body {
     <td><span class="chip chip--stima">Stima</span></td>
   </tr>
   <tr class="">
-    <td class="tab__n">13</td>
+    <td class="tab__n">14</td>
     <td class="tab__voce"><b>Tovaglie tavoli ristoro</b><small>Area D</small></td>
     <td class="r" data-k="Q.tà">4 pz</td>
     <td class="r" data-k="Unit.">—</td>
@@ -1052,9 +1084,9 @@ body {
     <td><span class="chip chip--da-definire">Da definire</span></td>
   </tr></tbody>
         <tfoot id="tabfoot">
-  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">€ 2.182,65</td></tr>
+  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">€ 2.882,65</td></tr>
   <tr><td></td><td class="lbl" colspan="3">Opzionali (mini vele)</td><td class="r tot" colspan="2">€ 2.000,00</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">€ 4.182,65</td></tr></tfoot>
+  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">€ 4.882,65</td></tr></tfoot>
       </table>
 
       <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px" data-k="notaIva">Pieghevoli: prezzo IVA compresa da preventivo. Per le altre voci l'IVA è da verificare con il fornitore. Le righe in grigio sono fuori dal totale base.</p>
