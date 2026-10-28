@@ -6,8 +6,8 @@ Gavorrano (GR). Stesso stile della brochure sponsor AIFG (repository `AIFGSITE`,
 
 | File | Cos'è |
 | --- | --- |
-| `dist/piano-spesa-tappa-zero-2026.xlsx` | **Il foglio di lavoro.** 14 voci: descrizione, quantità, prezzo, totale, stato, link e cella per la foto. Totali e riepilogo per area sono formule. |
-| `dist/piano-spesa-tappa-zero-2026.pdf` | **Il documento da condividere.** 7 pagine A4: copertina, sintesi, una scheda per voce con spazio foto e link, riepilogo con firme. |
+| `dist/piano-spesa-tappa-zero-2026.xlsx` | **Il foglio di lavoro.** 15 voci: descrizione, quantità, prezzo, totale, stato, link e cella per la foto. Totali e riepilogo per area sono formule. |
+| `dist/piano-spesa-tappa-zero-2026.pdf` | **Il documento da condividere.** 7 pagine A4: copertina, sintesi con la ripartizione per area, una scheda per voce con spazio foto e link, riepilogo con firme. |
 | `dist/piano-spesa-tappa-zero-2026.html` | Versione web autonoma del PDF. |
 | `voci.json` | **Unica fonte dei dati**, letta da entrambi i generatori. |
 | `piano.body.html` / `genera.mjs` | Sorgente e generatore del PDF (ricalcati sulla brochure sponsor). |
@@ -33,7 +33,7 @@ L'Excel si può anche aggiornare a mano: i totali si ricalcolano da soli.
 | Opzionale | voce eventuale | no |
 | Alternativa | in alternativa a un'altra voce | no |
 
-**Totale base € 2.882,65** · opzionali € 2.000 (mini vele) · totale con opzionali € 4.882,65 ·
+**Totale base € 3.182,65** · opzionali € 2.000 (mini vele) · totale con opzionali € 5.182,65 ·
 4 voci da quotare (flyer, partenze forex Women/Junior, tovaglia presentazione, tovaglie ristoro).
 
 ## Ipotesi da confermare

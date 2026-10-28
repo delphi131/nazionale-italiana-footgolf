@@ -194,18 +194,6 @@ body {
 .legenda-bar i { width: 18px; height: 7px; border-radius: 999px; background: linear-gradient(90deg, #0072CE, #4FB3F0); }
 .legenda-bar u { width: 18px; height: 7px; border-radius: 999px; background: repeating-linear-gradient(135deg, rgba(79,179,240,.45) 0 4px, rgba(79,179,240,.15) 4px 8px); }
 
-.dcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.dcard {
-  display: flex; flex-direction: column; gap: 7px;
-  padding: 16px; border-radius: 18px;
-  background: var(--card); border: 1px solid var(--line-dark);
-}
-.dcard h3 { margin: 0; font-size: 14px; font-weight: 900; letter-spacing: -.02em; }
-.dcard ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
-.dcard li { font-size: 10.5px; line-height: 1.45; color: var(--on-dark-2); padding-left: 13px; position: relative; }
-.dcard li::before { content: ""; position: absolute; left: 0; top: 5px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--blue-lite); }
-.dcard__k { font-size: 26px; font-weight: 900; letter-spacing: -.04em; color: var(--blue-lite); line-height: 1; }
-
 /* ---------- Schede voce (pagine 3–5) ---------- */
 
 .area-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
@@ -282,21 +270,6 @@ body {
 .subtot b { font-size: 20px; font-weight: 900; letter-spacing: -.03em; color: var(--blue-lite); font-variant-numeric: tabular-nums; }
 .subtot small { font-size: 10px; font-weight: 600; color: var(--on-dark-3); margin-right: 10px; }
 
-/* ---------- Prossimi passi ---------- */
-
-.passi {
-  margin-top: 18px; display: flex; flex-direction: column; gap: 8px;
-  padding: 20px 22px; border-radius: 22px; background: var(--ink); color: var(--on-dark);
-}
-.passi .eyebrow { color: var(--blue-lite); }
-.passi ol { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
-.passi li {
-  display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;
-  padding: 9px 0; border-top: 1px solid var(--line-dark);
-  font-size: 11.5px; line-height: 1.5; color: var(--on-dark-2);
-}
-.passi li i { width: 14px; height: 14px; margin-top: 2px; border-radius: 4px; border: 1.5px solid var(--blue-lite); }
-
 /* ---------- Tabella riepilogo ---------- */
 
 .tab { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
@@ -305,11 +278,12 @@ body {
   font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
   color: var(--on-light-3); border-bottom: 1px solid rgba(10,12,10,.24);
 }
-.tab td { padding: 3px 8px 3px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
+.tab td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
 .tab .r { text-align: right; }
 .tab__n { width: 26px; font-weight: 800; color: var(--blue); }
-.tab__voce b { font-size: 11.5px; font-weight: 800; letter-spacing: -.015em; display: block; }
-.tab__voce small { font-size: 9px; color: var(--on-light-3); }
+/* Area e fornitore sulla stessa riga del nome: la tabella deve restare in una pagina */
+.tab__voce b { font-size: 11.5px; font-weight: 800; letter-spacing: -.015em; }
+.tab__voce small { font-size: 9px; color: var(--on-light-3); margin-left: 6px; white-space: nowrap; }
 .tab__eur { font-weight: 800; }
 .tab tr.fuori td { color: var(--on-light-3); }
 .tab tr.fuori .tab__eur { font-style: italic; }
@@ -352,7 +326,7 @@ body {
   .h2 { font-size: clamp(22px, 6.6vw, 31px); }
   .kpi b { font-size: 26px; }
   .phead, .pfoot { flex-wrap: wrap; row-gap: 4px; }
-  .kpis, .dcards, .firma, .cover__fatti { grid-template-columns: 1fr !important; }
+  .kpis, .firma, .cover__fatti { grid-template-columns: 1fr !important; }
   .voce { grid-template-columns: 1fr; }
   .foto { min-height: 120px; order: 2; }
   .conto { order: 3; }
@@ -412,7 +386,7 @@ body {
       <span class="micro">02</span>
     </header>
 
-    <div class="pbody" style="gap:20px">
+    <div class="pbody" style="gap:30px;justify-content:center">
       <div style="display:flex;flex-direction:column;gap:8px">
         <span class="eyebrow">Il budget in breve</span>
         <h2 class="h2">Quanto costa vestire <br class="brk">la Tappa Zero.</h2>
@@ -435,8 +409,6 @@ body {
         </div>
         <div class="aree" id="aree"></div>
       </div>
-
-      <div class="dcards" id="dcards"></div>
     </div>
 
     <footer class="pfoot">
@@ -570,24 +542,6 @@ document.getElementById("aree").innerHTML = perArea.map((a) => `
     </div>
   </div>`).join("");
 
-const stime = voci.filter((v) => v.stato === "Stima");
-const alt = voci.filter((v) => v.stato === "Alternativa");
-document.getElementById("dcards").innerHTML = `
-  <div class="dcard">
-    <span class="dcard__k">${daDef.length}</span>
-    <h3>Voci da quotare</h3>
-    <ul>${daDef.map((v) => `<li>${esc(v.nome)}</li>`).join("")}</ul>
-  </div>
-  <div class="dcard">
-    <span class="dcard__k">${stime.length}</span>
-    <h3>Stime da confermare</h3>
-    <ul>${stime.map((v) => `<li>${esc(v.nome)} — ${esc(v.note)}</li>`).join("")}</ul>
-  </div>
-  <div class="dcard">
-    <span class="dcard__k">${alt.length ? "+" + eurC(alt[0].tot - voci[0].tot) : "—"}</span>
-    <h3>Pieghevole A3 al posto dell'A4</h3>
-    <ul>${alt.map((v) => `<li>${esc(v.note)}</li>`).join("")}</ul>
-  </div>`;
 
 /* ---------- pagine 3–5: schede voce ---------- */
 const PAGINE = [["A"], ["B"], ["C"], ["D"]];
@@ -625,14 +579,6 @@ const scheda = (v) => {
   </article>`;
 };
 
-/* L'ultima pagina di dettaglio ha due sole voci: lo spazio resta alle decisioni aperte */
-const passi = `
-  <div class="passi">
-    <span class="eyebrow">Prima di ordinare</span>
-    <h3 class="h3">Prossimi passi.</h3>
-    <ol>${DATI.prossimiPassi.map((t) => `<li><i></i><span>${esc(t)}</span></li>`).join("")}</ol>
-  </div>`;
-
 document.getElementById("pagine-aree").outerHTML = PAGINE.map((ids, k) => {
   const gruppi = ids.map((id) => perArea.find((a) => a.id === id));
   const corpo = gruppi.map((a, j) => `
@@ -651,7 +597,7 @@ document.getElementById("pagine-aree").outerHTML = PAGINE.map((ids, k) => {
       <span class="micro">Dettaglio voci · ${gruppi.map((a) => "Area " + a.id).join(" e ")}</span>
       <span class="micro">${String(k + 3).padStart(2, "0")}</span>
     </header>
-    <div class="pbody">${corpo}${k === PAGINE.length - 1 ? passi : ""}</div>
+    <div class="pbody">${corpo}</div>
     <footer class="pfoot">
       <span class="micro">Piano di spesa · Tappa Zero</span>
       <span class="micro">${esc(ev.date)}</span>

@@ -11,17 +11,7 @@
     { "id": "A", "nome": "Stampa e comunicazione", "claim": "Pieghevoli, flyer e fiches personalizzate per i giocatori." },
     { "id": "B", "nome": "Allestimento del campo", "claim": "Bandiere, pannelli di buca e partenze: il percorso vestito AIFG." },
     { "id": "C", "nome": "Immagine, media e presentazione", "claim": "Wall per le foto, drone, proiezione e tavolo della presentazione AIFG." },
-    { "id": "D", "nome": "Punto ristoro", "claim": "Tavoli e tovaglie per l'area di accoglienza e ristoro." }
-  ],
-
-  "prossimiPassi": [
-    "Richiedere il preventivo per flyer promozioni, partenze forex Women e Junior, tovaglia del tavolo presentazione e tovaglie del ristoro.",
-    "Scegliere fra pieghevole A4 (€ 71,65) e A3 (€ 125,90).",
-    "Decidere se attivare le mini vele di partenza (€ 2.000).",
-    "Confermare il numero di tavoli per il ristoro e quante bandiere comprende la fornitura golflags.eu.",
-    "Scegliere il drone fra DJI Mini 4 Pro e Mini 5 Pro (€ 400–700) e chi lo pilota durante la diretta.",
-    "Trattare il prezzo delle fiches, oggi € 1,20 l'una.",
-    "Fissare con ogni fornitore la data ultima d'ordine per avere tutto prima del 14 novembre."
+    { "id": "D", "nome": "Accoglienza e punto ristoro", "claim": "Ragazze immagine, tavoli e tovaglie per l'accoglienza e il ristoro." }
   ],
 
   "stati": {
@@ -188,6 +178,17 @@
       "iva": "",
       "stato": "Da definire", "nelTotale": true,
       "note": "Costo da verificare."
+    },
+    {
+      "n": 15, "area": "D",
+      "nome": "Ragazze immagine",
+      "desc": "Servizio di ragazze immagine per l'accoglienza e le premiazioni del weekend.",
+      "fornitore": "",
+      "qta": 1, "unita": "servizio",
+      "prezzo": 300.00,
+      "iva": "",
+      "stato": "Preventivo", "nelTotale": true,
+      "note": ""
     }
   ]
 }
