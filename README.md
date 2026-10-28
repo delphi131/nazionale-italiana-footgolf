@@ -19,6 +19,10 @@ stampa A4: aprirlo nel browser e usare Stampa → Salva come PDF.
   dello staff raccontati, la strada verso la convocazione, l'impegno reciproco). Nessuna scheda,
   nessuna soglia, nessuna procedura: è il testo da leggere e da consegnare in apertura.
 
+- `piano-spesa-tappa-zero-2026/` — **Piano di spesa Tappa Zero** (14–15 Novembre 2026, Il Pelagone):
+  materiale da stampare e allestire, in Excel (voci, quantità, prezzi, link, foto) e in PDF nello
+  stile della brochure sponsor AIFG. Dettagli nel README della cartella.
+
 ## PDF
 
 `docs/Quaderno-Tecnico-Azzurro.pdf` (24 pagine) e `docs/Manifesto-Azzurro.pdf` (5 pagine) —

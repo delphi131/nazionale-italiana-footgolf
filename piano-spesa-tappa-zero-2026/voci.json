@@ -1,0 +1,181 @@
+{
+  "evento": {
+    "titolo": "Tappa Zero",
+    "date": "14–15 Novembre 2026",
+    "luogo": "Il Pelagone Hotel & Golf Resort",
+    "citta": "Gavorrano (GR)",
+    "aggiornato": "28 ottobre 2026"
+  },
+
+  "aree": [
+    { "id": "A", "nome": "Stampa e comunicazione", "claim": "Pieghevoli, flyer e fiches personalizzate per i giocatori." },
+    { "id": "B", "nome": "Allestimento del campo", "claim": "Bandiere, pannelli di buca e partenze: il percorso vestito AIFG." },
+    { "id": "C", "nome": "Immagine e presentazione", "claim": "Wall per le foto, proiezione e tavolo della presentazione AIFG." },
+    { "id": "D", "nome": "Punto ristoro", "claim": "Tavoli e tovaglie per l'area di accoglienza e ristoro." }
+  ],
+
+  "prossimiPassi": [
+    "Richiedere il preventivo per flyer promozioni, partenze forex Women e Junior, tovaglia del tavolo presentazione e tovaglie del ristoro.",
+    "Scegliere fra pieghevole A4 (€ 71,65) e A3 (€ 125,90).",
+    "Decidere se attivare le mini vele di partenza (€ 2.000).",
+    "Confermare il numero di tavoli per il ristoro e quante bandiere comprende la fornitura golflags.eu.",
+    "Trattare il prezzo delle fiches, oggi € 1,20 l'una.",
+    "Fissare con ogni fornitore la data ultima d'ordine per avere tutto prima del 14 novembre."
+  ],
+
+  "stati": {
+    "Preventivo":  "Prezzo da preventivo o listino del fornitore",
+    "Stima":       "Importo stimato, da confermare",
+    "Opzionale":   "Voce eventuale, fuori dal totale base",
+    "Alternativa": "In alternativa a un'altra voce, fuori dal totale base",
+    "Da definire": "Prezzo ancora da richiedere"
+  },
+
+  "voci": [
+    {
+      "n": 1, "area": "A",
+      "nome": "Pieghevole A4",
+      "desc": "2 pieghe, 6 facciate, formato A4 (21 × 29,7 cm) orizzontale.",
+      "fornitore": "",
+      "qta": 250, "unita": "pz",
+      "totale": 71.65,
+      "iva": "Inclusa",
+      "stato": "Preventivo", "nelTotale": true,
+      "note": "Prezzo complessivo per 250 pezzi, IVA compresa."
+    },
+    {
+      "n": 2, "area": "A",
+      "nome": "Pieghevole A3",
+      "desc": "2 pieghe, 6 facciate, formato A3 (29 × 42 cm) orizzontale.",
+      "fornitore": "",
+      "qta": 250, "unita": "pz",
+      "totale": 125.90,
+      "iva": "Inclusa",
+      "stato": "Alternativa", "nelTotale": false,
+      "note": "In alternativa al pieghevole A4 (n. 1): +€ 54,25 se si sceglie l'A3."
+    },
+    {
+      "n": 3, "area": "A",
+      "nome": "Flyer promozioni",
+      "desc": "Flyer con le promozioni della stagione da distribuire in tappa.",
+      "fornitore": "",
+      "qta": null, "unita": "pz",
+      "prezzo": null,
+      "iva": "",
+      "stato": "Da definire", "nelTotale": true,
+      "note": "Prezzo e tiratura da definire."
+    },
+    {
+      "n": 4, "area": "A",
+      "nome": "Fiches personalizzate",
+      "desc": "Una fiche per giocatore con il nome, usata in campo come ball marker.",
+      "fornitore": "",
+      "qta": 200, "unita": "pz",
+      "prezzo": 1.20,
+      "iva": "",
+      "stato": "Preventivo", "nelTotale": true,
+      "note": "€ 1,20 a fiche, prezzo trattabile al ribasso."
+    },
+    {
+      "n": 5, "area": "B",
+      "nome": "Bandiere doppio logo",
+      "desc": "Bandiere di buca stampate con doppio logo.",
+      "fornitore": "golflags.eu",
+      "link": "https://golflags.eu",
+      "qta": 1, "unita": "fornitura",
+      "prezzo": 390.00,
+      "iva": "",
+      "stato": "Preventivo", "nelTotale": true,
+      "note": "Verificare il numero di bandiere compreso nella fornitura."
+    },
+    {
+      "n": 6, "area": "B",
+      "nome": "Pannelli forex presentazione buca",
+      "desc": "Forex 70 × 100 cm con vernice protettiva antigraffio, uno per buca.",
+      "fornitore": "",
+      "qta": 18, "unita": "pz",
+      "totale": 654.00,
+      "iva": "",
+      "stato": "Preventivo", "nelTotale": true,
+      "note": "€ 654 per i 18 pezzi."
+    },
+    {
+      "n": 7, "area": "B",
+      "nome": "Partenze forex Women e Junior",
+      "desc": "Segnaletica in forex per le partenze dedicate Women e Junior.",
+      "fornitore": "",
+      "qta": null, "unita": "pz",
+      "prezzo": null,
+      "iva": "",
+      "stato": "Da definire", "nelTotale": true,
+      "note": "Quantità e prezzo da definire."
+    },
+    {
+      "n": 8, "area": "B",
+      "nome": "Mini vele di partenza",
+      "desc": "Mini vele per la partenza di ogni singola buca, stile Open internazionale.",
+      "fornitore": "",
+      "qta": 1, "unita": "fornitura",
+      "prezzo": 2000.00,
+      "iva": "",
+      "stato": "Opzionale", "nelTotale": false,
+      "note": "Voce eventuale: fuori dal totale base."
+    },
+    {
+      "n": 9, "area": "C",
+      "nome": "Wall per foto giocatori",
+      "desc": "Fondale pubblicitario 300 × 240 cm per le foto dei giocatori.",
+      "fornitore": "",
+      "qta": 1, "unita": "pz",
+      "prezzo": 579.00,
+      "iva": "",
+      "stato": "Preventivo", "nelTotale": true,
+      "note": ""
+    },
+    {
+      "n": 10, "area": "C",
+      "nome": "Telo per videoproiettore",
+      "desc": "Telo da 120 pollici per la presentazione AIFG.",
+      "fornitore": "Amazon",
+      "link": "https://www.amazon.it",
+      "qta": 1, "unita": "pz",
+      "prezzo": 100.00,
+      "iva": "",
+      "stato": "Stima", "nelTotale": true,
+      "note": "Prezzo fra € 80 e € 100: messo il massimo per prudenza."
+    },
+    {
+      "n": 11, "area": "C",
+      "nome": "Tovaglia tavolo presentazione AIFG",
+      "desc": "Tovaglia personalizzata per il tavolo della presentazione AIFG.",
+      "fornitore": "",
+      "qta": 1, "unita": "pz",
+      "prezzo": null,
+      "iva": "",
+      "stato": "Da definire", "nelTotale": true,
+      "note": "Prezzo da richiedere."
+    },
+    {
+      "n": 12, "area": "D",
+      "nome": "Tavoli pieghevoli",
+      "desc": "Tavolo pieghevole 180 × 70 × 74 cm, bianco.",
+      "fornitore": "",
+      "qta": 4, "unita": "pz",
+      "prezzo": 37.00,
+      "iva": "",
+      "stato": "Stima", "nelTotale": true,
+      "note": "€ 37 a tavolo. Quantità di 4 ipotizzata: da confermare."
+    },
+    {
+      "n": 13, "area": "D",
+      "nome": "Tovaglie tavoli ristoro",
+      "desc": "Tovaglie per i tavoli del punto ristoro.",
+      "fornitore": "",
+      "qta": 4, "unita": "pz",
+      "prezzo": null,
+      "iva": "",
+      "stato": "Da definire", "nelTotale": true,
+      "note": "Costo da verificare."
+    }
+  ]
+}

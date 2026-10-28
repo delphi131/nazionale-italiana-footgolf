@@ -1,0 +1,677 @@
+<title>Piano di spesa Tappa Zero</title>
+
+<style>
+/* __FONT__ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  /* Sistema del sito AIFG — stessi token della brochure sponsor (AIFGSITE/brochure-sponsor) */
+  --ink:        #0A0C0A;
+  --ink-2:      #0E120D;
+  --card:       #12160F;
+  --light:      #EEF1EE;
+  --panel:      #F4F6F4;
+  --white:      #FFFFFF;
+  --blue:       #0072CE;
+  --blue-dark:  #0A5FA0;
+  --blue-lite:  #4FB3F0;
+  --gold:       #E8C25A;
+
+  --on-dark:    #F2F5F0;
+  --on-dark-2:  rgba(242,245,240,.62);
+  --on-dark-3:  rgba(242,245,240,.45);
+  --on-light:   #0A0C0A;
+  --on-light-2: rgba(10,12,10,.60);
+  --on-light-3: rgba(10,12,10,.42);
+
+  --line-dark:  rgba(255,255,255,.09);
+  --line-light: rgba(10,12,10,.12);
+
+  --pad-x: 16mm;
+  --pad-y: 15mm;
+}
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  margin: 0;
+  background: #6E7469;
+  color: var(--on-light);
+  font-family: Archivo, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Impaginato ---------- */
+
+.doc { display: flex; flex-direction: column; align-items: center; gap: 10mm; padding: 10mm 0; }
+
+.page {
+  position: relative;
+  z-index: 0;
+  width: 210mm;
+  min-height: 297mm;
+  padding: var(--pad-y) var(--pad-x);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--light);
+  color: var(--on-light);
+}
+.page--dark  { background: var(--ink);   color: var(--on-dark); }
+.page--dark2 { background: var(--ink-2); color: var(--on-dark); }
+
+@media screen {
+  .page { width: min(210mm, 100%); box-shadow: 0 24px 60px rgba(10,12,10,.34); }
+}
+
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: var(--white); }
+  .doc { gap: 0; padding: 0; }
+  .page { width: 210mm; height: 297mm; min-height: 297mm; box-shadow: none; break-after: page; }
+  .page:last-child { break-after: auto; }
+}
+
+/* ---------- Tipografia ---------- */
+
+.eyebrow {
+  font-size: 9.5px; font-weight: 800; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--blue);
+}
+.page--dark .eyebrow, .page--dark2 .eyebrow { color: var(--blue-lite); }
+
+.h1 { font-size: 58px; line-height: .94; font-weight: 900; letter-spacing: -.045em; margin: 0; text-wrap: balance; }
+.h2 { font-size: 34px; line-height: 1.02; font-weight: 900; letter-spacing: -.04em; margin: 0; text-wrap: balance; }
+.h3 { font-size: 19px; line-height: 1.15; font-weight: 900; letter-spacing: -.03em; margin: 0; }
+
+.lead { font-size: 14px; line-height: 1.6; color: var(--on-light-2); margin: 0; max-width: 62ch; }
+.page--dark .lead, .page--dark2 .lead { color: var(--on-dark-2); }
+
+.micro {
+  font-size: 8.5px; font-weight: 800; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--on-light-3);
+}
+.page--dark .micro, .page--dark2 .micro { color: var(--on-dark-3); }
+
+.accent { color: var(--blue-lite); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- Testata / piede ---------- */
+
+.phead {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-bottom: 9px; margin-bottom: 10mm;
+  border-bottom: 1px solid var(--line-light);
+}
+.page--dark .phead, .page--dark2 .phead { border-bottom-color: var(--line-dark); }
+
+.pbody { flex: 1; display: flex; flex-direction: column; }
+
+.pfoot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-top: auto; padding-top: 9px;
+  border-top: 1px solid var(--line-light);
+}
+.page--dark .pfoot, .page--dark2 .pfoot { border-top-color: var(--line-dark); }
+
+/* ---------- Marchio ---------- */
+
+.brand { display: flex; align-items: center; gap: 11px; }
+.brand__mark { width: 36px; height: 36px; flex: 0 0 auto; }
+.brand__name { display: flex; flex-direction: column; line-height: 1.06; }
+.brand__name b { font-size: 14px; font-weight: 800; letter-spacing: -.02em; }
+.brand__name span {
+  font-size: 8px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--on-light-3);
+}
+.page--dark .brand__name span, .page--dark2 .brand__name span { color: var(--on-dark-3); }
+
+.pagemark {
+  position: absolute; inset: 0; z-index: -1;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.pagemark svg { width: 58%; height: auto; opacity: .07; }
+.page--dark .pagemark svg, .page--dark2 .pagemark svg { opacity: .10; }
+
+/* ---------- Elementi ---------- */
+
+.pill {
+  display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid rgba(79,179,240,.35); background: rgba(79,179,240,.09);
+  color: var(--blue-lite);
+  font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+}
+
+/* Stato della voce: un colore per ogni livello di certezza del prezzo */
+.chip {
+  display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px;
+  font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.chip--preventivo  { background: rgba(0,114,206,.11);  color: var(--blue); }
+.chip--stima       { background: rgba(232,194,90,.22); color: #8A6512; }
+.chip--opzionale   { background: rgba(98,78,190,.12);  color: #4F3F9A; }
+.chip--alternativa { background: rgba(10,12,10,.07);   color: rgba(10,12,10,.58); }
+.chip--da-definire { background: rgba(205,33,42,.10);  color: #A6362F; }
+
+/* ---------- KPI ---------- */
+
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.kpi { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line-dark); }
+.kpi b { font-size: 34px; font-weight: 900; letter-spacing: -.04em; color: var(--blue-lite); line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi--muted b { color: var(--on-dark); }
+.kpi span { font-size: 10.5px; font-weight: 600; color: var(--on-dark-3); }
+
+/* ---------- Ripartizione per area (pagina 2) ---------- */
+
+.aree { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line-dark); }
+.area-row {
+  display: grid; grid-template-columns: 34px 1fr 108px; gap: 14px; align-items: center;
+  padding: 13px 0; border-bottom: 1px solid var(--line-dark);
+}
+.area-row__id {
+  width: 30px; height: 30px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: var(--white); font-size: 13px; font-weight: 900;
+}
+.area-row__txt { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.area-row__nome { font-size: 13.5px; font-weight: 800; letter-spacing: -.02em; display: flex; gap: 8px; align-items: baseline; }
+.area-row__nome small { font-size: 9.5px; font-weight: 600; color: var(--on-dark-3); letter-spacing: 0; }
+.bar { position: relative; height: 7px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; }
+.bar i { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: linear-gradient(90deg, #0072CE, #4FB3F0); }
+.bar u { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: repeating-linear-gradient(135deg, rgba(79,179,240,.30) 0 4px, rgba(79,179,240,.12) 4px 8px); text-decoration: none; }
+.area-row__eur { text-align: right; display: flex; flex-direction: column; gap: 1px; }
+.area-row__eur b { font-size: 17px; font-weight: 900; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.area-row__eur span { font-size: 9px; font-weight: 600; color: var(--on-dark-3); font-variant-numeric: tabular-nums; }
+
+.legenda-bar { display: flex; gap: 18px; font-size: 9.5px; color: var(--on-dark-3); font-weight: 600; }
+.legenda-bar span { display: inline-flex; align-items: center; gap: 6px; }
+.legenda-bar i { width: 18px; height: 7px; border-radius: 999px; background: linear-gradient(90deg, #0072CE, #4FB3F0); }
+.legenda-bar u { width: 18px; height: 7px; border-radius: 999px; background: repeating-linear-gradient(135deg, rgba(79,179,240,.45) 0 4px, rgba(79,179,240,.15) 4px 8px); }
+
+.dcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.dcard {
+  display: flex; flex-direction: column; gap: 7px;
+  padding: 16px; border-radius: 18px;
+  background: var(--card); border: 1px solid var(--line-dark);
+}
+.dcard h3 { margin: 0; font-size: 14px; font-weight: 900; letter-spacing: -.02em; }
+.dcard ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.dcard li { font-size: 10.5px; line-height: 1.45; color: var(--on-dark-2); padding-left: 13px; position: relative; }
+.dcard li::before { content: ""; position: absolute; left: 0; top: 5px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--blue-lite); }
+.dcard__k { font-size: 26px; font-weight: 900; letter-spacing: -.04em; color: var(--blue-lite); line-height: 1; }
+
+/* ---------- Schede voce (pagine 3–5) ---------- */
+
+.area-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.area-head .h2 { display: flex; align-items: baseline; gap: 12px; }
+
+.voci { display: flex; flex-direction: column; gap: 10px; }
+.voce {
+  display: grid; grid-template-columns: 40mm 1fr 45mm; gap: 14px;
+  padding: 12px; border-radius: 20px;
+  background: var(--white); border: 1px solid var(--line-light);
+  box-shadow: 0 18px 40px rgba(10,12,10,.06);
+  break-inside: avoid;
+}
+.voce--fuori { background: rgba(255,255,255,.6); }
+
+/* Spazio per la foto del prodotto: si incolla o si stampa e si attacca */
+.foto {
+  min-height: 34mm; border-radius: 14px;
+  border: 1.5px dashed rgba(10,12,10,.20);
+  background:
+    linear-gradient(135deg, rgba(0,114,206,.04), rgba(0,114,206,0)),
+    var(--panel);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  color: var(--on-light-3);
+}
+.foto svg { width: 26px; height: 26px; }
+.foto span { font-size: 7.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+
+.voce__txt { display: flex; flex-direction: column; gap: 5px; min-width: 0; padding-top: 2px; }
+.voce__top { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.voce__n {
+  width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: var(--white);
+  font-size: 10.5px; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+.voce__nome { font-size: 15px; font-weight: 900; letter-spacing: -.025em; line-height: 1.15; }
+.voce__desc { margin: 0; font-size: 11px; line-height: 1.5; color: var(--on-light-2); }
+.voce__note { margin: 0; font-size: 10px; line-height: 1.45; color: var(--on-light-3); font-style: italic; }
+
+.campi { margin-top: auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 8px; }
+.campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.campo__k { font-size: 7px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
+.campo__v {
+  height: 24px; display: flex; align-items: center; padding: 0 9px;
+  border-radius: 9px; border: 1px dashed rgba(10,12,10,.22);
+  font-size: 10.5px; font-weight: 700; color: var(--on-light);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.campo__v--pieno { border-style: solid; border-color: rgba(10,12,10,.12); background: var(--panel); }
+.campo__v a { color: var(--blue); text-decoration: none; }
+
+.conto {
+  display: flex; flex-direction: column; gap: 6px; justify-content: space-between;
+  padding: 11px 12px; border-radius: 14px; background: var(--panel);
+}
+.conto__r { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.conto__r span { font-size: 7.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
+.conto__r b { font-size: 11.5px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.conto__tot { border-top: 1px solid var(--line-light); padding-top: 7px; display: flex; flex-direction: column; gap: 2px; align-items: flex-end; }
+.conto__tot span { font-size: 7.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
+.conto__tot b { font-size: 21px; font-weight: 900; letter-spacing: -.035em; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
+.voce--fuori .conto__tot b { color: rgba(10,12,10,.45); }
+.conto__tot em { font-style: normal; font-size: 8.5px; font-weight: 700; color: var(--on-light-3); }
+/* Importo non ancora noto: campo vuoto da scrivere a penna */
+.vuoto { display: inline-block; width: 64px; height: 18px; border-bottom: 1px dashed rgba(10,12,10,.35); }
+.vuoto--s { width: 38px; height: 12px; }
+
+.subtot {
+  margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 13px 18px; border-radius: 16px; background: var(--ink); color: var(--on-dark);
+}
+.subtot span { font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark-2); }
+.subtot b { font-size: 20px; font-weight: 900; letter-spacing: -.03em; color: var(--blue-lite); font-variant-numeric: tabular-nums; }
+.subtot small { font-size: 10px; font-weight: 600; color: var(--on-dark-3); margin-right: 10px; }
+
+/* ---------- Prossimi passi ---------- */
+
+.passi {
+  margin-top: 18px; display: flex; flex-direction: column; gap: 8px;
+  padding: 20px 22px; border-radius: 22px; background: var(--ink); color: var(--on-dark);
+}
+.passi .eyebrow { color: var(--blue-lite); }
+.passi ol { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.passi li {
+  display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start;
+  padding: 9px 0; border-top: 1px solid var(--line-dark);
+  font-size: 11.5px; line-height: 1.5; color: var(--on-dark-2);
+}
+.passi li i { width: 14px; height: 14px; margin-top: 2px; border-radius: 4px; border: 1.5px solid var(--blue-lite); }
+
+/* ---------- Tabella riepilogo ---------- */
+
+.tab { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.tab th {
+  text-align: left; padding: 0 8px 7px 0;
+  font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--on-light-3); border-bottom: 1px solid rgba(10,12,10,.24);
+}
+.tab td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
+.tab .r { text-align: right; }
+.tab__n { width: 26px; font-weight: 800; color: var(--blue); }
+.tab__voce b { font-size: 11.5px; font-weight: 800; letter-spacing: -.015em; display: block; }
+.tab__voce small { font-size: 9px; color: var(--on-light-3); }
+.tab__eur { font-weight: 800; }
+.tab tr.fuori td { color: var(--on-light-3); }
+.tab tr.fuori .tab__eur { font-style: italic; }
+.tab tfoot td { border-bottom: 0; padding-top: 8px; }
+.tab tfoot tr.base td { border-top: 2px solid rgba(10,12,10,.30); padding-top: 12px; }
+.tab tfoot .lbl { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-2); }
+.tab tfoot .tot { font-size: 14px; font-weight: 900; }
+.tab tfoot tr.base .tot { font-size: 19px; color: var(--blue); letter-spacing: -.03em; }
+
+.firma { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.firma__f { display: flex; flex-direction: column; gap: 6px; }
+.firma__f i { display: block; height: 1px; background: rgba(10,12,10,.28); margin-top: 26px; }
+
+/* ---------- Copertina ---------- */
+
+.cover { position: relative; flex: 1; display: flex; flex-direction: column; }
+.cover__glow {
+  position: absolute; right: -22%; bottom: -18%;
+  width: 118%; height: 62%; pointer-events: none;
+  background: radial-gradient(50% 50% at 60% 60%, rgba(0,114,206,.34), rgba(0,114,206,0) 70%);
+}
+.cover__crest { position: relative; display: flex; justify-content: center; margin-top: auto; margin-bottom: auto; }
+.cover__crest svg { width: 78mm; height: auto; filter: drop-shadow(0 14px 30px rgba(0,0,0,.45)); }
+.cover__body { position: relative; margin-top: auto; display: flex; flex-direction: column; gap: 20px; }
+.cover__fatti { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cover__fatti div { display: flex; flex-direction: column; gap: 3px; padding-top: 12px; border-top: 1px solid var(--line-dark); }
+.cover__fatti b { font-size: 13px; font-weight: 800; letter-spacing: -.01em; }
+.cover__fatti span { font-size: 10px; color: var(--on-dark-3); font-weight: 600; }
+
+/* ======================================================================
+   Schermo stretto — IN FONDO di proposito: deve vincere sulle regole base.
+   ====================================================================== */
+
+@media screen and (max-width: 800px) {
+  :root { --pad-x: 18px; --pad-y: 22px; }
+  .doc  { gap: 16px; padding: 16px 10px; }
+  .page { min-height: 0; }
+  .brk { display: none; }
+  .h1 { font-size: clamp(30px, 9vw, 46px); }
+  .h2 { font-size: clamp(22px, 6.6vw, 31px); }
+  .kpi b { font-size: 26px; }
+  .phead, .pfoot { flex-wrap: wrap; row-gap: 4px; }
+  .kpis, .dcards, .firma, .cover__fatti { grid-template-columns: 1fr !important; }
+  .voce { grid-template-columns: 1fr; }
+  .foto { min-height: 120px; order: 2; }
+  .conto { order: 3; }
+  .area-row { grid-template-columns: 30px 1fr; }
+  .area-row__eur { grid-column: 2; text-align: left; }
+  .tab thead { display: none; }
+  .tab, .tab tbody, .tab tfoot { display: block; }
+  .tab tr { display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 9px 0; border-bottom: 1px solid var(--line-light); }
+  .tab td { display: block; padding: 0; border: 0 !important; }
+  .tab__voce { flex: 1 1 70%; }
+  .tab td[data-k]::before { content: attr(data-k) " "; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--on-light-3); }
+}
+</style>
+
+<div class="doc" id="doc">
+
+  <!-- ============ 1 · COPERTINA ============ -->
+  <section class="page page--dark">
+    <div class="cover">
+      <div class="cover__glow"></div>
+
+      <div class="brand" style="position:relative">
+        <svg class="brand__mark" viewBox="0 0 719 705" role="img" aria-label="Logo AIFG"><use href="#aifg-logo"/></svg>
+        <span class="brand__name"><b>AIFG</b><span>FootGolf Italia</span></span>
+      </div>
+
+      <div class="cover__crest">
+        <svg viewBox="0 0 719 705" role="img" aria-label="Logo ufficiale AIFG"><use href="#aifg-logo"/></svg>
+      </div>
+
+      <div class="cover__body">
+        <span class="pill" data-k="pill"></span>
+        <h1 class="h1">Piano di spesa <br class="brk"><span class="accent">Tappa Zero</span>.</h1>
+        <p class="lead" style="font-size:15px;max-width:52ch">
+          Il materiale da stampare e da allestire per il weekend a Il Pelagone: ogni voce con
+          quantità, prezzo, stato del preventivo e lo spazio per foto e link del fornitore.
+        </p>
+        <div class="cover__fatti">
+          <div><b data-k="totBase"></b><span>Totale base</span></div>
+          <div><b data-k="nVoci"></b><span>Voci di spesa in 4 aree</span></div>
+          <div><b data-k="nDef"></b><span>Voci ancora da quotare</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pfoot" style="margin-top:14mm">
+      <span class="micro" data-k="luogo"></span>
+      <span class="micro" data-k="aggiornato"></span>
+    </footer>
+  </section>
+
+  <!-- ============ 2 · SINTESI ============ -->
+  <section class="page page--dark2">
+    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="phead">
+      <span class="micro">Piano di spesa · Tappa Zero</span>
+      <span class="micro">02</span>
+    </header>
+
+    <div class="pbody" style="gap:20px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="eyebrow">Il budget in breve</span>
+        <h2 class="h2">Quanto costa vestire <br class="brk">la Tappa Zero.</h2>
+        <p class="lead">
+          Il totale base somma le voci con un prezzo già noto, da preventivo o stimato.
+          Le mini vele restano fuori come voce eventuale; il pieghevole A3 è l'alternativa all'A4.
+        </p>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><b data-k="totBase"></b><span>Totale base</span></div>
+        <div class="kpi kpi--muted"><b data-k="totOpz"></b><span>Opzionali · mini vele di partenza</span></div>
+        <div class="kpi kpi--muted"><b data-k="totCon"></b><span>Totale con opzionali</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <span class="eyebrow">Ripartizione per area</span>
+          <div class="legenda-bar"><span><i></i>Totale base</span><span><u></u>Opzionali e alternative</span></div>
+        </div>
+        <div class="aree" id="aree"></div>
+      </div>
+
+      <div class="dcards" id="dcards"></div>
+    </div>
+
+    <footer class="pfoot">
+      <span class="micro">Associazione Italiana FootGolf</span>
+      <span class="micro">Documento interno</span>
+    </footer>
+  </section>
+
+  <!-- Pagine 3–5: costruite dallo script a partire da DATI.aree -->
+  <div id="pagine-aree" style="display:contents"></div>
+
+  <!-- ============ 6 · RIEPILOGO ============ -->
+  <section class="page">
+    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="phead">
+      <span class="micro">Riepilogo e approvazione</span>
+      <span class="micro">07</span>
+    </header>
+
+    <div class="pbody" style="gap:14px">
+      <span class="eyebrow">Tutte le voci</span>
+      <h2 class="h2">Riepilogo generale.</h2>
+      <table class="tab">
+        <thead>
+          <tr>
+            <th>N.</th>
+            <th>Voce</th>
+            <th class="r">Q.tà</th>
+            <th class="r">Prezzo unit.</th>
+            <th class="r">Totale</th>
+            <th>Stato</th>
+          </tr>
+        </thead>
+        <tbody id="tabbody"></tbody>
+        <tfoot id="tabfoot"></tfoot>
+      </table>
+
+      <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px" data-k="notaIva"></p>
+
+      <div class="firma" style="margin-top:auto">
+        <div class="firma__f"><span class="micro">Preparato da</span><i></i></div>
+        <div class="firma__f"><span class="micro">Approvato da</span><i></i></div>
+        <div class="firma__f"><span class="micro">Data</span><i></i></div>
+      </div>
+    </div>
+
+    <footer class="pfoot">
+      <span class="micro">Piano di spesa · Tappa Zero</span>
+      <span class="micro">info@footgolf.it</span>
+    </footer>
+  </section>
+</div>
+
+<!-- ============ SIMBOLI ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Logo ufficiale AIFG, incorporato da genera.mjs al posto di __LOGO__ -->
+    <symbol id="aifg-logo" viewBox="0 0 719 705">
+      <image href="__LOGO__" x="0" y="0" width="719" height="705"/>
+    </symbol>
+    <symbol id="ico-foto" viewBox="0 0 24 24">
+      <path d="M4 7h3l2-2.5h6L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <circle cx="12" cy="12.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<script>
+/* Dati iniettati da genera.mjs a partire da voci.json — unica fonte, la stessa dell'Excel */
+const DATI = /* __DATI__ */;
+
+const eur = (x, dec = 2) => {
+  const [i, d] = Math.abs(x).toFixed(dec).split(".");
+  return "€ " + i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (d ? "," + d : "");
+};
+/* Arrotonda all'euro solo quando l'importo è intero: € 2.000 ma € 71,65 */
+const eurC = (x) => eur(x, Number.isInteger(Math.round(x * 100) / 100) ? 0 : 2);
+const slug = (s) => s.toLowerCase().replace(/\s+/g, "-");
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* Normalizza ogni voce: prezzo unitario e totale, che il preventivo dia l'uno o l'altro */
+const voci = DATI.voci.map((v) => {
+  const pu = v.totale != null ? v.totale / v.qta : v.prezzo;
+  const tot = v.totale != null ? v.totale : (v.prezzo != null && v.qta != null ? v.prezzo * v.qta : null);
+  return { ...v, pu, tot };
+});
+
+const somma = (arr) => arr.reduce((s, v) => s + (v.tot || 0), 0);
+const base = voci.filter((v) => v.nelTotale);
+const opz = voci.filter((v) => v.stato === "Opzionale");
+const daDef = voci.filter((v) => v.stato === "Da definire");
+const tot = { base: somma(base), opz: somma(opz) };
+tot.con = tot.base + tot.opz;
+
+const ev = DATI.evento;
+const testi = {
+  pill: `${ev.titolo} · ${ev.date}`,
+  luogo: `${ev.luogo} · ${ev.citta}`,
+  aggiornato: `Aggiornato al ${ev.aggiornato}`,
+  totBase: eurC(tot.base),
+  totOpz: eurC(tot.opz),
+  totCon: eurC(tot.con),
+  nVoci: String(voci.length),
+  nDef: String(daDef.length),
+  notaIva: "Pieghevoli: prezzo IVA compresa da preventivo. Per le altre voci l'IVA è da verificare con il fornitore. "
+         + "Le righe in grigio sono fuori dal totale base."
+};
+document.querySelectorAll("[data-k]").forEach((el) => {
+  if (testi[el.dataset.k] != null) el.textContent = testi[el.dataset.k];
+});
+
+/* ---------- pagina 2: barre per area ---------- */
+const perArea = DATI.aree.map((a) => {
+  const vv = voci.filter((v) => v.area === a.id);
+  return { ...a, vv, base: somma(vv.filter((v) => v.nelTotale)), fuori: somma(vv.filter((v) => !v.nelTotale)) };
+});
+const max = Math.max(...perArea.map((a) => a.base + a.fuori));
+document.getElementById("aree").innerHTML = perArea.map((a) => `
+  <div class="area-row">
+    <span class="area-row__id">${a.id}</span>
+    <div class="area-row__txt">
+      <span class="area-row__nome">${esc(a.nome)} <small>${a.vv.length} voci</small></span>
+      <div class="bar">
+        <u style="width:${((a.base + a.fuori) / max) * 100}%"></u>
+        <i style="width:${(a.base / max) * 100}%"></i>
+      </div>
+    </div>
+    <div class="area-row__eur">
+      <b>${eurC(a.base)}</b>
+      <span>${a.fuori ? "+ " + eurC(a.fuori) + " fuori totale" : "&nbsp;"}</span>
+    </div>
+  </div>`).join("");
+
+const stime = voci.filter((v) => v.stato === "Stima");
+const alt = voci.filter((v) => v.stato === "Alternativa");
+document.getElementById("dcards").innerHTML = `
+  <div class="dcard">
+    <span class="dcard__k">${daDef.length}</span>
+    <h3>Voci da quotare</h3>
+    <ul>${daDef.map((v) => `<li>${esc(v.nome)}</li>`).join("")}</ul>
+  </div>
+  <div class="dcard">
+    <span class="dcard__k">${stime.length}</span>
+    <h3>Stime da confermare</h3>
+    <ul>${stime.map((v) => `<li>${esc(v.nome)} — ${esc(v.note)}</li>`).join("")}</ul>
+  </div>
+  <div class="dcard">
+    <span class="dcard__k">${alt.length ? "+" + eurC(alt[0].tot - voci[0].tot) : "—"}</span>
+    <h3>Pieghevole A3 al posto dell'A4</h3>
+    <ul>${alt.map((v) => `<li>${esc(v.note)}</li>`).join("")}</ul>
+  </div>`;
+
+/* ---------- pagine 3–5: schede voce ---------- */
+const PAGINE = [["A"], ["B"], ["C"], ["D"]];
+
+const scheda = (v) => {
+  const fuori = !v.nelTotale;
+  const q = v.qta != null ? `${v.qta.toLocaleString("it-IT")} ${esc(v.unita)}` : `<span class="vuoto vuoto--s"></span>`;
+  const pu = v.pu != null ? eur(v.pu) : `<span class="vuoto vuoto--s"></span>`;
+  const t = v.tot != null ? eurC(v.tot) : `<span class="vuoto"></span>`;
+  const linkTxt = v.link ? `<a href="${esc(v.link)}">${esc(v.link.replace(/^https?:\/\/(www\.)?/, ""))}</a>` : "";
+  return `
+  <article class="voce${fuori ? " voce--fuori" : ""}">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"/></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">${v.n}</span>
+        <span class="voce__nome">${esc(v.nome)}</span>
+        <span class="chip chip--${slug(v.stato)}">${esc(v.stato)}</span>
+      </div>
+      <p class="voce__desc">${esc(v.desc)}</p>
+      ${v.note ? `<p class="voce__note">${esc(v.note)}</p>` : ""}
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v${v.fornitore ? " campo__v--pieno" : ""}">${esc(v.fornitore)}</span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v${v.link ? " campo__v--pieno" : ""}">${linkTxt}</span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>${q}</b></div>
+      <div class="conto__r"><span>Unitario</span><b>${pu}</b></div>
+      <div class="conto__r"><span>IVA</span><b style="font-size:10px">${esc(v.iva || "da verificare")}</b></div>
+      <div class="conto__tot"><span>Totale</span><b>${t}</b>${fuori ? `<em>fuori totale base</em>` : ""}</div>
+    </div>
+  </article>`;
+};
+
+/* L'ultima pagina di dettaglio ha due sole voci: lo spazio resta alle decisioni aperte */
+const passi = `
+  <div class="passi">
+    <span class="eyebrow">Prima di ordinare</span>
+    <h3 class="h3">Prossimi passi.</h3>
+    <ol>${DATI.prossimiPassi.map((t) => `<li><i></i><span>${esc(t)}</span></li>`).join("")}</ol>
+  </div>`;
+
+document.getElementById("pagine-aree").outerHTML = PAGINE.map((ids, k) => {
+  const gruppi = ids.map((id) => perArea.find((a) => a.id === id));
+  const corpo = gruppi.map((a, j) => `
+    <div class="area-head"${j ? ' style="margin-top:16px"' : ""}>
+      <span class="eyebrow">Area ${a.id}</span>
+      <h2 class="h2"${ids.length > 1 ? ' style="font-size:28px"' : ""}>${esc(a.nome)}.</h2>
+      ${ids.length === 1 ? `<p class="lead" style="font-size:12.5px">${esc(a.claim)}</p>` : ""}
+    </div>
+    <div class="voci">${a.vv.map(scheda).join("")}</div>
+    <div class="subtot"><span>Totale area ${a.id}</span><div>${a.fuori ? `<small>+ ${eurC(a.fuori)} fuori totale</small>` : ""}<b>${eurC(a.base)}</b></div></div>`
+  ).join("");
+  return `
+  <section class="page">
+    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="phead">
+      <span class="micro">Dettaglio voci · ${gruppi.map((a) => "Area " + a.id).join(" e ")}</span>
+      <span class="micro">${String(k + 3).padStart(2, "0")}</span>
+    </header>
+    <div class="pbody">${corpo}${k === PAGINE.length - 1 ? passi : ""}</div>
+    <footer class="pfoot">
+      <span class="micro">Piano di spesa · Tappa Zero</span>
+      <span class="micro">${esc(ev.date)}</span>
+    </footer>
+  </section>`;
+}).join("");
+
+/* ---------- pagina 6: riepilogo ---------- */
+document.getElementById("tabbody").innerHTML = voci.map((v) => `
+  <tr class="${v.nelTotale ? "" : "fuori"}">
+    <td class="tab__n">${v.n}</td>
+    <td class="tab__voce"><b>${esc(v.nome)}</b><small>Area ${v.area}${v.fornitore ? " · " + esc(v.fornitore) : ""}</small></td>
+    <td class="r" data-k="Q.tà">${v.qta != null ? v.qta.toLocaleString("it-IT") + " " + esc(v.unita) : "—"}</td>
+    <td class="r" data-k="Unit.">${v.pu != null ? eur(v.pu) : "—"}</td>
+    <td class="r tab__eur" data-k="Totale">${v.tot != null ? eur(v.tot) : "da definire"}</td>
+    <td><span class="chip chip--${slug(v.stato)}">${esc(v.stato)}</span></td>
+  </tr>`).join("");
+
+document.getElementById("tabfoot").innerHTML = `
+  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">${eur(tot.base)}</td></tr>
+  <tr><td></td><td class="lbl" colspan="3">Opzionali (mini vele)</td><td class="r tot" colspan="2">${eur(tot.opz)}</td></tr>
+  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">${eur(tot.con)}</td></tr>`;
+</script>
