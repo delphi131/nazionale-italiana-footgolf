@@ -211,7 +211,7 @@ body {
 
 /* Spazio per la foto del prodotto: si incolla o si stampa e si attacca */
 .foto {
-  min-height: 34mm; border-radius: 14px;
+  min-height: 29mm; border-radius: 14px;
   border: 1.5px dashed rgba(10,12,10,.20);
   background:
     linear-gradient(135deg, rgba(0,114,206,.04), rgba(0,114,206,0)),
@@ -278,7 +278,7 @@ body {
   font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
   color: var(--on-light-3); border-bottom: 1px solid rgba(10,12,10,.24);
 }
-.tab td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
+.tab td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
 .tab .r { text-align: right; }
 .tab__n { width: 26px; font-weight: 800; color: var(--blue); }
 /* Area e fornitore sulla stessa riga del nome: la tabella deve restare in una pagina */
@@ -287,8 +287,8 @@ body {
 .tab__eur { font-weight: 800; }
 .tab tr.fuori td { color: var(--on-light-3); }
 .tab tr.fuori .tab__eur { font-style: italic; }
-.tab tfoot td { border-bottom: 0; padding-top: 8px; }
-.tab tfoot tr.base td { border-top: 2px solid rgba(10,12,10,.30); padding-top: 12px; }
+.tab tfoot td { border-bottom: 0; padding-top: 5px; }
+.tab tfoot tr.base td { border-top: 2px solid rgba(10,12,10,.30); padding-top: 10px; }
 .tab tfoot .lbl { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-2); }
 .tab tfoot .tot { font-size: 14px; font-weight: 900; }
 .tab tfoot tr.base .tot { font-size: 19px; color: var(--blue); letter-spacing: -.03em; }
@@ -366,7 +366,7 @@ body {
         </p>
         <div class="cover__fatti">
           <div><b data-k="totBase"></b><span>Totale base</span></div>
-          <div><b data-k="nVoci"></b><span>Voci di spesa in 4 aree</span></div>
+          <div><b data-k="nVoci"></b><span data-k="nAree"></span></div>
           <div><b data-k="nDef"></b><span>Voci ancora da quotare</span></div>
         </div>
       </div>
@@ -425,7 +425,7 @@ body {
     <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
     <header class="phead">
       <span class="micro">Riepilogo e approvazione</span>
-      <span class="micro">07</span>
+      <span class="micro" data-k="pagRiep"></span>
     </header>
 
     <div class="pbody" style="gap:14px">
@@ -512,7 +512,9 @@ const testi = {
   totOpz: eurC(tot.opz),
   totCon: eurC(tot.con),
   nVoci: String(voci.length),
+  nAree: `Voci di spesa in ${DATI.aree.length} aree`,
   nDef: String(daDef.length),
+  pagRiep: String(DATI.aree.length + 3).padStart(2, "0"),
   notaIva: "Pieghevoli: prezzo IVA compresa da preventivo. Per le altre voci l'IVA è da verificare con il fornitore. "
          + "Le righe in grigio sono fuori dal totale base."
 };
@@ -544,7 +546,7 @@ document.getElementById("aree").innerHTML = perArea.map((a) => `
 
 
 /* ---------- pagine 3–5: schede voce ---------- */
-const PAGINE = [["A"], ["B"], ["C"], ["D"]];
+const PAGINE = DATI.aree.map((a) => [a.id]);
 
 const scheda = (v) => {
   const fuori = !v.nelTotale;
@@ -573,8 +575,7 @@ const scheda = (v) => {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>${q}</b></div>
       <div class="conto__r"><span>Unitario</span><b>${pu}</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">${esc(v.iva || "da verificare")}</b></div>
-      <div class="conto__tot"><span>Totale</span><b>${t}</b>${fuori ? `<em>fuori totale base</em>` : ""}</div>
+      <div class="conto__tot"><span>Totale</span><b>${t}</b>${fuori ? `<em>fuori totale base</em>` : v.iva ? `<em>IVA ${esc(v.iva.toLowerCase())}</em>` : ""}</div>
     </div>
   </article>`;
 };

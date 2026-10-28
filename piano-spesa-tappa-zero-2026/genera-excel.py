@@ -296,6 +296,8 @@ for i, t in enumerate(TESTE, start=1):
 rs.row_dimensions[4].height = 24
 
 P = "'Piano di spesa'!"
+R_A0, R_AN = 5, 4 + len(DATI["aree"])
+R_RT = R_AN + 1  # riga del totale, subito sotto l'ultima area
 def prng(col):
     return f"{P}{rng(col)}"
 
@@ -310,27 +312,27 @@ for k, a in enumerate(DATI["aree"]):
     rs.cell(r, 4, f'=SUMIFS({prng("Totale")},{crit},{prng("Nel totale")},"Sì")').number_format = EUR
     rs.cell(r, 5, f'=SUMIFS({prng("Totale")},{crit},{prng("Stato")},"Opzionale",{prng("Nel totale")},"No")').number_format = EUR
     rs.cell(r, 6, f"=D{r}+E{r}").number_format = EUR
-    rs.cell(r, 7, f"=IF($D$9=0,0,D{r}/$D$9)").number_format = "0.0%"
+    rs.cell(r, 7, f"=IF($D${R_RT}=0,0,D{r}/$D${R_RT})").number_format = "0.0%"
     for c in range(1, 8):
         rs.cell(r, c).border = Border(bottom=sottile)
         if c > 2:
             rs.cell(r, c).font = f(10.5, c == 4)
             rs.cell(r, c).alignment = DESTRA if c > 3 else CENTRO
 
-rs.row_dimensions[9].height = 26
+rs.row_dimensions[R_RT].height = 26
 for c in range(1, 8):
-    rs.cell(9, c).fill = fill(INK)
-rs["B9"] = "TOTALE"
-rs["B9"].font = f(10.5, True, "FFFFFF")
+    rs.cell(R_RT, c).fill = fill(INK)
+rs[f"B{R_RT}"] = "TOTALE"
+rs[f"B{R_RT}"].font = f(10.5, True, "FFFFFF")
 for col in "CDEF":
-    rs[f"{col}9"] = f"=SUM({col}5:{col}8)"
-    rs[f"{col}9"].font = f(11, True, "4FB3F0" if col == "D" else "FFFFFF")
-    rs[f"{col}9"].number_format = EUR if col != "C" else "0"
-    rs[f"{col}9"].alignment = DESTRA if col != "C" else CENTRO
-rs["G9"] = "=IF($D$9=0,0,SUM(G5:G8))"
-rs["G9"].number_format = "0%"
-rs["G9"].font = f(11, True, "FFFFFF")
-rs["G9"].alignment = DESTRA
+    rs[f"{col}{R_RT}"] = f"=SUM({col}{R_A0}:{col}{R_AN})"
+    rs[f"{col}{R_RT}"].font = f(11, True, "4FB3F0" if col == "D" else "FFFFFF")
+    rs[f"{col}{R_RT}"].number_format = EUR if col != "C" else "0"
+    rs[f"{col}{R_RT}"].alignment = DESTRA if col != "C" else CENTRO
+rs[f"G{R_RT}"] = f"=IF($D${R_RT}=0,0,SUM(G{R_A0}:G{R_AN}))"
+rs[f"G{R_RT}"].number_format = "0%"
+rs[f"G{R_RT}"].font = f(11, True, "FFFFFF")
+rs[f"G{R_RT}"].alignment = DESTRA
 
 grafico = BarChart()
 grafico.type = "bar"
@@ -339,15 +341,15 @@ grafico.title = "Totale base per area (€)"
 grafico.y_axis.title = None
 grafico.x_axis.title = None
 grafico.legend = None
-grafico.add_data(Reference(rs, min_col=4, min_row=4, max_row=8), titles_from_data=True)
-grafico.set_categories(Reference(rs, min_col=2, min_row=5, max_row=8))
+grafico.add_data(Reference(rs, min_col=4, min_row=4, max_row=R_AN), titles_from_data=True)
+grafico.set_categories(Reference(rs, min_col=2, min_row=R_A0, max_row=R_AN))
 grafico.series[0].graphicalProperties.solidFill = BLUE
 grafico.series[0].graphicalProperties.line.solidFill = BLUE
 grafico.y_axis.numFmt = '€ #,##0'
 grafico.y_axis.majorGridlines = None
 grafico.x_axis.scaling.orientation = "maxMin"
 grafico.height, grafico.width = 7.5, 18
-rs.add_chart(grafico, "B12")
+rs.add_chart(grafico, f"B{R_RT + 3}")
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 wb.save(OUT)

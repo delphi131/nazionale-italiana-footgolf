@@ -222,7 +222,7 @@ body {
 
 /* Spazio per la foto del prodotto: si incolla o si stampa e si attacca */
 .foto {
-  min-height: 34mm; border-radius: 14px;
+  min-height: 29mm; border-radius: 14px;
   border: 1.5px dashed rgba(10,12,10,.20);
   background:
     linear-gradient(135deg, rgba(0,114,206,.04), rgba(0,114,206,0)),
@@ -289,7 +289,7 @@ body {
   font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
   color: var(--on-light-3); border-bottom: 1px solid rgba(10,12,10,.24);
 }
-.tab td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
+.tab td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
 .tab .r { text-align: right; }
 .tab__n { width: 26px; font-weight: 800; color: var(--blue); }
 /* Area e fornitore sulla stessa riga del nome: la tabella deve restare in una pagina */
@@ -298,8 +298,8 @@ body {
 .tab__eur { font-weight: 800; }
 .tab tr.fuori td { color: var(--on-light-3); }
 .tab tr.fuori .tab__eur { font-style: italic; }
-.tab tfoot td { border-bottom: 0; padding-top: 8px; }
-.tab tfoot tr.base td { border-top: 2px solid rgba(10,12,10,.30); padding-top: 12px; }
+.tab tfoot td { border-bottom: 0; padding-top: 5px; }
+.tab tfoot tr.base td { border-top: 2px solid rgba(10,12,10,.30); padding-top: 10px; }
 .tab tfoot .lbl { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-2); }
 .tab tfoot .tot { font-size: 14px; font-weight: 900; }
 .tab tfoot tr.base .tot { font-size: 19px; color: var(--blue); letter-spacing: -.03em; }
@@ -377,9 +377,9 @@ body {
           quantità, prezzo, stato del preventivo e lo spazio per foto e link del fornitore.
         </p>
         <div class="cover__fatti">
-          <div><b data-k="totBase">€ 3.182,65</b><span>Totale base</span></div>
-          <div><b data-k="nVoci">15</b><span>Voci di spesa in 4 aree</span></div>
-          <div><b data-k="nDef">4</b><span>Voci ancora da quotare</span></div>
+          <div><b data-k="totBase">€ 3.402,65</b><span>Totale base</span></div>
+          <div><b data-k="nVoci">21</b><span data-k="nAree">Voci di spesa in 5 aree</span></div>
+          <div><b data-k="nDef">6</b><span>Voci ancora da quotare</span></div>
         </div>
       </div>
     </div>
@@ -409,9 +409,9 @@ body {
       </div>
 
       <div class="kpis">
-        <div class="kpi"><b data-k="totBase">€ 3.182,65</b><span>Totale base</span></div>
+        <div class="kpi"><b data-k="totBase">€ 3.402,65</b><span>Totale base</span></div>
         <div class="kpi kpi--muted"><b data-k="totOpz">€ 2.000</b><span>Opzionali · mini vele di partenza</span></div>
-        <div class="kpi kpi--muted"><b data-k="totCon">€ 5.182,65</b><span>Totale con opzionali</span></div>
+        <div class="kpi kpi--muted"><b data-k="totCon">€ 5.402,65</b><span>Totale con opzionali</span></div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:10px">
@@ -451,7 +451,7 @@ body {
   <div class="area-row">
     <span class="area-row__id">C</span>
     <div class="area-row__txt">
-      <span class="area-row__nome">Immagine, media e presentazione <small>4 voci</small></span>
+      <span class="area-row__nome">Immagine, media e presentazione <small>5 voci</small></span>
       <div class="bar">
         <u style="width:45.302233902759525%"></u>
         <i style="width:45.302233902759525%"></i>
@@ -465,14 +465,28 @@ body {
   <div class="area-row">
     <span class="area-row__id">D</span>
     <div class="area-row__txt">
-      <span class="area-row__nome">Accoglienza e punto ristoro <small>3 voci</small></span>
+      <span class="area-row__nome">Accoglienza e punto ristoro <small>4 voci</small></span>
       <div class="bar">
-        <u style="width:14.71747700394218%"></u>
-        <i style="width:14.71747700394218%"></i>
+        <u style="width:17.017082785808146%"></u>
+        <i style="width:17.017082785808146%"></i>
       </div>
     </div>
     <div class="area-row__eur">
-      <b>€ 448</b>
+      <b>€ 518</b>
+      <span>&nbsp;</span>
+    </div>
+  </div>
+  <div class="area-row">
+    <span class="area-row__id">E</span>
+    <div class="area-row__txt">
+      <span class="area-row__nome">Organizzazione e staff <small>4 voci</small></span>
+      <div class="bar">
+        <u style="width:4.92772667542707%"></u>
+        <i style="width:4.92772667542707%"></i>
+      </div>
+    </div>
+    <div class="area-row__eur">
+      <b>€ 150</b>
       <span>&nbsp;</span>
     </div>
   </div></div>
@@ -520,8 +534,7 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>250 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 0,29</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">Inclusa</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 71,65</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 71,65</b><em>IVA inclusa</em></div>
     </div>
   </article>
   <article class="voce voce--fuori">
@@ -544,7 +557,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>250 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 0,50</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">Inclusa</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 125,90</b><em>fuori totale base</em></div>
     </div>
   </article>
@@ -568,7 +580,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
       <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
   </article>
@@ -592,7 +603,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>200 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 1,20</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 240</b></div>
     </div>
   </article></div>
@@ -635,7 +645,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 fornitura</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 390,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 390</b></div>
     </div>
   </article>
@@ -659,7 +668,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>18 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 36,33</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 654</b></div>
     </div>
   </article>
@@ -683,7 +691,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
       <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
   </article>
@@ -707,7 +714,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 fornitura</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 2.000,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 2.000</b><em>fuori totale base</em></div>
     </div>
   </article></div>
@@ -750,7 +756,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 579,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 579</b></div>
     </div>
   </article>
@@ -774,7 +779,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 100,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 100</b></div>
     </div>
   </article>
@@ -783,7 +787,7 @@ body {
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">11</span>
-        <span class="voce__nome">Drone per riprese e diretta live</span>
+        <span class="voce__nome">Drone riprese e diretta</span>
         <span class="chip chip--stima">Stima</span>
       </div>
       <p class="voce__desc">DJI Mini 4 Pro o Mini 5 Pro per riprese aeree e diretta streaming della tappa.</p>
@@ -798,7 +802,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 700,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 700</b></div>
     </div>
   </article>
@@ -807,10 +810,10 @@ body {
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">12</span>
-        <span class="voce__nome">Tovaglia tavolo presentazione AIFG</span>
+        <span class="voce__nome">Tovaglia tavolo AIFG</span>
         <span class="chip chip--da-definire">Da definire</span>
       </div>
-      <p class="voce__desc">Tovaglia personalizzata per il tavolo della presentazione AIFG.</p>
+      <p class="voce__desc">Tovaglia personalizzata per il tavolo della presentazione.</p>
       <p class="voce__note">Prezzo da richiedere.</p>
       <div class="campi">
         <div class="campo"><span class="campo__k">Fornitore</span>
@@ -822,8 +825,30 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article>
+  <article class="voce voce--fuori">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">13</span>
+        <span class="voce__nome">Roll up segreteria</span>
+        <span class="chip chip--opzionale">Opzionale</span>
+      </div>
+      <p class="voce__desc">Roll up per l'area segreteria e iscrizioni.</p>
+      <p class="voce__note">Voce eventuale: quantità e prezzo da definire.</p>
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b><em>fuori totale base</em></div>
     </div>
   </article></div>
     <div class="subtot"><span>Totale area C</span><div><b>€ 1.379</b></div></div></div>
@@ -849,7 +874,7 @@ body {
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">13</span>
+        <span class="voce__n">14</span>
         <span class="voce__nome">Tavoli pieghevoli</span>
         <span class="chip chip--stima">Stima</span>
       </div>
@@ -865,7 +890,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>4 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 37,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 148</b></div>
     </div>
   </article>
@@ -873,7 +897,7 @@ body {
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">14</span>
+        <span class="voce__n">15</span>
         <span class="voce__nome">Tovaglie tavoli ristoro</span>
         <span class="chip chip--da-definire">Da definire</span>
       </div>
@@ -889,7 +913,6 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>4 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
   </article>
@@ -897,7 +920,7 @@ body {
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">15</span>
+        <span class="voce__n">16</span>
         <span class="voce__nome">Ragazze immagine</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
@@ -913,11 +936,144 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>1 servizio</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 300,00</b></div>
-      <div class="conto__r"><span>IVA</span><b style="font-size:10px">da verificare</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 300</b></div>
     </div>
+  </article>
+  <article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">17</span>
+        <span class="voce__nome">Sedie per gazebo</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Sedie per i gazebo dell'accoglienza e della segreteria.</p>
+      <p class="voce__note">Verificare quante sedie comprende la fornitura.</p>
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 fornitura</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 70,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 70</b></div>
+    </div>
   </article></div>
-    <div class="subtot"><span>Totale area D</span><div><b>€ 448</b></div></div></div>
+    <div class="subtot"><span>Totale area D</span><div><b>€ 518</b></div></div></div>
+    <footer class="pfoot">
+      <span class="micro">Piano di spesa · Tappa Zero</span>
+      <span class="micro">14–15 Novembre 2026</span>
+    </footer>
+  </section>
+  <section class="page">
+    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+    <header class="phead">
+      <span class="micro">Dettaglio voci · Area E</span>
+      <span class="micro">07</span>
+    </header>
+    <div class="pbody">
+    <div class="area-head">
+      <span class="eyebrow">Area E</span>
+      <h2 class="h2">Organizzazione e staff.</h2>
+      <p class="lead" style="font-size:12.5px">Comunicazione fra lo staff, divise, partenze e cronometraggio.</p>
+    </div>
+    <div class="voci">
+  <article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">18</span>
+        <span class="voce__nome">Radioline ricetrasmittenti</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Radio per il collegamento fra segreteria, starter e staff sul percorso.</p>
+      <p class="voce__note">Prezzo da definire.</p>
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>10 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article>
+  <article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">19</span>
+        <span class="voce__nome">Abbigliamento staff</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Polo, maglia e pantalone per lo staff della tappa.</p>
+      <p class="voce__note">Quantità per capo e prezzo da definire in base allo staff.</p>
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article>
+  <article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">20</span>
+        <span class="voce__nome">Cassa con microfono</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Cassa amplificata con microfono per le chiamate alle partenze.</p>
+      
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 70,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 70</b></div>
+    </div>
+  </article>
+  <article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">21</span>
+        <span class="voce__nome">Timer per partenza</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Timer per scandire le partenze.</p>
+      
+      <div class="campi">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 80,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 80</b></div>
+    </div>
+  </article></div>
+    <div class="subtot"><span>Totale area E</span><div><b>€ 150</b></div></div></div>
     <footer class="pfoot">
       <span class="micro">Piano di spesa · Tappa Zero</span>
       <span class="micro">14–15 Novembre 2026</span>
@@ -929,7 +1085,7 @@ body {
     <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
     <header class="phead">
       <span class="micro">Riepilogo e approvazione</span>
-      <span class="micro">07</span>
+      <span class="micro" data-k="pagRiep">08</span>
     </header>
 
     <div class="pbody" style="gap:14px">
@@ -1029,7 +1185,7 @@ body {
   </tr>
   <tr class="">
     <td class="tab__n">11</td>
-    <td class="tab__voce"><b>Drone per riprese e diretta live</b><small>Area C</small></td>
+    <td class="tab__voce"><b>Drone riprese e diretta</b><small>Area C</small></td>
     <td class="r" data-k="Q.tà">1 pz</td>
     <td class="r" data-k="Unit.">€ 700,00</td>
     <td class="r tab__eur" data-k="Totale">€ 700,00</td>
@@ -1037,14 +1193,22 @@ body {
   </tr>
   <tr class="">
     <td class="tab__n">12</td>
-    <td class="tab__voce"><b>Tovaglia tavolo presentazione AIFG</b><small>Area C</small></td>
+    <td class="tab__voce"><b>Tovaglia tavolo AIFG</b><small>Area C</small></td>
     <td class="r" data-k="Q.tà">1 pz</td>
     <td class="r" data-k="Unit.">—</td>
     <td class="r tab__eur" data-k="Totale">da definire</td>
     <td><span class="chip chip--da-definire">Da definire</span></td>
   </tr>
-  <tr class="">
+  <tr class="fuori">
     <td class="tab__n">13</td>
+    <td class="tab__voce"><b>Roll up segreteria</b><small>Area C</small></td>
+    <td class="r" data-k="Q.tà">—</td>
+    <td class="r" data-k="Unit.">—</td>
+    <td class="r tab__eur" data-k="Totale">da definire</td>
+    <td><span class="chip chip--opzionale">Opzionale</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">14</td>
     <td class="tab__voce"><b>Tavoli pieghevoli</b><small>Area D</small></td>
     <td class="r" data-k="Q.tà">4 pz</td>
     <td class="r" data-k="Unit.">€ 37,00</td>
@@ -1052,7 +1216,7 @@ body {
     <td><span class="chip chip--stima">Stima</span></td>
   </tr>
   <tr class="">
-    <td class="tab__n">14</td>
+    <td class="tab__n">15</td>
     <td class="tab__voce"><b>Tovaglie tavoli ristoro</b><small>Area D</small></td>
     <td class="r" data-k="Q.tà">4 pz</td>
     <td class="r" data-k="Unit.">—</td>
@@ -1060,17 +1224,57 @@ body {
     <td><span class="chip chip--da-definire">Da definire</span></td>
   </tr>
   <tr class="">
-    <td class="tab__n">15</td>
+    <td class="tab__n">16</td>
     <td class="tab__voce"><b>Ragazze immagine</b><small>Area D</small></td>
     <td class="r" data-k="Q.tà">1 servizio</td>
     <td class="r" data-k="Unit.">€ 300,00</td>
     <td class="r tab__eur" data-k="Totale">€ 300,00</td>
     <td><span class="chip chip--preventivo">Preventivo</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">17</td>
+    <td class="tab__voce"><b>Sedie per gazebo</b><small>Area D</small></td>
+    <td class="r" data-k="Q.tà">1 fornitura</td>
+    <td class="r" data-k="Unit.">€ 70,00</td>
+    <td class="r tab__eur" data-k="Totale">€ 70,00</td>
+    <td><span class="chip chip--preventivo">Preventivo</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">18</td>
+    <td class="tab__voce"><b>Radioline ricetrasmittenti</b><small>Area E</small></td>
+    <td class="r" data-k="Q.tà">10 pz</td>
+    <td class="r" data-k="Unit.">—</td>
+    <td class="r tab__eur" data-k="Totale">da definire</td>
+    <td><span class="chip chip--da-definire">Da definire</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">19</td>
+    <td class="tab__voce"><b>Abbigliamento staff</b><small>Area E</small></td>
+    <td class="r" data-k="Q.tà">—</td>
+    <td class="r" data-k="Unit.">—</td>
+    <td class="r tab__eur" data-k="Totale">da definire</td>
+    <td><span class="chip chip--da-definire">Da definire</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">20</td>
+    <td class="tab__voce"><b>Cassa con microfono</b><small>Area E</small></td>
+    <td class="r" data-k="Q.tà">1 pz</td>
+    <td class="r" data-k="Unit.">€ 70,00</td>
+    <td class="r tab__eur" data-k="Totale">€ 70,00</td>
+    <td><span class="chip chip--preventivo">Preventivo</span></td>
+  </tr>
+  <tr class="">
+    <td class="tab__n">21</td>
+    <td class="tab__voce"><b>Timer per partenza</b><small>Area E</small></td>
+    <td class="r" data-k="Q.tà">1 pz</td>
+    <td class="r" data-k="Unit.">€ 80,00</td>
+    <td class="r tab__eur" data-k="Totale">€ 80,00</td>
+    <td><span class="chip chip--preventivo">Preventivo</span></td>
   </tr></tbody>
         <tfoot id="tabfoot">
-  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">€ 3.182,65</td></tr>
+  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">€ 3.402,65</td></tr>
   <tr><td></td><td class="lbl" colspan="3">Opzionali (mini vele)</td><td class="r tot" colspan="2">€ 2.000,00</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">€ 5.182,65</td></tr></tfoot>
+  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">€ 5.402,65</td></tr></tfoot>
       </table>
 
       <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px" data-k="notaIva">Pieghevoli: prezzo IVA compresa da preventivo. Per le altre voci l'IVA è da verificare con il fornitore. Le righe in grigio sono fuori dal totale base.</p>
