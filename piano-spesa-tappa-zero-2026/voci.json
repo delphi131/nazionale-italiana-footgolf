@@ -44,16 +44,16 @@
     {
       "n": 1,
       "area": "A",
-      "nome": "Pieghevole A4",
-      "desc": "2 pieghe, 6 facciate, formato A4 (21 × 29,7 cm) orizzontale.",
+      "nome": "Brochure pieghevole",
+      "desc": "Formato aperto 63 × 29,7 cm: A4 a 2 pieghe, 6 facciate.",
       "fornitore": "",
-      "qta": 250,
+      "qta": 100,
       "unita": "pz",
-      "totale": 71.65,
-      "iva": "Inclusa",
+      "iva": "",
       "stato": "Preventivo",
       "nelTotale": true,
-      "note": "Prezzo complessivo per 250 pezzi, IVA compresa."
+      "note": "Preventivo precedente: 250 pz A4 a € 71,65 IVA inclusa.",
+      "totale": 180.0
     },
     {
       "n": 2,
@@ -63,11 +63,11 @@
       "fornitore": "",
       "qta": 250,
       "unita": "pz",
-      "totale": 125.9,
       "iva": "Inclusa",
       "stato": "Alternativa",
       "nelTotale": false,
-      "note": "In alternativa al pieghevole A4 (n. 1): +€ 54,25 se si sceglie l'A3."
+      "note": "In alternativa alla brochure (n. 1): 250 pz A3 a € 125,90 IVA inclusa.",
+      "totale": 125.9
     },
     {
       "n": 3,
@@ -115,30 +115,30 @@
     {
       "n": 6,
       "area": "B",
-      "nome": "Pannelli forex presentazione buca",
-      "desc": "Forex 70 × 100 cm con vernice protettiva antigraffio, uno per buca.",
+      "nome": "Pannelli presentazione buca",
+      "desc": "Forex 5 mm personalizzato con supporto in polionda 5 mm, 125 × 45 cm, uno per buca.",
       "fornitore": "",
       "qta": 18,
       "unita": "pz",
-      "totale": 654.0,
-      "iva": "",
+      "iva": "Esclusa",
       "stato": "Preventivo",
       "nelTotale": true,
-      "note": "€ 654 per i 18 pezzi."
+      "note": "Preventivo precedente: forex 70 × 100 cm antigraffio, € 654 per 18 pezzi.",
+      "prezzo": 54.0
     },
     {
       "n": 7,
       "area": "B",
-      "nome": "Partenze forex Women e Junior",
-      "desc": "Segnaletica in forex per le partenze dedicate Women e Junior.",
+      "nome": "Partenze Donne",
+      "desc": "Cartello di partenza 21 × 15 cm con punta, in Bi-Bond.",
       "fornitore": "",
-      "qta": null,
+      "qta": 13,
       "unita": "pz",
-      "prezzo": null,
-      "iva": "",
-      "stato": "Da definire",
+      "iva": "Esclusa",
+      "stato": "Preventivo",
       "nelTotale": true,
-      "note": "Quantità e prezzo da definire."
+      "note": "Le partenze Junior sono ancora da quotare.",
+      "prezzo": 4.0
     },
     {
       "n": 8,
@@ -156,20 +156,34 @@
     },
     {
       "n": 9,
-      "area": "C",
-      "nome": "Wall per foto giocatori",
-      "desc": "Fondale pubblicitario 300 × 240 cm per le foto dei giocatori.",
+      "area": "B",
+      "nome": "Cubi in polionda",
+      "desc": "Cubi in polionda 5 mm, 30 × 30 cm.",
       "fornitore": "",
       "qta": 1,
-      "unita": "pz",
-      "prezzo": 579.0,
+      "unita": "fornitura",
+      "totale": 150.0,
       "iva": "",
       "stato": "Preventivo",
       "nelTotale": true,
-      "note": ""
+      "note": "Verificare quanti cubi comprende la fornitura."
     },
     {
       "n": 10,
+      "area": "C",
+      "nome": "Wall per foto giocatori",
+      "desc": "Banner con asola 210 × 160/170 cm per le foto dei giocatori.",
+      "fornitore": "",
+      "qta": 1,
+      "unita": "pz",
+      "iva": "Esclusa",
+      "stato": "Preventivo",
+      "nelTotale": true,
+      "note": "Preventivo precedente: fondale 300 × 240 cm a € 579.",
+      "prezzo": 85.0
+    },
+    {
+      "n": 11,
       "area": "C",
       "nome": "Telo per videoproiettore",
       "desc": "Telo da 120 pollici per la presentazione AIFG.",
@@ -184,7 +198,7 @@
       "note": "Prezzo fra € 80 e € 100: messo il massimo per prudenza."
     },
     {
-      "n": 11,
+      "n": 12,
       "area": "C",
       "nome": "Drone riprese e diretta",
       "desc": "DJI Mini 4 Pro o Mini 5 Pro per riprese aeree e diretta streaming della tappa.",
@@ -198,7 +212,7 @@
       "note": "€ 400–700 secondo modello e kit: messo il massimo per prudenza."
     },
     {
-      "n": 12,
+      "n": 13,
       "area": "C",
       "nome": "Tovaglia tavolo AIFG",
       "desc": "Tovaglia personalizzata per il tavolo della presentazione.",
@@ -212,7 +226,7 @@
       "note": "Prezzo da richiedere."
     },
     {
-      "n": 13,
+      "n": 14,
       "area": "C",
       "nome": "Roll up segreteria",
       "desc": "Roll up per l'area segreteria e iscrizioni.",
@@ -226,7 +240,7 @@
       "note": "Voce eventuale: quantità e prezzo da definire."
     },
     {
-      "n": 14,
+      "n": 15,
       "area": "D",
       "nome": "Tavoli pieghevoli",
       "desc": "Tavolo pieghevole 180 × 70 × 74 cm, bianco.",
@@ -240,7 +254,7 @@
       "note": "€ 37 a tavolo. Quantità di 4 ipotizzata: da confermare."
     },
     {
-      "n": 15,
+      "n": 16,
       "area": "D",
       "nome": "Tovaglie tavoli ristoro",
       "desc": "Tovaglie per i tavoli del punto ristoro.",
@@ -254,7 +268,7 @@
       "note": "Costo da verificare."
     },
     {
-      "n": 16,
+      "n": 17,
       "area": "D",
       "nome": "Ragazze immagine",
       "desc": "Servizio di ragazze immagine per l'accoglienza e le premiazioni del weekend.",
@@ -268,21 +282,21 @@
       "note": ""
     },
     {
-      "n": 17,
+      "n": 18,
       "area": "D",
       "nome": "Sedie per gazebo",
       "desc": "Sedie per i gazebo dell'accoglienza e della segreteria.",
       "fornitore": "",
-      "qta": 1,
-      "unita": "fornitura",
-      "prezzo": 70.0,
+      "qta": 10,
+      "unita": "pz",
       "iva": "",
       "stato": "Preventivo",
       "nelTotale": true,
-      "note": "Verificare quante sedie comprende la fornitura."
+      "note": "€ 70 a sedia.",
+      "prezzo": 70.0
     },
     {
-      "n": 18,
+      "n": 19,
       "area": "E",
       "nome": "Radioline ricetrasmittenti",
       "desc": "Radio per il collegamento fra segreteria, starter e staff sul percorso.",
@@ -296,7 +310,7 @@
       "note": "Prezzo da definire."
     },
     {
-      "n": 19,
+      "n": 20,
       "area": "E",
       "nome": "Abbigliamento staff",
       "desc": "Polo, maglia e pantalone per lo staff della tappa.",
@@ -310,7 +324,7 @@
       "note": "Quantità per capo e prezzo da definire in base allo staff."
     },
     {
-      "n": 20,
+      "n": 21,
       "area": "E",
       "nome": "Cassa con microfono",
       "desc": "Cassa amplificata con microfono per le chiamate alle partenze.",
@@ -324,7 +338,7 @@
       "note": ""
     },
     {
-      "n": 21,
+      "n": 22,
       "area": "E",
       "nome": "Timer per partenza",
       "desc": "Timer per scandire le partenze.",
@@ -332,6 +346,20 @@
       "qta": 1,
       "unita": "pz",
       "prezzo": 80.0,
+      "iva": "",
+      "stato": "Preventivo",
+      "nelTotale": true,
+      "note": ""
+    },
+    {
+      "n": 23,
+      "area": "E",
+      "nome": "Collarini personalizzati",
+      "desc": "Collarini con doppio moschettone, personalizzati.",
+      "fornitore": "",
+      "qta": 100,
+      "unita": "pz",
+      "totale": 370.0,
       "iva": "",
       "stato": "Preventivo",
       "nelTotale": true,

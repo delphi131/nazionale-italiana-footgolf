@@ -103,7 +103,7 @@ body {
 
 .phead {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding-bottom: 9px; margin-bottom: 10mm;
+  gap: 16px; padding-bottom: 9px; margin-bottom: 7mm;
   border-bottom: 1px solid var(--line-light);
 }
 .page--dark .phead, .page--dark2 .phead { border-bottom-color: var(--line-dark); }
@@ -199,10 +199,10 @@ body {
 .area-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
 .area-head .h2 { display: flex; align-items: baseline; gap: 12px; }
 
-.voci { display: flex; flex-direction: column; gap: 8px; }
+.voci { display: flex; flex-direction: column; gap: 7px; }
 .voce {
-  display: grid; grid-template-columns: 40mm 1fr 45mm; gap: 14px;
-  padding: 12px; border-radius: 20px;
+  display: grid; grid-template-columns: 38mm 1fr 45mm; gap: 14px;
+  padding: 9px; border-radius: 20px;
   background: var(--white); border: 1px solid var(--line-light);
   box-shadow: 0 18px 40px rgba(10,12,10,.06);
   break-inside: avoid;
@@ -211,7 +211,7 @@ body {
 
 /* Spazio per la foto del prodotto: si incolla o si stampa e si attacca */
 .foto {
-  min-height: 29mm; border-radius: 14px;
+  min-height: 27mm; border-radius: 14px;
   border: 1.5px dashed rgba(10,12,10,.20);
   background:
     linear-gradient(135deg, rgba(0,114,206,.04), rgba(0,114,206,0)),
@@ -238,7 +238,7 @@ body {
 .campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .campo__k { font-size: 7px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
 .campo__v {
-  height: 24px; display: flex; align-items: center; padding: 0 9px;
+  height: 22px; display: flex; align-items: center; padding: 0 9px;
   border-radius: 9px; border: 1px dashed rgba(10,12,10,.22);
   font-size: 10.5px; font-weight: 700; color: var(--on-light);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -247,8 +247,8 @@ body {
 .campo__v a { color: var(--blue); text-decoration: none; }
 
 .conto {
-  display: flex; flex-direction: column; gap: 6px; justify-content: space-between;
-  padding: 11px 12px; border-radius: 14px; background: var(--panel);
+  display: flex; flex-direction: column; gap: 4px; justify-content: space-between;
+  padding: 9px 12px; border-radius: 14px; background: var(--panel);
 }
 .conto__r { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
 .conto__r span { font-size: 7.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
@@ -263,8 +263,8 @@ body {
 .vuoto--s { width: 38px; height: 12px; }
 
 .subtot {
-  margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 13px 18px; border-radius: 16px; background: var(--ink); color: var(--on-dark);
+  margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 18px; border-radius: 16px; background: var(--ink); color: var(--on-dark);
 }
 .subtot span { font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark-2); }
 .subtot b { font-size: 20px; font-weight: 900; letter-spacing: -.03em; color: var(--blue-lite); font-variant-numeric: tabular-nums; }
@@ -278,7 +278,7 @@ body {
   font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
   color: var(--on-light-3); border-bottom: 1px solid rgba(10,12,10,.24);
 }
-.tab td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
+.tab td { padding: 3px 8px 3px 0; border-bottom: 1px solid var(--line-light); vertical-align: middle; font-size: 11px; }
 .tab .r { text-align: right; }
 .tab__n { width: 26px; font-weight: 800; color: var(--blue); }
 /* Area e fornitore sulla stessa riga del nome: la tabella deve restare in una pagina */
@@ -295,7 +295,7 @@ body {
 
 .firma { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
 .firma__f { display: flex; flex-direction: column; gap: 6px; }
-.firma__f i { display: block; height: 1px; background: rgba(10,12,10,.28); margin-top: 26px; }
+.firma__f i { display: block; height: 1px; background: rgba(10,12,10,.28); margin-top: 22px; }
 
 /* ---------- Copertina ---------- */
 
@@ -392,7 +392,7 @@ body {
         <h2 class="h2">Quanto costa vestire <br class="brk">la Tappa Zero.</h2>
         <p class="lead">
           Il totale base somma le voci con un prezzo già noto, da preventivo o stimato.
-          Le mini vele restano fuori come voce eventuale; il pieghevole A3 è l'alternativa all'A4.
+          Le mini vele restano fuori come voce eventuale; il pieghevole A3 è l'alternativa alla brochure.
         </p>
       </div>
 
@@ -515,7 +515,8 @@ const testi = {
   nAree: `Voci di spesa in ${DATI.aree.length} aree`,
   nDef: String(daDef.length),
   pagRiep: String(DATI.aree.length + 3).padStart(2, "0"),
-  notaIva: "Pieghevoli: prezzo IVA compresa da preventivo. Per le altre voci l'IVA è da verificare con il fornitore. "
+  notaIva: "Pannelli buca, partenze Donne e wall: prezzi IVA esclusa da preventivo. Pieghevole A3: IVA inclusa. "
+         + "Per le altre voci l'IVA è da verificare con il fornitore. "
          + "Le righe in grigio sono fuori dal totale base."
 };
 document.querySelectorAll("[data-k]").forEach((el) => {

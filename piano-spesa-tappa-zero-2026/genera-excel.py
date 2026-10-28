@@ -110,7 +110,7 @@ def rng(col):
 # ---------------------------------------------------------------- KPI
 KPI = [
     ("B", "C", "Totale base", f'=SUMIFS({rng("Totale")},{rng("Nel totale")},"Sì")', EUR, BLUE),
-    # Le alternative (A3 al posto dell'A4) non si sommano: si sceglie l'una o l'altra
+    # Le alternative (A3 al posto della brochure) non si sommano: si sceglie l'una o l'altra
     ("D", "D", "Opzionali", f'=SUMIFS({rng("Totale")},{rng("Stato")},"Opzionale",{rng("Nel totale")},"No")', EUR, GRIGIO),
     ("E", "G", "Totale con opzionali", "=B6+D6", EUR, INK),
     ("H", "I", "Voci da definire", f'=COUNTIFS({rng("Stato")},"Da definire")', "0", "B7791F"),
@@ -221,9 +221,9 @@ ws[f"{C['Totale']}{R_TOT}"].alignment = DESTRA
 r_nota = R_TOT + 2
 note = [
     "Note",
-    "• Pieghevole A4 (n. 1) e A3 (n. 2) sono alternativi: nel totale base c'è l'A4. Per passare all'A3 invertire «Nel totale» sulle due righe.",
+    "• Brochure (n. 1) e pieghevole A3 (n. 2) sono alternativi: nel totale base c'è la brochure. Per passare all'A3 invertire «Nel totale» sulle due righe.",
     "• Mini vele (n. 8) è voce eventuale, fuori dal totale base. Telo proiettore (€ 80–100) e drone (€ 400–700): messo il massimo per prudenza.",
-    "• Tavoli ristoro: quantità 4 ipotizzata, da confermare. IVA indicata come inclusa solo dove il preventivo lo dice esplicitamente.",
+    "• Tavoli ristoro: quantità 4 ipotizzata, da confermare. IVA «Esclusa» o «Inclusa» solo dove il preventivo lo dice: altrimenti da verificare.",
     "• Foto: in Excel 365 selezionare la cella gialla → Inserisci → Immagini → Inserisci nella cella. Le righe libere in fondo sono pronte per nuove voci.",
 ]
 for i, t in enumerate(note):
