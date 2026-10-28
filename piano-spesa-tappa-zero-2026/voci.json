@@ -152,7 +152,8 @@
       "iva": "",
       "stato": "Opzionale",
       "nelTotale": false,
-      "note": "Voce eventuale: fuori dal totale base."
+      "note": "Voce eventuale: fuori dal totale base.",
+      "breve": "mini vele"
     },
     {
       "n": 9,
@@ -164,9 +165,10 @@
       "unita": "fornitura",
       "totale": 150.0,
       "iva": "",
-      "stato": "Preventivo",
-      "nelTotale": true,
-      "note": "Verificare quanti cubi comprende la fornitura."
+      "stato": "Opzionale",
+      "nelTotale": false,
+      "note": "Voce eventuale, fuori dal totale base. Verificare quanti cubi comprende la fornitura.",
+      "breve": "cubi"
     },
     {
       "n": 10,
@@ -207,9 +209,10 @@
       "unita": "pz",
       "prezzo": 700.0,
       "iva": "",
-      "stato": "Stima",
-      "nelTotale": true,
-      "note": "€ 400–700 secondo modello e kit: messo il massimo per prudenza."
+      "stato": "Opzionale",
+      "nelTotale": false,
+      "note": "Voce eventuale, fuori dal totale base. € 400–700 secondo modello: messo il massimo.",
+      "breve": "drone"
     },
     {
       "n": 13,
@@ -237,7 +240,8 @@
       "iva": "",
       "stato": "Opzionale",
       "nelTotale": false,
-      "note": "Voce eventuale: quantità e prezzo da definire."
+      "note": "Voce eventuale: quantità e prezzo da definire.",
+      "breve": "roll up"
     },
     {
       "n": 15,
@@ -292,8 +296,8 @@
       "iva": "",
       "stato": "Preventivo",
       "nelTotale": true,
-      "note": "€ 70 a sedia.",
-      "prezzo": 70.0
+      "note": "€ 70 in tutto per le 10 sedie.",
+      "totale": 70.0
     },
     {
       "n": 19,

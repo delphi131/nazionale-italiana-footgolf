@@ -392,13 +392,13 @@ body {
         <h2 class="h2">Quanto costa vestire <br class="brk">la Tappa Zero.</h2>
         <p class="lead">
           Il totale base somma le voci con un prezzo già noto, da preventivo o stimato.
-          Le mini vele restano fuori come voce eventuale; il pieghevole A3 è l'alternativa alla brochure.
+          Mini vele, drone e cubi restano fuori come voci eventuali; il pieghevole A3 è l'alternativa alla brochure.
         </p>
       </div>
 
       <div class="kpis">
         <div class="kpi"><b data-k="totBase"></b><span>Totale base</span></div>
-        <div class="kpi kpi--muted"><b data-k="totOpz"></b><span>Opzionali · mini vele di partenza</span></div>
+        <div class="kpi kpi--muted"><b data-k="totOpz"></b><span data-k="lblOpz"></span></div>
         <div class="kpi kpi--muted"><b data-k="totCon"></b><span>Totale con opzionali</span></div>
       </div>
 
@@ -501,6 +501,8 @@ const base = voci.filter((v) => v.nelTotale);
 const opz = voci.filter((v) => v.stato === "Opzionale");
 const daDef = voci.filter((v) => v.stato === "Da definire");
 const tot = { base: somma(base), opz: somma(opz) };
+/* Nomi brevi delle voci opzionali con un prezzo, per le etichette dei totali */
+const opzNomi = opz.filter((v) => v.tot != null).map((v) => v.breve || v.nome.toLowerCase()).join(", ");
 tot.con = tot.base + tot.opz;
 
 const ev = DATI.evento;
@@ -510,6 +512,7 @@ const testi = {
   aggiornato: `Aggiornato al ${ev.aggiornato}`,
   totBase: eurC(tot.base),
   totOpz: eurC(tot.opz),
+  lblOpz: `Opzionali · ${opzNomi}`,
   totCon: eurC(tot.con),
   nVoci: String(voci.length),
   nAree: `Voci di spesa in ${DATI.aree.length} aree`,
@@ -620,6 +623,6 @@ document.getElementById("tabbody").innerHTML = voci.map((v) => `
 
 document.getElementById("tabfoot").innerHTML = `
   <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">${eur(tot.base)}</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Opzionali (mini vele)</td><td class="r tot" colspan="2">${eur(tot.opz)}</td></tr>
+  <tr><td></td><td class="lbl" colspan="3">Opzionali (${esc(opzNomi)})</td><td class="r tot" colspan="2">${eur(tot.opz)}</td></tr>
   <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">${eur(tot.con)}</td></tr>`;
 </script>

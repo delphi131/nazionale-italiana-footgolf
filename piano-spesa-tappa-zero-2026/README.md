@@ -34,8 +34,8 @@ L'Excel si può anche aggiornare a mano: i totali si ricalcolano da soli.
 | Opzionale | voce eventuale | no |
 | Alternativa | in alternativa a un'altra voce | no |
 
-**Totale base € 4.537,00** · opzionali € 2.000 (mini vele; roll up segreteria ancora senza prezzo) ·
-totale con opzionali € 6.537,00 · 5 voci da quotare (flyer, tovaglia presentazione, tovaglie
+**Totale base € 3.057,00** · opzionali € 2.850 (mini vele, cubi, drone; roll up segreteria ancora
+senza prezzo) · totale con opzionali € 5.907,00 · 5 voci da quotare (flyer, tovaglia presentazione, tovaglie
 ristoro, radioline, abbigliamento staff); delle partenze sono quotate solo le Donne.
 
 ## Ipotesi da confermare
@@ -47,6 +47,6 @@ ristoro, radioline, abbigliamento staff); delle partenze sono quotate solo le Do
   live (€ 400–700): per entrambi è messo il massimo per prudenza.
 - **Bandiere golflags.eu** e **mini vele** sono messe come fornitura unica (€ 390 e € 2.000):
   il numero di pezzi compreso va verificato.
-- **Cubi in polionda** (€ 150) sono messi come fornitura unica: il numero di cubi va verificato.
+- **Cubi in polionda** (€ 150, opzionali) sono messi come fornitura unica: il numero di cubi va verificato.
 - Pannelli buca, partenze Donne e wall sono **IVA esclusa**, il pieghevole A3 IVA inclusa; per le
   altre voci l'IVA va verificata. I totali sommano gli importi così come sono nei preventivi.

@@ -222,7 +222,7 @@ r_nota = R_TOT + 2
 note = [
     "Note",
     "• Brochure (n. 1) e pieghevole A3 (n. 2) sono alternativi: nel totale base c'è la brochure. Per passare all'A3 invertire «Nel totale» sulle due righe.",
-    "• Mini vele (n. 8) è voce eventuale, fuori dal totale base. Telo proiettore (€ 80–100) e drone (€ 400–700): messo il massimo per prudenza.",
+    "• Mini vele, cubi e drone sono voci eventuali, fuori dal totale base. Telo proiettore (€ 80–100) e drone (€ 400–700): messo il massimo per prudenza.",
     "• Tavoli ristoro: quantità 4 ipotizzata, da confermare. IVA «Esclusa» o «Inclusa» solo dove il preventivo lo dice: altrimenti da verificare.",
     "• Foto: in Excel 365 selezionare la cella gialla → Inserisci → Immagini → Inserisci nella cella. Le righe libere in fondo sono pronte per nuove voci.",
 ]
