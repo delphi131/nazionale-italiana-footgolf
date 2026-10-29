@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Piano di spesa Tappa Zero</title>
+<title>Piano operativo Tappa Zero</title>
 <style>
 @font-face {
   font-family: 'Archivo';
@@ -324,6 +324,130 @@ body {
 .cover__fatti b { font-size: 13px; font-weight: 800; letter-spacing: -.01em; }
 .cover__fatti span { font-size: 10px; color: var(--on-dark-3); font-weight: 600; }
 
+/* ---------- Stati delle voci e delle attività ---------- */
+
+.chip--confermato   { background: rgba(0,140,69,.12);  color: #1F6B40; }
+.chip--da-fare      { background: rgba(10,12,10,.07);   color: rgba(10,12,10,.62); }
+.chip--in-corso     { background: rgba(0,114,206,.11);  color: var(--blue); }
+.chip--in-revisione { background: rgba(232,194,90,.22); color: #8A6512; }
+.chip--in-attesa    { background: rgba(98,78,190,.12);  color: #4F3F9A; }
+.chip--programmata  { background: rgba(0,114,206,.06);  color: var(--blue-dark); border: 1px solid rgba(0,114,206,.22); }
+.chip--fatto        { background: rgba(0,140,69,.12);   color: #1F6B40; }
+
+.prio {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 30px; height: 20px; padding: 0 7px; border-radius: 999px;
+  font-size: 9px; font-weight: 900; letter-spacing: .06em;
+}
+.prio--1 { background: #CD212A; color: var(--white); }
+.prio--2 { background: var(--gold); color: var(--ink); }
+.prio--3 { background: rgba(10,12,10,.12); color: rgba(10,12,10,.7); }
+.prio--n { background: transparent; color: var(--on-light-3); border: 1px dashed rgba(10,12,10,.2); }
+
+/* ---------- Elenco attività ---------- */
+
+.att-head, .att {
+  display: grid; grid-template-columns: 26px 1fr 40px 74px 86px 92px;
+  gap: 10px; align-items: center;
+}
+.att-head {
+  padding: 0 12px 6px;
+  font-size: 7.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--on-light-3);
+}
+.atts { display: flex; flex-direction: column; gap: 5px; }
+.att {
+  padding: 6px 12px; border-radius: 14px;
+  background: var(--white); border: 1px solid var(--line-light);
+  break-inside: avoid;
+}
+.att--p1 { box-shadow: inset 4px 0 0 #CD212A; }
+.att--fatto { background: rgba(255,255,255,.55); }
+.att__n {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--white);
+  font-size: 10px; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+.att__txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.att__titolo { font-size: 12.5px; font-weight: 900; letter-spacing: -.02em; line-height: 1.25; }
+.att__det { font-size: 10px; line-height: 1.4; color: var(--on-light-2); }
+.att__note { font-size: 9.5px; line-height: 1.4; color: var(--on-light-3); font-style: italic; }
+.att__k { font-size: 10px; font-weight: 700; line-height: 1.3; color: var(--on-light); }
+.att__k--vuoto { color: var(--on-light-3); font-weight: 600; }
+.att__scad { display: block; margin-top: 2px; font-size: 8.5px; font-weight: 800; color: #A6362F; letter-spacing: .02em; }
+
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-top: 12px; font-size: 9.5px; color: var(--on-light-3); font-weight: 600; }
+.legenda span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---------- Scadenze (pagina 2) ---------- */
+
+.scad { display: flex; flex-direction: column; border-top: 1px solid var(--line-dark); }
+.scad__r {
+  display: grid; grid-template-columns: 74px 1fr auto; gap: 14px; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--line-dark);
+}
+.scad__d { font-size: 15px; font-weight: 900; letter-spacing: -.02em; color: var(--blue-lite); font-variant-numeric: tabular-nums; }
+.scad__t { font-size: 12px; font-weight: 800; letter-spacing: -.01em; }
+.scad__t small { display: block; font-size: 9.5px; font-weight: 600; color: var(--on-dark-3); letter-spacing: 0; }
+
+.kpis--4 { grid-template-columns: repeat(4, 1fr); }
+.kpis--4 .kpi b { font-size: 28px; }
+
+/* ---------- Chi fa cosa ---------- */
+
+.persone { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.persona {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px 18px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light);
+}
+.persona__top { display: flex; align-items: center; gap: 10px; }
+.persona__ini {
+  width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: var(--white); font-size: 12px; font-weight: 900;
+}
+.persona__nome { font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
+.persona__nome small { display: block; font-size: 9px; font-weight: 700; color: var(--on-light-3); letter-spacing: .02em; }
+.persona ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.persona li {
+  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center;
+  padding: 5px 0; border-top: 1px solid var(--line-light); font-size: 10.5px; line-height: 1.35;
+}
+.persona li b { font-size: 9.5px; color: var(--blue); font-variant-numeric: tabular-nums; }
+
+/* ---------- Community ---------- */
+
+.comm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.canale {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px; border-radius: 18px; background: var(--card); border: 1px solid var(--line-dark);
+}
+.canale--sub { grid-row: span 2; }
+.canale__top { display: flex; align-items: center; gap: 10px; }
+.canale__ico { font-size: 20px; line-height: 1; }
+.canale__nome { font-size: 13.5px; font-weight: 900; letter-spacing: -.02em; }
+.canale ul { margin: 0; padding: 0 0 0 4px; list-style: none; display: flex; flex-direction: column; gap: 0; }
+.canale li {
+  position: relative; padding: 6px 0 6px 18px; font-size: 11px; font-weight: 700; color: var(--on-dark-2);
+  border-left: 1px solid rgba(79,179,240,.35);
+}
+.canale li::before { content: ""; position: absolute; left: 0; top: 50%; width: 11px; height: 1px; background: rgba(79,179,240,.35); }
+.canale li:last-child { border-left-color: transparent; }
+.canale li:last-child::after { content: ""; position: absolute; left: 0; top: 0; height: 50%; border-left: 1px solid rgba(79,179,240,.35); }
+
+/* ---------- Riepilogo: riga di gruppo per area ---------- */
+
+.tab tr.gruppo td {
+  padding-top: 10px; border-bottom: 1px solid rgba(10,12,10,.24);
+  font-size: 8.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue);
+}
+.tab tr.gruppo td:last-child { text-align: right; color: var(--on-light); letter-spacing: .02em; font-size: 10.5px; }
+
+.segue { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
+
+.campi--3 { grid-template-columns: 1fr 1fr 1.3fr; }
+
 /* ======================================================================
    Schermo stretto — IN FONDO di proposito: deve vincere sulle regole base.
    ====================================================================== */
@@ -349,13 +473,19 @@ body {
   .tab td { display: block; padding: 0; border: 0 !important; }
   .tab__voce { flex: 1 1 70%; }
   .tab td[data-k]::before { content: attr(data-k) " "; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--on-light-3); }
+  .kpis--4, .persone, .comm { grid-template-columns: 1fr !important; }
+  .att-head { display: none; }
+  .att { grid-template-columns: 26px 1fr; row-gap: 6px; }
+  .att > :nth-child(n+3) { grid-column: 2; }
+  .campi--3 { grid-template-columns: 1fr; }
 }
+
 </style>
 </head>
 <body>
 <div class="doc" id="doc">
 
-  <!-- ============ 1 · COPERTINA ============ -->
+  <!-- ============ COPERTINA ============ -->
   <section class="page page--dark">
     <div class="cover">
       <div class="cover__glow"></div>
@@ -371,122 +501,153 @@ body {
 
       <div class="cover__body">
         <span class="pill" data-k="pill">Tappa Zero · 14–15 Novembre 2026</span>
-        <h1 class="h1">Piano di spesa <br class="brk"><span class="accent">Tappa Zero</span>.</h1>
-        <p class="lead" style="font-size:15px;max-width:52ch">
-          Il materiale da stampare e da allestire per il weekend a Il Pelagone: ogni voce con
-          quantità, prezzo, stato del preventivo e lo spazio per foto e link del fornitore.
+        <h1 class="h1"><span class="accent">Tappa Zero</span>. <br class="brk">Piano operativo <br class="brk">e preventivo.</h1>
+        <p class="lead" style="font-size:15px;max-width:54ch">
+          Il punto su tutto il lavoro in corso: le attività istituzionali, la preparazione della
+          presentazione a Il Pelagone, chi se ne occupa, e il preventivo di spesa voce per voce.
         </p>
         <div class="cover__fatti">
-          <div><b data-k="totBase">€ 3.057</b><span>Totale base</span></div>
-          <div><b data-k="nVoci">23</b><span data-k="nAree">Voci di spesa in 5 aree</span></div>
-          <div><b data-k="nDef">5</b><span>Voci ancora da quotare</span></div>
+          <div><b data-k="nAtt">20</b><span data-k="nAttLbl">Attività in 2 filoni di lavoro</span></div>
+          <div><b data-k="totBase">€ 4.588,40</b><span>Preventivo, totale base</span></div>
+          <div><b data-k="nVoci">29</b><span data-k="nVociLbl">Voci di spesa in 6 aree</span></div>
         </div>
       </div>
     </div>
 
     <footer class="pfoot" style="margin-top:14mm">
       <span class="micro" data-k="luogo">Il Pelagone Hotel &amp; Golf Resort · Gavorrano (GR)</span>
-      <span class="micro" data-k="aggiornato">Aggiornato al 28 ottobre 2026</span>
+      <span class="micro" data-k="aggiornato">Aggiornato al 29 ottobre 2026</span>
     </footer>
   </section>
 
-  <!-- ============ 2 · SINTESI ============ -->
+  <!-- ============ SINTESI ============ -->
   <section class="page page--dark2">
     <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
     <header class="phead">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">02</span>
+      <span class="micro">Tappa Zero · Sintesi</span>
+      <span class="micro pnum">02</span>
     </header>
 
-    <div class="pbody" style="gap:30px;justify-content:center">
+    <div class="pbody" style="gap:24px;justify-content:center">
       <div style="display:flex;flex-direction:column;gap:8px">
-        <span class="eyebrow">Il budget in breve</span>
-        <h2 class="h2">Quanto costa vestire <br class="brk">la Tappa Zero.</h2>
-        <p class="lead">
-          Il totale base somma le voci con un prezzo già noto, da preventivo o stimato.
-          Mini vele, drone e cubi restano fuori come voci eventuali; il pieghevole A3 è l'alternativa alla brochure.
-        </p>
+        <span class="eyebrow">A colpo d'occhio</span>
+        <h2 class="h2">Il punto a due settimane <br class="brk">dalla Tappa Zero.</h2>
       </div>
 
-      <div class="kpis">
-        <div class="kpi"><b data-k="totBase">€ 3.057</b><span>Totale base</span></div>
-        <div class="kpi kpi--muted"><b data-k="totOpz">€ 2.850</b><span data-k="lblOpz">Opzionali · mini vele, cubi, drone</span></div>
-        <div class="kpi kpi--muted"><b data-k="totCon">€ 5.907</b><span>Totale con opzionali</span></div>
+      <div class="kpis kpis--4">
+        <div class="kpi kpi--muted"><b data-k="nAtt">20</b><span>Attività in programma</span></div>
+        <div class="kpi kpi--muted"><b data-k="nP1">5</b><span>Con priorità 1</span></div>
+        <div class="kpi"><b data-k="totBase">€ 4.588,40</b><span>Preventivo, totale base</span></div>
+        <div class="kpi kpi--muted"><b data-k="totOpz">€ 3.000</b><span data-k="lblOpz">Opzionali · mini vele, cubi, drone</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span class="eyebrow">Scadenze ravvicinate</span>
+        <div class="scad" id="scadenze">
+    <div class="scad__r">
+      <span class="scad__d">30/10</span>
+      <span class="scad__t">BID Submission Open d'Italia<small>Consegna il 30 ottobre.</small></span>
+      <span class="prio prio--1">P1</span>
+    </div>
+    <div class="scad__r">
+      <span class="scad__d">01/11</span>
+      <span class="scad__t">Preventivo della cena<small>Da definire domenica con il Direttore.</small></span>
+      
+    </div>
+    <div class="scad__r">
+      <span class="scad__d">03/11</span>
+      <span class="scad__t">Grafiche del materiale marketing<small>Ordini Pixartprinting entro martedì 3/11 per la tariffa più bassa.</small></span>
+      <span class="prio prio--1">P1</span>
+    </div></div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <span class="eyebrow">Ripartizione per area</span>
+          <span class="eyebrow">Preventivo per area</span>
           <div class="legenda-bar"><span><i></i>Totale base</span><span><u></u>Opzionali e alternative</span></div>
         </div>
         <div class="aree" id="aree">
-  <div class="area-row">
+  <div class="area-row" style="padding:9px 0">
     <span class="area-row__id">A</span>
     <div class="area-row__txt">
-      <span class="area-row__nome">Stampa e comunicazione <small>4 voci</small></span>
+      <span class="area-row__nome">Materiale marketing <small>4 voci</small></span>
       <div class="bar">
-        <u style="width:15.317059483726151%"></u>
-        <i style="width:11.784511784511785%"></i>
+        <u style="width:12.990409764603314%"></u>
+        <i style="width:10.244115082824761%"></i>
       </div>
     </div>
     <div class="area-row__eur">
-      <b>€ 420</b>
-      <span>+ € 125,90 fuori totale</span>
+      <b>€ 470</b>
+      <span>+ € 126 fuori totale</span>
     </div>
   </div>
-  <div class="area-row">
+  <div class="area-row" style="padding:9px 0">
     <span class="area-row__id">B</span>
     <div class="area-row__txt">
-      <span class="area-row__nome">Allestimento del campo <small>5 voci</small></span>
+      <span class="area-row__nome">Punto ristoro e briefing <small>4 voci</small></span>
       <div class="bar">
-        <u style="width:100%"></u>
-        <i style="width:39.674523007856344%"></i>
+        <u style="width:7.615518744551002%"></u>
+        <i style="width:7.615518744551002%"></i>
       </div>
     </div>
     <div class="area-row__eur">
-      <b>€ 1.414</b>
-      <span>+ € 2.150 fuori totale</span>
-    </div>
-  </div>
-  <div class="area-row">
-    <span class="area-row__id">C</span>
-    <div class="area-row__txt">
-      <span class="area-row__nome">Immagine, media e presentazione <small>5 voci</small></span>
-      <div class="bar">
-        <u style="width:24.831649831649834%"></u>
-        <i style="width:5.190796857463524%"></i>
-      </div>
-    </div>
-    <div class="area-row__eur">
-      <b>€ 185</b>
-      <span>+ € 700 fuori totale</span>
-    </div>
-  </div>
-  <div class="area-row">
-    <span class="area-row__id">D</span>
-    <div class="area-row__txt">
-      <span class="area-row__nome">Accoglienza e punto ristoro <small>4 voci</small></span>
-      <div class="bar">
-        <u style="width:14.534231200897867%"></u>
-        <i style="width:14.534231200897867%"></i>
-      </div>
-    </div>
-    <div class="area-row__eur">
-      <b>€ 518</b>
+      <b>€ 349,40</b>
       <span>&nbsp;</span>
     </div>
   </div>
-  <div class="area-row">
-    <span class="area-row__id">E</span>
+  <div class="area-row" style="padding:9px 0">
+    <span class="area-row__id">C</span>
     <div class="area-row__txt">
-      <span class="area-row__nome">Organizzazione e staff <small>5 voci</small></span>
+      <span class="area-row__nome">Percorso e partenze <small>10 voci</small></span>
       <div class="bar">
-        <u style="width:14.590347923681257%"></u>
-        <i style="width:14.590347923681257%"></i>
+        <u style="width:100%"></u>
+        <i style="width:33.43504795117698%"></i>
       </div>
     </div>
     <div class="area-row__eur">
-      <b>€ 520</b>
+      <b>€ 1.534</b>
+      <span>+ € 3.054 fuori totale</span>
+    </div>
+  </div>
+  <div class="area-row" style="padding:9px 0">
+    <span class="area-row__id">D</span>
+    <div class="area-row__txt">
+      <span class="area-row__nome">Immagine e media <small>5 voci</small></span>
+      <div class="bar">
+        <u style="width:23.21272885789015%"></u>
+        <i style="width:10.135135135135135%"></i>
+      </div>
+    </div>
+    <div class="area-row__eur">
+      <b>€ 465</b>
+      <span>+ € 600 fuori totale</span>
+    </div>
+  </div>
+  <div class="area-row" style="padding:9px 0">
+    <span class="area-row__id">E</span>
+    <div class="area-row__txt">
+      <span class="area-row__nome">Accoglienza <small>3 voci</small></span>
+      <div class="bar">
+        <u style="width:14.603312990409764%"></u>
+        <i style="width:14.603312990409764%"></i>
+      </div>
+    </div>
+    <div class="area-row__eur">
+      <b>€ 670</b>
+      <span>&nbsp;</span>
+    </div>
+  </div>
+  <div class="area-row" style="padding:9px 0">
+    <span class="area-row__id">F</span>
+    <div class="area-row__txt">
+      <span class="area-row__nome">Staff e ospitalità <small>3 voci</small></span>
+      <div class="bar">
+        <u style="width:23.975588491717524%"></u>
+        <i style="width:23.975588491717524%"></i>
+      </div>
+    </div>
+    <div class="area-row__eur">
+      <b>€ 1.100</b>
       <span>&nbsp;</span>
     </div>
   </div></div>
@@ -499,34 +660,361 @@ body {
     </footer>
   </section>
 
-  <!-- Pagine 3–5: costruite dallo script a partire da DATI.aree -->
-  
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-    <header class="phead">
-      <span class="micro">Dettaglio voci · Area A</span>
-      <span class="micro">03</span>
-    </header>
-    <div class="pbody">
-    <div class="area-head">
-      <span class="eyebrow">Area A</span>
-      <h2 class="h2">Stampa e comunicazione.</h2>
-      <p class="lead" style="font-size:12.5px">Pieghevoli, flyer e fiches personalizzate per i giocatori.</p>
+  <!-- Tutte le altre pagine sono costruite dallo script e impaginate a misura di A4 -->
+<section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Attività · Attività istituzionali</span><span class="micro pnum">03</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Attività · 7 in elenco</span><h2 class="h2">Attività istituzionali.</h2><p class="lead" style="font-size:12.5px">FIFG, Open d'Italia, Lega, campi della Nazionale e area manager.</p></div><div class="att-head"><span>N.</span><span>Attività</span><span>Prior.</span><span>Tempi</span><span>Chi</span><span>Stato</span></div><div class="atts"><article class="att">
+    <span class="att__n">1</span>
+    <div class="att__txt">
+      <span class="att__titolo">Risoluzione Membership FIFG</span>
+      <span class="att__det">Definizione della posizione di AIFG come membro FIFG.</span>
+      
     </div>
-    <div class="voci">
-  <article class="voce">
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--in-attesa">In attesa</span></span>
+  </article><article class="att att--p1">
+    <span class="att__n">2</span>
+    <div class="att__txt">
+      <span class="att__titolo">BID Submission Open d'Italia</span>
+      <span class="att__det">Candidatura FIFG 500 per l'Open d'Italia, 1–4 luglio a Parco de' Medici.</span>
+      <span class="att__note">Consegna il 30 ottobre.</span>
+    </div>
+    <span><span class="prio prio--1">P1</span></span>
+    <span class="att__k att__k--vuoto">—<span class="att__scad">entro il 30/10/2026</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--in-revisione">In revisione</span></span>
+  </article><article class="att">
+    <span class="att__n">3</span>
+    <div class="att__txt">
+      <span class="att__titolo">Nuove tessere FIFG</span>
+      <span class="att__det">Tessere per i 5 giocatori che vogliono andare a Marrakech (inizio dicembre) e in Turchia (metà dicembre).</span>
+      
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">4</span>
+    <div class="att__txt">
+      <span class="att__titolo">Accordo LNF</span>
+      <span class="att__det">Accordo con la Lega per il 2027 e definizione del 2028.</span>
+      <span class="att__note">Riunione già fissata.</span>
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--programmata">Programmata</span></span>
+  </article><article class="att">
+    <span class="att__n">5</span>
+    <div class="att__txt">
+      <span class="att__titolo">Campi della Nazionale</span>
+      <span class="att__det">Definizione dei campi: mancano Tolcinasco, Sutri e San Vigilio.</span>
+      
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--in-corso">In corso</span></span>
+  </article><article class="att">
+    <span class="att__n">6</span>
+    <div class="att__txt">
+      <span class="att__titolo">Riunione con tutti gli area manager</span>
+      <span class="att__det">Condividere l'accordo LNF e l'organizzazione dello staff della Tappa Zero.</span>
+      <span class="att__note">Dopo la riunione LNF.</span>
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">7</span>
+    <div class="att__txt">
+      <span class="att__titolo">Area Manager A1–A2 Centro Sud</span>
+      <span class="att__det">Aggiornamento e chiarimento del ruolo per le serie A1 e A2.</span>
+      <span class="att__note">Riunione già fissata.</span>
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--programmata">Programmata</span></span>
+  </article></div><div class="legenda">
+    <span><span class="prio prio--1">P1</span>Priorità 1</span>
+    <span><span class="prio prio--2">P2</span>Priorità 2</span>
+    <span><span class="prio prio--3">P3</span>Priorità 3</span>
+    <span><span class="prio prio--n">—</span>Priorità non assegnata</span>
+  </div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Attività · Presentazione Tappa Zero</span><span class="micro pnum">04</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Attività · 13 in elenco</span><h2 class="h2">Presentazione Tappa Zero.</h2><p class="lead" style="font-size:12.5px">Contenuti, strumenti, staff e logistica del weekend a Il Pelagone.</p></div><div class="att-head"><span>N.</span><span>Attività</span><span>Prior.</span><span>Tempi</span><span>Chi</span><span>Stato</span></div><div class="atts"><article class="att att--p1">
+    <span class="att__n">8</span>
+    <div class="att__txt">
+      <span class="att__titolo">Argomenti e scaletta della presentazione</span>
+      <span class="att__det">Temi, ordine degli interventi e tempi della presentazione AIFG.</span>
+      
+    </div>
+    <span><span class="prio prio--1">P1</span></span>
+    <span class="att__k">1 settimana</span>
+    <span class="att__k">Fabio, Carlo, Alberto</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att att--p1">
+    <span class="att__n">9</span>
+    <div class="att__txt">
+      <span class="att__titolo">Nuovo sito internet e Birdie</span>
+      <span class="att__det">Presentazione del nuovo sito AIFG e dell'assistente Birdie.</span>
+      
+    </div>
+    <span><span class="prio prio--1">P1</span></span>
+    <span class="att__k">1 settimana</span>
+    <span class="att__k">Fabio, Carlo</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att att--p1">
+    <span class="att__n">10</span>
+    <div class="att__txt">
+      <span class="att__titolo">Vestiario per lo staff</span>
+      <span class="att__det">Polo, maglia e pantalone con i loghi; lista taglie degli area manager.</span>
+      <span class="att__note">Fabio e Carlo: stampe e lista taglie. Alberto: lista taglie.</span>
+    </div>
+    <span><span class="prio prio--1">P1</span></span>
+    <span class="att__k">1 settimana per la stampa</span>
+    <span class="att__k">Fabio, Carlo, Alberto</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att att--p1">
+    <span class="att__n">11</span>
+    <div class="att__txt">
+      <span class="att__titolo">Grafiche del materiale marketing</span>
+      <span class="att__det">Brochure e flyer (cernita dei testi di Fabio), logo Match Zero per le fiches.</span>
+      <span class="att__note">Ordini Pixartprinting entro martedì 3/11 per la tariffa più bassa.</span>
+    </div>
+    <span><span class="prio prio--1">P1</span></span>
+    <span class="att__k">quanto prima<span class="att__scad">entro il 03/11/2026</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">12</span>
+    <div class="att__txt">
+      <span class="att__titolo">Gestionale, livescoring, regia e classifiche</span>
+      <span class="att__det">Presentazione del nuovo gestionale e degli strumenti di gara.</span>
+      <span class="att__note">Stefano Cagnoni eventualmente di supporto.</span>
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k">Carlo, Alberto, Stefano Cagnoni</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">13</span>
+    <div class="att__txt">
+      <span class="att__titolo">Timeline operativa delle 2 giornate</span>
+      <span class="att__det">Chi fa cosa e quando, per lo staff operativo.</span>
+      
+    </div>
+    <span><span class="prio prio--2">P2</span></span>
+    <span class="att__k">mezza giornata</span>
+    <span class="att__k">Fabio, Carlo, Alberto</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">14</span>
+    <div class="att__txt">
+      <span class="att__titolo">Discorso introduttivo dello stage della Nazionale</span>
+      <span class="att__det">Il messaggio di apertura del ritiro azzurro.</span>
+      
+    </div>
+    <span><span class="prio prio--2">P2</span></span>
+    <span class="att__k">2 giorni</span>
+    <span class="att__k">Fabio, Carlo, Alberto</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">15</span>
+    <div class="att__txt">
+      <span class="att__titolo">Programma della Nazionale</span>
+      <span class="att__det">Programma delle attività della Nazionale durante il weekend.</span>
+      
+    </div>
+    <span><span class="prio prio--2">P2</span></span>
+    <span class="att__k">2 giorni</span>
+    <span class="att__k">Fabio, Carlo, Alberto</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">16</span>
+    <div class="att__txt">
+      <span class="att__titolo">Controllo e aggiornamento pagamenti</span>
+      <span class="att__det">Verifica dei pagamenti ricevuti e da ricevere.</span>
+      
+    </div>
+    <span><span class="prio prio--3">P3</span></span>
+    <span class="att__k">1 ora</span>
+    <span class="att__k">Fabio, Carlo</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">17</span>
+    <div class="att__txt">
+      <span class="att__titolo">Preventivo della cena</span>
+      <span class="att__det">Menu e costo della cena del weekend.</span>
+      <span class="att__note">Da definire domenica con il Direttore.</span>
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—<span class="att__scad">entro il 01/11/2026</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--programmata">Programmata</span></span>
+  </article><article class="att att--fatto">
+    <span class="att__n">18</span>
+    <div class="att__txt">
+      <span class="att__titolo">Appartamenti per lo staff</span>
+      <span class="att__det">Alloggi per area manager e staff della Nazionale Italiana.</span>
+      <span class="att__note">Già prenotati: € 1.100 in totale.</span>
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--fatto">Fatto</span></span>
+  </article><article class="att">
+    <span class="att__n">19</span>
+    <div class="att__txt">
+      <span class="att__titolo">Community Associazione Italiana FootGolf</span>
+      <span class="att__det">Creazione della community ufficiale 2027, con i canali descritti a parte.</span>
+      
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span><span class="chip chip--da-fare">Da fare</span></span>
+  </article><article class="att">
+    <span class="att__n">20</span>
+    <div class="att__txt">
+      <span class="att__titolo">Scorecard</span>
+      <span class="att__det">Bozza di Alberto, da rivedere con un eventuale restyling.</span>
+      
+    </div>
+    <span><span class="prio prio--n">—</span></span>
+    <span class="att__k att__k--vuoto">—</span>
+    <span class="att__k">Alberto</span>
+    <span><span class="chip chip--in-corso">In corso</span></span>
+  </article></div><div class="legenda">
+    <span><span class="prio prio--1">P1</span>Priorità 1</span>
+    <span><span class="prio prio--2">P2</span>Priorità 2</span>
+    <span><span class="prio prio--3">P3</span>Priorità 3</span>
+    <span><span class="prio prio--n">—</span>Priorità non assegnata</span>
+  </div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Attività · Chi fa cosa</span><span class="micro pnum">05</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Squadra</span><h2 class="h2">Chi fa cosa.</h2><p class="lead" style="font-size:12.5px">Le attività assegnate a ciascuno, dalla più urgente.</p></div><div class="persone">
+    <div class="persona">
+      <div class="persona__top">
+        <span class="persona__ini">F</span>
+        <span class="persona__nome">Fabio<small>7 attività</small></span>
+      </div>
+      <ul><li><b>8</b><span>Argomenti e scaletta della presentazione</span><span class="prio prio--1">P1</span></li><li><b>9</b><span>Nuovo sito internet e Birdie</span><span class="prio prio--1">P1</span></li><li><b>10</b><span>Vestiario per lo staff</span><span class="prio prio--1">P1</span></li><li><b>13</b><span>Timeline operativa delle 2 giornate</span><span class="prio prio--2">P2</span></li><li><b>14</b><span>Discorso introduttivo dello stage della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>15</b><span>Programma della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>16</b><span>Controllo e aggiornamento pagamenti</span><span class="prio prio--3">P3</span></li></ul>
+    </div>
+    <div class="persona">
+      <div class="persona__top">
+        <span class="persona__ini">C</span>
+        <span class="persona__nome">Carlo<small>8 attività</small></span>
+      </div>
+      <ul><li><b>8</b><span>Argomenti e scaletta della presentazione</span><span class="prio prio--1">P1</span></li><li><b>9</b><span>Nuovo sito internet e Birdie</span><span class="prio prio--1">P1</span></li><li><b>10</b><span>Vestiario per lo staff</span><span class="prio prio--1">P1</span></li><li><b>13</b><span>Timeline operativa delle 2 giornate</span><span class="prio prio--2">P2</span></li><li><b>14</b><span>Discorso introduttivo dello stage della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>15</b><span>Programma della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>16</b><span>Controllo e aggiornamento pagamenti</span><span class="prio prio--3">P3</span></li><li><b>12</b><span>Gestionale, livescoring, regia e classifiche</span><span></span></li></ul>
+    </div>
+    <div class="persona">
+      <div class="persona__top">
+        <span class="persona__ini">A</span>
+        <span class="persona__nome">Alberto<small>7 attività</small></span>
+      </div>
+      <ul><li><b>8</b><span>Argomenti e scaletta della presentazione</span><span class="prio prio--1">P1</span></li><li><b>10</b><span>Vestiario per lo staff</span><span class="prio prio--1">P1</span></li><li><b>13</b><span>Timeline operativa delle 2 giornate</span><span class="prio prio--2">P2</span></li><li><b>14</b><span>Discorso introduttivo dello stage della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>15</b><span>Programma della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>12</b><span>Gestionale, livescoring, regia e classifiche</span><span></span></li><li><b>20</b><span>Scorecard</span><span></span></li></ul>
+    </div>
+    <div class="persona">
+      <div class="persona__top">
+        <span class="persona__ini">SC</span>
+        <span class="persona__nome">Stefano Cagnoni<small>1 attività</small></span>
+      </div>
+      <ul><li><b>12</b><span>Gestionale, livescoring, regia e classifiche</span><span></span></li></ul>
+    </div></div>
+    <p class="lead" style="font-size:11px;margin-top:14px">
+      Senza un responsabile indicato: 1 · Risoluzione Membership FIFG; 2 · BID Submission Open d'Italia; 3 · Nuove tessere FIFG; 4 · Accordo LNF; 5 · Campi della Nazionale; 6 · Riunione con tutti gli area manager; 7 · Area Manager A1–A2 Centro Sud; 11 · Grafiche del materiale marketing; 17 · Preventivo della cena; 19 · Community Associazione Italiana FootGolf.
+    </p></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page page--dark">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Attività · Community AIFG</span><span class="micro pnum">06</span></header>
+      <div class="pbody">
+    <div class="area-head">
+      <span class="eyebrow">Attività 19 · Struttura proposta</span>
+      <h2 class="h2">AIFG | Community ufficiale 2027.</h2>
+      <p class="lead" style="font-size:12.5px">I canali della community ufficiale, con le sezioni interne di area manager, campionati e Nazionale.</p>
+    </div>
+    <div class="comm">
+      <div class="canale">
+        <div class="canale__top"><span class="canale__ico">📢</span><span class="canale__nome">Comunicazioni ufficiali</span></div>
+        
+      </div>
+      <div class="canale">
+        <div class="canale__top"><span class="canale__ico">🏛️</span><span class="canale__nome">Direzione</span></div>
+        
+      </div>
+      <div class="canale canale--sub">
+        <div class="canale__top"><span class="canale__ico">🗺️</span><span class="canale__nome">Area manager</span></div>
+        <ul><li>Centro Sud</li><li>Centro</li><li>Nord</li><li>Nord Est</li></ul>
+      </div>
+      <div class="canale canale--sub">
+        <div class="canale__top"><span class="canale__ico">🏆</span><span class="canale__nome">Campionati</span></div>
+        <ul><li>Serie A</li><li>Serie A1</li><li>Serie A2</li></ul>
+      </div>
+      <div class="canale">
+        <div class="canale__top"><span class="canale__ico">🧠</span><span class="canale__nome">Comitato tecnico</span></div>
+        
+      </div>
+      <div class="canale canale--sub">
+        <div class="canale__top"><span class="canale__ico">🇮🇹</span><span class="canale__nome">Nazionale</span></div>
+        <ul><li>Men</li><li>Women</li><li>Senior</li><li>Senior Plus</li><li>Junior</li></ul>
+      </div>
+      <div class="canale">
+        <div class="canale__top"><span class="canale__ico">🏌️</span><span class="canale__nome">Organizzatori</span></div>
+        
+      </div>
+      <div class="canale">
+        <div class="canale__top"><span class="canale__ico">💻</span><span class="canale__nome">Staff &amp; operativo</span></div>
+        
+      </div>
+      <div class="canale">
+        <div class="canale__top"><span class="canale__ico">📝</span><span class="canale__nome">Iscrizioni</span></div>
+        
+      </div>
+    </div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area A</span><span class="micro pnum">07</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area A</span><h2 class="h2">Materiale marketing.</h2><p class="lead" style="font-size:12.5px">Da definire quanto prima: brochure, pieghevole, flyer e fiches.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">1</span>
-        <span class="voce__nome">Brochure pieghevole</span>
+        <span class="voce__nome">Brochure di presentazione</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
       <p class="voce__desc">Formato aperto 63 × 29,7 cm: A4 a 2 pieghe, 6 facciate.</p>
-      <p class="voce__note">Preventivo precedente: 250 pz A4 a € 71,65 IVA inclusa.</p>
-      <div class="campi">
+      <p class="voce__note">Grafica e argomenti da definire.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
+          <span class="campo__v campo__v--pieno">Emmetre Anagni</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Stampa 10 giorni</span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
       </div>
@@ -536,8 +1024,7 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 1,80</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 180</b></div>
     </div>
-  </article>
-  <article class="voce voce--fuori">
+  </article><article class="voce voce--fuori">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
@@ -546,10 +1033,12 @@ body {
         <span class="chip chip--alternativa">Alternativa</span>
       </div>
       <p class="voce__desc">2 pieghe, 6 facciate, formato A3 (29 × 42 cm) orizzontale.</p>
-      <p class="voce__note">In alternativa alla brochure (n. 1): 250 pz A3 a € 125,90 IVA inclusa.</p>
-      <div class="campi">
+      <p class="voce__note">In alternativa alla brochure. Entro martedì per la tariffa più bassa.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
+          <span class="campo__v campo__v--pieno">Pixartprinting</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Ordine entro martedì 3/11</span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
       </div>
@@ -557,21 +1046,126 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>250 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 0,50</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 125,90</b><em>fuori totale base</em></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 126</b><em>fuori totale base</em></div>
     </div>
-  </article>
-  <article class="voce">
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">3</span>
-        <span class="voce__nome">Flyer promozioni</span>
+        <span class="voce__nome">Flyer Promozione AIFG 2027</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Flyer con le promozioni della stagione 2027.</p>
+      <p class="voce__note">Testi già scritti da Fabio: fare la cernita.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Pixartprinting</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Ordine entro martedì 3/11</span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>250 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 0,20</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 50</b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">4</span>
+        <span class="voce__nome">Fiches personalizzate</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Una fiche per giocatore con il nome, usata in campo come ball marker. Grafica con il logo Match Zero.</p>
+      <p class="voce__note">€ 1,20 a fiche, trattabile.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Veneto</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Stampa 1 settimana</span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>200 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 1,20</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 240</b></div>
+    </div>
+  </article></div><div class="subtot"><span>Totale area A</span><div><small>+ € 126 fuori totale</small><b>€ 470</b></div></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area B</span><span class="micro pnum">08</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area B</span><h2 class="h2">Punto ristoro e briefing.</h2><p class="lead" style="font-size:12.5px">Tavoli, tovaglie, sedie e rifornimenti per briefing e ristoro.</p></div><div class="voci"><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">5</span>
+        <span class="voce__nome">Tavoli pieghevoli</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Tavolo pieghevole 180 × 70 × 74 cm, bianco, per briefing e punto ristoro.</p>
+      
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Consegna 1–2 giorni</span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>4 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 37,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 148</b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">6</span>
+        <span class="voce__nome">Tovaglie punto ristoro</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Tovaglie per i tavoli del punto ristoro.</p>
+      
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Consegna 1–2 giorni</span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v campo__v--pieno"><a href="https://www.amazon.it/dp/B07CZBPPCB">amazon.it/dp/B07CZBPPCB</a></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>4 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 17,85</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 71,40</b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">7</span>
+        <span class="voce__nome">Bevande, snack e merendine</span>
         <span class="chip chip--da-definire">Da definire</span>
       </div>
-      <p class="voce__desc">Flyer con le promozioni della stagione da distribuire in tappa.</p>
-      <p class="voce__note">Prezzo e tiratura da definire.</p>
-      <div class="campi">
+      <p class="voce__desc">Rifornimenti per il punto ristoro.</p>
+      <p class="voce__note">Quantità e spesa da definire.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
@@ -582,64 +1176,127 @@ body {
       <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
       <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
-  </article>
-  <article class="voce">
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">4</span>
-        <span class="voce__nome">Fiches personalizzate</span>
+        <span class="voce__n">8</span>
+        <span class="voce__nome">Sedie per i tavoli briefing</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
-      <p class="voce__desc">Una fiche per giocatore con il nome, usata in campo come ball marker.</p>
-      <p class="voce__note">€ 1,20 a fiche, prezzo trattabile al ribasso.</p>
-      <div class="campi">
+      <p class="voce__desc">Sedie per i tavoli del briefing.</p>
+      <p class="voce__note">€ 130 per le 6 sedie.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v campo__v--pieno"><a href="https://www.amazon.it/dp/B0DMSW62F3">amazon.it/dp/B0DMSW62F3</a></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>6 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 21,67</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 130</b></div>
+    </div>
+  </article></div><div class="subtot"><span>Totale area B</span><div><b>€ 349,40</b></div></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area C</span><span class="micro pnum">09</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area C</span><h2 class="h2">Percorso e partenze.</h2><p class="lead" style="font-size:12.5px">Bandierine, pannelli di buca, partenze e strumenti per chiamarle.</p></div><div class="voci"><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">9</span>
+        <span class="voce__nome">Radioline per i marshal</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Radio per il collegamento fra segreteria, starter e staff sul percorso.</p>
+      <p class="voce__note">Se ne occupa Fabio.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
       </div>
     </div>
     <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>200 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 1,20</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 240</b></div>
+      <div class="conto__r"><span>Quantità</span><b>10 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
-  </article></div>
-    <div class="subtot"><span>Totale area A</span><div><small>+ € 125,90 fuori totale</small><b>€ 420</b></div></div></div>
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">14–15 Novembre 2026</span>
-    </footer>
-  </section>
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-    <header class="phead">
-      <span class="micro">Dettaglio voci · Area B</span>
-      <span class="micro">04</span>
-    </header>
-    <div class="pbody">
-    <div class="area-head">
-      <span class="eyebrow">Area B</span>
-      <h2 class="h2">Allestimento del campo.</h2>
-      <p class="lead" style="font-size:12.5px">Bandiere, pannelli di buca e partenze: il percorso vestito AIFG.</p>
-    </div>
-    <div class="voci">
-  <article class="voce">
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">5</span>
-        <span class="voce__nome">Bandiere doppio logo</span>
+        <span class="voce__n">10</span>
+        <span class="voce__nome">Cassa con microfono</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
-      <p class="voce__desc">Bandiere di buca stampate con doppio logo.</p>
-      <p class="voce__note">Verificare il numero di bandiere compreso nella fornitura.</p>
-      <div class="campi">
+      <p class="voce__desc">Cassa amplificata con microfono per le chiamate alle partenze.</p>
+      
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v campo__v--pieno">golflags.eu</span></div>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v campo__v--pieno"><a href="https://golflags.eu">golflags.eu</a></span></div>
+          <span class="campo__v campo__v--pieno"><a href="https://www.amazon.it/dp/B0CHSD1N1Y">amazon.it/dp/B0CHSD1N1Y</a></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 60,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 60</b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">11</span>
+        <span class="voce__nome">Timer per le partenze</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Timer per scandire le partenze.</p>
+      
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v campo__v--pieno"><a href="https://www.amazon.it/dp/B0GWH247DF">amazon.it/dp/B0GWH247DF</a></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 60,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 60</b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">12</span>
+        <span class="voce__nome">Bandierine doppio logo, numerate</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Bandierine di buca con doppio logo e numero.</p>
+      <p class="voce__note">Verificare quante bandierine comprende la fornitura.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">golfflags.eu</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v campo__v--pieno"><a href="https://golfflags.eu">golfflags.eu</a></span></div>
       </div>
     </div>
     <div class="conto">
@@ -647,20 +1304,21 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 390,00</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 390</b></div>
     </div>
-  </article>
-  <article class="voce">
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">6</span>
+        <span class="voce__n">13</span>
         <span class="voce__nome">Pannelli presentazione buca</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
       <p class="voce__desc">Forex 5 mm personalizzato con supporto in polionda 5 mm, 125 × 45 cm, uno per buca.</p>
-      <p class="voce__note">Preventivo precedente: forex 70 × 100 cm antigraffio, € 654 per 18 pezzi.</p>
-      <div class="campi">
+      
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
+          <span class="campo__v campo__v--pieno">Emmetre Anagni</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">Stampa 10 giorni</span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
       </div>
@@ -670,19 +1328,52 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 54,00</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 972</b><em>IVA esclusa</em></div>
     </div>
-  </article>
-  <article class="voce">
+  </article></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area C</span><span class="micro pnum">10</span></header>
+      <div class="pbody"><div class="area-head"><span class="segue">Preventivo · Area C · segue</span><h2 class="h3">Percorso e partenze</h2></div><div class="voci"><article class="voce voce--fuori">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">7</span>
-        <span class="voce__nome">Partenze Donne</span>
+        <span class="voce__n">14</span>
+        <span class="voce__nome">Pannelli buca senza supporto</span>
+        <span class="chip chip--alternativa">Alternativa</span>
+      </div>
+      <p class="voce__desc">Pannelli di buca senza supporto in polionda.</p>
+      <p class="voce__note">Alternativa ai pannelli Emmetre: € 36 l'uno senza supporto.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Pixartprinting</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>18 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 36,33</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 654</b><em>fuori totale base</em></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">15</span>
+        <span class="voce__nome">Partenze Donne e Junior</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
-      <p class="voce__desc">Cartello di partenza 21 × 15 cm con punta, in Bi-Bond.</p>
-      <p class="voce__note">Le partenze Junior sono ancora da quotare.</p>
-      <div class="campi">
+      <p class="voce__desc">Cartello di partenza con scritta, 21 × 15 cm con punta, in Bi-Bond.</p>
+      <p class="voce__note">Nel preventivo il totale indicato è € 54: verificare.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Emmetre Anagni</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
@@ -693,42 +1384,68 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 4,00</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 52</b><em>IVA esclusa</em></div>
     </div>
-  </article>
-  <article class="voce voce--fuori">
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">8</span>
-        <span class="voce__nome">Mini vele di partenza</span>
-        <span class="chip chip--opzionale">Opzionale</span>
+        <span class="voce__n">16</span>
+        <span class="voce__nome">Adesivi per le partenze</span>
+        <span class="chip chip--da-definire">Da definire</span>
       </div>
-      <p class="voce__desc">Mini vele per la partenza di ogni singola buca, stile Open internazionale.</p>
-      <p class="voce__note">Voce eventuale: fuori dal totale base.</p>
-      <div class="campi">
+      <p class="voce__desc">Adesivi per le nuove partenze con nuova grafica, logo e par.</p>
+      <p class="voce__note">Prezzo da verificare su Pixartprinting.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Pixartprinting</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
       </div>
     </div>
     <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>1 fornitura</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 2.000,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 2.000</b><em>fuori totale base</em></div>
+      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
     </div>
-  </article>
-  <article class="voce voce--fuori">
+  </article><article class="voce voce--fuori">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">9</span>
-        <span class="voce__nome">Cubi in polionda</span>
+        <span class="voce__n">17</span>
+        <span class="voce__nome">Mini vele di partenza</span>
         <span class="chip chip--opzionale">Opzionale</span>
       </div>
-      <p class="voce__desc">Cubi in polionda 5 mm, 30 × 30 cm.</p>
-      <p class="voce__note">Voce eventuale, fuori dal totale base. Verificare quanti cubi comprende la fornitura.</p>
-      <div class="campi">
+      <p class="voce__desc">Una per buca, stile Open internazionale, antivento. Formato 67 × 200 o 85 × 130 cm.</p>
+      <p class="voce__note">Stesso prezzo per i due formati: € 125 l'una.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Pixartprinting</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>18 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 125,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 2.250</b><em>fuori totale base</em></div>
+    </div>
+  </article><article class="voce voce--fuori">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">18</span>
+        <span class="voce__nome">Cubi per buca 1 e buca 18</span>
+        <span class="chip chip--opzionale">Opzionale</span>
+      </div>
+      <p class="voce__desc">Cubi in polionda 5 mm, 30 × 30 cm, stile Open d'Italia.</p>
+      <p class="voce__note">Prezzo del preventivo precedente.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
@@ -739,38 +1456,28 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 150,00</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 150</b><em>fuori totale base</em></div>
     </div>
-  </article></div>
-    <div class="subtot"><span>Totale area B</span><div><small>+ € 2.150 fuori totale</small><b>€ 1.414</b></div></div></div>
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">14–15 Novembre 2026</span>
-    </footer>
-  </section>
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-    <header class="phead">
-      <span class="micro">Dettaglio voci · Area C</span>
-      <span class="micro">05</span>
-    </header>
-    <div class="pbody">
-    <div class="area-head">
-      <span class="eyebrow">Area C</span>
-      <h2 class="h2">Immagine, media e presentazione.</h2>
-      <p class="lead" style="font-size:12.5px">Wall per le foto, drone, proiezione e tavolo della presentazione AIFG.</p>
-    </div>
-    <div class="voci">
-  <article class="voce">
+  </article></div><div class="subtot"><span>Totale area C</span><div><small>+ € 3.054 fuori totale</small><b>€ 1.534</b></div></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area D</span><span class="micro pnum">11</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area D</span><h2 class="h2">Immagine e media.</h2><p class="lead" style="font-size:12.5px">Wall istituzionale, proiezione, riprese e foto.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
-        <span class="voce__n">10</span>
-        <span class="voce__nome">Wall per foto giocatori</span>
+        <span class="voce__n">19</span>
+        <span class="voce__nome">Wall istituzionale per foto</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
       <p class="voce__desc">Banner con asola 210 × 160/170 cm per le foto dei giocatori.</p>
-      <p class="voce__note">Preventivo precedente: fondale 300 × 240 cm a € 579.</p>
-      <div class="campi">
+      
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Emmetre Anagni</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
@@ -781,310 +1488,20 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 85,00</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 85</b><em>IVA esclusa</em></div>
     </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">11</span>
-        <span class="voce__nome">Telo per videoproiettore</span>
-        <span class="chip chip--stima">Stima</span>
-      </div>
-      <p class="voce__desc">Telo da 120 pollici per la presentazione AIFG.</p>
-      <p class="voce__note">Prezzo fra € 80 e € 100: messo il massimo per prudenza.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v campo__v--pieno">Amazon</span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v campo__v--pieno"><a href="https://www.amazon.it">amazon.it</a></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 100,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 100</b></div>
-    </div>
-  </article>
-  <article class="voce voce--fuori">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">12</span>
-        <span class="voce__nome">Drone riprese e diretta</span>
-        <span class="chip chip--opzionale">Opzionale</span>
-      </div>
-      <p class="voce__desc">DJI Mini 4 Pro o Mini 5 Pro per riprese aeree e diretta streaming della tappa.</p>
-      <p class="voce__note">Voce eventuale, fuori dal totale base. € 400–700 secondo modello: messo il massimo.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 700,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 700</b><em>fuori totale base</em></div>
-    </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">13</span>
-        <span class="voce__nome">Tovaglia tavolo AIFG</span>
-        <span class="chip chip--da-definire">Da definire</span>
-      </div>
-      <p class="voce__desc">Tovaglia personalizzata per il tavolo della presentazione.</p>
-      <p class="voce__note">Prezzo da richiedere.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
-    </div>
-  </article>
-  <article class="voce voce--fuori">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">14</span>
-        <span class="voce__nome">Roll up segreteria</span>
-        <span class="chip chip--opzionale">Opzionale</span>
-      </div>
-      <p class="voce__desc">Roll up per l'area segreteria e iscrizioni.</p>
-      <p class="voce__note">Voce eventuale: quantità e prezzo da definire.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b><em>fuori totale base</em></div>
-    </div>
-  </article></div>
-    <div class="subtot"><span>Totale area C</span><div><small>+ € 700 fuori totale</small><b>€ 185</b></div></div></div>
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">14–15 Novembre 2026</span>
-    </footer>
-  </section>
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-    <header class="phead">
-      <span class="micro">Dettaglio voci · Area D</span>
-      <span class="micro">06</span>
-    </header>
-    <div class="pbody">
-    <div class="area-head">
-      <span class="eyebrow">Area D</span>
-      <h2 class="h2">Accoglienza e punto ristoro.</h2>
-      <p class="lead" style="font-size:12.5px">Ragazze immagine, tavoli e tovaglie per l'accoglienza e il ristoro.</p>
-    </div>
-    <div class="voci">
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">15</span>
-        <span class="voce__nome">Tavoli pieghevoli</span>
-        <span class="chip chip--stima">Stima</span>
-      </div>
-      <p class="voce__desc">Tavolo pieghevole 180 × 70 × 74 cm, bianco.</p>
-      <p class="voce__note">€ 37 a tavolo. Quantità di 4 ipotizzata: da confermare.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>4 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 37,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 148</b></div>
-    </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">16</span>
-        <span class="voce__nome">Tovaglie tavoli ristoro</span>
-        <span class="chip chip--da-definire">Da definire</span>
-      </div>
-      <p class="voce__desc">Tovaglie per i tavoli del punto ristoro.</p>
-      <p class="voce__note">Costo da verificare.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>4 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
-    </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">17</span>
-        <span class="voce__nome">Ragazze immagine</span>
-        <span class="chip chip--preventivo">Preventivo</span>
-      </div>
-      <p class="voce__desc">Servizio di ragazze immagine per l'accoglienza e le premiazioni del weekend.</p>
-      
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>1 servizio</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 300,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 300</b></div>
-    </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">18</span>
-        <span class="voce__nome">Sedie per gazebo</span>
-        <span class="chip chip--preventivo">Preventivo</span>
-      </div>
-      <p class="voce__desc">Sedie per i gazebo dell'accoglienza e della segreteria.</p>
-      <p class="voce__note">€ 70 in tutto per le 10 sedie.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>10 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 7,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 70</b></div>
-    </div>
-  </article></div>
-    <div class="subtot"><span>Totale area D</span><div><b>€ 518</b></div></div></div>
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">14–15 Novembre 2026</span>
-    </footer>
-  </section>
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-    <header class="phead">
-      <span class="micro">Dettaglio voci · Area E</span>
-      <span class="micro">07</span>
-    </header>
-    <div class="pbody">
-    <div class="area-head">
-      <span class="eyebrow">Area E</span>
-      <h2 class="h2">Organizzazione e staff.</h2>
-      <p class="lead" style="font-size:12.5px">Comunicazione fra lo staff, divise, partenze e cronometraggio.</p>
-    </div>
-    <div class="voci">
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">19</span>
-        <span class="voce__nome">Radioline ricetrasmittenti</span>
-        <span class="chip chip--da-definire">Da definire</span>
-      </div>
-      <p class="voce__desc">Radio per il collegamento fra segreteria, starter e staff sul percorso.</p>
-      <p class="voce__note">Prezzo da definire.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>10 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
-    </div>
-  </article>
-  <article class="voce">
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">20</span>
-        <span class="voce__nome">Abbigliamento staff</span>
-        <span class="chip chip--da-definire">Da definire</span>
-      </div>
-      <p class="voce__desc">Polo, maglia e pantalone per lo staff della tappa.</p>
-      <p class="voce__note">Quantità per capo e prezzo da definire in base allo staff.</p>
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
-      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
-    </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">21</span>
-        <span class="voce__nome">Cassa con microfono</span>
+        <span class="voce__nome">Telo per videoproiettore</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
-      <p class="voce__desc">Cassa amplificata con microfono per le chiamate alle partenze.</p>
+      <p class="voce__desc">Telo da 120 pollici per la presentazione AIFG.</p>
       
-      <div class="campi">
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
-          <span class="campo__v"></span></div>
-        <div class="campo"><span class="campo__k">Link</span>
-          <span class="campo__v"></span></div>
-      </div>
-    </div>
-    <div class="conto">
-      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
-      <div class="conto__r"><span>Unitario</span><b>€ 70,00</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 70</b></div>
-    </div>
-  </article>
-  <article class="voce">
-    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
-    <div class="voce__txt">
-      <div class="voce__top">
-        <span class="voce__n">22</span>
-        <span class="voce__nome">Timer per partenza</span>
-        <span class="chip chip--preventivo">Preventivo</span>
-      </div>
-      <p class="voce__desc">Timer per scandire le partenze.</p>
-      
-      <div class="campi">
-        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
@@ -1095,19 +1512,124 @@ body {
       <div class="conto__r"><span>Unitario</span><b>€ 80,00</b></div>
       <div class="conto__tot"><span>Totale</span><b>€ 80</b></div>
     </div>
-  </article>
-  <article class="voce">
+  </article><article class="voce voce--fuori">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">21</span>
+        <span class="voce__nome">Drone per riprese e diretta</span>
+        <span class="chip chip--opzionale">Opzionale</span>
+      </div>
+      <p class="voce__desc">Riprese aeree e diretta live della tappa.</p>
+      <p class="voce__note">Domenica si prova il drone di Alberto. Preventivo € 400–600: messo il massimo.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 600,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 600</b><em>fuori totale base</em></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">22</span>
+        <span class="voce__nome">Fotografo</span>
+        <span class="chip chip--stima">Stima</span>
+      </div>
+      <p class="voce__desc">Servizio fotografico del weekend.</p>
+      <p class="voce__note">Da trovare. Base € 80–150 a giornata: messo il massimo per 2 giornate.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>2 giornate</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 150,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 300</b></div>
+    </div>
+  </article><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
       <div class="voce__top">
         <span class="voce__n">23</span>
-        <span class="voce__nome">Collarini personalizzati</span>
+        <span class="voce__nome">Tovaglia tavolo istituzionale</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Tovaglia per il tavolo della presentazione istituzionale.</p>
+      <p class="voce__note">Da verificare.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 pz</b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article></div><div class="subtot"><span>Totale area D</span><div><small>+ € 600 fuori totale</small><b>€ 465</b></div></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area E</span><span class="micro pnum">12</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area E</span><h2 class="h2">Accoglienza.</h2><p class="lead" style="font-size:12.5px">Tovaglie, badge per gli invitati e ragazze immagine.</p></div><div class="voci"><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">24</span>
+        <span class="voce__nome">Tovaglie neutre per l'accoglienza</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Tovaglie neutre per i tavoli dell'accoglienza.</p>
+      <p class="voce__note">Da verificare su Amazon.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Amazon</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">25</span>
+        <span class="voce__nome">Badge con collarini per invitati</span>
         <span class="chip chip--preventivo">Preventivo</span>
       </div>
       <p class="voce__desc">Collarini con doppio moschettone, personalizzati.</p>
-      
-      <div class="campi">
+      <p class="voce__note">In alternativa: collarini e badge su Amazon e solo le stampe.</p>
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Emmetre Anagni</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
           <span class="campo__v"></span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v"></span></div>
@@ -1116,244 +1638,358 @@ body {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>100 pz</b></div>
       <div class="conto__r"><span>Unitario</span><b>€ 3,70</b></div>
-      <div class="conto__tot"><span>Totale</span><b>€ 370</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 370</b><em>IVA esclusa</em></div>
     </div>
-  </article></div>
-    <div class="subtot"><span>Totale area E</span><div><b>€ 520</b></div></div></div>
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">14–15 Novembre 2026</span>
-    </footer>
-  </section>
-
-  <!-- ============ 6 · RIEPILOGO ============ -->
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-    <header class="phead">
-      <span class="micro">Riepilogo e approvazione</span>
-      <span class="micro" data-k="pagRiep">08</span>
-    </header>
-
-    <div class="pbody" style="gap:14px">
-      <span class="eyebrow">Tutte le voci</span>
-      <h2 class="h2">Riepilogo generale.</h2>
-      <table class="tab">
-        <thead>
-          <tr>
-            <th>N.</th>
-            <th>Voce</th>
-            <th class="r">Q.tà</th>
-            <th class="r">Prezzo unit.</th>
-            <th class="r">Totale</th>
-            <th>Stato</th>
-          </tr>
-        </thead>
-        <tbody id="tabbody">
-  <tr class="">
-    <td class="tab__n">1</td>
-    <td class="tab__voce"><b>Brochure pieghevole</b><small>Area A</small></td>
-    <td class="r" data-k="Q.tà">100 pz</td>
-    <td class="r" data-k="Unit.">€ 1,80</td>
-    <td class="r tab__eur" data-k="Totale">€ 180,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="fuori">
-    <td class="tab__n">2</td>
-    <td class="tab__voce"><b>Pieghevole A3</b><small>Area A</small></td>
-    <td class="r" data-k="Q.tà">250 pz</td>
-    <td class="r" data-k="Unit.">€ 0,50</td>
-    <td class="r tab__eur" data-k="Totale">€ 125,90</td>
-    <td><span class="chip chip--alternativa">Alternativa</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">3</td>
-    <td class="tab__voce"><b>Flyer promozioni</b><small>Area A</small></td>
-    <td class="r" data-k="Q.tà">—</td>
-    <td class="r" data-k="Unit.">—</td>
-    <td class="r tab__eur" data-k="Totale">da definire</td>
-    <td><span class="chip chip--da-definire">Da definire</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">4</td>
-    <td class="tab__voce"><b>Fiches personalizzate</b><small>Area A</small></td>
-    <td class="r" data-k="Q.tà">200 pz</td>
-    <td class="r" data-k="Unit.">€ 1,20</td>
-    <td class="r tab__eur" data-k="Totale">€ 240,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">5</td>
-    <td class="tab__voce"><b>Bandiere doppio logo</b><small>Area B · golflags.eu</small></td>
-    <td class="r" data-k="Q.tà">1 fornitura</td>
-    <td class="r" data-k="Unit.">€ 390,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 390,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">6</td>
-    <td class="tab__voce"><b>Pannelli presentazione buca</b><small>Area B</small></td>
-    <td class="r" data-k="Q.tà">18 pz</td>
-    <td class="r" data-k="Unit.">€ 54,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 972,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">7</td>
-    <td class="tab__voce"><b>Partenze Donne</b><small>Area B</small></td>
-    <td class="r" data-k="Q.tà">13 pz</td>
-    <td class="r" data-k="Unit.">€ 4,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 52,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="fuori">
-    <td class="tab__n">8</td>
-    <td class="tab__voce"><b>Mini vele di partenza</b><small>Area B</small></td>
-    <td class="r" data-k="Q.tà">1 fornitura</td>
-    <td class="r" data-k="Unit.">€ 2.000,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 2.000,00</td>
-    <td><span class="chip chip--opzionale">Opzionale</span></td>
-  </tr>
-  <tr class="fuori">
-    <td class="tab__n">9</td>
-    <td class="tab__voce"><b>Cubi in polionda</b><small>Area B</small></td>
-    <td class="r" data-k="Q.tà">1 fornitura</td>
-    <td class="r" data-k="Unit.">€ 150,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 150,00</td>
-    <td><span class="chip chip--opzionale">Opzionale</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">10</td>
-    <td class="tab__voce"><b>Wall per foto giocatori</b><small>Area C</small></td>
-    <td class="r" data-k="Q.tà">1 pz</td>
-    <td class="r" data-k="Unit.">€ 85,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 85,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">11</td>
-    <td class="tab__voce"><b>Telo per videoproiettore</b><small>Area C · Amazon</small></td>
-    <td class="r" data-k="Q.tà">1 pz</td>
-    <td class="r" data-k="Unit.">€ 100,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 100,00</td>
-    <td><span class="chip chip--stima">Stima</span></td>
-  </tr>
-  <tr class="fuori">
-    <td class="tab__n">12</td>
-    <td class="tab__voce"><b>Drone riprese e diretta</b><small>Area C</small></td>
-    <td class="r" data-k="Q.tà">1 pz</td>
-    <td class="r" data-k="Unit.">€ 700,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 700,00</td>
-    <td><span class="chip chip--opzionale">Opzionale</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">13</td>
-    <td class="tab__voce"><b>Tovaglia tavolo AIFG</b><small>Area C</small></td>
-    <td class="r" data-k="Q.tà">1 pz</td>
-    <td class="r" data-k="Unit.">—</td>
-    <td class="r tab__eur" data-k="Totale">da definire</td>
-    <td><span class="chip chip--da-definire">Da definire</span></td>
-  </tr>
-  <tr class="fuori">
-    <td class="tab__n">14</td>
-    <td class="tab__voce"><b>Roll up segreteria</b><small>Area C</small></td>
-    <td class="r" data-k="Q.tà">—</td>
-    <td class="r" data-k="Unit.">—</td>
-    <td class="r tab__eur" data-k="Totale">da definire</td>
-    <td><span class="chip chip--opzionale">Opzionale</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">15</td>
-    <td class="tab__voce"><b>Tavoli pieghevoli</b><small>Area D</small></td>
-    <td class="r" data-k="Q.tà">4 pz</td>
-    <td class="r" data-k="Unit.">€ 37,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 148,00</td>
-    <td><span class="chip chip--stima">Stima</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">16</td>
-    <td class="tab__voce"><b>Tovaglie tavoli ristoro</b><small>Area D</small></td>
-    <td class="r" data-k="Q.tà">4 pz</td>
-    <td class="r" data-k="Unit.">—</td>
-    <td class="r tab__eur" data-k="Totale">da definire</td>
-    <td><span class="chip chip--da-definire">Da definire</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">17</td>
-    <td class="tab__voce"><b>Ragazze immagine</b><small>Area D</small></td>
-    <td class="r" data-k="Q.tà">1 servizio</td>
-    <td class="r" data-k="Unit.">€ 300,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 300,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">18</td>
-    <td class="tab__voce"><b>Sedie per gazebo</b><small>Area D</small></td>
-    <td class="r" data-k="Q.tà">10 pz</td>
-    <td class="r" data-k="Unit.">€ 7,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 70,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">19</td>
-    <td class="tab__voce"><b>Radioline ricetrasmittenti</b><small>Area E</small></td>
-    <td class="r" data-k="Q.tà">10 pz</td>
-    <td class="r" data-k="Unit.">—</td>
-    <td class="r tab__eur" data-k="Totale">da definire</td>
-    <td><span class="chip chip--da-definire">Da definire</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">20</td>
-    <td class="tab__voce"><b>Abbigliamento staff</b><small>Area E</small></td>
-    <td class="r" data-k="Q.tà">—</td>
-    <td class="r" data-k="Unit.">—</td>
-    <td class="r tab__eur" data-k="Totale">da definire</td>
-    <td><span class="chip chip--da-definire">Da definire</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">21</td>
-    <td class="tab__voce"><b>Cassa con microfono</b><small>Area E</small></td>
-    <td class="r" data-k="Q.tà">1 pz</td>
-    <td class="r" data-k="Unit.">€ 70,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 70,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">22</td>
-    <td class="tab__voce"><b>Timer per partenza</b><small>Area E</small></td>
-    <td class="r" data-k="Q.tà">1 pz</td>
-    <td class="r" data-k="Unit.">€ 80,00</td>
-    <td class="r tab__eur" data-k="Totale">€ 80,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr>
-  <tr class="">
-    <td class="tab__n">23</td>
-    <td class="tab__voce"><b>Collarini personalizzati</b><small>Area E</small></td>
-    <td class="r" data-k="Q.tà">100 pz</td>
-    <td class="r" data-k="Unit.">€ 3,70</td>
-    <td class="r tab__eur" data-k="Totale">€ 370,00</td>
-    <td><span class="chip chip--preventivo">Preventivo</span></td>
-  </tr></tbody>
-        <tfoot id="tabfoot">
-  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">€ 3.057,00</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Opzionali (mini vele, cubi, drone)</td><td class="r tot" colspan="2">€ 2.850,00</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">€ 5.907,00</td></tr></tfoot>
-      </table>
-
-      <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px" data-k="notaIva">Pannelli buca, partenze Donne e wall: prezzi IVA esclusa da preventivo. Pieghevole A3: IVA inclusa. Per le altre voci l'IVA è da verificare con il fornitore. Le righe in grigio sono fuori dal totale base.</p>
-
-      <div class="firma" style="margin-top:auto">
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">26</span>
+        <span class="voce__nome">Ragazze immagine</span>
+        <span class="chip chip--preventivo">Preventivo</span>
+      </div>
+      <p class="voce__desc">Servizio di ragazze immagine per l'accoglienza e le premiazioni.</p>
+      
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v campo__v--pieno">Daniele Busoni</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 servizio</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 300,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 300</b></div>
+    </div>
+  </article></div><div class="subtot"><span>Totale area E</span><div><b>€ 670</b></div></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Area F</span><span class="micro pnum">13</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area F</span><h2 class="h2">Staff e ospitalità.</h2><p class="lead" style="font-size:12.5px">Vestiario, alloggi e cena.</p></div><div class="voci"><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">27</span>
+        <span class="voce__nome">Vestiario staff</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Polo, maglia e pantalone per lo staff della tappa, con i loghi.</p>
+      <p class="voce__note">Quantità dalla lista taglie degli area manager.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v campo__v--pieno">1 settimana per la stampa</span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">28</span>
+        <span class="voce__nome">Appartamenti per lo staff</span>
+        <span class="chip chip--confermato">Confermato</span>
+      </div>
+      <p class="voce__desc">Alloggi per area manager e staff della Nazionale Italiana.</p>
+      <p class="voce__note">Già prenotati.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b>1 soggiorno</b></div>
+      <div class="conto__r"><span>Unitario</span><b>€ 1.100,00</b></div>
+      <div class="conto__tot"><span>Totale</span><b>€ 1.100</b></div>
+    </div>
+  </article><article class="voce">
+    <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
+    <div class="voce__txt">
+      <div class="voce__top">
+        <span class="voce__n">29</span>
+        <span class="voce__nome">Cena</span>
+        <span class="chip chip--da-definire">Da definire</span>
+      </div>
+      <p class="voce__desc">Cena del weekend.</p>
+      <p class="voce__note">Preventivo da definire domenica con il Direttore.</p>
+      <div class="campi campi--3">
+        <div class="campo"><span class="campo__k">Fornitore</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v"></span></div>
+        <div class="campo"><span class="campo__k">Link</span>
+          <span class="campo__v"></span></div>
+      </div>
+    </div>
+    <div class="conto">
+      <div class="conto__r"><span>Quantità</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__r"><span>Unitario</span><b><span class="vuoto vuoto--s"></span></b></div>
+      <div class="conto__tot"><span>Totale</span><b><span class="vuoto"></span></b></div>
+    </div>
+  </article></div><div class="subtot"><span>Totale area F</span><div><b>€ 1.100</b></div></div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Riepilogo</span><span class="micro pnum">14</span></header>
+      <div class="pbody"><div class="area-head"><span class="eyebrow">Tutte le voci</span><h2 class="h2">Riepilogo del preventivo.</h2></div><table class="tab">
+        <thead><tr><th>N.</th><th>Voce</th><th class="r">Q.tà</th><th class="r">Prezzo unit.</th><th class="r">Totale</th><th>Stato</th></tr></thead>
+        <tbody><tr class="gruppo"><td colspan="5">Area A · Materiale marketing</td><td>€ 470,00</td></tr><tr class="">
+      <td class="tab__n">1</td>
+      <td class="tab__voce"><b>Brochure di presentazione</b><small>Emmetre Anagni</small></td>
+      <td class="r" data-k="Q.tà">100 pz</td>
+      <td class="r" data-k="Unit.">€ 1,80</td>
+      <td class="r tab__eur" data-k="Totale">€ 180,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="fuori">
+      <td class="tab__n">2</td>
+      <td class="tab__voce"><b>Pieghevole A3</b><small>Pixartprinting</small></td>
+      <td class="r" data-k="Q.tà">250 pz</td>
+      <td class="r" data-k="Unit.">€ 0,50</td>
+      <td class="r tab__eur" data-k="Totale">€ 126,00</td>
+      <td><span class="chip chip--alternativa">Alternativa</span></td>
+    </tr><tr class="">
+      <td class="tab__n">3</td>
+      <td class="tab__voce"><b>Flyer Promozione AIFG 2027</b><small>Pixartprinting</small></td>
+      <td class="r" data-k="Q.tà">250 pz</td>
+      <td class="r" data-k="Unit.">€ 0,20</td>
+      <td class="r tab__eur" data-k="Totale">€ 50,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">4</td>
+      <td class="tab__voce"><b>Fiches personalizzate</b><small>Veneto</small></td>
+      <td class="r" data-k="Q.tà">200 pz</td>
+      <td class="r" data-k="Unit.">€ 1,20</td>
+      <td class="r tab__eur" data-k="Totale">€ 240,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="gruppo"><td colspan="5">Area B · Punto ristoro e briefing</td><td>€ 349,40</td></tr><tr class="">
+      <td class="tab__n">5</td>
+      <td class="tab__voce"><b>Tavoli pieghevoli</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">4 pz</td>
+      <td class="r" data-k="Unit.">€ 37,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 148,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">6</td>
+      <td class="tab__voce"><b>Tovaglie punto ristoro</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">4 pz</td>
+      <td class="r" data-k="Unit.">€ 17,85</td>
+      <td class="r tab__eur" data-k="Totale">€ 71,40</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">7</td>
+      <td class="tab__voce"><b>Bevande, snack e merendine</b></td>
+      <td class="r" data-k="Q.tà">—</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr><tr class="">
+      <td class="tab__n">8</td>
+      <td class="tab__voce"><b>Sedie per i tavoli briefing</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">6 pz</td>
+      <td class="r" data-k="Unit.">€ 21,67</td>
+      <td class="r tab__eur" data-k="Totale">€ 130,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="gruppo"><td colspan="5">Area C · Percorso e partenze</td><td>€ 1.534,00</td></tr><tr class="">
+      <td class="tab__n">9</td>
+      <td class="tab__voce"><b>Radioline per i marshal</b></td>
+      <td class="r" data-k="Q.tà">10 pz</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr><tr class="">
+      <td class="tab__n">10</td>
+      <td class="tab__voce"><b>Cassa con microfono</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">1 pz</td>
+      <td class="r" data-k="Unit.">€ 60,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 60,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">11</td>
+      <td class="tab__voce"><b>Timer per le partenze</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">1 pz</td>
+      <td class="r" data-k="Unit.">€ 60,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 60,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">12</td>
+      <td class="tab__voce"><b>Bandierine doppio logo, numerate</b><small>golfflags.eu</small></td>
+      <td class="r" data-k="Q.tà">1 fornitura</td>
+      <td class="r" data-k="Unit.">€ 390,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 390,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">13</td>
+      <td class="tab__voce"><b>Pannelli presentazione buca</b><small>Emmetre Anagni</small></td>
+      <td class="r" data-k="Q.tà">18 pz</td>
+      <td class="r" data-k="Unit.">€ 54,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 972,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="fuori">
+      <td class="tab__n">14</td>
+      <td class="tab__voce"><b>Pannelli buca senza supporto</b><small>Pixartprinting</small></td>
+      <td class="r" data-k="Q.tà">18 pz</td>
+      <td class="r" data-k="Unit.">€ 36,33</td>
+      <td class="r tab__eur" data-k="Totale">€ 654,00</td>
+      <td><span class="chip chip--alternativa">Alternativa</span></td>
+    </tr><tr class="">
+      <td class="tab__n">15</td>
+      <td class="tab__voce"><b>Partenze Donne e Junior</b><small>Emmetre Anagni</small></td>
+      <td class="r" data-k="Q.tà">13 pz</td>
+      <td class="r" data-k="Unit.">€ 4,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 52,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">16</td>
+      <td class="tab__voce"><b>Adesivi per le partenze</b><small>Pixartprinting</small></td>
+      <td class="r" data-k="Q.tà">—</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr><tr class="fuori">
+      <td class="tab__n">17</td>
+      <td class="tab__voce"><b>Mini vele di partenza</b><small>Pixartprinting</small></td>
+      <td class="r" data-k="Q.tà">18 pz</td>
+      <td class="r" data-k="Unit.">€ 125,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 2.250,00</td>
+      <td><span class="chip chip--opzionale">Opzionale</span></td>
+    </tr><tr class="fuori">
+      <td class="tab__n">18</td>
+      <td class="tab__voce"><b>Cubi per buca 1 e buca 18</b></td>
+      <td class="r" data-k="Q.tà">1 fornitura</td>
+      <td class="r" data-k="Unit.">€ 150,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 150,00</td>
+      <td><span class="chip chip--opzionale">Opzionale</span></td>
+    </tr><tr class="gruppo"><td colspan="5">Area D · Immagine e media</td><td>€ 465,00</td></tr><tr class="">
+      <td class="tab__n">19</td>
+      <td class="tab__voce"><b>Wall istituzionale per foto</b><small>Emmetre Anagni</small></td>
+      <td class="r" data-k="Q.tà">1 pz</td>
+      <td class="r" data-k="Unit.">€ 85,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 85,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">20</td>
+      <td class="tab__voce"><b>Telo per videoproiettore</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">1 pz</td>
+      <td class="r" data-k="Unit.">€ 80,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 80,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="fuori">
+      <td class="tab__n">21</td>
+      <td class="tab__voce"><b>Drone per riprese e diretta</b></td>
+      <td class="r" data-k="Q.tà">1 pz</td>
+      <td class="r" data-k="Unit.">€ 600,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 600,00</td>
+      <td><span class="chip chip--opzionale">Opzionale</span></td>
+    </tr><tr class="">
+      <td class="tab__n">22</td>
+      <td class="tab__voce"><b>Fotografo</b></td>
+      <td class="r" data-k="Q.tà">2 giornate</td>
+      <td class="r" data-k="Unit.">€ 150,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 300,00</td>
+      <td><span class="chip chip--stima">Stima</span></td>
+    </tr><tr class="">
+      <td class="tab__n">23</td>
+      <td class="tab__voce"><b>Tovaglia tavolo istituzionale</b></td>
+      <td class="r" data-k="Q.tà">1 pz</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr><tr class="gruppo"><td colspan="5">Area E · Accoglienza</td><td>€ 670,00</td></tr><tr class="">
+      <td class="tab__n">24</td>
+      <td class="tab__voce"><b>Tovaglie neutre per l'accoglienza</b><small>Amazon</small></td>
+      <td class="r" data-k="Q.tà">—</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr><tr class="">
+      <td class="tab__n">25</td>
+      <td class="tab__voce"><b>Badge con collarini per invitati</b><small>Emmetre Anagni</small></td>
+      <td class="r" data-k="Q.tà">100 pz</td>
+      <td class="r" data-k="Unit.">€ 3,70</td>
+      <td class="r tab__eur" data-k="Totale">€ 370,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr><tr class="">
+      <td class="tab__n">26</td>
+      <td class="tab__voce"><b>Ragazze immagine</b><small>Daniele Busoni</small></td>
+      <td class="r" data-k="Q.tà">1 servizio</td>
+      <td class="r" data-k="Unit.">€ 300,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 300,00</td>
+      <td><span class="chip chip--preventivo">Preventivo</span></td>
+    </tr></tbody>
+      </table></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section><section class="page">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
+      <header class="phead"><span class="micro">Preventivo · Riepilogo</span><span class="micro pnum">15</span></header>
+      <div class="pbody"><div class="area-head"><span class="segue">Riepilogo · segue</span></div><table class="tab">
+        <thead><tr><th>N.</th><th>Voce</th><th class="r">Q.tà</th><th class="r">Prezzo unit.</th><th class="r">Totale</th><th>Stato</th></tr></thead>
+        <tbody><tr class="gruppo"><td colspan="5">Area F · Staff e ospitalità</td><td>€ 1.100,00</td></tr><tr class="">
+      <td class="tab__n">27</td>
+      <td class="tab__voce"><b>Vestiario staff</b></td>
+      <td class="r" data-k="Q.tà">—</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr><tr class="">
+      <td class="tab__n">28</td>
+      <td class="tab__voce"><b>Appartamenti per lo staff</b></td>
+      <td class="r" data-k="Q.tà">1 soggiorno</td>
+      <td class="r" data-k="Unit.">€ 1.100,00</td>
+      <td class="r tab__eur" data-k="Totale">€ 1.100,00</td>
+      <td><span class="chip chip--confermato">Confermato</span></td>
+    </tr><tr class="">
+      <td class="tab__n">29</td>
+      <td class="tab__voce"><b>Cena</b></td>
+      <td class="r" data-k="Q.tà">—</td>
+      <td class="r" data-k="Unit.">—</td>
+      <td class="r tab__eur" data-k="Totale">da definire</td>
+      <td><span class="chip chip--da-definire">Da definire</span></td>
+    </tr></tbody>
+      </table><div style="display:flex;flex-direction:column;gap:12px;margin-top:6px">
+      <table class="tab"><tfoot>
+        <tr class="base"><td class="lbl" colspan="4">Totale base</td><td class="r tot" colspan="2">€ 4.588,40</td></tr>
+        <tr><td class="lbl" colspan="4">Opzionali (mini vele, cubi, drone)</td><td class="r tot" colspan="2">€ 3.000,00</td></tr>
+        <tr><td class="lbl" colspan="4">Totale con opzionali</td><td class="r tot" colspan="2">€ 7.588,40</td></tr>
+      </tfoot></table>
+      <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px">
+        Importi come da preventivo: IVA esclusa dove indicato, per le altre voci da verificare con il fornitore.
+        Le righe in grigio sono fuori dal totale base; le voci «da definire» non sono ancora conteggiate.
+      </p>
+      <div class="firma" style="margin-top:16px">
         <div class="firma__f"><span class="micro">Preparato da</span><i></i></div>
         <div class="firma__f"><span class="micro">Approvato da</span><i></i></div>
         <div class="firma__f"><span class="micro">Data</span><i></i></div>
       </div>
-    </div>
-
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">info@footgolf.it</span>
-    </footer>
-  </section>
-</div>
+    </div></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">14–15 Novembre 2026</span>
+      </footer>
+    </section></div>
 
 <!-- ============ SIMBOLI ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

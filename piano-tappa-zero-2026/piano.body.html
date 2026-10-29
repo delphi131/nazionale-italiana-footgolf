@@ -1,4 +1,4 @@
-<title>Piano di spesa Tappa Zero</title>
+<title>Piano operativo Tappa Zero</title>
 
 <style>
 /* __FONT__ */
@@ -313,6 +313,130 @@ body {
 .cover__fatti b { font-size: 13px; font-weight: 800; letter-spacing: -.01em; }
 .cover__fatti span { font-size: 10px; color: var(--on-dark-3); font-weight: 600; }
 
+/* ---------- Stati delle voci e delle attività ---------- */
+
+.chip--confermato   { background: rgba(0,140,69,.12);  color: #1F6B40; }
+.chip--da-fare      { background: rgba(10,12,10,.07);   color: rgba(10,12,10,.62); }
+.chip--in-corso     { background: rgba(0,114,206,.11);  color: var(--blue); }
+.chip--in-revisione { background: rgba(232,194,90,.22); color: #8A6512; }
+.chip--in-attesa    { background: rgba(98,78,190,.12);  color: #4F3F9A; }
+.chip--programmata  { background: rgba(0,114,206,.06);  color: var(--blue-dark); border: 1px solid rgba(0,114,206,.22); }
+.chip--fatto        { background: rgba(0,140,69,.12);   color: #1F6B40; }
+
+.prio {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 30px; height: 20px; padding: 0 7px; border-radius: 999px;
+  font-size: 9px; font-weight: 900; letter-spacing: .06em;
+}
+.prio--1 { background: #CD212A; color: var(--white); }
+.prio--2 { background: var(--gold); color: var(--ink); }
+.prio--3 { background: rgba(10,12,10,.12); color: rgba(10,12,10,.7); }
+.prio--n { background: transparent; color: var(--on-light-3); border: 1px dashed rgba(10,12,10,.2); }
+
+/* ---------- Elenco attività ---------- */
+
+.att-head, .att {
+  display: grid; grid-template-columns: 26px 1fr 40px 74px 86px 92px;
+  gap: 10px; align-items: center;
+}
+.att-head {
+  padding: 0 12px 6px;
+  font-size: 7.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--on-light-3);
+}
+.atts { display: flex; flex-direction: column; gap: 5px; }
+.att {
+  padding: 6px 12px; border-radius: 14px;
+  background: var(--white); border: 1px solid var(--line-light);
+  break-inside: avoid;
+}
+.att--p1 { box-shadow: inset 4px 0 0 #CD212A; }
+.att--fatto { background: rgba(255,255,255,.55); }
+.att__n {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--white);
+  font-size: 10px; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+.att__txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.att__titolo { font-size: 12.5px; font-weight: 900; letter-spacing: -.02em; line-height: 1.25; }
+.att__det { font-size: 10px; line-height: 1.4; color: var(--on-light-2); }
+.att__note { font-size: 9.5px; line-height: 1.4; color: var(--on-light-3); font-style: italic; }
+.att__k { font-size: 10px; font-weight: 700; line-height: 1.3; color: var(--on-light); }
+.att__k--vuoto { color: var(--on-light-3); font-weight: 600; }
+.att__scad { display: block; margin-top: 2px; font-size: 8.5px; font-weight: 800; color: #A6362F; letter-spacing: .02em; }
+
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-top: 12px; font-size: 9.5px; color: var(--on-light-3); font-weight: 600; }
+.legenda span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---------- Scadenze (pagina 2) ---------- */
+
+.scad { display: flex; flex-direction: column; border-top: 1px solid var(--line-dark); }
+.scad__r {
+  display: grid; grid-template-columns: 74px 1fr auto; gap: 14px; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--line-dark);
+}
+.scad__d { font-size: 15px; font-weight: 900; letter-spacing: -.02em; color: var(--blue-lite); font-variant-numeric: tabular-nums; }
+.scad__t { font-size: 12px; font-weight: 800; letter-spacing: -.01em; }
+.scad__t small { display: block; font-size: 9.5px; font-weight: 600; color: var(--on-dark-3); letter-spacing: 0; }
+
+.kpis--4 { grid-template-columns: repeat(4, 1fr); }
+.kpis--4 .kpi b { font-size: 28px; }
+
+/* ---------- Chi fa cosa ---------- */
+
+.persone { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.persona {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px 18px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light);
+}
+.persona__top { display: flex; align-items: center; gap: 10px; }
+.persona__ini {
+  width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: var(--white); font-size: 12px; font-weight: 900;
+}
+.persona__nome { font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
+.persona__nome small { display: block; font-size: 9px; font-weight: 700; color: var(--on-light-3); letter-spacing: .02em; }
+.persona ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.persona li {
+  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center;
+  padding: 5px 0; border-top: 1px solid var(--line-light); font-size: 10.5px; line-height: 1.35;
+}
+.persona li b { font-size: 9.5px; color: var(--blue); font-variant-numeric: tabular-nums; }
+
+/* ---------- Community ---------- */
+
+.comm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.canale {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 16px; border-radius: 18px; background: var(--card); border: 1px solid var(--line-dark);
+}
+.canale--sub { grid-row: span 2; }
+.canale__top { display: flex; align-items: center; gap: 10px; }
+.canale__ico { font-size: 20px; line-height: 1; }
+.canale__nome { font-size: 13.5px; font-weight: 900; letter-spacing: -.02em; }
+.canale ul { margin: 0; padding: 0 0 0 4px; list-style: none; display: flex; flex-direction: column; gap: 0; }
+.canale li {
+  position: relative; padding: 6px 0 6px 18px; font-size: 11px; font-weight: 700; color: var(--on-dark-2);
+  border-left: 1px solid rgba(79,179,240,.35);
+}
+.canale li::before { content: ""; position: absolute; left: 0; top: 50%; width: 11px; height: 1px; background: rgba(79,179,240,.35); }
+.canale li:last-child { border-left-color: transparent; }
+.canale li:last-child::after { content: ""; position: absolute; left: 0; top: 0; height: 50%; border-left: 1px solid rgba(79,179,240,.35); }
+
+/* ---------- Riepilogo: riga di gruppo per area ---------- */
+
+.tab tr.gruppo td {
+  padding-top: 10px; border-bottom: 1px solid rgba(10,12,10,.24);
+  font-size: 8.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue);
+}
+.tab tr.gruppo td:last-child { text-align: right; color: var(--on-light); letter-spacing: .02em; font-size: 10.5px; }
+
+.segue { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
+
+.campi--3 { grid-template-columns: 1fr 1fr 1.3fr; }
+
 /* ======================================================================
    Schermo stretto — IN FONDO di proposito: deve vincere sulle regole base.
    ====================================================================== */
@@ -338,12 +462,18 @@ body {
   .tab td { display: block; padding: 0; border: 0 !important; }
   .tab__voce { flex: 1 1 70%; }
   .tab td[data-k]::before { content: attr(data-k) " "; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--on-light-3); }
+  .kpis--4, .persone, .comm { grid-template-columns: 1fr !important; }
+  .att-head { display: none; }
+  .att { grid-template-columns: 26px 1fr; row-gap: 6px; }
+  .att > :nth-child(n+3) { grid-column: 2; }
+  .campi--3 { grid-template-columns: 1fr; }
 }
+
 </style>
 
 <div class="doc" id="doc">
 
-  <!-- ============ 1 · COPERTINA ============ -->
+  <!-- ============ COPERTINA ============ -->
   <section class="page page--dark">
     <div class="cover">
       <div class="cover__glow"></div>
@@ -359,15 +489,15 @@ body {
 
       <div class="cover__body">
         <span class="pill" data-k="pill"></span>
-        <h1 class="h1">Piano di spesa <br class="brk"><span class="accent">Tappa Zero</span>.</h1>
-        <p class="lead" style="font-size:15px;max-width:52ch">
-          Il materiale da stampare e da allestire per il weekend a Il Pelagone: ogni voce con
-          quantità, prezzo, stato del preventivo e lo spazio per foto e link del fornitore.
+        <h1 class="h1"><span class="accent">Tappa Zero</span>. <br class="brk">Piano operativo <br class="brk">e preventivo.</h1>
+        <p class="lead" style="font-size:15px;max-width:54ch">
+          Il punto su tutto il lavoro in corso: le attività istituzionali, la preparazione della
+          presentazione a Il Pelagone, chi se ne occupa, e il preventivo di spesa voce per voce.
         </p>
         <div class="cover__fatti">
-          <div><b data-k="totBase"></b><span>Totale base</span></div>
-          <div><b data-k="nVoci"></b><span data-k="nAree"></span></div>
-          <div><b data-k="nDef"></b><span>Voci ancora da quotare</span></div>
+          <div><b data-k="nAtt"></b><span data-k="nAttLbl"></span></div>
+          <div><b data-k="totBase"></b><span>Preventivo, totale base</span></div>
+          <div><b data-k="nVoci"></b><span data-k="nVociLbl"></span></div>
         </div>
       </div>
     </div>
@@ -378,33 +508,35 @@ body {
     </footer>
   </section>
 
-  <!-- ============ 2 · SINTESI ============ -->
+  <!-- ============ SINTESI ============ -->
   <section class="page page--dark2">
     <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
     <header class="phead">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">02</span>
+      <span class="micro">Tappa Zero · Sintesi</span>
+      <span class="micro pnum"></span>
     </header>
 
-    <div class="pbody" style="gap:30px;justify-content:center">
+    <div class="pbody" style="gap:24px;justify-content:center">
       <div style="display:flex;flex-direction:column;gap:8px">
-        <span class="eyebrow">Il budget in breve</span>
-        <h2 class="h2">Quanto costa vestire <br class="brk">la Tappa Zero.</h2>
-        <p class="lead">
-          Il totale base somma le voci con un prezzo già noto, da preventivo o stimato.
-          Mini vele, drone e cubi restano fuori come voci eventuali; il pieghevole A3 è l'alternativa alla brochure.
-        </p>
+        <span class="eyebrow">A colpo d'occhio</span>
+        <h2 class="h2">Il punto a due settimane <br class="brk">dalla Tappa Zero.</h2>
       </div>
 
-      <div class="kpis">
-        <div class="kpi"><b data-k="totBase"></b><span>Totale base</span></div>
+      <div class="kpis kpis--4">
+        <div class="kpi kpi--muted"><b data-k="nAtt"></b><span>Attività in programma</span></div>
+        <div class="kpi kpi--muted"><b data-k="nP1"></b><span>Con priorità 1</span></div>
+        <div class="kpi"><b data-k="totBase"></b><span>Preventivo, totale base</span></div>
         <div class="kpi kpi--muted"><b data-k="totOpz"></b><span data-k="lblOpz"></span></div>
-        <div class="kpi kpi--muted"><b data-k="totCon"></b><span>Totale con opzionali</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span class="eyebrow">Scadenze ravvicinate</span>
+        <div class="scad" id="scadenze"></div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <span class="eyebrow">Ripartizione per area</span>
+          <span class="eyebrow">Preventivo per area</span>
           <div class="legenda-bar"><span><i></i>Totale base</span><span><u></u>Opzionali e alternative</span></div>
         </div>
         <div class="aree" id="aree"></div>
@@ -417,49 +549,7 @@ body {
     </footer>
   </section>
 
-  <!-- Pagine 3–5: costruite dallo script a partire da DATI.aree -->
-  <div id="pagine-aree" style="display:contents"></div>
-
-  <!-- ============ 6 · RIEPILOGO ============ -->
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
-    <header class="phead">
-      <span class="micro">Riepilogo e approvazione</span>
-      <span class="micro" data-k="pagRiep"></span>
-    </header>
-
-    <div class="pbody" style="gap:14px">
-      <span class="eyebrow">Tutte le voci</span>
-      <h2 class="h2">Riepilogo generale.</h2>
-      <table class="tab">
-        <thead>
-          <tr>
-            <th>N.</th>
-            <th>Voce</th>
-            <th class="r">Q.tà</th>
-            <th class="r">Prezzo unit.</th>
-            <th class="r">Totale</th>
-            <th>Stato</th>
-          </tr>
-        </thead>
-        <tbody id="tabbody"></tbody>
-        <tfoot id="tabfoot"></tfoot>
-      </table>
-
-      <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px" data-k="notaIva"></p>
-
-      <div class="firma" style="margin-top:auto">
-        <div class="firma__f"><span class="micro">Preparato da</span><i></i></div>
-        <div class="firma__f"><span class="micro">Approvato da</span><i></i></div>
-        <div class="firma__f"><span class="micro">Data</span><i></i></div>
-      </div>
-    </div>
-
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">info@footgolf.it</span>
-    </footer>
-  </section>
+  <!-- Tutte le altre pagine sono costruite dallo script e impaginate a misura di A4 -->
 </div>
 
 <!-- ============ SIMBOLI ============ -->
@@ -477,7 +567,7 @@ body {
 </svg>
 
 <script>
-/* Dati iniettati da genera.mjs a partire da voci.json — unica fonte, la stessa dell'Excel */
+/* Dati iniettati da genera.mjs a partire da dati.json — unica fonte, la stessa dell'Excel */
 const DATI = /* __DATI__ */;
 
 const eur = (x, dec = 2) => {
@@ -488,52 +578,62 @@ const eur = (x, dec = 2) => {
 const eurC = (x) => eur(x, Number.isInteger(Math.round(x * 100) / 100) ? 0 : 2);
 const slug = (s) => s.toLowerCase().replace(/\s+/g, "-");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const el = (html) => { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+const breveLink = (u) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-/* Normalizza ogni voce: prezzo unitario e totale, che il preventivo dia l'uno o l'altro */
-const voci = DATI.voci.map((v) => {
+/* ---------- Dati derivati ---------- */
+
+const voci = DATI.voci.map((v, i) => {
   const pu = v.totale != null ? v.totale / v.qta : v.prezzo;
   const tot = v.totale != null ? v.totale : (v.prezzo != null && v.qta != null ? v.prezzo * v.qta : null);
-  return { ...v, pu, tot };
+  return { ...v, n: i + 1, pu, tot };
 });
+const att = DATI.attivita;
 
 const somma = (arr) => arr.reduce((s, v) => s + (v.tot || 0), 0);
-const base = voci.filter((v) => v.nelTotale);
 const opz = voci.filter((v) => v.stato === "Opzionale");
-const daDef = voci.filter((v) => v.stato === "Da definire");
-const tot = { base: somma(base), opz: somma(opz) };
-/* Nomi brevi delle voci opzionali con un prezzo, per le etichette dei totali */
-const opzNomi = opz.filter((v) => v.tot != null).map((v) => v.breve || v.nome.toLowerCase()).join(", ");
+const tot = { base: somma(voci.filter((v) => v.nelTotale)), opz: somma(opz) };
 tot.con = tot.base + tot.opz;
+const opzNomi = opz.filter((v) => v.tot != null).map((v) => v.breve || v.nome.toLowerCase()).join(", ");
+const perArea = DATI.aree.map((a) => {
+  const vv = voci.filter((v) => v.area === a.id);
+  return { ...a, vv, base: somma(vv.filter((v) => v.nelTotale)), fuori: somma(vv.filter((v) => !v.nelTotale)) };
+});
 
 const ev = DATI.evento;
 const testi = {
   pill: `${ev.titolo} · ${ev.date}`,
   luogo: `${ev.luogo} · ${ev.citta}`,
   aggiornato: `Aggiornato al ${ev.aggiornato}`,
+  nAtt: String(att.length),
+  nAttLbl: `Attività in ${DATI.gruppiAttivita.length} filoni di lavoro`,
+  nP1: String(att.filter((a) => a.priorita === 1).length),
+  nVoci: String(voci.length),
+  nVociLbl: `Voci di spesa in ${DATI.aree.length} aree`,
   totBase: eurC(tot.base),
   totOpz: eurC(tot.opz),
-  lblOpz: `Opzionali · ${opzNomi}`,
-  totCon: eurC(tot.con),
-  nVoci: String(voci.length),
-  nAree: `Voci di spesa in ${DATI.aree.length} aree`,
-  nDef: String(daDef.length),
-  pagRiep: String(DATI.aree.length + 3).padStart(2, "0"),
-  notaIva: "Pannelli buca, partenze Donne e wall: prezzi IVA esclusa da preventivo. Pieghevole A3: IVA inclusa. "
-         + "Per le altre voci l'IVA è da verificare con il fornitore. "
-         + "Le righe in grigio sono fuori dal totale base."
+  lblOpz: `Opzionali · ${opzNomi}`
 };
-document.querySelectorAll("[data-k]").forEach((el) => {
-  if (testi[el.dataset.k] != null) el.textContent = testi[el.dataset.k];
+document.querySelectorAll("[data-k]").forEach((e) => {
+  if (testi[e.dataset.k] != null) e.textContent = testi[e.dataset.k];
 });
 
-/* ---------- pagina 2: barre per area ---------- */
-const perArea = DATI.aree.map((a) => {
-  const vv = voci.filter((v) => v.area === a.id);
-  return { ...a, vv, base: somma(vv.filter((v) => v.nelTotale)), fuori: somma(vv.filter((v) => !v.nelTotale)) };
-});
+/* ---------- Pagina 2: scadenze e barre ---------- */
+
+const dataOrd = (s) => s.split("/").reverse().join("");
+document.getElementById("scadenze").innerHTML = att
+  .filter((a) => a.scadenza)
+  .sort((a, b) => dataOrd(a.scadenza).localeCompare(dataOrd(b.scadenza)))
+  .map((a) => `
+    <div class="scad__r">
+      <span class="scad__d">${esc(a.scadenza.slice(0, 5))}</span>
+      <span class="scad__t">${esc(a.titolo)}<small>${esc(a.note || a.dettaglio)}</small></span>
+      ${a.priorita ? `<span class="prio prio--${a.priorita}">P${a.priorita}</span>` : ""}
+    </div>`).join("");
+
 const max = Math.max(...perArea.map((a) => a.base + a.fuori));
 document.getElementById("aree").innerHTML = perArea.map((a) => `
-  <div class="area-row">
+  <div class="area-row" style="padding:9px 0">
     <span class="area-row__id">${a.id}</span>
     <div class="area-row__txt">
       <span class="area-row__nome">${esc(a.nome)} <small>${a.vv.length} voci</small></span>
@@ -548,16 +648,171 @@ document.getElementById("aree").innerHTML = perArea.map((a) => `
     </div>
   </div>`).join("");
 
+/* =====================================================================
+   Impaginazione: ogni blocco si aggiunge alla pagina corrente; se la fa
+   uscire dall'A4 viene tolto e passa a una pagina nuova. Così il numero
+   di pagine segue i contenuti e nessuna pagina deborda.
+   ===================================================================== */
 
-/* ---------- pagine 3–5: schede voce ---------- */
-const PAGINE = DATI.aree.map((a) => [a.id]);
+/* L'impaginazione misura le pagine: va fatta con il font Archivo già caricato,
+   altrimenti si misura il font di riserva, più largo, e le pagine si spezzano prima. */
+document.fonts.ready.then(impagina);
+
+function impagina() {
+const DOC = document.getElementById("doc");
+const A4 = Math.round((297 / 25.4) * 96);
+
+function nuovaPagina(etichetta, scura = false) {
+  const p = el(`
+    <section class="page${scura ? " page--dark" : ""}">
+      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+      <header class="phead"><span class="micro">${esc(etichetta)}</span><span class="micro pnum"></span></header>
+      <div class="pbody"></div>
+      <footer class="pfoot">
+        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
+        <span class="micro">${esc(ev.date)}</span>
+      </footer>
+    </section>`);
+  DOC.appendChild(p);
+  return p;
+}
+const deborda = (p) => p.offsetHeight > A4 + 1;
+
+/* Scorre gli elementi di una sezione. `apri` prepara una pagina (intestazione e
+   contenitore) e restituisce il contenitore in cui accodare gli elementi. */
+function flusso({ etichetta, apri, elementi, coda }) {
+  let pagina, dove, prima = true;
+  const avvia = () => {
+    pagina = nuovaPagina(etichetta);
+    dove = apri(pagina.querySelector(".pbody"), prima);
+    prima = false;
+  };
+  avvia();
+  for (const html of elementi) {
+    let e = el(html);
+    dove.appendChild(e);
+    if (deborda(pagina) && dove.children.length > 1) {
+      e.remove();
+      avvia();
+      dove.appendChild(e);
+    }
+  }
+  if (coda) {
+    const c = el(coda);
+    pagina.querySelector(".pbody").appendChild(c);
+    if (deborda(pagina)) {
+      /* la coda non ci sta: si porta con sé l'ultimo elemento, così non resta da sola */
+      c.remove();
+      const ultimo = dove.lastElementChild;
+      ultimo.remove();
+      avvia();
+      dove.appendChild(ultimo);
+      pagina.querySelector(".pbody").appendChild(c);
+    }
+  }
+}
+
+const testata = (eyebrow, titolo, lead, prima) => prima
+  ? `<div class="area-head"><span class="eyebrow">${esc(eyebrow)}</span><h2 class="h2">${esc(titolo)}.</h2>${lead ? `<p class="lead" style="font-size:12.5px">${esc(lead)}</p>` : ""}</div>`
+  : `<div class="area-head"><span class="segue">${esc(eyebrow)} · segue</span><h2 class="h3">${esc(titolo)}</h2></div>`;
+
+/* ---------- Attività ---------- */
+
+const rigaAtt = (a) => {
+  const chi = a.chi.length ? esc(a.chi.join(", ")) : "—";
+  return `
+  <article class="att${a.priorita === 1 ? " att--p1" : ""}${a.stato === "Fatto" ? " att--fatto" : ""}">
+    <span class="att__n">${a.n}</span>
+    <div class="att__txt">
+      <span class="att__titolo">${esc(a.titolo)}</span>
+      <span class="att__det">${esc(a.dettaglio)}</span>
+      ${a.note ? `<span class="att__note">${esc(a.note)}</span>` : ""}
+    </div>
+    <span>${a.priorita ? `<span class="prio prio--${a.priorita}">P${a.priorita}</span>` : `<span class="prio prio--n">—</span>`}</span>
+    <span class="att__k${a.tempi ? "" : " att__k--vuoto"}">${esc(a.tempi || "—")}${a.scadenza ? `<span class="att__scad">entro il ${esc(a.scadenza)}</span>` : ""}</span>
+    <span class="att__k${a.chi.length ? "" : " att__k--vuoto"}">${chi}</span>
+    <span><span class="chip chip--${slug(a.stato)}">${esc(a.stato)}</span></span>
+  </article>`;
+};
+
+const legendaPrio = `
+  <div class="legenda">
+    <span><span class="prio prio--1">P1</span>Priorità 1</span>
+    <span><span class="prio prio--2">P2</span>Priorità 2</span>
+    <span><span class="prio prio--3">P3</span>Priorità 3</span>
+    <span><span class="prio prio--n">—</span>Priorità non assegnata</span>
+  </div>`;
+
+for (const g of DATI.gruppiAttivita) {
+  const lista = att.filter((a) => a.gruppo === g.id);
+  flusso({
+    etichetta: `Attività · ${g.nome}`,
+    elementi: lista.map(rigaAtt),
+    coda: legendaPrio,
+    apri: (body, prima) => {
+      body.insertAdjacentHTML("beforeend", testata(`Attività · ${lista.length} in elenco`, g.nome, g.claim, prima));
+      body.insertAdjacentHTML("beforeend",
+        `<div class="att-head"><span>N.</span><span>Attività</span><span>Prior.</span><span>Tempi</span><span>Chi</span><span>Stato</span></div>`);
+      return body.appendChild(el(`<div class="atts"></div>`));
+    }
+  });
+}
+
+/* ---------- Chi fa cosa ---------- */
+
+{
+  const p = nuovaPagina("Attività · Chi fa cosa");
+  const body = p.querySelector(".pbody");
+  body.insertAdjacentHTML("beforeend", testata("Squadra", "Chi fa cosa", "Le attività assegnate a ciascuno, dalla più urgente.", true));
+  const ordP = (a) => a.priorita || 9;
+  body.insertAdjacentHTML("beforeend", `<div class="persone">${DATI.persone.map((nome) => {
+    const sue = att.filter((a) => a.chi.includes(nome)).sort((a, b) => ordP(a) - ordP(b));
+    const ini = nome.split(" ").map((s) => s[0]).join("").slice(0, 2);
+    return `
+    <div class="persona">
+      <div class="persona__top">
+        <span class="persona__ini">${esc(ini)}</span>
+        <span class="persona__nome">${esc(nome)}<small>${sue.length} attività</small></span>
+      </div>
+      <ul>${sue.map((a) => `<li><b>${a.n}</b><span>${esc(a.titolo)}</span>${a.priorita ? `<span class="prio prio--${a.priorita}">P${a.priorita}</span>` : "<span></span>"}</li>`).join("")}</ul>
+    </div>`;
+  }).join("")}</div>`);
+  const senza = att.filter((a) => !a.chi.length && a.stato !== "Fatto");
+  body.insertAdjacentHTML("beforeend", `
+    <p class="lead" style="font-size:11px;margin-top:14px">
+      Senza un responsabile indicato: ${senza.map((a) => `${a.n} · ${esc(a.titolo)}`).join("; ")}.
+    </p>`);
+}
+
+/* ---------- Community ---------- */
+
+{
+  const p = nuovaPagina("Attività · Community AIFG", true);
+  const body = p.querySelector(".pbody");
+  const n = att.find((a) => a.titolo.startsWith("Community"));
+  body.insertAdjacentHTML("beforeend", `
+    <div class="area-head">
+      <span class="eyebrow">Attività ${n ? n.n : ""} · Struttura proposta</span>
+      <h2 class="h2">${esc(DATI.community.nome)}.</h2>
+      <p class="lead" style="font-size:12.5px">I canali della community ufficiale, con le sezioni interne di area manager, campionati e Nazionale.</p>
+    </div>
+    <div class="comm">${DATI.community.canali.map((c) => `
+      <div class="canale${c.sotto ? " canale--sub" : ""}">
+        <div class="canale__top"><span class="canale__ico">${c.ico}</span><span class="canale__nome">${esc(c.nome)}</span></div>
+        ${c.sotto ? `<ul>${c.sotto.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>` : ""}
+      </div>`).join("")}
+    </div>`);
+}
+
+/* ---------- Preventivo: schede voce ---------- */
 
 const scheda = (v) => {
   const fuori = !v.nelTotale;
   const q = v.qta != null ? `${v.qta.toLocaleString("it-IT")} ${esc(v.unita)}` : `<span class="vuoto vuoto--s"></span>`;
   const pu = v.pu != null ? eur(v.pu) : `<span class="vuoto vuoto--s"></span>`;
   const t = v.tot != null ? eurC(v.tot) : `<span class="vuoto"></span>`;
-  const linkTxt = v.link ? `<a href="${esc(v.link)}">${esc(v.link.replace(/^https?:\/\/(www\.)?/, ""))}</a>` : "";
+  const linkTxt = v.link ? `<a href="${esc(v.link)}">${esc(breveLink(v.link))}</a>` : "";
+  const sotto = fuori ? "fuori totale base" : v.iva ? `IVA ${esc(v.iva.toLowerCase())}` : "";
   return `
   <article class="voce${fuori ? " voce--fuori" : ""}">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"/></svg><span>Foto</span></div>
@@ -569,9 +824,11 @@ const scheda = (v) => {
       </div>
       <p class="voce__desc">${esc(v.desc)}</p>
       ${v.note ? `<p class="voce__note">${esc(v.note)}</p>` : ""}
-      <div class="campi">
+      <div class="campi campi--3">
         <div class="campo"><span class="campo__k">Fornitore</span>
           <span class="campo__v${v.fornitore ? " campo__v--pieno" : ""}">${esc(v.fornitore)}</span></div>
+        <div class="campo"><span class="campo__k">Tempi</span>
+          <span class="campo__v${v.tempi ? " campo__v--pieno" : ""}">${esc(v.tempi)}</span></div>
         <div class="campo"><span class="campo__k">Link</span>
           <span class="campo__v${v.link ? " campo__v--pieno" : ""}">${linkTxt}</span></div>
       </div>
@@ -579,50 +836,78 @@ const scheda = (v) => {
     <div class="conto">
       <div class="conto__r"><span>Quantità</span><b>${q}</b></div>
       <div class="conto__r"><span>Unitario</span><b>${pu}</b></div>
-      <div class="conto__tot"><span>Totale</span><b>${t}</b>${fuori ? `<em>fuori totale base</em>` : v.iva ? `<em>IVA ${esc(v.iva.toLowerCase())}</em>` : ""}</div>
+      <div class="conto__tot"><span>Totale</span><b>${t}</b>${sotto ? `<em>${sotto}</em>` : ""}</div>
     </div>
   </article>`;
 };
 
-document.getElementById("pagine-aree").outerHTML = PAGINE.map((ids, k) => {
-  const gruppi = ids.map((id) => perArea.find((a) => a.id === id));
-  const corpo = gruppi.map((a, j) => `
-    <div class="area-head"${j ? ' style="margin-top:16px"' : ""}>
-      <span class="eyebrow">Area ${a.id}</span>
-      <h2 class="h2"${ids.length > 1 ? ' style="font-size:28px"' : ""}>${esc(a.nome)}.</h2>
-      ${ids.length === 1 ? `<p class="lead" style="font-size:12.5px">${esc(a.claim)}</p>` : ""}
-    </div>
-    <div class="voci">${a.vv.map(scheda).join("")}</div>
-    <div class="subtot"><span>Totale area ${a.id}</span><div>${a.fuori ? `<small>+ ${eurC(a.fuori)} fuori totale</small>` : ""}<b>${eurC(a.base)}</b></div></div>`
-  ).join("");
-  return `
-  <section class="page">
-    <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
-    <header class="phead">
-      <span class="micro">Dettaglio voci · ${gruppi.map((a) => "Area " + a.id).join(" e ")}</span>
-      <span class="micro">${String(k + 3).padStart(2, "0")}</span>
-    </header>
-    <div class="pbody">${corpo}</div>
-    <footer class="pfoot">
-      <span class="micro">Piano di spesa · Tappa Zero</span>
-      <span class="micro">${esc(ev.date)}</span>
-    </footer>
-  </section>`;
-}).join("");
+for (const a of perArea) {
+  flusso({
+    etichetta: `Preventivo · Area ${a.id}`,
+    elementi: a.vv.map(scheda),
+    coda: `<div class="subtot"><span>Totale area ${a.id}</span><div>${a.fuori ? `<small>+ ${eurC(a.fuori)} fuori totale</small>` : ""}<b>${eurC(a.base)}</b></div></div>`,
+    apri: (body, prima) => {
+      body.insertAdjacentHTML("beforeend", testata(`Preventivo · Area ${a.id}`, a.nome, a.claim, prima));
+      return body.appendChild(el(`<div class="voci"></div>`));
+    }
+  });
+}
 
-/* ---------- pagina 6: riepilogo ---------- */
-document.getElementById("tabbody").innerHTML = voci.map((v) => `
-  <tr class="${v.nelTotale ? "" : "fuori"}">
-    <td class="tab__n">${v.n}</td>
-    <td class="tab__voce"><b>${esc(v.nome)}</b><small>Area ${v.area}${v.fornitore ? " · " + esc(v.fornitore) : ""}</small></td>
-    <td class="r" data-k="Q.tà">${v.qta != null ? v.qta.toLocaleString("it-IT") + " " + esc(v.unita) : "—"}</td>
-    <td class="r" data-k="Unit.">${v.pu != null ? eur(v.pu) : "—"}</td>
-    <td class="r tab__eur" data-k="Totale">${v.tot != null ? eur(v.tot) : "da definire"}</td>
-    <td><span class="chip chip--${slug(v.stato)}">${esc(v.stato)}</span></td>
-  </tr>`).join("");
+/* ---------- Riepilogo del preventivo ---------- */
 
-document.getElementById("tabfoot").innerHTML = `
-  <tr class="base"><td></td><td class="lbl" colspan="3">Totale base</td><td class="r tot" colspan="2">${eur(tot.base)}</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Opzionali (${esc(opzNomi)})</td><td class="r tot" colspan="2">${eur(tot.opz)}</td></tr>
-  <tr><td></td><td class="lbl" colspan="3">Totale con opzionali</td><td class="r tot" colspan="2">${eur(tot.con)}</td></tr>`;
+/* Il <template> di `el` accetta anche un <tr> isolato: le righe si accodano al tbody */
+const righe = [];
+for (const a of perArea) {
+  righe.push(`<tr class="gruppo"><td colspan="5">Area ${a.id} · ${esc(a.nome)}</td><td>${eur(a.base)}</td></tr>`);
+  for (const v of a.vv) righe.push(`
+    <tr class="${v.nelTotale ? "" : "fuori"}">
+      <td class="tab__n">${v.n}</td>
+      <td class="tab__voce"><b>${esc(v.nome)}</b>${v.fornitore ? `<small>${esc(v.fornitore)}</small>` : ""}</td>
+      <td class="r" data-k="Q.tà">${v.qta != null ? v.qta.toLocaleString("it-IT") + " " + esc(v.unita) : "—"}</td>
+      <td class="r" data-k="Unit.">${v.pu != null ? eur(v.pu) : "—"}</td>
+      <td class="r tab__eur" data-k="Totale">${v.tot != null ? eur(v.tot) : "da definire"}</td>
+      <td><span class="chip chip--${slug(v.stato)}">${esc(v.stato)}</span></td>
+    </tr>`);
+}
+
+flusso({
+  etichetta: "Preventivo · Riepilogo",
+  elementi: righe,
+  apri: (body, prima) => {
+    body.insertAdjacentHTML("beforeend", prima
+      ? `<div class="area-head"><span class="eyebrow">Tutte le voci</span><h2 class="h2">Riepilogo del preventivo.</h2></div>`
+      : `<div class="area-head"><span class="segue">Riepilogo · segue</span></div>`);
+    const t = body.appendChild(el(`
+      <table class="tab">
+        <thead><tr><th>N.</th><th>Voce</th><th class="r">Q.tà</th><th class="r">Prezzo unit.</th><th class="r">Totale</th><th>Stato</th></tr></thead>
+        <tbody></tbody>
+      </table>`));
+    return t.querySelector("tbody");
+  },
+  coda: `
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:6px">
+      <table class="tab"><tfoot>
+        <tr class="base"><td class="lbl" colspan="4">Totale base</td><td class="r tot" colspan="2">${eur(tot.base)}</td></tr>
+        <tr><td class="lbl" colspan="4">Opzionali (${esc(opzNomi)})</td><td class="r tot" colspan="2">${eur(tot.opz)}</td></tr>
+        <tr><td class="lbl" colspan="4">Totale con opzionali</td><td class="r tot" colspan="2">${eur(tot.con)}</td></tr>
+      </tfoot></table>
+      <p class="micro" style="margin:0;line-height:1.6;letter-spacing:.08em;text-transform:none;font-weight:600;font-size:9.5px">
+        Importi come da preventivo: IVA esclusa dove indicato, per le altre voci da verificare con il fornitore.
+        Le righe in grigio sono fuori dal totale base; le voci «da definire» non sono ancora conteggiate.
+      </p>
+      <div class="firma" style="margin-top:16px">
+        <div class="firma__f"><span class="micro">Preparato da</span><i></i></div>
+        <div class="firma__f"><span class="micro">Approvato da</span><i></i></div>
+        <div class="firma__f"><span class="micro">Data</span><i></i></div>
+      </div>
+    </div>`
+});
+
+/* ---------- Numeri di pagina ---------- */
+document.querySelectorAll(".page").forEach((p, i) => {
+  const n = p.querySelector(".pnum");
+  if (n) n.textContent = String(i + 1).padStart(2, "0");
+});
+window.__pronto = true;
+}
 </script>

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Genera il piano di spesa della Tappa Zero a partire da `piano.body.html` e `voci.json`.
+ * Genera il piano operativo e il preventivo della Tappa Zero da `piano.body.html` e `dati.json`.
  * Ricalcato sul generatore della brochure sponsor AIFG (AIFGSITE/brochure-sponsor).
  *
- *   node piano-spesa-tappa-zero-2026/genera.mjs           # HTML statici + PDF
- *   node piano-spesa-tappa-zero-2026/genera.mjs --shot    # aggiunge gli screenshot di verifica
+ *   node piano-tappa-zero-2026/genera.mjs           # HTML statici + PDF
+ *   node piano-tappa-zero-2026/genera.mjs --shot    # aggiunge gli screenshot di verifica
  *
  * Passaggi:
- *  1. incorpora font, logo e i dati di `voci.json` al posto dei segnaposto;
+ *  1. incorpora font, logo e i dati di `dati.json` al posto dei segnaposto;
  *  2. apre la pagina in Chromium e lascia che lo script costruisca le sezioni dai DATI;
  *  3. serializza il DOM risultante, così gli output non dipendono più da JavaScript;
  *  4. stampa il PDF A4 e verifica che nessuna pagina sia in overflow.
@@ -38,11 +38,11 @@ const { chromium } = (() => {
 const DIR = dirname(fileURLToPath(import.meta.url));
 const DIST = join(DIR, "dist");
 const SRC = join(DIR, "piano.body.html");
-const DATI = join(DIR, "voci.json");
+const DATI = join(DIR, "dati.json");
 const FONT = join(DIR, "assets", "archivo-latin.woff2");
 const LOGO = join(DIR, "assets", "aifg-logo.png");
 
-const NOME = "piano-spesa-tappa-zero-2026";
+const NOME = "piano-tappa-zero-2026";
 const shots = process.argv.includes("--shot");
 
 /* ---------- 1 · sorgente + font + logo ---------- */
@@ -67,7 +67,7 @@ const conFont = sorgente
   .replaceAll("__LOGO__", logoDataUri)
   .replace("/* __DATI__ */", JSON.stringify(JSON.parse(await readFile(DATI, "utf8"))));
 
-const titolo = (conFont.match(/<title>([\s\S]*?)<\/title>/) || [, "Piano di spesa Tappa Zero"])[1].trim();
+const titolo = (conFont.match(/<title>([\s\S]*?)<\/title>/) || [, "Piano operativo Tappa Zero"])[1].trim();
 const stili = conFont.match(/<style>[\s\S]*?<\/style>/g) || [];
 const corpo = conFont
   .replace(/<title>[\s\S]*?<\/title>/, "")
@@ -103,6 +103,8 @@ page.on("console", (m) => m.type() === "error" && errori.push(m.text()));
 
 await page.goto(pathToFileURL(vivo).href, { waitUntil: "load" });
 await page.evaluate(() => document.fonts.ready);
+/* le pagine dinamiche si impaginano dopo il caricamento del font */
+await page.waitForFunction(() => window.__pronto === true, null, { timeout: 15000 });
 
 if (errori.length) {
   console.error("✗ errori JavaScript durante il render:");
