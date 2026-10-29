@@ -1,0 +1,541 @@
+<title>Italian FootGolf Open 2027 — Rome · FIFG 500 bid</title>
+
+<style>
+/* __FONT__ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  /* Token della brochure sponsor (template ufficiale AIFG), su slide 16:9 — come presentazione-aifg-2027. */
+  --ink:        #0A0C0A;
+  --card:       #12160F;
+  --light:      #EEF1EE;
+  --white:      #FFFFFF;
+  --blue:       #0072CE;
+  --blue-lite:  #4FB3F0;
+  --gold:       #C09F6D;
+
+  --on-dark:    #F2F5F0;
+  --on-dark-2:  rgba(242,245,240,.64);
+  --on-dark-3:  rgba(242,245,240,.45);
+  --on-light:   #0A0C0A;
+  --on-light-2: rgba(10,12,10,.62);
+  --on-light-3: rgba(10,12,10,.45);
+  --line-dark:  rgba(255,255,255,.1);
+  --line-light: rgba(10,12,10,.12);
+
+  --pad-x: 80px;
+  --pad-y: 52px;
+}
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #6E7469; color: var(--on-light);
+  font-family: Archivo, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+}
+
+.doc { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 24px 0; }
+.slide {
+  position: relative; z-index: 0; width: 1280px; height: 720px;
+  padding: var(--pad-y) var(--pad-x); overflow: hidden;
+  display: flex; flex-direction: column; background: var(--light); color: var(--on-light);
+}
+.slide--dark { background: var(--ink); color: var(--on-dark); }
+.slide--blue { background: var(--blue); color: var(--white); }
+@media screen { .slide { box-shadow: 0 24px 60px rgba(10,12,10,.34); } }
+@media print {
+  body { background: var(--white); }
+  .doc { gap: 0; padding: 0; }
+  .slide { box-shadow: none; break-after: page; }
+  .slide:last-child { break-after: auto; }
+  @page { size: 1280px 720px; margin: 0; }
+}
+
+/* ---------- Testata e piede ---------- */
+.shead { display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--line-light); }
+.sfoot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line-light); }
+.slide--dark .shead, .slide--dark .sfoot { border-color: var(--line-dark); }
+.micro { font-size: 9.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--on-light-3); }
+.slide--dark .micro { color: var(--on-dark-3); }
+
+.mark { position: absolute; inset: 0; z-index: -1; display: flex; align-items: center; justify-content: flex-end; padding-right: 60px; pointer-events: none; }
+.mark svg { width: 470px; height: auto; opacity: .07; }
+.slide--dark .mark svg { opacity: .1; }
+
+/* ---------- Tipografia ---------- */
+.sbody { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 0; }
+.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+.slide--dark .eyebrow { color: var(--blue-lite); }
+.h1 { margin: 12px 0 0; font-size: 60px; line-height: .98; font-weight: 900; letter-spacing: -.045em; text-wrap: balance; max-width: 900px; }
+.h2 { margin: 12px 0 0; font-size: 46px; line-height: 1.02; font-weight: 900; letter-spacing: -.04em; text-wrap: balance; max-width: 900px; }
+.sub { margin: 16px 0 0; font-size: 18px; line-height: 1.5; color: var(--on-light-2); max-width: 64ch; }
+.slide--dark .sub { color: var(--on-dark-2); }
+.accent { color: var(--blue); }
+.slide--dark .accent { color: var(--blue-lite); }
+.gold { color: var(--gold); }
+
+.pill { display: inline-flex; align-self: flex-start; padding: 7px 16px; border-radius: 999px; border: 1px solid rgba(79,179,240,.35); background: rgba(79,179,240,.09); color: var(--blue-lite); font-size: 10.5px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.pill--gold { border-color: rgba(192,159,109,.45); background: rgba(192,159,109,.12); color: var(--gold); }
+
+/* ---------- Griglie di card ---------- */
+.grid { display: grid; gap: 14px; margin-top: 30px; }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+.g5 { grid-template-columns: repeat(5, 1fr); }
+.card { padding: 20px 20px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light); display: flex; flex-direction: column; gap: 7px; }
+.slide--dark .card { background: var(--card); border-color: var(--line-dark); }
+.card__n { font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+.slide--dark .card__n { color: var(--blue-lite); }
+.card h3 { margin: 0; font-size: 20px; line-height: 1.1; font-weight: 900; letter-spacing: -.02em; }
+.card p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--on-light-2); }
+.slide--dark .card p { color: var(--on-dark-2); }
+.card--blue { background: var(--blue) !important; border-color: var(--blue) !important; color: var(--white); }
+.card--blue .card__n, .card--blue p { color: rgba(255,255,255,.85) !important; }
+.big { font-size: 46px; font-weight: 900; letter-spacing: -.04em; line-height: 1; color: var(--blue); }
+.slide--dark .big { color: var(--blue-lite); }
+
+/* Filiera: frecce tra le tappe del percorso del giocatore. */
+.filiera { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 34px; }
+.step { position: relative; padding: 20px 16px; border-radius: 18px; background: var(--card); border: 1px solid var(--line-dark); }
+.step:not(:last-child)::after { content: "→"; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-weight: 900; font-size: 18px; color: var(--gold); z-index: 1; }
+.step b { display: block; font-size: 18px; font-weight: 900; color: var(--on-dark); }
+.step span { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.45; color: var(--on-dark-3); }
+.step--top { background: var(--blue); border-color: var(--blue); }
+.step--top span { color: rgba(255,255,255,.85); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.chips span { padding: 9px 16px; border-radius: 999px; background: rgba(0,114,206,.1); color: var(--blue); font-size: 13px; font-weight: 800; }
+.slide--dark .chips span { background: rgba(79,179,240,.12); color: var(--blue-lite); }
+
+/* ---------- Copertina ---------- */
+.cover { padding: 0; background: var(--ink); }
+.cover__foto { position: absolute; inset: 0; z-index: -2; background: url(__FOTO__) center 45% / cover no-repeat; }
+.cover__velo { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10,12,10,.92) 0%, rgba(10,12,10,.6) 42%, rgba(10,12,10,0) 75%); }
+.cover__in { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 var(--pad-x); gap: 0; }
+.cover__crest { width: 120px; height: auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.5)); }
+.cover__base { display: flex; justify-content: space-between; padding: 0 var(--pad-x) 34px; }
+
+/* ---------- Loghi affiancati ---------- */
+.loghi { display: flex; align-items: center; gap: 30px; }
+.loghi img, .loghi svg { width: 150px; height: 150px; filter: drop-shadow(0 10px 22px rgba(0,0,0,.4)); }
+.loghi i { width: 1px; height: 110px; background: var(--line-dark); }
+.due { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
+
+/* ---------- Chiusura ---------- */
+.fine { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 18px; }
+.fine svg { width: 130px; height: auto; filter: drop-shadow(0 12px 26px rgba(0,0,0,.35)); }
+.fine h2 { margin: 0; font-size: 52px; line-height: 1.02; font-weight: 900; letter-spacing: -.045em; max-width: 20ch; }
+.fine p { margin: 0; font-size: 17px; color: rgba(255,255,255,.85); }
+.fine__row { display: flex; gap: 12px; }
+.fine__row span { padding: 12px 24px; border-radius: 999px; background: var(--ink); color: var(--blue-lite); font-size: 14px; font-weight: 800; }
+
+/* ---------- Componenti aggiunti per la candidatura ---------- */
+
+/* Numeri chiave: card con valore grande e didascalia. */
+.kpi { padding: 18px 20px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light); display: flex; flex-direction: column; gap: 6px; }
+.slide--dark .kpi { background: var(--card); border-color: var(--line-dark); }
+.kpi__v { font-size: 30px; line-height: 1; font-weight: 900; letter-spacing: -.035em; color: var(--blue); }
+.slide--dark .kpi__v { color: var(--blue-lite); }
+.kpi__v small { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
+.kpi p { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--on-light-2); }
+.slide--dark .kpi p { color: var(--on-dark-2); }
+.kpi--blue { background: var(--blue) !important; border-color: var(--blue) !important; }
+.kpi--blue .kpi__v, .kpi--blue .card__n { color: var(--white) !important; }
+.kpi--blue p { color: rgba(255,255,255,.85) !important; }
+
+/* Elenchi con spunta. */
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.checks li { position: relative; padding-left: 26px; font-size: 14px; line-height: 1.45; color: var(--on-light-2); }
+.slide--dark .checks li { color: var(--on-dark-2); }
+.checks li b { color: var(--on-light); font-weight: 800; }
+.slide--dark .checks li b { color: var(--on-dark); }
+.checks li::before { content: ""; position: absolute; left: 0; top: 3px; width: 15px; height: 15px; border-radius: 50%; background: var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 11px no-repeat; }
+.checks--2 { grid-template-columns: 1fr 1fr; column-gap: 34px; }
+
+/* Testo + foto verticale. */
+.split { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; height: 100%; }
+.split__foto { height: 520px; border-radius: 26px; background: url(__BUCA__) center 30% / cover no-repeat; box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+
+/* Tre giorni del torneo. */
+.days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+.day { padding: 20px 22px 22px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light); }
+.day--blue { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.day__d { display: flex; align-items: baseline; gap: 10px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line-light); }
+.day--blue .day__d { border-color: rgba(255,255,255,.25); }
+.day__d b { font-size: 40px; line-height: 1; font-weight: 900; letter-spacing: -.04em; color: var(--blue); }
+.day--blue .day__d b { color: var(--white); }
+.day__d span { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--on-light-3); }
+.day--blue .day__d span { color: rgba(255,255,255,.75); }
+.day h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.1; font-weight: 900; letter-spacing: -.02em; }
+.day ul { margin: 0; padding-left: 16px; font-size: 13px; line-height: 1.55; color: var(--on-light-2); }
+.day--blue ul { color: rgba(255,255,255,.88); }
+
+/* Tracciati: 18 schede buca con segnaposto, da sostituire con i disegni definitivi. */
+.holes { display: grid; grid-template-columns: repeat(9, 1fr); gap: 10px; margin-top: 22px; }
+.hole { padding: 8px 8px 10px; border-radius: 16px; background: var(--white); border: 1px solid var(--line-light); display: flex; flex-direction: column; gap: 4px; }
+.hole__map { height: 112px; border-radius: 11px; border: 1.5px dashed rgba(0,114,206,.35); background: rgba(0,114,206,.05); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hole__map svg { width: 56px; height: auto; }
+.hole__map img { width: 100%; height: 100%; object-fit: contain; }
+.hole__n { margin-top: 2px; font-size: 22px; line-height: 1; font-weight: 900; letter-spacing: -.03em; }
+.hole__meta { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--on-light-3); }
+
+/* Mappa generale del percorso: riquadro segnaposto più legenda. */
+.mappa { display: grid; grid-template-columns: 1fr 300px; gap: 18px; margin-top: 22px; flex: 1; min-height: 0; }
+.mappa__box { position: relative; border-radius: 24px; border: 1.5px dashed rgba(79,179,240,.4); background: rgba(79,179,240,.05); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; overflow: hidden; }
+.mappa__box svg { width: 92px; height: auto; opacity: .55; }
+.mappa__box b { font-size: 20px; font-weight: 900; letter-spacing: -.02em; color: var(--on-dark); }
+.mappa__box span { font-size: 13px; color: var(--on-dark-3); max-width: 40ch; }
+.mappa__box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.mappa__side { display: flex; flex-direction: column; gap: 12px; }
+.mappa__side .mappa__box { flex: 0 0 170px; }
+.legenda { padding: 16px 18px; border-radius: 20px; background: var(--card); border: 1px solid var(--line-dark); flex: 1; }
+.legenda .checks { gap: 7px; }
+.legenda .checks li { font-size: 12.5px; }
+
+/* Stato di un impegno (garantito / opzionale / in corso). */
+.tag { display: inline-flex; align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 9.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: rgba(79,179,240,.14); color: var(--blue-lite); }
+.tag--gold { background: rgba(192,159,109,.16); color: var(--gold); }
+.tag--grey { background: rgba(242,245,240,.08); color: var(--on-dark-3); }
+
+</style>
+
+<div class="doc">
+
+  <!-- 1 · COPERTINA -->
+  <section class="slide cover">
+    <div class="cover__foto" role="img" aria-label="Associazione Italiana FootGolf players and staff at sunset"></div>
+    <div class="cover__velo"></div>
+    <div class="cover__in">
+      <svg class="cover__crest" viewBox="0 0 719 705" role="img" aria-label="AIFG official logo"><use href="#aifg-logo"/></svg>
+      <span class="pill pill--gold" style="margin-top:26px">FIFG 500 · Host bid 2027</span>
+      <h1 class="h1" style="color:var(--on-dark);max-width:680px">Italian FootGolf Open 2027. <span class="accent">Rome.</span></h1>
+      <p class="sub" style="color:var(--on-dark-2);max-width:48ch">Golf Club Parco de' Medici · 2–4 July 2027. The main Open of Italy, proposed as an FIFG 500 World Tour tournament.</p>
+    </div>
+    <div class="cover__base"><span class="micro" style="color:var(--on-dark-3)">Associazione Italiana FootGolf · Official FIFG Member</span><span class="micro" style="color:var(--on-dark-3)">FIFG World Tour 2027</span></div>
+  </section>
+
+  <!-- 2 · LA CANDIDATURA IN SINTESI -->
+  <section class="slide slide--dark">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">The bid at a glance</span><span class="micro">02</span></header>
+    <div class="sbody">
+      <span class="eyebrow">Italy · Region 3 (Europe)</span>
+      <h2 class="h2">Three days in Rome, <br><span class="gold">one World Tour stop.</span></h2>
+      <div class="grid g4">
+        <div class="kpi kpi--blue"><span class="card__n">Event level</span><div class="kpi__v">FIFG 500</div><p>Main 2027 Open of Italy.</p></div>
+        <div class="kpi"><span class="card__n">Dates</span><div class="kpi__v">2–4 July</div><p>Friday to Sunday, 2027. Practice day plus two competition days.</p></div>
+        <div class="kpi"><span class="card__n">Venue</span><div class="kpi__v">Parco de' Medici</div><p>27-hole golf complex with a hotel inside the venue.</p></div>
+        <div class="kpi"><span class="card__n">Field</span><div class="kpi__v">144 <small>players</small></div><p>18-hole layout, groups of 4, two waves.</p></div>
+        <div class="kpi"><span class="card__n">Format</span><div class="kpi__v">2 <small>rounds</small></div><p>One round per day, same number of rounds for every category.</p></div>
+        <div class="kpi"><span class="card__n">Entry fee</span><div class="kpi__v">€200 <small>/ €230</small></div><p>Early-bird / standard, below the €220 Region 3 cap.</p></div>
+        <div class="kpi"><span class="card__n">Prize fund</span><div class="kpi__v">≥ €4,000</div><p>Or 13% of collected entry fees, whichever is higher.</p></div>
+        <div class="kpi"><span class="card__n">Included</span><div class="kpi__v">2 <small>lunches</small></div><p>Plus welcome kit, ceremonies and on-course refreshments.</p></div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">FIFG 500 host bid</span></footer>
+  </section>
+
+  <!-- 3 · PERCHÉ ROMA -->
+  <section class="slide">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">Why Rome</span><span class="micro">03</span></header>
+    <div class="sbody">
+      <span class="eyebrow">Easy to reach, easy to stay</span>
+      <h2 class="h2">From the plane <br>to the first tee.</h2>
+      <p class="sub">The venue lies in the south-west of Rome (EUR / Magliana area), between the city centre and Fiumicino Airport. The hotel is inside the golf complex and runs a shuttle to Fiumicino: players fly in, check in and walk to the course.</p>
+      <div class="grid g4">
+        <div class="kpi"><span class="card__n">Fiumicino (FCO)</span><div class="kpi__v">~12 <small>km</small></div><p>15–20 minutes by car. Hotel shuttle service to the airport.</p></div>
+        <div class="kpi"><span class="card__n">Ciampino (CIA)</span><div class="kpi__v">~20 <small>km</small></div><p>About 30 minutes by car.</p></div>
+        <div class="kpi"><span class="card__n">Rome Termini</span><div class="kpi__v">25–30 <small>min</small></div><p>Central station, well served by public transport.</p></div>
+        <div class="kpi kpi--blue"><span class="card__n">Hotel to course</span><div class="kpi__v">0 <small>min</small></div><p>Sheraton Rome Parco de' Medici is inside the golf complex.</p></div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">Travel and access</span></footer>
+  </section>
+
+  <!-- 4 · LA STRUTTURA -->
+  <section class="slide slide--dark">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">The venue</span><span class="micro">04</span></header>
+    <div class="sbody">
+      <span class="eyebrow">Golf Club Parco de' Medici</span>
+      <h2 class="h2">Three golf courses <br><span class="accent">and a hotel inside the venue.</span></h2>
+      <p class="sub">A 27-hole golf complex in Rome, with the White, Blue and Red nines, and the Sheraton Rome Parco de' Medici hotel inside the venue. One site for playing, staying, eating and celebrating.</p>
+      <div class="grid g3">
+        <div class="card card--blue"><span class="card__n">Golf</span><h3>27 holes, three courses</h3><p>Room for the 18-hole FootGolf competition layout and a separate practice layout.</p></div>
+        <div class="card"><span class="card__n">Hotel</span><h3>Sheraton on site</h3><p>Upscale accommodation within walking distance of the course, with airport shuttle.</p></div>
+        <div class="card"><span class="card__n">Clubhouse</span><h3>Everything in one place</h3><p>Restaurant and bar, changing rooms, toilets, large car park, power and Wi-Fi.</p></div>
+      </div>
+      <div class="chips">
+        <span>Viale Salvatore Rebecchini 39, 00148 Rome</span><span>2+ water refill points</span><span>Shaded rest areas</span><span>Scoring area with backup 4G/5G</span>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">golfparcodemedici.it</span></footer>
+  </section>
+
+  <!-- 5 · IL PERCORSO: 18 BUCHE (tracciati da integrare) -->
+  <section class="slide">
+    <header class="shead"><span class="micro">The FootGolf course</span><span class="micro">05</span></header>
+    <div class="sbody" style="justify-content:flex-start;padding-top:26px">
+      <span class="eyebrow">Competition layout · 18 holes · target par 72</span>
+      <h2 class="h2" style="max-width:none">Hole by hole.</h2>
+      <p class="sub" style="max-width:none">Final layout, tee positions and any temporary holes will be designed with the club and submitted for FIFG approval.</p>
+      <div class="holes">
+        <div class="hole" data-buca="1">
+          <div class="hole__map"><!-- TRACCIATO BUCA 1: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">01</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="2">
+          <div class="hole__map"><!-- TRACCIATO BUCA 2: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">02</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="3">
+          <div class="hole__map"><!-- TRACCIATO BUCA 3: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">03</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="4">
+          <div class="hole__map"><!-- TRACCIATO BUCA 4: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">04</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="5">
+          <div class="hole__map"><!-- TRACCIATO BUCA 5: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">05</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="6">
+          <div class="hole__map"><!-- TRACCIATO BUCA 6: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">06</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="7">
+          <div class="hole__map"><!-- TRACCIATO BUCA 7: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">07</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="8">
+          <div class="hole__map"><!-- TRACCIATO BUCA 8: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">08</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="9">
+          <div class="hole__map"><!-- TRACCIATO BUCA 9: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">09</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="10">
+          <div class="hole__map"><!-- TRACCIATO BUCA 10: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">10</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="11">
+          <div class="hole__map"><!-- TRACCIATO BUCA 11: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">11</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="12">
+          <div class="hole__map"><!-- TRACCIATO BUCA 12: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">12</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="13">
+          <div class="hole__map"><!-- TRACCIATO BUCA 13: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">13</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="14">
+          <div class="hole__map"><!-- TRACCIATO BUCA 14: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">14</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="15">
+          <div class="hole__map"><!-- TRACCIATO BUCA 15: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">15</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="16">
+          <div class="hole__map"><!-- TRACCIATO BUCA 16: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">16</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="17">
+          <div class="hole__map"><!-- TRACCIATO BUCA 17: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">17</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+        <div class="hole" data-buca="18">
+          <div class="hole__map"><!-- TRACCIATO BUCA 18: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
+          <div class="hole__n">18</div>
+          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">Course layout subject to FIFG approval</span></footer>
+  </section>
+
+  <!-- 6 · MAPPA DEL PERCORSO (tracciati da integrare) -->
+  <section class="slide slide--dark">
+    <header class="shead"><span class="micro">Course map</span><span class="micro">06</span></header>
+    <div class="sbody" style="justify-content:flex-start;padding-top:26px">
+      <span class="eyebrow">Routing, practice and services</span>
+      <h2 class="h2" style="max-width:none">The course at a glance.</h2>
+      <div class="mappa">
+        <div class="mappa__box">
+          <!-- MAPPA GENERALE: inserire qui <img src="..."> con il routing delle 18 buche -->
+          <svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg>
+          <b>Competition layout · 18 holes</b>
+          <span>Routing map of the 18 holes on the golf complex.</span>
+        </div>
+        <div class="mappa__side">
+          <div class="mappa__box">
+            <!-- PERCORSO DI PROVA: inserire qui <img src="..."> -->
+            <b>Practice layout</b>
+            <span>Official practice day, 2 July.</span>
+          </div>
+          <div class="legenda">
+            <span class="card__n" style="color:var(--blue-lite)">On the map</span>
+            <ul class="checks" style="margin-top:10px">
+              <li>Tees and holes, 1 to 18</li>
+              <li>Clubhouse, scoring and registration</li>
+              <li>Water refill points</li>
+              <li>Shaded rest areas</li>
+              <li>First-aid point and emergency access</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">Course layout subject to FIFG approval</span></footer>
+  </section>
+
+  <!-- 7 · FORMAT E PROGRAMMA -->
+  <section class="slide">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">Format and schedule</span><span class="micro">07</span></header>
+    <div class="sbody">
+      <span class="eyebrow">Practice day plus two rounds</span>
+      <h2 class="h2">Three days, <br>one round per day.</h2>
+      <div class="days">
+        <div class="day"><div class="day__d"><b>2</b><span>Friday · July</span></div><h3>Official practice</h3><ul><li>Practice on the competition layout</li><li>Registration and accreditation</li><li>Welcome ceremony</li></ul></div>
+        <div class="day"><div class="day__d"><b>3</b><span>Saturday · July</span></div><h3>Round 1</h3><ul><li>Two-tee or shotgun start, two waves</li><li>Lunch included</li><li>BlueGolf live scoring</li></ul></div>
+        <div class="day day--blue"><div class="day__d"><b>4</b><span>Sunday · July</span></div><h3>Round 2 · Final</h3><ul><li>Same number of rounds for every category</li><li>Lunch included</li><li>Prize giving and closing ceremony</li></ul></div>
+      </div>
+      <p class="sub" style="max-width:none;font-size:15px">About 15 hours of daylight in early July (sunrise ~05:40, sunset ~20:45): early tee times keep play out of the hottest hours.</p>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">Schedule subject to FIFG approval</span></footer>
+  </section>
+
+  <!-- 8 · QUOTA E SERVIZI -->
+  <section class="slide slide--dark">
+    <header class="shead"><span class="micro">Entry fee and player value</span><span class="micro">08</span></header>
+    <div class="sbody">
+      <div class="split">
+        <div>
+          <span class="eyebrow">What the entry fee includes</span>
+          <h2 class="h2">Value for <br><span class="gold">every player.</span></h2>
+          <div class="grid g2" style="margin-top:24px">
+            <div class="kpi kpi--blue"><span class="card__n">Early-bird · 1–31 March 2027</span><div class="kpi__v">€200</div><p>Registration opens on 1 March 2027.</p></div>
+            <div class="kpi"><span class="card__n">Standard · 1 April–20 June</span><div class="kpi__v">€230</div><p>Entry-only option always available.</p></div>
+          </div>
+          <ul class="checks checks--2" style="margin-top:22px">
+            <li><b>Lunch</b> on both competition days</li>
+            <li><b>Welcome kit</b></li>
+            <li><b>Welcome and closing</b> ceremonies</li>
+            <li><b>On-course</b> refreshments</li>
+            <li><b>Prize fund ≥ €4,000</b> or 13% of fees</li>
+            <li><b>Hotel and transfers</b> optional, priced apart</li>
+          </ul>
+        </div>
+        <div class="split__foto" role="img" aria-label="An Italian FootGolf player on the course"></div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">All amounts in EUR</span></footer>
+  </section>
+
+  <!-- 9 · ORGANIZZAZIONE E SICUREZZA -->
+  <section class="slide">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">Operations and safety</span><span class="micro">09</span></header>
+    <div class="sbody">
+      <span class="eyebrow">People and plans in place</span>
+      <h2 class="h2">Run safely, <br>fairly and on time.</h2>
+      <div class="grid g4">
+        <div class="card"><span class="card__n">Team</span><h3>Tournament staff</h3><p>Tournament Director, Rules Director, English-speaking operational lead, Media Lead.</p></div>
+        <div class="card"><span class="card__n">On course</span><h3>Marshals and volunteers</h3><p>Non-playing staff and marshals, trained starters and score reviewers.</p></div>
+        <div class="card"><span class="card__n">Medical</span><h3>First aid on site</h3><p>First-aid team and ambulance; Ospedale Sant'Eugenio about 5 km away. Event insurance.</p></div>
+        <div class="card card--blue"><span class="card__n">Weather</span><h3>Heat and storm plan</h3><p>Early tee times, water and shade, lightning protocol, clubhouse as shelter.</p></div>
+      </div>
+      <p class="sub" style="max-width:none;font-size:15px;margin-top:24px">Written risk assessment and emergency action plan. The FIFG representative is hosted in a single room, with meals, on the same basis as the player package.</p>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">BlueGolf live scoring</span></footer>
+  </section>
+
+  <!-- 10 · MEDIA E BROADCAST -->
+  <section class="slide slide--dark">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">Media and broadcast</span><span class="micro">10</span></header>
+    <div class="sbody">
+      <span class="eyebrow">Content for FIFG channels</span>
+      <h2 class="h2">Rome, <br><span class="accent">seen around the world.</span></h2>
+      <div class="grid g3">
+        <div class="card"><span class="tag">Guaranteed</span><h3>Every day</h3><p>Photography, social media posts, player interviews, results graphics and a highlight video of at least 3 minutes.</p></div>
+        <div class="card"><span class="tag">Guaranteed</span><h3>After the event</h3><p>Aftermovie within 14 days. Full media archive and distribution rights handed over to FIFG.</p></div>
+        <div class="card"><span class="tag tag--gold">If selected</span><h3>Live broadcast</h3><p>Estimated production budget €25,000. Funding being sought from Regione Lazio, Roma Capitale, ENIT and sponsors.</p></div>
+      </div>
+      <p class="sub" style="max-width:none;font-size:15px;margin-top:24px">Live streaming is an optional upgrade. Funding commitments will be confirmed in writing before they are announced.</p>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">Media Lead · direct contact for FIFG Operations</span></footer>
+  </section>
+
+  <!-- 11 · IMPEGNI -->
+  <section class="slide">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
+    <header class="shead"><span class="micro">Our commitments</span><span class="micro">11</span></header>
+    <div class="sbody">
+      <span class="eyebrow">An FIFG 500 to FIFG standards</span>
+      <h2 class="h2">What Italy commits to.</h2>
+      <ul class="checks checks--2" style="margin-top:30px;row-gap:14px">
+        <li><b>FIFG Rules of the Game</b>, World Tour and Competition Guidelines, approved local rules</li>
+        <li><b>Anti-doping</b> requirements and a private control room if testing is scheduled</li>
+        <li><b>BlueGolf</b> for setup, live scoring, verification and results</li>
+        <li><b>Entry-only option</b> and every charge disclosed in EUR</li>
+        <li><b>FIFG and partner branding</b> on course, live scoring and digital content</li>
+        <li><b>Calendar coordination</b> and Open-date clash rules acknowledged</li>
+        <li><b>Integrity</b>, safeguarding and anti-corruption requirements</li>
+        <li><b>Registration opening</b> communicated to all 2026 participants</li>
+      </ul>
+    </div>
+    <footer class="sfoot"><span class="micro">Italian FootGolf Open 2027 · Rome</span><span class="micro">Host Agreement</span></footer>
+  </section>
+
+  <!-- 12 · CHIUSURA -->
+  <section class="slide slide--blue">
+    <div class="fine">
+      <div class="loghi">
+        <img src="__FIFG__" alt="Federation for International FootGolf logo">
+        <i aria-hidden="true" style="background:rgba(255,255,255,.35)"></i>
+        <svg viewBox="0 0 719 705" role="img" aria-label="AIFG official logo"><use href="#aifg-logo"/></svg>
+      </div>
+      <h2 style="max-width:none">See you in Rome, <br>2–4 July 2027.</h2>
+      <p>Italian FootGolf Open 2027 · FIFG 500 · Golf Club Parco de' Medici</p>
+      <div class="fine__row"><span>info@footgolf.it</span><span>footgolf.it</span></div>
+    </div>
+  </section>
+
+</div>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="aifg-logo" viewBox="0 0 719 705"><image href="__LOGO__" x="0" y="0" width="719" height="705"/></symbol>
+  <!-- Segnaposto di buca: partenza, linea di gioco tratteggiata, bandierina. -->
+  <symbol id="hole-ph" viewBox="0 0 100 120">
+    <path d="M30 104 C 30 76, 72 70, 66 30" fill="none" stroke="#4FB3F0" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
+    <rect x="22" y="100" width="16" height="9" rx="2" fill="#0072CE"/>
+    <circle cx="66" cy="30" r="7" fill="none" stroke="#0072CE" stroke-width="3"/>
+    <path d="M66 30 V 8 L 82 13 L 66 18" fill="#C09F6D" stroke="#C09F6D" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+</svg>
