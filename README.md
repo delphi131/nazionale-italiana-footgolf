@@ -32,3 +32,11 @@ node tools/genera-pdf.js <file-html-completo> docs/Quaderno-Tecnico-Azzurro.pdf
 Nota: l'HTML in `docs/` è pensato per essere pubblicato come artifact e non contiene i tag
 `<html>/<head>/<body>`; lo script va alimentato con una copia incapsulata e con i font Barlow
 incorporati come data URI (Google Fonts non è raggiungibile dal browser in fase di render).
+
+## Candidature
+
+- `candidature/FIFG_2027_FIFG500_Italy_Bid_Response_Form.xlsx` — modulo di risposta al bando FIFG 2027
+  (Masters, Major 1000, FIFG 500) compilato per l'Italian FootGolf Open 2027 come **FIFG 500** al Golf
+  Club Parco de' Medici (Roma), 2–4 luglio 2027. Scadenza invio: 30 ottobre 2026 a info@fifg.org e
+  board@fifg.org. Le celle lasciate vuote (referente, licenze, esperienza, dichiarazioni di
+  conformità) risultano "Missing" nel foglio *Read Me & Status* e vanno completate prima dell'invio.
