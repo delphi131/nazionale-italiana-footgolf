@@ -383,28 +383,6 @@ body {
 .kpis--4 { grid-template-columns: repeat(4, 1fr); }
 .kpis--4 .kpi b { font-size: 28px; }
 
-/* ---------- Chi fa cosa ---------- */
-
-.persone { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.persona {
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 16px 18px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light);
-}
-.persona__top { display: flex; align-items: center; gap: 10px; }
-.persona__ini {
-  width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--blue); color: var(--white); font-size: 12px; font-weight: 900;
-}
-.persona__nome { font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
-.persona__nome small { display: block; font-size: 9px; font-weight: 700; color: var(--on-light-3); letter-spacing: .02em; }
-.persona ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
-.persona li {
-  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center;
-  padding: 5px 0; border-top: 1px solid var(--line-light); font-size: 10.5px; line-height: 1.35;
-}
-.persona li b { font-size: 9.5px; color: var(--blue); font-variant-numeric: tabular-nums; }
-
 /* ---------- Community ---------- */
 
 .comm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -462,7 +440,7 @@ body {
   .tab td { display: block; padding: 0; border: 0 !important; }
   .tab__voce { flex: 1 1 70%; }
   .tab td[data-k]::before { content: attr(data-k) " "; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--on-light-3); }
-  .kpis--4, .persone, .comm { grid-template-columns: 1fr !important; }
+  .kpis--4, .comm { grid-template-columns: 1fr !important; }
   .att-head { display: none; }
   .att { grid-template-columns: 26px 1fr; row-gap: 6px; }
   .att > :nth-child(n+3) { grid-column: 2; }
@@ -756,32 +734,6 @@ for (const g of DATI.gruppiAttivita) {
       return body.appendChild(el(`<div class="atts"></div>`));
     }
   });
-}
-
-/* ---------- Chi fa cosa ---------- */
-
-{
-  const p = nuovaPagina("Attività · Chi fa cosa");
-  const body = p.querySelector(".pbody");
-  body.insertAdjacentHTML("beforeend", testata("Squadra", "Chi fa cosa", "Le attività assegnate a ciascuno, dalla più urgente.", true));
-  const ordP = (a) => a.priorita || 9;
-  body.insertAdjacentHTML("beforeend", `<div class="persone">${DATI.persone.map((nome) => {
-    const sue = att.filter((a) => a.chi.includes(nome)).sort((a, b) => ordP(a) - ordP(b));
-    const ini = nome.split(" ").map((s) => s[0]).join("").slice(0, 2);
-    return `
-    <div class="persona">
-      <div class="persona__top">
-        <span class="persona__ini">${esc(ini)}</span>
-        <span class="persona__nome">${esc(nome)}<small>${sue.length} attività</small></span>
-      </div>
-      <ul>${sue.map((a) => `<li><b>${a.n}</b><span>${esc(a.titolo)}</span>${a.priorita ? `<span class="prio prio--${a.priorita}">P${a.priorita}</span>` : "<span></span>"}</li>`).join("")}</ul>
-    </div>`;
-  }).join("")}</div>`);
-  const senza = att.filter((a) => !a.chi.length && a.stato !== "Fatto");
-  body.insertAdjacentHTML("beforeend", `
-    <p class="lead" style="font-size:11px;margin-top:14px">
-      Senza un responsabile indicato: ${senza.map((a) => `${a.n} · ${esc(a.titolo)}`).join("; ")}.
-    </p>`);
 }
 
 /* ---------- Community ---------- */

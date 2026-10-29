@@ -394,28 +394,6 @@ body {
 .kpis--4 { grid-template-columns: repeat(4, 1fr); }
 .kpis--4 .kpi b { font-size: 28px; }
 
-/* ---------- Chi fa cosa ---------- */
-
-.persone { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.persona {
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 16px 18px; border-radius: 20px; background: var(--white); border: 1px solid var(--line-light);
-}
-.persona__top { display: flex; align-items: center; gap: 10px; }
-.persona__ini {
-  width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--blue); color: var(--white); font-size: 12px; font-weight: 900;
-}
-.persona__nome { font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
-.persona__nome small { display: block; font-size: 9px; font-weight: 700; color: var(--on-light-3); letter-spacing: .02em; }
-.persona ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
-.persona li {
-  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center;
-  padding: 5px 0; border-top: 1px solid var(--line-light); font-size: 10.5px; line-height: 1.35;
-}
-.persona li b { font-size: 9.5px; color: var(--blue); font-variant-numeric: tabular-nums; }
-
 /* ---------- Community ---------- */
 
 .comm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -473,7 +451,7 @@ body {
   .tab td { display: block; padding: 0; border: 0 !important; }
   .tab__voce { flex: 1 1 70%; }
   .tab td[data-k]::before { content: attr(data-k) " "; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--on-light-3); }
-  .kpis--4, .persone, .comm { grid-template-columns: 1fr !important; }
+  .kpis--4, .comm { grid-template-columns: 1fr !important; }
   .att-head { display: none; }
   .att { grid-template-columns: 26px 1fr; row-gap: 6px; }
   .att > :nth-child(n+3) { grid-column: 2; }
@@ -813,7 +791,7 @@ body {
     <span class="att__n">13</span>
     <div class="att__txt">
       <span class="att__titolo">Timeline operativa delle 2 giornate</span>
-      <span class="att__det">Chi fa cosa e quando, per lo staff operativo.</span>
+      <span class="att__det">Orari, ruoli e passaggi delle due giornate per lo staff operativo.</span>
       
     </div>
     <span><span class="prio prio--2">P2</span></span>
@@ -907,48 +885,9 @@ body {
         <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
         <span class="micro">14–15 Novembre 2026</span>
       </footer>
-    </section><section class="page">
-      <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Attività · Chi fa cosa</span><span class="micro pnum">05</span></header>
-      <div class="pbody"><div class="area-head"><span class="eyebrow">Squadra</span><h2 class="h2">Chi fa cosa.</h2><p class="lead" style="font-size:12.5px">Le attività assegnate a ciascuno, dalla più urgente.</p></div><div class="persone">
-    <div class="persona">
-      <div class="persona__top">
-        <span class="persona__ini">F</span>
-        <span class="persona__nome">Fabio<small>7 attività</small></span>
-      </div>
-      <ul><li><b>8</b><span>Argomenti e scaletta della presentazione</span><span class="prio prio--1">P1</span></li><li><b>9</b><span>Nuovo sito internet e Birdie</span><span class="prio prio--1">P1</span></li><li><b>10</b><span>Vestiario per lo staff</span><span class="prio prio--1">P1</span></li><li><b>13</b><span>Timeline operativa delle 2 giornate</span><span class="prio prio--2">P2</span></li><li><b>14</b><span>Discorso introduttivo dello stage della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>15</b><span>Programma della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>16</b><span>Controllo e aggiornamento pagamenti</span><span class="prio prio--3">P3</span></li></ul>
-    </div>
-    <div class="persona">
-      <div class="persona__top">
-        <span class="persona__ini">C</span>
-        <span class="persona__nome">Carlo<small>8 attività</small></span>
-      </div>
-      <ul><li><b>8</b><span>Argomenti e scaletta della presentazione</span><span class="prio prio--1">P1</span></li><li><b>9</b><span>Nuovo sito internet e Birdie</span><span class="prio prio--1">P1</span></li><li><b>10</b><span>Vestiario per lo staff</span><span class="prio prio--1">P1</span></li><li><b>13</b><span>Timeline operativa delle 2 giornate</span><span class="prio prio--2">P2</span></li><li><b>14</b><span>Discorso introduttivo dello stage della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>15</b><span>Programma della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>16</b><span>Controllo e aggiornamento pagamenti</span><span class="prio prio--3">P3</span></li><li><b>12</b><span>Gestionale, livescoring, regia e classifiche</span><span></span></li></ul>
-    </div>
-    <div class="persona">
-      <div class="persona__top">
-        <span class="persona__ini">A</span>
-        <span class="persona__nome">Alberto<small>7 attività</small></span>
-      </div>
-      <ul><li><b>8</b><span>Argomenti e scaletta della presentazione</span><span class="prio prio--1">P1</span></li><li><b>10</b><span>Vestiario per lo staff</span><span class="prio prio--1">P1</span></li><li><b>13</b><span>Timeline operativa delle 2 giornate</span><span class="prio prio--2">P2</span></li><li><b>14</b><span>Discorso introduttivo dello stage della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>15</b><span>Programma della Nazionale</span><span class="prio prio--2">P2</span></li><li><b>12</b><span>Gestionale, livescoring, regia e classifiche</span><span></span></li><li><b>20</b><span>Scorecard</span><span></span></li></ul>
-    </div>
-    <div class="persona">
-      <div class="persona__top">
-        <span class="persona__ini">SC</span>
-        <span class="persona__nome">Stefano Cagnoni<small>1 attività</small></span>
-      </div>
-      <ul><li><b>12</b><span>Gestionale, livescoring, regia e classifiche</span><span></span></li></ul>
-    </div></div>
-    <p class="lead" style="font-size:11px;margin-top:14px">
-      Senza un responsabile indicato: 1 · Risoluzione Membership FIFG; 2 · BID Submission Open d'Italia; 3 · Nuove tessere FIFG; 4 · Accordo LNF; 5 · Campi della Nazionale; 6 · Riunione con tutti gli area manager; 7 · Area Manager A1–A2 Centro Sud; 11 · Grafiche del materiale marketing; 17 · Preventivo della cena; 19 · Community Associazione Italiana FootGolf.
-    </p></div>
-      <footer class="pfoot">
-        <span class="micro">Tappa Zero · Piano operativo e preventivo</span>
-        <span class="micro">14–15 Novembre 2026</span>
-      </footer>
     </section><section class="page page--dark">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Attività · Community AIFG</span><span class="micro pnum">06</span></header>
+      <header class="phead"><span class="micro">Attività · Community AIFG</span><span class="micro pnum">05</span></header>
       <div class="pbody">
     <div class="area-head">
       <span class="eyebrow">Attività 19 · Struttura proposta</span>
@@ -999,7 +938,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area A</span><span class="micro pnum">07</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area A</span><span class="micro pnum">06</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area A</span><h2 class="h2">Materiale marketing.</h2><p class="lead" style="font-size:12.5px">Da definire quanto prima: brochure, pieghevole, flyer e fiches.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1103,7 +1042,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area B</span><span class="micro pnum">08</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area B</span><span class="micro pnum">07</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area B</span><h2 class="h2">Punto ristoro e briefing.</h2><p class="lead" style="font-size:12.5px">Tavoli, tovaglie, sedie e rifornimenti per briefing e ristoro.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1207,7 +1146,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area C</span><span class="micro pnum">09</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area C</span><span class="micro pnum">08</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area C</span><h2 class="h2">Percorso e partenze.</h2><p class="lead" style="font-size:12.5px">Bandierine, pannelli di buca, partenze e strumenti per chiamarle.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1335,7 +1274,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area C</span><span class="micro pnum">10</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area C</span><span class="micro pnum">09</span></header>
       <div class="pbody"><div class="area-head"><span class="segue">Preventivo · Area C · segue</span><h2 class="h3">Percorso e partenze</h2></div><div class="voci"><article class="voce voce--fuori">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1463,7 +1402,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area D</span><span class="micro pnum">11</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area D</span><span class="micro pnum">10</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area D</span><h2 class="h2">Immagine e media.</h2><p class="lead" style="font-size:12.5px">Wall istituzionale, proiezione, riprese e foto.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1591,7 +1530,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area E</span><span class="micro pnum">12</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area E</span><span class="micro pnum">11</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area E</span><h2 class="h2">Accoglienza.</h2><p class="lead" style="font-size:12.5px">Tovaglie, badge per gli invitati e ragazze immagine.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1671,7 +1610,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Area F</span><span class="micro pnum">13</span></header>
+      <header class="phead"><span class="micro">Preventivo · Area F</span><span class="micro pnum">12</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Preventivo · Area F</span><h2 class="h2">Staff e ospitalità.</h2><p class="lead" style="font-size:12.5px">Vestiario, alloggi e cena.</p></div><div class="voci"><article class="voce">
     <div class="foto"><svg aria-hidden="true"><use href="#ico-foto"></use></svg><span>Foto</span></div>
     <div class="voce__txt">
@@ -1751,7 +1690,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Riepilogo</span><span class="micro pnum">14</span></header>
+      <header class="phead"><span class="micro">Preventivo · Riepilogo</span><span class="micro pnum">13</span></header>
       <div class="pbody"><div class="area-head"><span class="eyebrow">Tutte le voci</span><h2 class="h2">Riepilogo del preventivo.</h2></div><table class="tab">
         <thead><tr><th>N.</th><th>Voce</th><th class="r">Q.tà</th><th class="r">Prezzo unit.</th><th class="r">Totale</th><th>Stato</th></tr></thead>
         <tbody><tr class="gruppo"><td colspan="5">Area A · Materiale marketing</td><td>€ 470,00</td></tr><tr class="">
@@ -1944,7 +1883,7 @@ body {
       </footer>
     </section><section class="page">
       <div class="pagemark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"></use></svg></div>
-      <header class="phead"><span class="micro">Preventivo · Riepilogo</span><span class="micro pnum">15</span></header>
+      <header class="phead"><span class="micro">Preventivo · Riepilogo</span><span class="micro pnum">14</span></header>
       <div class="pbody"><div class="area-head"><span class="segue">Riepilogo · segue</span></div><table class="tab">
         <thead><tr><th>N.</th><th>Voce</th><th class="r">Q.tà</th><th class="r">Prezzo unit.</th><th class="r">Totale</th><th>Stato</th></tr></thead>
         <tbody><tr class="gruppo"><td colspan="5">Area F · Staff e ospitalità</td><td>€ 1.100,00</td></tr><tr class="">

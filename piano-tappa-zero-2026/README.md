@@ -7,7 +7,7 @@ community e preventivo di spesa voce per voce. Stile della brochure sponsor AIFG
 
 | File | Cos'è |
 | --- | --- |
-| `dist/piano-tappa-zero-2026.pdf` | **Il documento da condividere.** Copertina, sintesi con scadenze e spesa per area, attività (istituzionali e Tappa Zero), chi fa cosa, community, una scheda per voce di spesa con foto, tempi e link, riepilogo con firme. |
+| `dist/piano-tappa-zero-2026.pdf` | **Il documento da condividere.** Copertina, sintesi con scadenze e spesa per area, attività (istituzionali e Tappa Zero), community, una scheda per voce di spesa con foto, tempi e link, riepilogo con firme. |
 | `dist/piano-tappa-zero-2026.xlsx` | **Il foglio di lavoro.** Fogli *Attività* (priorità, tempi, responsabili, scadenza, stato), *Preventivo* (29 voci con quantità, prezzi, tempi, link, foto), *Riepilogo per area* con grafico, *Community*. |
 | `dist/piano-tappa-zero-2026.html` | Versione web autonoma del PDF. |
 | `dati.json` | **Unica fonte dei dati**, letta da entrambi i generatori. |

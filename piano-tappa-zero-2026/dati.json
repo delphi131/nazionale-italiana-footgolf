@@ -65,7 +65,7 @@
       "priorita": null, "tempi": "", "chi": ["Carlo", "Alberto", "Stefano Cagnoni"], "scadenza": "", "stato": "Da fare",
       "note": "Stefano Cagnoni eventualmente di supporto." },
     { "n": 13, "gruppo": "TZ", "titolo": "Timeline operativa delle 2 giornate",
-      "dettaglio": "Chi fa cosa e quando, per lo staff operativo.",
+      "dettaglio": "Orari, ruoli e passaggi delle due giornate per lo staff operativo.",
       "priorita": 2, "tempi": "mezza giornata", "chi": ["Fabio", "Carlo", "Alberto"], "scadenza": "", "stato": "Da fare", "note": "" },
     { "n": 14, "gruppo": "TZ", "titolo": "Discorso introduttivo dello stage della Nazionale",
       "dettaglio": "Il messaggio di apertura del ritiro azzurro.",

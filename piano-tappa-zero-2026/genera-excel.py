@@ -506,24 +506,6 @@ wa.sheet_properties.pageSetUpPr.fitToPage = True
 wa.oddFooter.left.text = "AIFG · Piano operativo Tappa Zero"
 wa.oddFooter.right.text = "Pagina &P di &N"
 
-# Chi fa cosa: conteggio per persona, a formula, accanto all'elenco
-r_chi = A_LAST + 3
-wa[f"C{r_chi}"] = "CHI FA COSA"
-wa[f"C{r_chi}"].font = f(9, True, BLUE)
-wa[f"D{r_chi}"] = "N. attività"
-wa[f"D{r_chi}"].font = f(9, True, GRIGIO)
-wa[f"E{r_chi}"] = "di cui P1"
-wa[f"E{r_chi}"].font = f(9, True, GRIGIO)
-for i, nome in enumerate(DATI["persone"], start=1):
-    r = r_chi + i
-    wa[f"C{r}"] = nome
-    wa[f"C{r}"].font = f(10, True)
-    wa[f"D{r}"] = f'=COUNTIFS({arng("Responsabili")},"*"&C{r}&"*")'
-    wa[f"E{r}"] = f'=COUNTIFS({arng("Responsabili")},"*"&C{r}&"*",{arng("Priorità")},1)'
-    for col in "CDE":
-        wa[f"{col}{r}"].border = Border(bottom=sottile)
-    wa[f"D{r}"].alignment = wa[f"E{r}"].alignment = Alignment(horizontal="left")
-
 # ================================================================ COMMUNITY
 wc = wb.create_sheet("Community")
 wc.sheet_view.showGridLines = False
