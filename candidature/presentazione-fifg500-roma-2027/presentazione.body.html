@@ -172,27 +172,13 @@ body {
 .day ul { margin: 0; padding-left: 16px; font-size: 13px; line-height: 1.55; color: var(--on-light-2); }
 .day--blue ul { color: rgba(255,255,255,.88); }
 
-/* Tracciati: 18 schede buca con segnaposto, da sostituire con i disegni definitivi. */
-.holes { display: grid; grid-template-columns: repeat(9, 1fr); gap: 10px; margin-top: 22px; }
-.hole { padding: 8px 8px 10px; border-radius: 16px; background: var(--white); border: 1px solid var(--line-light); display: flex; flex-direction: column; gap: 4px; }
-.hole__map { height: 112px; border-radius: 11px; border: 1.5px dashed rgba(0,114,206,.35); background: rgba(0,114,206,.05); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.hole__map svg { width: 56px; height: auto; }
-.hole__map img { width: 100%; height: 100%; object-fit: contain; }
-.hole__n { margin-top: 2px; font-size: 22px; line-height: 1; font-weight: 900; letter-spacing: -.03em; }
-.hole__meta { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--on-light-3); }
-
-/* Mappa generale del percorso: riquadro segnaposto più legenda. */
-.mappa { display: grid; grid-template-columns: 1fr 300px; gap: 18px; margin-top: 22px; flex: 1; min-height: 0; }
-.mappa__box { position: relative; border-radius: 24px; border: 1.5px dashed rgba(79,179,240,.4); background: rgba(79,179,240,.05); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; overflow: hidden; }
-.mappa__box svg { width: 92px; height: auto; opacity: .55; }
-.mappa__box b { font-size: 20px; font-weight: 900; letter-spacing: -.02em; color: var(--on-dark); }
-.mappa__box span { font-size: 13px; color: var(--on-dark-3); max-width: 40ch; }
-.mappa__box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.mappa__side { display: flex; flex-direction: column; gap: 12px; }
-.mappa__side .mappa__box { flex: 0 0 170px; }
-.legenda { padding: 16px 18px; border-radius: 20px; background: var(--card); border: 1px solid var(--line-dark); flex: 1; }
-.legenda .checks { gap: 7px; }
-.legenda .checks li { font-size: 12.5px; }
+/* Tracciati: mappa del percorso a tutta larghezza, titolo e legenda in una riga sopra. */
+.tracciato { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; padding: 18px 0 14px; }
+.tracciato__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.tracciato__img { flex: 1; min-height: 0; width: 100%; object-fit: contain; border-radius: 18px; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: 0; }
+.dot--w { background: #FFFFFF; box-shadow: 0 0 0 1.5px var(--blue-lite); }
+.dot--b { background: #2FE0F0; }
 
 /* Stato di un impegno (garantito / opzionale / in corso). */
 .tag { display: inline-flex; align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 9.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: rgba(79,179,240,.14); color: var(--blue-lite); }
@@ -233,9 +219,6 @@ figure.ph { margin: 0; }
 .riga span { display: block; margin-top: 2px; font-size: 12px; color: var(--on-dark-3); }
 .kpis { display: grid; gap: 12px; }
 .kpis .kpi { padding: 14px 18px; }
-
-/* Due mappe affiancate più legenda. */
-.mappa--2 { grid-template-columns: 1fr 1fr 250px; }
 
 /* Posizione: mappa satellitare più distanze. */
 .dove { display: grid; grid-template-columns: 1fr 380px; gap: 16px; margin-top: 22px; }
@@ -385,245 +368,43 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Hotel packages optional, priced apart from the entry fee</span></footer>
   </section>
 
-  <!-- 8 · PERCORSO WHITE (tracciati da integrare) -->
+  <!-- 8 · THE FOOTGOLF COURSES -->
   <section class="slide">
     <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>The FootGolf courses</span><span class="micro">08</span></header>
-    <div class="sbody" style="justify-content:flex-start;padding-top:26px">
-      <span class="eyebrow">Course 1 · 18 holes · target par 72</span>
-      <h2 class="h2" style="max-width:none">White course.</h2>
-      <p class="sub" style="max-width:none">Final layout, tee positions and any temporary holes will be designed with the club and submitted for FIFG approval.</p>
-      <div class="holes" data-percorso="white">
-        <div class="hole" data-buca="1">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 1: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">01</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="2">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 2: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">02</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="3">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 3: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">03</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="4">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 4: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">04</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="5">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 5: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">05</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="6">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 6: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">06</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="7">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 7: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">07</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="8">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 8: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">08</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="9">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 9: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">09</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="10">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 10: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">10</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="11">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 11: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">11</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="12">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 12: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">12</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="13">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 13: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">13</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="14">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 14: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">14</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="15">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 15: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">15</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="16">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 16: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">16</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="17">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 17: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">17</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="18">
-          <div class="hole__map"><!-- TRACCIATO WHITE BUCA 18: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">18</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
+    <div class="tracciato">
+      <div class="tracciato__top">
+        <div><span class="eyebrow">Course 1 · 18 holes</span><h2 class="h2" style="font-size:34px;margin-top:6px;max-width:none">White course.</h2></div>
+        <div class="chips" style="margin-top:0;justify-content:flex-end"><span>18 holes</span><span>West side, next to the hotel</span></div>
       </div>
+      <img class="tracciato__img" src="__WHITE__" alt="White course routing: 18 FootGolf holes on the west side of the golf complex, next to the hotel">
     </div>
-    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Course layout subject to FIFG approval</span></footer>
+    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Designed by Associazione Italiana FootGolf · layout subject to FIFG approval</span></footer>
   </section>
 
-  <!-- 9 · PERCORSO BLUE (tracciati da integrare) -->
+  <!-- 9 · THE FOOTGOLF COURSES -->
   <section class="slide">
     <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>The FootGolf courses</span><span class="micro">09</span></header>
-    <div class="sbody" style="justify-content:flex-start;padding-top:26px">
-      <span class="eyebrow">Course 2 · 18 holes · target par 72</span>
-      <h2 class="h2" style="max-width:none">Blue course.</h2>
-      <p class="sub" style="max-width:none">Final layout, tee positions and any temporary holes will be designed with the club and submitted for FIFG approval.</p>
-      <div class="holes" data-percorso="blue">
-        <div class="hole" data-buca="1">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 1: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">01</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="2">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 2: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">02</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="3">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 3: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">03</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="4">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 4: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">04</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="5">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 5: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">05</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="6">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 6: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">06</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="7">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 7: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">07</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="8">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 8: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">08</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="9">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 9: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">09</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="10">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 10: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">10</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="11">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 11: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">11</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="12">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 12: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">12</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="13">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 13: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">13</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="14">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 14: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">14</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="15">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 15: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">15</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="16">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 16: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">16</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="17">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 17: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">17</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
-        <div class="hole" data-buca="18">
-          <div class="hole__map"><!-- TRACCIATO BLUE BUCA 18: sostituire il segnaposto con l'immagine o l'SVG della buca --><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg></div>
-          <div class="hole__n">18</div>
-          <div class="hole__meta"><span>Par —</span><span>— m</span></div>
-        </div>
+    <div class="tracciato">
+      <div class="tracciato__top">
+        <div><span class="eyebrow">Course 2 · 18 holes</span><h2 class="h2" style="font-size:34px;margin-top:6px;max-width:none">Blue course.</h2></div>
+        <div class="chips" style="margin-top:0;justify-content:flex-end"><span>18 holes</span><span>East and south side</span></div>
       </div>
+      <img class="tracciato__img" src="__BLUE__" alt="Blue course routing: 18 FootGolf holes, holes 1 to 8 on the east side and 9 to 18 in the south of the golf complex">
     </div>
-    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Course layout subject to FIFG approval</span></footer>
+    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Designed by Associazione Italiana FootGolf · layout subject to FIFG approval</span></footer>
   </section>
 
-  <!-- 10 · MAPPA DEI PERCORSI (tracciati da integrare) -->
+  <!-- 10 · COURSE MAPS -->
   <section class="slide slide--dark">
     <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Course maps</span><span class="micro">10</span></header>
-    <div class="sbody" style="justify-content:flex-start;padding-top:26px">
-      <span class="eyebrow">Routing, practice and services</span>
-      <h2 class="h2" style="max-width:none">Two courses at a glance.</h2>
-      <div class="mappa mappa--2">
-        <div class="mappa__box">
-          <!-- MAPPA WHITE: inserire qui <img src="..."> con il routing delle 18 buche -->
-          <svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg>
-          <b>White course · 18 holes</b>
-          <span>Routing map of the competition layout.</span>
-        </div>
-        <div class="mappa__box">
-          <!-- MAPPA BLUE: inserire qui <img src="..."> con il routing delle 18 buche -->
-          <svg viewBox="0 0 100 120" aria-hidden="true"><use href="#hole-ph"/></svg>
-          <b>Blue course · 18 holes</b>
-          <span>Routing map of the competition layout.</span>
-        </div>
-        <div class="legenda">
-          <span class="card__n" style="color:var(--blue-lite)">On the maps</span>
-          <ul class="checks" style="margin-top:10px">
-            <li>Tees and holes, 1 to 18</li>
-            <li>Practice layout, 1 July</li>
-            <li>Clubhouse, scoring and registration</li>
-            <li>Water refill points</li>
-            <li>Shaded rest areas</li>
-            <li>First-aid point and emergency access</li>
-          </ul>
-        </div>
+    <div class="tracciato">
+      <div class="tracciato__top">
+        <div><span class="eyebrow">Two courses, one venue</span><h2 class="h2" style="font-size:34px;margin-top:6px;max-width:none">36 FootGolf holes at Parco de' Medici.</h2></div>
+        <div class="chips" style="margin-top:0;justify-content:flex-end"><span><i class="dot dot--w"></i>White course</span><span><i class="dot dot--b"></i>Blue course</span></div>
       </div>
+      <img class="tracciato__img" src="__WHITEBLUE__" alt="Both FootGolf courses on the golf complex: White course in white, Blue course in light blue">
     </div>
-    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Course layout subject to FIFG approval</span></footer>
+    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Designed by Associazione Italiana FootGolf · layout subject to FIFG approval</span></footer>
   </section>
 
   <!-- 11 · FORMAT E PROGRAMMA -->
@@ -747,11 +528,4 @@ figure.ph { margin: 0; }
 <svg width="0" height="0" style="position:absolute">
   <symbol id="aifg-logo" viewBox="0 0 719 705"><image href="__LOGO__" x="0" y="0" width="719" height="705"/></symbol>
   <symbol id="aifg-scudo" viewBox="0 0 300 347"><image href="__SCUDO__" x="0" y="0" width="300" height="347"/></symbol>
-  <!-- Segnaposto di buca: partenza, linea di gioco tratteggiata, bandierina. -->
-  <symbol id="hole-ph" viewBox="0 0 100 120">
-    <path d="M30 104 C 30 76, 72 70, 66 30" fill="none" stroke="#4FB3F0" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
-    <rect x="22" y="100" width="16" height="9" rx="2" fill="#0072CE"/>
-    <circle cx="66" cy="30" r="7" fill="none" stroke="#0072CE" stroke-width="3"/>
-    <path d="M66 30 V 8 L 82 13 L 66 18" fill="#C09F6D" stroke="#C09F6D" stroke-width="2" stroke-linejoin="round"/>
-  </symbol>
 </svg>

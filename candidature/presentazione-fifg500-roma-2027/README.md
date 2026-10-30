@@ -13,27 +13,19 @@ node candidature/presentazione-fifg500-roma-2027/genera.mjs   # HTML + PDF in di
 
 Slide: copertina · candidatura in sintesi · l'Italia nel circuito (tornei organizzati, licenze) ·
 un movimento che riparte · perché Roma (mappa, aeroporti, navetta) · la struttura · ospitalità
-(ristorante, lobby bar, pacchetti) · **percorso White buca per buca** · **percorso Blue buca per
-buca** · **mappe dei percorsi** · programma 1–4 luglio · quota e servizi · organizzazione e
+(ristorante, lobby bar, pacchetti) · **tracciato White** · **tracciato Blue** · **i due percorsi insieme** · programma 1–4 luglio · quota e servizi · organizzazione e
 sicurezza · media e broadcast · impegni · chiusura con contatti.
 
 Le immagini stanno in `assets/` e sono elencate nella tabella `IMMAGINI` di `genera.mjs`
 (segnaposto `__NOME__` → file). Le foto della struttura (`struttura-*.jpg`) e la mappa satellitare
 (`mappa-posizione.jpg`, © Google, citata nella didascalia) sono state fornite dalla federazione.
 
-## Integrare i tracciati
+## Tracciati
 
-Le slide 05 e 06 hanno segnaposto pronti, marcati con commenti in `presentazione.body.html`:
-
-- **Slide 08 (White) e 09 (Blue), 18 schede buca ciascuna** (`<div class="hole" data-buca="N">`
-  dentro `data-percorso="white"` o `"blue"`): sostituire l'`<svg>` dentro
-  `hole__map` con `<img src="__BUCA_N__" alt="Hole N">` (o un SVG inline) e scrivere par e metri al
-  posto di `Par —` e `— m`. L'immagine si adatta da sola al riquadro (`object-fit: contain`).
-- **Slide 10, mappe dei due percorsi** (commenti `MAPPA WHITE` e `MAPPA BLUE`): inserire un `<img>`
-  nel riquadro, che copre il segnaposto.
-
-Per le immagini: metterle in `assets/` e aggiungere una riga alla tabella `IMMAGINI` di
-`genera.mjs`, così PDF e HTML restano autonomi.
+I tracciati disegnati da AIFG sono nelle slide 08 (percorso White, `assets/percorso-white.jpg`),
+09 (percorso Blue, `assets/percorso-blue.jpg`) e 10 (i due percorsi insieme,
+`assets/percorsi-white-blue.jpg`). Per aggiornarli basta sostituire i file in `assets/` con lo
+stesso nome e rigenerare. Par e lunghezze delle buche non sono ancora indicati.
 
 ## Da verificare prima dell'invio
 
