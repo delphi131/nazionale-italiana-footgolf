@@ -114,6 +114,7 @@ body {
 .cover__foto { position: absolute; inset: 0; z-index: -2; background: var(--ink) center 45% / cover no-repeat; }
 .cover__velo { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10,12,10,.92) 0%, rgba(10,12,10,.6) 42%, rgba(10,12,10,0) 75%); }
 .cover__in { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 var(--pad-x); gap: 0; }
+.cover .h1 { text-shadow: 0 2px 18px rgba(10,12,10,.55); }
 .cover__crest { width: 120px; height: auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.5)); }
 .cover__base { display: flex; justify-content: space-between; padding: 0 var(--pad-x) 34px; }
 
@@ -224,6 +225,16 @@ figure.ph { margin: 0; }
 .kpis { display: grid; gap: 12px; }
 .kpis .kpi { padding: 14px 18px; }
 
+/* Montepremi in evidenza: oro, il colore dei premi. */
+.kpi--gold { background: var(--gold) !important; border-color: var(--gold) !important; }
+.kpi--gold .card__n, .kpi--gold .kpi__v { color: var(--ink) !important; }
+.kpi--gold p { color: rgba(10,12,10,.72) !important; }
+.premio { display: flex; align-items: center; gap: 22px; margin-top: 16px; padding: 16px 22px; border-radius: 20px; background: var(--gold); color: var(--ink); }
+.premio__v { font-size: 44px; line-height: 1; font-weight: 900; letter-spacing: -.045em; white-space: nowrap; }
+.premio__v span { color: var(--white); }
+.premio p { margin: 0; font-size: 13.5px; line-height: 1.45; color: rgba(10,12,10,.78); }
+.premio b { color: var(--ink); }
+
 /* Eventi e fitness: due foto larghe, ciascuna con il suo elenco di usi. */
 .eventi { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; }
 .eventi .ph { height: 250px; }
@@ -246,8 +257,8 @@ figure.ph { margin: 0; }
     <div class="cover__in">
       <svg class="cover__crest" viewBox="0 0 719 705" role="img" aria-label="AIFG official logo"><use href="#aifg-logo"/></svg>
       <span class="pill pill--gold" style="margin-top:26px">Host bid 2027 · FIFG Major / FIFG 500</span>
-      <h1 class="h1" style="color:var(--on-dark);max-width:700px">15th Italian FootGolf Open 2027. <span class="accent">Rome.</span></h1>
-      <p class="sub" style="color:var(--on-dark-2);max-width:48ch">Golf Club Parco de' Medici · 1–4 July 2027. The main Open of Italy on two FootGolf courses, with the hotel inside the venue.</p>
+      <h1 class="h1" style="color:var(--on-dark);max-width:none;white-space:nowrap">15th Italian FootGolf Open<br><span style="font-size:42px;letter-spacing:-.035em;color:var(--blue-lite)">Rome · Golf Club Parco de' Medici</span></h1>
+      <p class="sub" style="color:var(--on-dark-2);max-width:48ch">1–4 July 2027. The main Open of Italy on two FootGolf courses, with the hotel inside the venue.</p>
     </div>
     <div class="cover__base"><span class="micro brand" style="color:var(--on-dark-3)"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Associazione Italiana FootGolf · Official FIFG Member</span><span class="micro" style="color:var(--on-dark-3)">FIFG World Tour 2027</span></div>
   </section>
@@ -266,7 +277,7 @@ figure.ph { margin: 0; }
         <div class="kpi"><span class="card__n">Field</span><div class="kpi__v">256 <small>players</small></div><p>Capacity across the White and Blue courses.</p></div>
         <div class="kpi"><span class="card__n">Format</span><div class="kpi__v">3 <small>rounds</small></div><p>One round per day on 2 courses, same rounds for every category.</p></div>
         <div class="kpi"><span class="card__n">Entry fee</span><div class="kpi__v">€250</div><p>Women €195 · Junior €95. Entry-only option always available.</p></div>
-        <div class="kpi"><span class="card__n">Prize fund</span><div class="kpi__v">≥ €10,000</div><p>Guaranteed minimum.</p></div>
+        <div class="kpi kpi--gold"><span class="card__n">Prize fund</span><div class="kpi__v">€10,000+</div><p>Guaranteed minimum, set to grow with entries and sponsors.</p></div>
         <div class="kpi"><span class="card__n">Included</span><div class="kpi__v">3 <small>lunches</small></div><p>Plus welcome kit, ceremonies and on-course refreshments.</p></div>
       </div>
     </div>
@@ -488,12 +499,15 @@ figure.ph { margin: 0; }
             <div class="kpi"><span class="card__n">Women</span><div class="kpi__v">€195</div><p>Reduced fee.</p></div>
             <div class="kpi"><span class="card__n">Junior</span><div class="kpi__v">€95</div><p>Reduced fee.</p></div>
           </div>
-          <ul class="checks checks--2" style="margin-top:22px">
+          <div class="premio">
+            <div class="premio__v">€10,000<span>+</span></div>
+            <p><b>Guaranteed minimum prize fund.</b> It will grow with the number of players and with sponsor support, announced as soon as it is guaranteed in writing.</p>
+          </div>
+          <ul class="checks checks--2" style="margin-top:18px">
             <li><b>Lunch</b> on all three competition days</li>
             <li><b>Welcome kit</b></li>
             <li><b>Welcome and closing</b> ceremonies</li>
             <li><b>On-course</b> refreshments</li>
-            <li><b>Prize fund ≥ €10,000</b> guaranteed</li>
             <li><b>Family packages</b>, optional and priced apart</li>
           </ul>
         </div>
