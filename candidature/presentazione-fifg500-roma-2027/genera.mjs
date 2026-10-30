@@ -35,20 +35,27 @@ const DIR = dirname(fileURLToPath(import.meta.url));
 const DIST = join(DIR, "dist");
 const SRC = join(DIR, "presentazione.body.html");
 const FONT = join(DIR, "assets", "archivo-latin.woff2");
-const LOGO = join(DIR, "assets", "aifg-logo.png");
-const FIFG = join(DIR, "assets", "fifg-logo.png");
-const FOTO = join(DIR, "assets", "foto-squadra.jpg");
-const BUCA = join(DIR, "assets", "foto-buca.jpg");
+
+// Segnaposto del sorgente → immagine in assets/, incorporata come data URI così PDF e HTML
+// restano autonomi. Per aggiungere un tracciato basta una riga qui e il segnaposto nel sorgente.
+const IMMAGINI = {
+  __LOGO__: "aifg-logo.png",
+  __SCUDO__: "aifg-scudo.png",
+  __FIFG__: "fifg-logo.png",
+  __FOTO__: "foto-squadra.jpg",
+  __BUCA__: "foto-buca.jpg",
+  __HOTEL__: "struttura-hotel.jpg",
+  __PISCINA__: "struttura-piscina-campo.jpg",
+  __HALL__: "struttura-hall.jpg",
+  __RISTORANTE__: "struttura-ristorante.jpg",
+  __MAPPA__: "mappa-posizione.jpg"
+};
 
 const NOME = "presentazione-fifg500-roma-2027";
 const shots = process.argv.includes("--shot");
 
 const sorgente = await readFile(SRC, "utf8");
 const woff2 = await readFile(FONT);
-const logoPng = await readFile(LOGO);
-const fifgPng = await readFile(FIFG);
-const fotoJpg = await readFile(FOTO);
-const bucaJpg = await readFile(BUCA);
 
 const fontCss = `@font-face {
   font-family: 'Archivo';
@@ -59,17 +66,12 @@ const fontCss = `@font-face {
   src: url(data:font/woff2;base64,${woff2.toString("base64")}) format('woff2');
 }`;
 
-const logoDataUri = `data:image/png;base64,${logoPng.toString("base64")}`;
-const fifgDataUri = `data:image/png;base64,${fifgPng.toString("base64")}`;
-const fotoDataUri = `data:image/jpeg;base64,${fotoJpg.toString("base64")}`;
-const bucaDataUri = `data:image/jpeg;base64,${bucaJpg.toString("base64")}`;
-
-const conFont = sorgente
-  .replace("/* __FONT__ */", fontCss)
-  .replaceAll("__LOGO__", logoDataUri)
-  .replaceAll("__FIFG__", fifgDataUri)
-  .replaceAll("__FOTO__", fotoDataUri)
-  .replaceAll("__BUCA__", bucaDataUri);
+let conFont = sorgente.replace("/* __FONT__ */", fontCss);
+for (const [segnaposto, file] of Object.entries(IMMAGINI)) {
+  const dati = await readFile(join(DIR, "assets", file));
+  const tipo = file.endsWith(".png") ? "image/png" : "image/jpeg";
+  conFont = conFont.replaceAll(segnaposto, `data:${tipo};base64,${dati.toString("base64")}`);
+}
 
 const titolo = (conFont.match(/<title>([\s\S]*?)<\/title>/) || [, "Italian FootGolf Open 2027"])[1].trim();
 const stili = conFont.match(/<style>[\s\S]*?<\/style>/g) || [];

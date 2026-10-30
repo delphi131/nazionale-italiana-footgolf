@@ -36,10 +36,10 @@ incorporati come data URI (Google Fonts non è raggiungibile dal browser in fase
 ## Candidature
 
 - `candidature/FIFG_2027_FIFG500_Italy_Bid_Response_Form.xlsx` — modulo di risposta al bando FIFG 2027
-  (Masters, Major 1000, FIFG 500) compilato per l'Italian FootGolf Open 2027 come **FIFG 500** al Golf
-  Club Parco de' Medici (Roma), 2–4 luglio 2027. Scadenza invio: 30 ottobre 2026 a info@fifg.org e
+  (Masters, Major 1000, FIFG 500) compilato per il 15th Italian FootGolf Open 2027 (**FIFG Major / FIFG 500**) al Golf
+  Club Parco de' Medici (Roma), 1–4 luglio 2027. Scadenza invio: 30 ottobre 2026 a info@fifg.org e
   board@fifg.org. Le celle lasciate vuote (referente, licenze, esperienza, dichiarazioni di
   conformità) risultano "Missing" nel foglio *Read Me & Status* e vanno completate prima dell'invio.
-- `candidature/presentazione-fifg500-roma-2027/` — **presentazione opzionale** della candidatura, 12 slide
+- `candidature/presentazione-fifg500-roma-2027/` — **presentazione opzionale** della candidatura, 16 slide
   16:9 in inglese nella grafica delle brochure AIFG, con i segnaposto per i tracciati delle 18 buche.
   PDF in `dist/`; dettagli e istruzioni per i tracciati nel README della cartella.
