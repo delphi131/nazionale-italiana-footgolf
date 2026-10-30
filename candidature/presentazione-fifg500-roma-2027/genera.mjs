@@ -55,7 +55,12 @@ const IMMAGINI = {
   __LAGO__: "campo-lago.jpg",
   __FAIRWAY__: "campo-fairway.jpg",
   __GREEN__: "campo-green-hotel.jpg",
-  __CLUBHOUSE__: "campo-clubhouse.jpg"
+  __CLUBHOUSE__: "campo-clubhouse.jpg",
+  __CAMERA__: "hotel-camera-vista-golf.jpg",
+  __SUITE__: "hotel-suite.jpg",
+  __SALA__: "hotel-ristorante.jpg",
+  __GIARDINO__: "hotel-terrazza-giardino.jpg",
+  __SERA__: "hotel-terrazza-sera.jpg"
 };
 
 const NOME = "presentazione-fifg500-roma-2027";
