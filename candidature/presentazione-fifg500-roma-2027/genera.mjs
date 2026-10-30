@@ -42,7 +42,6 @@ const IMMAGINI = {
   __LOGO__: "aifg-logo.png",
   __SCUDO__: "aifg-scudo.png",
   __FIFG__: "fifg-logo.png",
-  __FOTO__: "foto-squadra.jpg",
   __BUCA__: "foto-buca.jpg",
   __HOTEL__: "struttura-hotel.jpg",
   __PISCINA__: "struttura-piscina-campo.jpg",

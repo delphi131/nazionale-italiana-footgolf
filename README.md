@@ -40,6 +40,6 @@ incorporati come data URI (Google Fonts non è raggiungibile dal browser in fase
   Club Parco de' Medici (Roma), 1–4 luglio 2027. Scadenza invio: 30 ottobre 2026 a info@fifg.org e
   board@fifg.org. Le celle lasciate vuote (referente, licenze, esperienza, dichiarazioni di
   conformità) risultano "Missing" nel foglio *Read Me & Status* e vanno completate prima dell'invio.
-- `candidature/presentazione-fifg500-roma-2027/` — **presentazione opzionale** della candidatura, 18 slide
+- `candidature/presentazione-fifg500-roma-2027/` — **presentazione opzionale** della candidatura, 17 slide
   16:9 in inglese nella grafica delle brochure AIFG, con i segnaposto per i tracciati delle 18 buche.
   PDF in `dist/`; dettagli e istruzioni per i tracciati nel README della cartella.
