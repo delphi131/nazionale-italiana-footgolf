@@ -1,6 +1,6 @@
 # Presentazione candidatura — 15th Italian FootGolf Open 2027, Rome (FIFG Major / FIFG 500)
 
-Presentazione opzionale da allegare al modulo Excel della candidatura FIFG 2027: 16 slide 16:9
+Presentazione opzionale da allegare al modulo Excel della candidatura FIFG 2027: 17 slide 16:9
 (1280×720) in inglese, sul template `presentazione-aifg-2027` del repository AIFGSITE (branch
 `claude/brochure-nuovo-percorso`): stessi token, font Archivo, logo a medaglione, logo FIFG, più lo
 scudo AIFG piccolo nella testata di ogni slide. I contenuti riprendono le risposte del modulo
@@ -12,18 +12,18 @@ node candidature/presentazione-fifg500-roma-2027/genera.mjs   # HTML + PDF in di
 ```
 
 Slide: copertina · candidatura in sintesi · l'Italia nel circuito (tornei organizzati, licenze) ·
-un movimento che riparte · perché Roma (mappa, aeroporti, navetta) · la struttura · ospitalità
+un movimento che riparte · perché Roma (mappa, aeroporti, navetta) · la struttura · il campo (lago, fairway, green, clubhouse) · ospitalità
 (ristorante, lobby bar, pacchetti) · **tracciato White** · **tracciato Blue** · **i due percorsi insieme** · programma 1–4 luglio · quota e servizi · organizzazione e
 sicurezza · media e broadcast · impegni · chiusura con contatti.
 
 Le immagini stanno in `assets/` e sono elencate nella tabella `IMMAGINI` di `genera.mjs`
-(segnaposto `__NOME__` → file). Le foto della struttura (`struttura-*.jpg`) e la mappa satellitare
+(segnaposto `__NOME__` → file). Le foto della struttura e del campo (`struttura-*.jpg`, `campo-*.jpg`) e la mappa satellitare
 (`mappa-posizione.jpg`, © Google, citata nella didascalia) sono state fornite dalla federazione.
 
 ## Tracciati
 
-I tracciati disegnati da AIFG sono nelle slide 08 (percorso White, `assets/percorso-white.jpg`),
-09 (percorso Blue, `assets/percorso-blue.jpg`) e 10 (i due percorsi insieme,
+I tracciati disegnati da AIFG sono nelle slide 09 (percorso White, `assets/percorso-white.jpg`),
+10 (percorso Blue, `assets/percorso-blue.jpg`) e 11 (i due percorsi insieme,
 `assets/percorsi-white-blue.jpg`). Per aggiornarli basta sostituire i file in `assets/` con lo
 stesso nome e rigenerare. Par e lunghezze delle buche non sono ancora indicati.
 

@@ -51,7 +51,11 @@ const IMMAGINI = {
   __MAPPA__: "mappa-posizione.jpg",
   __WHITE__: "percorso-white.jpg",
   __BLUE__: "percorso-blue.jpg",
-  __WHITEBLUE__: "percorsi-white-blue.jpg"
+  __WHITEBLUE__: "percorsi-white-blue.jpg",
+  __LAGO__: "campo-lago.jpg",
+  __FAIRWAY__: "campo-fairway.jpg",
+  __GREEN__: "campo-green-hotel.jpg",
+  __CLUBHOUSE__: "campo-clubhouse.jpg"
 };
 
 const NOME = "presentazione-fifg500-roma-2027";
