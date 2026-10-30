@@ -224,6 +224,11 @@ figure.ph { margin: 0; }
 .kpis { display: grid; gap: 12px; }
 .kpis .kpi { padding: 14px 18px; }
 
+/* Eventi e fitness: due foto larghe, ciascuna con il suo elenco di usi. */
+.eventi { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; }
+.eventi .ph { height: 250px; }
+.eventi .checks { margin-top: 18px; }
+
 /* Posizione: mappa satellitare più distanze. */
 .dove { display: grid; grid-template-columns: 1fr 380px; gap: 16px; margin-top: 22px; }
 .dove .ph { height: 330px; background-position: center 40%; }
@@ -385,9 +390,37 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Sheraton Rome Parco de' Medici · packages priced apart from the entry fee</span></footer>
   </section>
 
-  <!-- 9 · THE FOOTGOLF COURSES -->
+  <!-- 9 · EVENTI E FITNESS -->
+  <section class="slide slide--dark">
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Events and fitness</span><span class="micro">09</span></header>
+    <div class="sbody">
+      <span class="eyebrow">Meeting rooms and Sheraton Fitness</span>
+      <h2 class="h2" style="max-width:none">Space for the event, <span class="gold">care for the players.</span></h2>
+      <div class="eventi">
+        <div>
+          <figure class="ph" style="background-image:url(__CONGRESSI__)" role="img" aria-label="Large conference room with rows of chairs, stage and projection screen"><figcaption><b>Conference room</b><span>A large meeting room inside the hotel, with stage and screen.</span></figcaption></figure>
+          <ul class="checks">
+            <li><b>Players' briefing</b> and rules meeting</li>
+            <li><b>Welcome ceremony</b> and draw presentation</li>
+            <li><b>Press conference</b> and FIFG meetings</li>
+          </ul>
+        </div>
+        <div>
+          <figure class="ph" style="background-image:url(__FITNESS__)" role="img" aria-label="Sheraton Fitness gym with exercise bikes, ellipticals and treadmills"><figcaption><b>Sheraton Fitness</b><span>Gym with cardio equipment, open to hotel guests.</span></figcaption></figure>
+          <ul class="checks">
+            <li><b>Warm-up</b> before each round</li>
+            <li><b>Recovery</b> after a day on the course</li>
+            <li><b>Training</b> for National Teams staying on site</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Sheraton Rome Parco de' Medici</span></footer>
+  </section>
+
+  <!-- 10 · THE FOOTGOLF COURSES -->
   <section class="slide">
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>The FootGolf courses</span><span class="micro">09</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>The FootGolf courses</span><span class="micro">10</span></header>
     <div class="tracciato">
       <div class="tracciato__top">
         <div><span class="eyebrow">Course 1 · 18 holes</span><h2 class="h2" style="font-size:34px;margin-top:6px;max-width:none">White course.</h2></div>
@@ -398,9 +431,9 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Designed by Associazione Italiana FootGolf · layout subject to FIFG approval</span></footer>
   </section>
 
-  <!-- 10 · THE FOOTGOLF COURSES -->
+  <!-- 11 · THE FOOTGOLF COURSES -->
   <section class="slide">
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>The FootGolf courses</span><span class="micro">10</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>The FootGolf courses</span><span class="micro">11</span></header>
     <div class="tracciato">
       <div class="tracciato__top">
         <div><span class="eyebrow">Course 2 · 18 holes</span><h2 class="h2" style="font-size:34px;margin-top:6px;max-width:none">Blue course.</h2></div>
@@ -411,9 +444,9 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Designed by Associazione Italiana FootGolf · layout subject to FIFG approval</span></footer>
   </section>
 
-  <!-- 11 · COURSE MAPS -->
+  <!-- 12 · COURSE MAPS -->
   <section class="slide slide--dark">
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Course maps</span><span class="micro">11</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Course maps</span><span class="micro">12</span></header>
     <div class="tracciato">
       <div class="tracciato__top">
         <div><span class="eyebrow">Two courses, one venue</span><h2 class="h2" style="font-size:34px;margin-top:6px;max-width:none">36 FootGolf holes at Parco de' Medici.</h2></div>
@@ -424,10 +457,10 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Designed by Associazione Italiana FootGolf · layout subject to FIFG approval</span></footer>
   </section>
 
-  <!-- 12 · FORMAT E PROGRAMMA -->
+  <!-- 13 · FORMAT E PROGRAMMA -->
   <section class="slide">
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Format and schedule</span><span class="micro">12</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Format and schedule</span><span class="micro">13</span></header>
     <div class="sbody">
       <span class="eyebrow">Practice day plus three rounds</span>
       <h2 class="h2">Four days, <br>one round per day.</h2>
@@ -442,9 +475,9 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Schedule subject to FIFG approval</span></footer>
   </section>
 
-  <!-- 13 · QUOTA E SERVIZI -->
+  <!-- 14 · QUOTA E SERVIZI -->
   <section class="slide slide--dark">
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Entry fee and player value</span><span class="micro">13</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Entry fee and player value</span><span class="micro">14</span></header>
     <div class="sbody">
       <div class="split">
         <div>
@@ -470,10 +503,10 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">All amounts in EUR · entry-only option always available</span></footer>
   </section>
 
-  <!-- 14 · ORGANIZZAZIONE E SICUREZZA -->
+  <!-- 15 · ORGANIZZAZIONE E SICUREZZA -->
   <section class="slide">
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Operations and safety</span><span class="micro">14</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Operations and safety</span><span class="micro">15</span></header>
     <div class="sbody">
       <span class="eyebrow">People and plans in place</span>
       <h2 class="h2">Run safely, <br>fairly and on time.</h2>
@@ -488,10 +521,10 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">BlueGolf live scoring</span></footer>
   </section>
 
-  <!-- 15 · MEDIA E BROADCAST -->
+  <!-- 16 · MEDIA E BROADCAST -->
   <section class="slide slide--dark">
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Media and broadcast</span><span class="micro">15</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Media and broadcast</span><span class="micro">16</span></header>
     <div class="sbody">
       <span class="eyebrow">Content for FIFG channels</span>
       <h2 class="h2">Rome, <br><span class="accent">seen around the world.</span></h2>
@@ -505,10 +538,10 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Media Lead · direct contact for FIFG Operations</span></footer>
   </section>
 
-  <!-- 16 · IMPEGNI -->
+  <!-- 17 · IMPEGNI -->
   <section class="slide">
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 719 705"><use href="#aifg-logo"/></svg></div>
-    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Our commitments</span><span class="micro">16</span></header>
+    <header class="shead"><span class="micro brand"><svg class="scudo" viewBox="0 0 300 347" aria-hidden="true"><use href="#aifg-scudo"/></svg>Our commitments</span><span class="micro">17</span></header>
     <div class="sbody">
       <span class="eyebrow">A World Tour event to FIFG standards</span>
       <h2 class="h2">What Italy commits to.</h2>
@@ -526,7 +559,7 @@ figure.ph { margin: 0; }
     <footer class="sfoot"><span class="micro">15th Italian FootGolf Open 2027 · Rome</span><span class="micro">Host Agreement</span></footer>
   </section>
 
-  <!-- 17 · CHIUSURA -->
+  <!-- 18 · CHIUSURA -->
   <section class="slide slide--blue">
     <div class="fine">
       <div class="loghi">

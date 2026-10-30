@@ -59,7 +59,9 @@ const IMMAGINI = {
   __SUITE__: "hotel-suite.jpg",
   __SALA__: "hotel-ristorante.jpg",
   __GIARDINO__: "hotel-terrazza-giardino.jpg",
-  __SERA__: "hotel-terrazza-sera.jpg"
+  __SERA__: "hotel-terrazza-sera.jpg",
+  __CONGRESSI__: "hotel-sala-congressi.jpg",
+  __FITNESS__: "hotel-fitness.jpg"
 };
 
 const NOME = "presentazione-fifg500-roma-2027";
