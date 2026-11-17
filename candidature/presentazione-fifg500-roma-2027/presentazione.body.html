@@ -235,6 +235,13 @@ figure.ph { margin: 0; }
 .premio p { margin: 0; font-size: 13.5px; line-height: 1.45; color: rgba(10,12,10,.78); }
 .premio b { color: var(--ink); }
 
+/* Tariffe hotel in una riga. */
+.tariffe { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.tariffe span { padding: 8px 14px; border-radius: 999px; background: rgba(0,114,206,.1); color: var(--on-light-2); font-size: 13px; }
+.tariffe b { color: var(--blue); font-weight: 900; margin-right: 4px; }
+.tariffe .tariffe__l { background: var(--blue); color: var(--white); font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.tariffe .tariffe__n { background: none; padding: 0 4px; font-size: 12.5px; color: var(--on-light-3); }
+
 /* Eventi e fitness: due foto larghe, ciascuna con il suo elenco di usi. */
 .eventi { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; }
 .eventi .ph { height: 250px; }
@@ -389,7 +396,11 @@ figure.ph { margin: 0; }
     <div class="sbody" style="justify-content:flex-start;padding-top:22px">
       <span class="eyebrow">Tailored packages for players · promotions for families</span>
       <h2 class="h2" style="max-width:none">Sleep on the course. <span class="accent">Eat, rest, play.</span></h2>
-      <p class="sub" style="max-width:none;font-size:15px;margin-top:10px">Rooms overlooking the fairways, a restaurant for every meal and garden terraces for the evenings, all inside a top-level golf complex. AIFG will build tailored packages for players and dedicated promotions for the families travelling with them.</p>
+      <div class="tariffe">
+        <span class="tariffe__l">Event rates · per room per night</span>
+        <span><b>€130–140</b> Single</span><span><b>€150–160</b> Double</span><span><b>€170–190</b> Triple</span>
+        <span class="tariffe__n">Tailored packages for players · family promotions · hotel inside the golf complex</span>
+      </div>
       <div class="galleria galleria--5">
         <figure class="ph ph--big" style="background-image:url(__CAMERA__)" role="img" aria-label="Hotel room with a large window overlooking the golf course"><figcaption><b>Rooms with a golf view</b><span>Wake up facing the fairways and walk to the first tee.</span></figcaption></figure>
         <figure class="ph" style="background-image:url(__SUITE__)" role="img" aria-label="Spacious suite with sofa and separate room"><figcaption><b>Suites for families</b><span>Room for the whole family.</span></figcaption></figure>
